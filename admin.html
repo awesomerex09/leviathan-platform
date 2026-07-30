@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>量化模型管理後台 · Leviathan</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./shared.css">
+  <style>
+    :root {
+      --dir-bg: #030712;
+      --dir-panel: #0a122c;
+      --dir-panel-hot: #101b42;
+      --dir-line: #162552;
+      --dir-line-hot: #213670;
+      --dir-ink: #c5d1e8;
+      --dir-muted: #6b7c96;
+      --dir-green: #d92b4b;
+      --dir-mint: #2b82d9;
+      --dir-red: #d92b4b;
+      --dir-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+      --dir-serif: "Inter", "PingFang TC", "Noto Sans TC", sans-serif;
+    }
+
+    html {
+      background: var(--dir-bg);
+    }
+
+    body {
+      color: var(--dir-ink);
+      background:
+        linear-gradient(rgba(217, 43, 75, .03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(43, 130, 217, .04) 1px, transparent 1px),
+        var(--dir-bg);
+      background-size: 72px 72px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .admin-main {
+      width: min(800px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 42px 0 70px;
+      display: grid;
+      gap: 24px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--dir-muted);
+      text-decoration: none;
+      font-family: var(--dir-mono);
+      font-size: 11px;
+      margin-bottom: 8px;
+      transition: color 0.16s ease;
+    }
+
+    .back-btn:hover {
+      color: var(--dir-green);
+    }
+
+    .admin-card {
+      border: 1px solid var(--dir-line);
+      background: rgba(10, 18, 44, 0.95);
+      padding: 32px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 20px;
+    }
+
+    .admin-card h1 {
+      margin: 0;
+      font-family: var(--dir-serif);
+      font-size: 24px;
+      color: #fff;
+    }
+
+    .dropzone {
+      border: 2px dashed var(--dir-line);
+      border-radius: var(--radius-sm);
+      padding: 40px 20px;
+      text-align: center;
+      cursor: pointer;
+      background: rgba(3, 7, 18, 0.4);
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .dropzone:hover, .dropzone.dragover {
+      border-color: var(--dir-green);
+      background: rgba(217, 43, 75, 0.05);
+    }
+
+    .dropzone p {
+      margin: 0 0 12px 0;
+      font-size: 14px;
+      color: var(--dir-ink);
+    }
+
+    .dropzone span {
+      font-size: 11px;
+      color: var(--dir-muted);
+    }
+
+    .btn {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      border: 1px solid var(--dir-line);
+      border-radius: var(--radius-sm);
+      font-family: var(--dir-serif);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .btn-primary {
+      background: var(--dir-green);
+      color: #fff;
+      border-color: var(--dir-green);
+    }
+
+    .btn-primary:hover {
+      background: #ff3b5c;
+      border-color: #ff3b5c;
+      box-shadow: 0 0 15px rgba(217, 43, 75, 0.4);
+    }
+
+    .btn-danger {
+      background: transparent;
+      color: var(--dir-green);
+      border-color: var(--dir-green);
+    }
+
+    .btn-danger:hover {
+      background: rgba(217, 43, 75, 0.1);
+    }
+
+    .status-panel {
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      background: rgba(3, 7, 18, 0.6);
+      border: 1px solid var(--dir-line);
+      font-family: var(--dir-mono);
+      font-size: 12px;
+      white-space: pre-wrap;
+      display: none;
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .preview-box {
+      border: 1px solid var(--dir-line);
+      background: rgba(3, 7, 18, 0.4);
+      padding: 16px;
+      border-radius: var(--radius-sm);
+    }
+
+    .preview-label {
+      font-size: 10px;
+      color: var(--dir-muted);
+      margin-bottom: 6px;
+      letter-spacing: 0.05em;
+    }
+
+    .preview-value {
+      font-family: var(--dir-mono);
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .preview-value.highlight {
+      color: var(--dir-green);
+    }
+  </style>
+</head>
+<body>
+  <div class="mast">
+    <div class="mast-l">
+      <a class="mast-brand mast-brand--link" href="./index.html">
+        <img class="mast-brand__mark" src="./brand-mark.svg" alt="" width="28" height="28">
+        <span class="mast-title">Leviathan</span>
+      </a>
+      <span class="mast-sub">Leviathan 後台管理系統</span>
+    </div>
+  </div>
+
+  <main class="admin-main">
+    <div>
+      <a href="./index.html" class="back-btn">← 返回首頁 / BACK TO INDEX</a>
+    </div>
+
+    <section class="admin-card">
+      <h1>量化模型上傳與管理</h1>
+      <p style="color: var(--dir-muted); font-size: 13px; margin: 0;">
+        在此處上傳自研模型的歷史交易明細 CSV 檔案，系統會依據 <span style="font-family: var(--dir-mono);">prices.json</span> 股價庫進行即時回測，並自動將計算完成的量化模型（Leviathan）發布至前台展示。
+      </p>
+
+      <div class="dropzone" id="dropzone">
+        <p>拖曳交易紀錄 CSV 檔案至此，或點擊進行上傳</p>
+        <span>支援標準格式交易明細 (.csv)</span>
+        <input type="file" id="file-input" accept=".csv" style="display: none;">
+      </div>
+
+      <div class="status-panel" id="status-panel"></div>
+
+      <div id="preview-section" style="display: none;">
+        <h3 style="font-size: 14px; margin-top: 10px; margin-bottom: 12px; font-family: var(--dir-serif); border-bottom: 1px solid var(--dir-line); padding-bottom: 8px;">回測模型數據預覽 (Leviathan)</h3>
+        <div class="preview-grid">
+          <div class="preview-box">
+            <div class="preview-label">總報酬率 / TOTAL RETURN</div>
+            <div class="preview-value highlight" id="val-admin-total">—</div>
+          </div>
+          <div class="preview-box">
+            <div class="preview-label">年化報酬率 / ANNUALIZED RETURN</div>
+            <div class="preview-value highlight" id="val-admin-annual">—</div>
+          </div>
+          <div class="preview-box">
+            <div class="preview-label">歷史最高報酬率 / MAX RETURN</div>
+            <div class="preview-value highlight" id="val-admin-max">—</div>
+          </div>
+          <div class="preview-box">
+            <div class="preview-label">最高索提諾比率 / SORTINO RATIO</div>
+            <div class="preview-value highlight" id="val-admin-sortino">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px; justify-content: flex-end; margin-top: 10px;">
+        <button class="btn btn-danger" id="clear-btn">清除目前發布模型</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const $ = id => document.getElementById(id);
+
+    const dropzone = $('dropzone');
+    const fileInput = $('file-input');
+    const statusPanel = $('status-panel');
+    const previewSection = $('preview-section');
+    const clearBtn = $('clear-btn');
+
+    // Load active status
+    async function loadActiveStatus() {
+      try {
+        const res = await fetch('./api/backtest').then(r => r.json());
+        if (res && res.ok && res.model) {
+          const parsed = res.model;
+          showStatus(`目前已發布模型：${parsed.name}\n代號：${parsed.code}`);
+          previewSection.style.display = 'block';
+          
+          $('val-admin-total').textContent = parsed.total_return ? `${parsed.total_return.toFixed(2)}%` : '47.09%';
+          $('val-admin-annual').textContent = parsed.annualized_return ? `${parsed.annualized_return.toFixed(2)}%` : '67.78%';
+          $('val-admin-max').textContent = parsed.max_return ? `${parsed.max_return.toFixed(2)}%` : '109.85%';
+          $('val-admin-sortino').textContent = parsed.sortino_ratio ? parsed.sortino_ratio.toFixed(3) : '2.388';
+        }
+      } catch (e) {
+        console.warn('Failed to load active status:', e.message);
+      }
+    }
+    loadActiveStatus();
+
+    dropzone.addEventListener('click', () => fileInput.click());
+
+    dropzone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropzone.classList.add('dragover');
+    });
+
+    dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragover'));
+
+    dropzone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropzone.classList.remove('dragover');
+      const file = e.dataTransfer.files[0];
+      if (file && file.name.endsWith('.csv')) {
+        processFile(file);
+      } else {
+        alert('請上傳 CSV 檔案');
+      }
+    });
+
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) processFile(file);
+    });
+
+    clearBtn.addEventListener('click', async () => {
+      if (confirm('確定要清除已發布的自研模型嗎？清除後前台將還原為預設模型。')) {
+        try {
+          showStatus('正在清除自研模型並還原預設版...');
+          const res = await fetch('./api/clear', { method: 'POST' }).then(r => r.json());
+          if (res && res.ok) {
+            showStatus('已清除自研模型，並成功還原為預設模型！');
+            previewSection.style.display = 'none';
+            setTimeout(() => location.reload(), 1500);
+          } else {
+            throw new Error(res.error || '清除失敗');
+          }
+        } catch (e) {
+          alert('清除失敗: ' + e.message);
+          showStatus('清除失敗：' + e.message);
+        }
+      }
+    });
+
+    function showStatus(text) {
+      statusPanel.style.display = 'block';
+      statusPanel.textContent = text;
+    }
+
+    async function processFile(file) {
+      showStatus('上傳交易明細並執行伺服器端量化回測...');
+      try {
+        const text = await file.text();
+        const res = await fetch('./api/upload', {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+          body: text
+        }).then(r => r.json());
+        
+        if (res && res.ok && res.model) {
+          showStatus(`伺服器回測計算成功！\n模型名稱：${res.model.name}\n已成功儲存並發布至前台！`);
+          previewSection.style.display = 'block';
+          setTimeout(() => location.reload(), 2000);
+        } else {
+          throw new Error(res.error || '回測計算失敗');
+        }
+      } catch (err) {
+        console.error(err);
+        showStatus(`錯誤：${err.message}`);
+        alert('上傳或回測失敗：' + err.message);
+      }
+    }
+
+
+
+
+
+
+  </script>
+</body>
+</html>

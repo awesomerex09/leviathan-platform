@@ -1,0 +1,772 @@
+<!DOCTYPE html><html lang="zh-Hant"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="etfedge-static-shell"><title>主動 ETF 列表 · ETFedge</title><meta name="description" content="23 檔台灣主動型 ETF 列表，含規模、近期走勢、加減碼追蹤。每日盤後更新自 TWSE / TPEx 與發行商揭露。"><link rel="canonical" href="https://etfedge.xyz/preview/"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png"><link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#0a0f10"><meta name="robots" content="index,follow"><meta property="og:type" content="website"><meta property="og:title" content="主動 ETF 列表 · ETFedge"><meta property="og:description" content="23 檔台灣主動 ETF 規模、走勢、單檔持股深度。"><meta property="og:url" content="https://etfedge.xyz/preview/"><meta property="og:locale" content="zh_TW"><meta property="og:image" content="https://etfedge.xyz/og-v2.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="主動 ETF 列表 · ETFedge"><meta name="twitter:description" content="23 檔台灣主動 ETF 規模、走勢、單檔持股深度。"><meta name="twitter:image" content="https://etfedge.xyz/og-v2.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://etfedge.xyz/#org",
+      "name": "ETFedge",
+      "url": "https://etfedge.xyz/",
+      "logo": "https://etfedge.xyz/email-avatar.png",
+      "sameAs": [
+        "https://www.threads.com/@leimen_fire"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://etfedge.xyz/#website",
+      "url": "https://etfedge.xyz/",
+      "name": "ETFedge",
+      "inLanguage": "zh-Hant",
+      "publisher": {
+        "@id": "https://etfedge.xyz/#org"
+      }
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://etfedge.xyz/preview/#webpage",
+      "url": "https://etfedge.xyz/preview/",
+      "name": "主動 ETF 列表 · ETFedge",
+      "description": "23 檔台灣主動型 ETF 列表，含規模、近期走勢、加減碼追蹤。每日盤後更新自 TWSE / TPEx 與發行商揭露。",
+      "inLanguage": "zh-Hant",
+      "isPartOf": {
+        "@id": "https://etfedge.xyz/#website"
+      },
+      "about": {
+        "@id": "https://etfedge.xyz/#org"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://etfedge.xyz/og-v2.png"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ETFedge",
+          "item": "https://etfedge.xyz/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "主動 ETF 列表",
+          "item": "https://etfedge.xyz/preview/"
+        }
+      ]
+    }
+  ]
+}</script><link rel="preconnect" href="https://static.cloudflareinsights.com"><link rel="preload" href="../shared.css" as="style"><link rel="stylesheet" href="../shared.css"><style>:root {
+  --dir-bg: #050b08;
+  --dir-panel: #09140f;
+  --dir-panel-hot: #0f1f18;
+  --dir-line: #22352b;
+  --dir-line-hot: #486554;
+  --dir-ink: #edf5ef;
+  --dir-muted: #8fa299;
+  --dir-green: #b6db5a;
+  --dir-mint: #69c894;
+  --dir-red: #ef8e78;
+  --dir-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  --dir-serif: "Noto Serif TC", "Songti TC", Georgia, serif;
+}
+
+html {
+  background: var(--dir-bg);
+}
+
+body {
+  color: var(--dir-ink);
+  background:
+    linear-gradient(rgba(101, 147, 119, .065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(101, 147, 119, .065) 1px, transparent 1px),
+    var(--dir-bg);
+  background-size: 72px 72px;
+}
+
+.directory-main,
+.directory-main * {
+  box-sizing: border-box;
+}
+
+.directory-main {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 42px 0 70px;
+}
+
+.directory-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  min-height: 310px;
+  overflow: hidden;
+  border: 1px solid var(--dir-line);
+  background:
+    radial-gradient(circle at 86% 18%, rgba(182, 219, 90, .12), transparent 32%),
+    linear-gradient(135deg, rgba(19, 43, 32, .9), rgba(7, 17, 12, .97));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .28);
+}
+
+.directory-hero::after {
+  position: absolute;
+  right: -120px;
+  bottom: -210px;
+  width: 390px;
+  height: 390px;
+  border: 1px solid rgba(182, 219, 90, .18);
+  border-radius: 50%;
+  content: "";
+  box-shadow:
+    0 0 0 44px rgba(182, 219, 90, .024),
+    0 0 0 88px rgba(182, 219, 90, .016);
+}
+
+.directory-hero-copy {
+  position: relative;
+  z-index: 1;
+  padding: 48px 54px 44px;
+}
+
+.directory-hero p {
+  margin: 0;
+  color: var(--dir-green);
+  font-family: var(--dir-mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+.directory-hero h1 {
+  margin: 34px 0 0;
+  font-family: var(--dir-serif);
+  font-size: clamp(48px, 6.8vw, 82px);
+  line-height: .93;
+  letter-spacing: -.065em;
+}
+
+.directory-hero h1 em {
+  color: var(--dir-green);
+  font-style: normal;
+}
+
+.directory-hero-copy > div {
+  display: flex;
+  max-width: 640px;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 26px;
+  color: var(--dir-muted);
+  font-size: 11px;
+}
+
+.directory-hero-mark {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px 36px 38px;
+  border-left: 1px solid var(--dir-line);
+  background: rgba(4, 11, 8, .34);
+  color: var(--dir-muted);
+  font-family: var(--dir-mono);
+  font-size: 9px;
+  letter-spacing: .14em;
+}
+
+.directory-hero-mark b {
+  align-self: flex-end;
+  color: var(--dir-green);
+  font-size: 72px;
+  font-weight: 300;
+  line-height: .8;
+}
+
+.controls {
+  display: flex;
+  min-height: 64px;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 10px 14px 10px 18px;
+  border: 1px solid var(--dir-line);
+  color: var(--dir-muted);
+  background: rgba(8, 18, 13, .95);
+  font-size: 10px;
+}
+
+.controls label {
+  font-family: var(--dir-mono);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.controls select {
+  min-height: 40px;
+  padding: 7px 34px 7px 12px;
+  border: 1px solid var(--dir-line);
+  border-radius: 0;
+  color: var(--dir-ink);
+  background: var(--dir-panel);
+  font-family: var(--dir-mono);
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.controls select:focus {
+  outline: 1px solid var(--dir-green);
+  border-color: var(--dir-green);
+}
+
+.observe-nav {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.observe-nav a {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  gap: 9px;
+  padding: 0 13px;
+  border: 1px solid var(--dir-line);
+  color: var(--dir-ink);
+  background: var(--dir-panel-hot);
+  font-family: var(--dir-mono);
+  font-size: 9px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: border-color .16s ease, color .16s ease, transform .16s ease;
+}
+
+.observe-nav a:hover {
+  border-color: var(--dir-green);
+  color: var(--dir-green);
+  transform: translateY(-2px);
+}
+
+.observe-lock {
+  padding: 2px 5px;
+  border: 1px solid var(--dir-green);
+  color: var(--dir-green);
+  font-size: 7px;
+  font-style: normal;
+  letter-spacing: .08em;
+}
+
+.etf-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-right: 1px solid var(--dir-line);
+  border-left: 1px solid var(--dir-line);
+}
+
+a.etf-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr) 76px;
+  grid-template-areas:
+    "id name aum"
+    "id spark date";
+  min-width: 0;
+  min-height: 118px;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 20px;
+  border-right: 1px solid var(--dir-line);
+  border-bottom: 1px solid var(--dir-line);
+  color: inherit;
+  background: rgba(7, 16, 12, .94);
+  text-decoration: none;
+  transition: background .16s ease, padding-left .16s ease;
+}
+
+a.etf-row:nth-child(even) {
+  border-right: 0;
+}
+
+a.etf-row:hover {
+  padding-left: 25px;
+  background:
+    linear-gradient(90deg, rgba(182, 219, 90, .105), rgba(182, 219, 90, .015)),
+    var(--dir-panel);
+}
+
+a.etf-row::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: transparent;
+  content: "";
+}
+
+a.etf-row:hover::before {
+  background: var(--dir-green);
+}
+
+.er-id {
+  grid-area: id;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.er-code {
+  color: var(--dir-green);
+  font-family: var(--dir-mono);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.er-issuer {
+  color: #6f8478;
+  font-size: 9px;
+  letter-spacing: .04em;
+}
+
+.er-name {
+  grid-area: name;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--dir-ink);
+  font-family: var(--dir-serif);
+  font-size: 16px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.er-aum {
+  grid-area: aum;
+  color: var(--dir-mint);
+  font-family: var(--dir-mono);
+  text-align: right;
+}
+
+.er-aum-v {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.er-aum-u {
+  margin-left: 2px;
+  color: var(--dir-muted);
+  font-size: 8px;
+}
+
+.er-spark {
+  grid-area: spark;
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 9px;
+}
+
+.er-spark-svg {
+  min-width: 0;
+}
+
+.er-pct {
+  font-family: var(--dir-mono);
+  font-size: 9px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.er-pct.up { color: var(--dir-red); }
+.er-pct.down { color: var(--dir-mint); }
+.er-pct.flat { color: var(--dir-muted); }
+
+svg.spark {
+  display: block;
+  width: 72px;
+  height: 18px;
+}
+
+svg.spark polyline {
+  fill: none;
+  stroke-width: 1.3;
+}
+
+svg.spark.up polyline { stroke: var(--dir-red); }
+svg.spark.down polyline { stroke: var(--dir-mint); }
+svg.spark.flat polyline { stroke: var(--dir-muted); }
+
+.er-date {
+  grid-area: date;
+  color: #6f8478;
+  font-family: var(--dir-mono);
+  font-size: 9px;
+  text-align: right;
+}
+
+.empty {
+  grid-column: 1 / -1;
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  border-bottom: 1px solid var(--dir-line);
+  color: var(--dir-muted);
+  font-size: 11px;
+}
+
+@media (max-width: 760px) {
+  .directory-main {
+    width: min(100% - 24px, 680px);
+    padding-top: 18px;
+  }
+
+  .directory-hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .directory-hero-mark {
+    display: none;
+  }
+
+  .directory-hero-copy {
+    padding: 38px 34px 34px;
+  }
+
+  .etf-list {
+    grid-template-columns: 1fr;
+  }
+
+  a.etf-row {
+    border-right: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    background-size: 44px 44px;
+  }
+
+  .directory-main {
+    width: 100%;
+    padding: 0 0 36px;
+  }
+
+  .directory-hero,
+  .controls,
+  .etf-list {
+    border-right: 0;
+    border-left: 0;
+  }
+
+  .directory-hero-copy {
+    padding: 32px 20px 27px;
+  }
+
+  .directory-hero p {
+    font-size: 9px;
+  }
+
+  .directory-hero h1 {
+    margin-top: 24px;
+    font-size: 43px;
+  }
+
+  .directory-hero-copy > div {
+    display: grid;
+    gap: 5px;
+    margin-top: 20px;
+  }
+
+  .controls {
+    flex-wrap: wrap;
+    margin-top: 10px;
+    padding: 12px;
+  }
+
+  .observe-nav {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .observe-nav a {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  a.etf-row {
+    grid-template-columns: 66px minmax(0, 1fr) 68px;
+    min-height: 96px;
+    padding: 15px 13px;
+  }
+
+  a.etf-row:hover {
+    padding-left: 13px;
+  }
+
+  .er-name {
+    font-size: 14px;
+  }
+
+  .er-spark {
+    gap: 6px;
+  }
+
+  svg.spark {
+    width: 56px;
+  }
+
+  .er-date {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  a.etf-row {
+    grid-template-columns: 58px minmax(0, 1fr) 62px;
+    gap: 7px;
+    padding: 14px 10px;
+  }
+
+  .er-code,
+  .er-aum-v {
+    font-size: 12px;
+  }
+
+  .er-name {
+    font-size: 13px;
+  }
+}</style><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "ab4500d237674d5682b68427d216ea36"}'></script></head> <body>  <div class="mast"><div class="mast-l"><a class="mast-brand mast-brand--link" href="../"><img class="mast-brand__mark" src="/brand-mark.svg" alt="" width="28" height="28"><span class="mast-title">ETFEDGE</span></a><span class="mast-sub">主動 ETF 列表</span></div><div class="mast-r" id="mast-stat">—</div></div> <main class="directory-main">
+  <header class="directory-hero">
+    <div class="directory-hero-copy">
+      <p>ETFEDGE / ETF DIRECTORY</p>
+      <h1>主動 ETF<br><em>全市場圖鑑</em></h1>
+      <div><span>規模、近月走勢與持股深度</span><span>選擇一檔開始研究 ↘</span></div>
+    </div>
+    <div class="directory-hero-mark" aria-hidden="true">
+      <span>MARKET MAP</span>
+      <b>↘</b>
+    </div>
+  </header>
+
+  <div class="controls">
+    <label for="sort">排序</label>
+    <select id="sort">
+      <option value="aum">規模</option>
+      <option value="code">代號</option>
+      <option value="listing">上市日（新 → 舊）</option>
+      <option value="price_chg">近一個月漲跌</option>
+    </select>
+    <nav class="observe-nav" aria-label="觀察工具">
+      <a href="../observe/target-buy-flow.html" data-member-only="true">加碼標的排行 <i class="observe-lock">MEMBER</i></a>
+    </nav>
+  </div>
+
+  <div class="etf-list" id="list"></div>
+  <template id="etf-row-template">
+    <a class="etf-row">
+      <div class="er-id">
+        <span class="er-code"></span>
+        <span class="er-issuer"></span>
+      </div>
+      <span class="er-name"></span>
+      <div class="er-aum">
+        <span class="er-aum-v"></span><span class="er-aum-u">億</span>
+      </div>
+      <div class="er-spark">
+        <span class="er-spark-svg"></span>
+        <span class="er-pct"></span>
+      </div>
+      <span class="er-date"></span>
+    </a>
+  </template>
+</main>  <footer class="public-disclosure-footer" data-policy-version="membership-2026-07-21.v1"> <div class="public-disclosure-footer__inner"> <a class="public-disclosure-footer__brand" href="/"> <img src="/brand-mark.svg" alt="" width="24" height="24"> <span>ETFedge</span> </a> <nav class="public-disclosure-footer__links" aria-label="訂閱與客服資訊"> <a href="/contact/">聯絡我們</a> <a href="/policies/refund/">取消訂閱與退款政策</a> <a href="/policies/delivery/">商品交付政策</a> </nav> </div> </footer> <script src="/shared-preview-data.js"></script> <script type="module">const $ = id => document.getElementById(id);
+
+// ── date / format helpers ────────────────────────────────────────────────────
+const dateKey = d => d ? String(d).replaceAll('-', '').replaceAll('/', '') : '';
+const fmt = d => {
+  const k = dateKey(d);
+  return k.length === 8 ? `${k.slice(0, 4)}-${k.slice(4, 6)}-${k.slice(6, 8)}` : '—';
+};
+const fmtAum = v => v == null ? '—' : (v >= 1000 ? v.toFixed(0) : v.toFixed(1));
+
+// ── page state / DOM anchors ─────────────────────────────────────────────────
+const list = $('list');
+const mastStat = $('mast-stat');
+const sortSel = $('sort');
+const rowTemplate = $('etf-row-template');
+const prefetchedDetails = new Set();
+const supportedSorts = ['aum', 'code', 'listing', 'price_chg'];
+
+let etfs = [];
+let idx = null;
+
+function getSortFromHash() {
+  const rawSort = (location.hash || '#aum').slice(1);
+  return supportedSorts.includes(rawSort) ? rawSort : 'aum';
+}
+
+function syncSortControl(sortKey) {
+  if (sortSel.value !== sortKey) sortSel.value = sortKey;
+}
+
+// ── data loading / masthead summary ──────────────────────────────────────────
+function renderMastSummary() {
+  const totalAum = etfs.reduce((sum, etf) => sum + (etf.total_av_yi || 0), 0);
+  mastStat.innerHTML = `<strong>${idx.n_etfs}</strong> ETFs &nbsp;·&nbsp; AUM <strong>${totalAum.toFixed(0)}</strong> 億 &nbsp;·&nbsp; ${fmt(idx.as_of)}`;
+}
+
+async function loadAndRender() {
+  if (etfs.length) return;
+
+  idx = await fetch('./etfs.json').then(r => r.json());
+  etfs = idx.etfs || [];
+
+  renderMastSummary();
+  applySort(getSortFromHash());
+}
+
+// ── sparkline / price change helpers ─────────────────────────────────────────
+function parseDateKeyUTC(d) {
+  const k = dateKey(d);
+  if (k.length !== 8) return null;
+  return new Date(Date.UTC(Number(k.slice(0, 4)), Number(k.slice(4, 6)) - 1, Number(k.slice(6, 8))));
+}
+
+function recentMonthSeries(etf) {
+  const series = etf.price_series || [];
+  if (series.length < 2) return series;
+
+  const latestDate = parseDateKeyUTC(series[series.length - 1]?.d);
+  if (!latestDate) return series;
+
+  const anchorDate = new Date(latestDate);
+  anchorDate.setUTCMonth(anchorDate.getUTCMonth() - 1);
+
+  let anchorIdx = -1;
+  for (let i = 0; i < series.length; i += 1) {
+    const pointDate = parseDateKeyUTC(series[i]?.d);
+    if (pointDate && pointDate <= anchorDate) anchorIdx = i;
+  }
+
+  return series.slice(Math.max(anchorIdx, 0));
+}
+
+function pricePct(etf) {
+  const series = recentMonthSeries(etf);
+  if (series.length < 2) return null;
+  return (series[series.length - 1].c - series[0].c) / series[0].c * 100;
+}
+
+function pctClassName(pct) {
+  if (pct == null) return 'flat';
+  if (pct > 0.2) return 'up';
+  if (pct < -0.2) return 'down';
+  return 'flat';
+}
+
+function renderSpark(series) {
+  if (!series || series.length < 2) return '';
+
+  const vals = series.map(point => point.c);
+  const w = 80;
+  const h = 20;
+  const pad = 2;
+  const min = Math.min(...vals);
+  const max = Math.max(...vals);
+  const range = max - min || 1;
+  const delta = (vals[vals.length - 1] - vals[0]) / vals[0] * 100;
+  const cls = pctClassName(delta);
+  const pts = vals.map((value, index) => {
+    const x = pad + (index / (vals.length - 1)) * (w - 2 * pad);
+    const y = pad + (1 - (value - min) / range) * (h - 2 * pad);
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(' ');
+
+  return `<svg class="spark ${cls}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none"><polyline points="${pts}"/></svg>`;
+}
+
+// ── detail prefetch helper ───────────────────────────────────────────────────
+function prefetchDetail(href) {
+  if (!href || prefetchedDetails.has(href)) return;
+
+  prefetchedDetails.add(href);
+  const link = document.createElement('link');
+  link.rel = 'prefetch';
+  link.href = href;
+  link.as = 'document';
+  document.head.appendChild(link);
+}
+
+// ── row renderer ──────────────────────────────────────────────────────────────
+function createRow(etf) {
+  const monthSeries = recentMonthSeries(etf);
+  const pct = pricePct(etf);
+  const pctStr = pct == null ? '' : `${pct > 0 ? '+' : ''}${pct.toFixed(1)}%`;
+  const pctCls = pctClassName(pct);
+  const row = rowTemplate.content.firstElementChild.cloneNode(true);
+  const href = `./etf.html?code=${etf.code}`;
+
+  row.href = href;
+  row.querySelector('.er-code').textContent = etf.code;
+  row.querySelector('.er-issuer').textContent = etf.issuer || '';
+  row.querySelector('.er-name').textContent = etf.name;
+  row.querySelector('.er-aum-v').textContent = fmtAum(etf.total_av_yi);
+  row.querySelector('.er-spark-svg').innerHTML = renderSpark(monthSeries);
+
+  const pctEl = row.querySelector('.er-pct');
+  pctEl.textContent = pctStr;
+  pctEl.className = `er-pct ${pctCls}`;
+  pctEl.hidden = !pctStr;
+
+  row.querySelector('.er-date').textContent = fmt(etf.listing_date);
+  row.addEventListener('pointerenter', () => prefetchDetail(href), { once: true });
+  row.addEventListener('focus', () => prefetchDetail(href), { once: true });
+
+  return row;
+}
+
+function render(sortKey) {
+  const sorters = {
+    aum: (a, b) => (b.total_av_yi || 0) - (a.total_av_yi || 0) || a.code.localeCompare(b.code),
+    code: (a, b) => a.code.localeCompare(b.code),
+    listing: (a, b) => dateKey(b.listing_date).localeCompare(dateKey(a.listing_date)) || a.code.localeCompare(b.code),
+    price_chg: (a, b) => {
+      const pa = pricePct(a);
+      const pb = pricePct(b);
+      if (pa == null && pb == null) return a.code.localeCompare(b.code);
+      if (pa == null) return 1;
+      if (pb == null) return -1;
+      return pb - pa || a.code.localeCompare(b.code);
+    },
+  };
+  const sorted = [...etfs].sort(sorters[sortKey] || sorters.aum);
+
+  list.innerHTML = '';
+  if (!sorted.length) {
+    list.innerHTML = '<div class="empty">尚無資料</div>';
+    return;
+  }
+
+  for (const etf of sorted) list.appendChild(createRow(etf));
+}
+
+// ── sort/hash controller boot ────────────────────────────────────────────────
+function applySort(sortKey) {
+  syncSortControl(sortKey);
+  if (!etfs.length) return;
+  render(sortKey);
+}
+
+syncSortControl(getSortFromHash());
+sortSel.addEventListener('change', () => {
+  location.hash = sortSel.value;
+  applySort(sortSel.value);
+});
+window.addEventListener('hashchange', () => {
+  applySort(getSortFromHash());
+});
+
+// ── page boot ─────────────────────────────────────────────────────────────────
+window.addEventListener('pageshow', loadAndRender);</script> <script src="/shared-refresh.js?v=20260531-cache-swr"></script> <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"a400df8b69eb494694673291fa1ce74b","r":1}' crossorigin="anonymous"></script>
+</body> </html>

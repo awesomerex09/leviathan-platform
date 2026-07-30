@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">ETFedge</title>
+  <desc id="desc">Three data rails converge into a precise forward edge.</desc>
+  <rect width="64" height="64" rx="14" fill="#101512"/>
+  <path fill="#C7FF4A" d="M13 13h27l13 17-14-8H26v5H13V13Z"/>
+  <path fill="#C7FF4A" d="M13 29h23l17 3-17 3H26v5H13V29Z"/>
+  <path fill="#C7FF4A" d="M13 42h27l13-8-13 17H13v-9Z"/>
+  <path fill="#F4F1E8" d="m36 29 17 3-17 3 4-3-4-3Z"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="ETFedge">
+  <rect width="32" height="32" rx="7" fill="#101512"/>
+  <path fill="#C7FF4A" d="M6.5 6.5H20l6.5 8.5-7-4h-6.5v2.5H6.5v-7Z"/>
+  <path fill="#C7FF4A" d="M6.5 14.5H18l8.5 1.5-8.5 1.5h-5v2.5H6.5v-5.5Z"/>
+  <path fill="#C7FF4A" d="M6.5 21H20l6.5-4-6.5 8.5H6.5V21Z"/>
+  <path fill="#F4F1E8" d="m18 14.5 8.5 1.5-8.5 1.5 2-1.5-2-1.5Z"/>
+</svg>

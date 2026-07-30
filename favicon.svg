@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Leviathan Favicon</title>
+  <defs>
+    <linearGradient id="whale-grad-fav" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d92b4b" />
+      <stop offset="100%" stop-color="#2b82d9" />
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="7" fill="#0a122c"/>
+  <path fill="url(#whale-grad-fav)" d="M16 27C16 27 15.5 19 11 15C7 11.5 4 12.5 3 10C2 7.5 6 8 13 11.5C15.5 12.75 15.75 14 16 15C16.25 14 16.5 12.75 19 11.5C26 8 30 7.5 29 10C28 12.5 25 11.5 21 15C16.5 19 16 27 16 27Z"/>
+</svg>

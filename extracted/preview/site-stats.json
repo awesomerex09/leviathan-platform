@@ -1,0 +1,51 @@
+{
+  "ok": true,
+  "status": "ok",
+  "generated_at": "2026-07-28T23:25:03.304076Z",
+  "source": "cloudflare_web_analytics",
+  "range": {
+    "start": "2026-05-01",
+    "end": "2026-07-28"
+  },
+  "active_window_minutes": 5,
+  "active_status": "ok",
+  "active": {
+    "loads": 2,
+    "visits": 0
+  },
+  "today": {
+    "loads": 5391,
+    "visits": 1285
+  },
+  "total": {
+    "loads": 757320,
+    "visits": 135780
+  },
+  "top_paths": [
+    {
+      "path": "/preview/etf.html",
+      "loads": 365930,
+      "visits": 28150
+    },
+    {
+      "path": "/preview/",
+      "loads": 237380,
+      "visits": 49240
+    },
+    {
+      "path": "/",
+      "loads": 86080,
+      "visits": 54190
+    },
+    {
+      "path": "/preview/flow.html",
+      "loads": 18680,
+      "visits": 1990
+    },
+    {
+      "path": "/observe/weekly-flow.html",
+      "loads": 15090,
+      "visits": 760
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+[
+  {
+    "url": "https://etfedge.xyz/preview/",
+    "method": "GET",
+    "status": 304,
+    "mimeType": "text/html",
+    "size": 22287
+  },
+  {
+    "url": "https://etfedge.xyz/shared.css",
+    "method": "GET",
+    "status": 200,
+    "mimeType": "text/css",
+    "size": 9889
+  },
+  {
+    "url": "https://static.cloudflareinsights.com/beacon.min.js",
+    "method": "GET",
+    "status": 200,
+    "mimeType": "text/javascript",
+    "size": 31612
+  },
+  {
+    "url": "https://etfedge.xyz/brand-mark.svg",
+    "method": "GET",
+    "status": 200,
+    "mimeType": "image/svg+xml",
+    "size": 515
+  },
+  {
+    "url": "https://etfedge.xyz/shared-preview-data.js",
+    "method": "GET",
+    "status": 200,
+    "mimeType": "application/javascript",
+    "size": 835
+  },
+  {
+    "url": "https://etfedge.xyz/shared-refresh.js?v=20260531-cache-swr",
+    "method": "GET",
+    "status": 200,
+    "mimeType": "application/javascript",
+    "size": 5847
+  },
+  {
+    "url": "https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496",
+    "method": "GET",
+    "status": 200,
+    "mimeType": "text/javascript",
+    "size": 31612
+  },
+  {
+    "url": "https://etfedge.xyz/manifest.json",
+    "method": "GET",
+    "status": 304,
+    "mimeType": "application/json",
+    "size": 709
+  },
+  {
+    "url": "https://etfedge.xyz/preview/etfs.json",
+    "method": "GET",
+    "status": 304,
+    "mimeType": "application/json",
+    "size": 199219
+  },
+  {
+    "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+    "method": "POST",
+    "status": 204,
+    "mimeType": "text/plain",
+    "size": 0
+  },
+  {
+    "url": "https://etfedge.xyz/favicon.svg",
+    "method": "GET",
+    "status": 200,
+    "mimeType": "image/svg+xml",
+    "size": 429
+  },
+  {
+    "url": "https://etfedge.xyz/favicon.svg",
+    "method": "GET",
+    "status": 200,
+    "mimeType": "image/svg+xml",
+    "size": 429
+  },
+  {
+    "url": "https://etfedge.xyz/preview/site-stats.json",
+    "method": "GET",
+    "status": 200,
+    "mimeType": "application/json",
+    "size": 880
+  }
+]

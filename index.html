@@ -1,0 +1,1006 @@
+<!DOCTYPE html><html lang="zh-Hant"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Leviathan 量化展示平台</title><meta name="description" content="Leviathan 量化交易模型與主動基金展示平台。"><link rel="icon" href="./favicon.svg" type="image/svg+xml"><link rel="manifest" href="/manifest.json"><link rel="preconnect" href="https://static.cloudflareinsights.com"><link rel="preload" href="./shared.css" as="style"><link rel="stylesheet" href="./shared.css"><style>:root {
+  --dir-bg: #030712;
+  --dir-panel: #0a122c;
+  --dir-panel-hot: #101b42;
+  --dir-line: #162552;
+  --dir-line-hot: #213670;
+  --dir-ink: #c5d1e8;
+  --dir-muted: #6b7c96;
+  --dir-green: #d92b4b;
+  --dir-mint: #2b82d9;
+  --dir-red: #d92b4b;
+  --dir-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  --dir-serif: "Inter", "PingFang TC", "Noto Sans TC", sans-serif;
+}
+
+html {
+  background: var(--dir-bg);
+}
+
+body {
+  color: var(--dir-ink);
+  background:
+    linear-gradient(rgba(217, 43, 75, .03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43, 130, 217, .04) 1px, transparent 1px),
+    var(--dir-bg);
+  background-size: 72px 72px;
+}
+
+.directory-main,
+.directory-main * {
+  box-sizing: border-box;
+}
+
+.directory-main {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 42px 0 70px;
+}
+
+.directory-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  min-height: 310px;
+  overflow: hidden;
+  border: 1px solid var(--dir-line);
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(circle at 86% 18%, rgba(217, 43, 75, .2), transparent 35%),
+    linear-gradient(135deg, rgba(10, 18, 44, .95), rgba(3, 7, 18, .98));
+  box-shadow: var(--shadow-soft);
+}
+
+.directory-hero::after {
+  position: absolute;
+  right: -120px;
+  bottom: -210px;
+  width: 390px;
+  height: 390px;
+  border: 1px solid rgba(217, 43, 75, .15);
+  border-radius: 50%;
+  content: "";
+  box-shadow:
+    0 0 0 44px rgba(217, 43, 75, .015),
+    0 0 0 88px rgba(43, 130, 217, .012);
+}
+
+.directory-hero-copy {
+  position: relative;
+  z-index: 1;
+  padding: 48px 54px 44px;
+}
+
+.directory-hero p {
+  margin: 0;
+  color: var(--dir-green);
+  font-family: var(--dir-mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+.directory-hero h1 {
+  margin: 34px 0 0;
+  font-family: var(--dir-serif);
+  font-size: clamp(48px, 6.8vw, 82px);
+  line-height: .93;
+  letter-spacing: -.065em;
+}
+
+.directory-hero h1 em {
+  color: var(--dir-green);
+  font-style: normal;
+}
+
+.directory-hero-copy > div {
+  display: flex;
+  max-width: 640px;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 26px;
+  color: var(--dir-muted);
+  font-size: 11px;
+}
+
+.directory-hero-mark {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px 36px 38px;
+  border-left: 1px solid var(--dir-line);
+  background: rgba(10, 18, 44, .4);
+  color: var(--dir-muted);
+  font-family: var(--dir-mono);
+  font-size: 9px;
+  letter-spacing: .14em;
+}
+
+.directory-hero-mark b {
+  align-self: flex-end;
+  color: var(--dir-green);
+  font-size: 72px;
+  font-weight: 300;
+  line-height: .8;
+}
+
+.controls {
+  display: flex;
+  min-height: 64px;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 10px 14px 10px 18px;
+  border: 1px solid var(--dir-line);
+  border-radius: var(--radius-sm);
+  color: var(--dir-muted);
+  background: rgba(10, 18, 44, .85);
+  font-size: 10px;
+}
+
+.controls label {
+  font-family: var(--dir-mono);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.controls select {
+  min-height: 40px;
+  padding: 7px 34px 7px 12px;
+  border: 1px solid var(--dir-line);
+  border-radius: var(--radius-sm);
+  color: var(--dir-ink);
+  background: var(--dir-panel);
+  font-family: var(--dir-mono);
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.controls select:focus {
+  outline: 1px solid var(--dir-green);
+  border-color: var(--dir-green);
+}
+
+.observe-nav {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.observe-nav a {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  gap: 9px;
+  padding: 0 13px;
+  border: 1px solid var(--dir-line);
+  border-radius: var(--radius-sm);
+  color: var(--dir-ink);
+  background: var(--dir-panel-hot);
+  font-family: var(--dir-mono);
+  font-size: 9px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: border-color .16s ease, color .16s ease, transform .16s ease;
+}
+
+.observe-nav a:hover {
+  border-color: var(--dir-green);
+  color: var(--dir-green);
+  transform: translateY(-2px);
+}
+
+.observe-lock {
+  padding: 2px 5px;
+  border: 1px solid var(--dir-green);
+  border-radius: 4px;
+  color: var(--dir-green);
+  font-size: 7px;
+  font-style: normal;
+  letter-spacing: .08em;
+}
+
+.etf-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 16px;
+  border: none;
+  margin-top: 24px;
+}
+
+a.etf-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr) 80px;
+  grid-template-areas:
+    "id name aum"
+    "id spark date";
+  min-width: 0;
+  min-height: 130px;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid var(--dir-line);
+  border-radius: var(--radius-md);
+  color: inherit;
+  background: rgba(10, 18, 44, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  text-decoration: none;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+a.etf-row:hover {
+  transform: translateY(-4px);
+  border-color: var(--dir-green);
+  background: rgba(16, 27, 66, 0.6);
+  box-shadow: 0 12px 30px rgba(217, 43, 75, 0.15);
+}
+
+a.etf-row::before {
+  display: none;
+}
+
+.er-id {
+  grid-area: id;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.er-code {
+  color: var(--dir-green);
+  font-family: var(--dir-mono);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.er-issuer {
+  color: var(--dir-muted);
+  font-size: 9px;
+  letter-spacing: .04em;
+}
+
+.er-name {
+  grid-area: name;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--dir-ink);
+  font-family: var(--dir-serif);
+  font-size: 16px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.er-aum {
+  grid-area: aum;
+  color: var(--dir-mint);
+  font-family: var(--dir-mono);
+  text-align: right;
+}
+
+.er-aum-v {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.er-aum-u {
+  margin-left: 2px;
+  color: var(--dir-muted);
+  font-size: 8px;
+}
+
+.er-spark {
+  grid-area: spark;
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 9px;
+}
+
+.er-spark-svg {
+  min-width: 0;
+}
+
+.er-pct {
+  font-family: var(--dir-mono);
+  font-size: 9px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.er-pct.up { color: var(--dir-red); }
+.er-pct.down { color: var(--dir-mint); }
+.er-pct.flat { color: var(--dir-muted); }
+
+svg.spark {
+  display: block;
+  width: 72px;
+  height: 18px;
+}
+
+svg.spark polyline {
+  fill: none;
+  stroke-width: 1.3;
+}
+
+svg.spark.up polyline { stroke: var(--dir-red); }
+svg.spark.down polyline { stroke: var(--dir-mint); }
+svg.spark.flat polyline { stroke: var(--dir-muted); }
+
+.er-date {
+  grid-area: date;
+  color: #6f8478;
+  font-family: var(--dir-mono);
+  font-size: 9px;
+  text-align: right;
+}
+
+.empty {
+  grid-column: 1 / -1;
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  border-bottom: 1px solid var(--dir-line);
+  color: var(--dir-muted);
+  font-size: 11px;
+}
+
+@media (max-width: 760px) {
+  .directory-main {
+    width: min(100% - 24px, 680px);
+    padding-top: 18px;
+  }
+
+  .directory-hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .directory-hero-mark {
+    display: none;
+  }
+
+  .directory-hero-copy {
+    padding: 38px 34px 34px;
+  }
+
+  .etf-list {
+    grid-template-columns: 1fr;
+  }
+
+  a.etf-row {
+    border-right: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    background-size: 44px 44px;
+  }
+
+  .directory-main {
+    width: 100%;
+    padding: 0 0 36px;
+  }
+
+  .directory-hero,
+  .controls,
+  .etf-list {
+    border-right: 0;
+    border-left: 0;
+  }
+
+  .directory-hero-copy {
+    padding: 32px 20px 27px;
+  }
+
+  .directory-hero p {
+    font-size: 9px;
+  }
+
+  .directory-hero h1 {
+    margin-top: 24px;
+    font-size: 43px;
+  }
+
+  .directory-hero-copy > div {
+    display: grid;
+    gap: 5px;
+    margin-top: 20px;
+  }
+
+  .controls {
+    flex-wrap: wrap;
+    margin-top: 10px;
+    padding: 12px;
+  }
+
+  .observe-nav {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .observe-nav a {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  a.etf-row {
+    grid-template-columns: 66px minmax(0, 1fr) 68px;
+    min-height: 96px;
+    padding: 15px 13px;
+  }
+
+  a.etf-row:hover {
+    padding-left: 13px;
+  }
+
+  .er-name {
+    font-size: 14px;
+  }
+
+  .er-spark {
+    gap: 6px;
+  }
+
+  svg.spark {
+    width: 56px;
+  }
+
+  .er-date {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  a.etf-row {
+    grid-template-columns: 58px minmax(0, 1fr) 62px;
+    gap: 7px;
+    padding: 14px 10px;
+  }
+
+  .er-code,
+  .er-aum-v {
+    font-size: 12px;
+  }
+
+  .er-name {
+    font-size: 13px;
+  }
+}
+  .flagship-banner {
+    transition: all 0.25s ease;
+  }
+  .flagship-banner:hover {
+    border-color: rgba(217, 43, 75, 0.4) !important;
+    box-shadow: 0 12px 40px rgba(217, 43, 75, 0.15) !important;
+  }
+  .flagship-banner:hover .flagship-logo-img {
+    transform: scale(1.05);
+  }
+  .flagship-cta-btn:hover {
+    background: #ff3b5c !important;
+    box-shadow: 0 6px 18px rgba(217,43,75,0.4) !important;
+  }
+  @media (max-width: 768px) {
+    .flagship-banner {
+      grid-template-columns: 1fr !important;
+      padding: 20px !important;
+      gap: 20px !important;
+    }
+    .flagship-visual {
+      display: none !important;
+    }
+  }
+</style><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "ab4500d237674d5682b68427d216ea36"}'></script></head> <body>  <div class="mast"><div class="mast-l"><a class="mast-brand mast-brand--link" href="./index.html"><img class="mast-brand__mark" src="./brand-mark.svg" alt="" width="28" height="28"><span class="mast-title">Leviathan</span></a><span class="mast-sub" data-i18n="mast-sub">旗艦量化交易展示平台</span></div><div class="mast-r" style="display: flex; align-items: center; gap: 8px;"><span id="mast-stat">—</span><button id="curr-toggle-btn" style="background: transparent; border: 1px solid var(--dir-line); color: var(--dir-muted); font-family: var(--dir-mono); font-size: 10px; font-weight: 800; padding: 4px 8px; cursor: pointer; transition: all 0.16s ease; border-radius: var(--radius-sm);">USD</button><button id="lang-toggle-btn" style="background: transparent; border: 1px solid var(--dir-line); color: var(--dir-muted); font-family: var(--dir-mono); font-size: 10px; font-weight: 800; padding: 4px 8px; cursor: pointer; transition: all 0.16s ease; border-radius: var(--radius-sm);">EN</button></div></div> <main class="directory-main">
+
+  <!-- Flagship Quant Model Banner -->
+  <section class="flagship-banner" style="margin-bottom: 32px; border: 1px solid var(--dir-line); border-radius: var(--radius-md); background: linear-gradient(135deg, rgba(217, 43, 75, 0.08), rgba(10, 18, 44, 0.95)); padding: 28px; display: grid; grid-template-columns: 1fr 300px; gap: 32px; box-shadow: 0 8px 32px rgba(0,0,0,0.4); border-left: 3px solid var(--dir-green); position: relative; overflow: hidden;">
+    <!-- Visual background accent -->
+    <div style="position: absolute; top: -50px; right: -50px; width: 250px; height: 250px; background: radial-gradient(circle, rgba(43, 130, 217, 0.15) 0%, transparent 70%); pointer-events: none;"></div>
+    
+    <div class="flagship-info" style="display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+      <div>
+        <span style="font-family: var(--dir-mono); font-size: 10px; font-weight: 800; color: var(--dir-green); letter-spacing: 0.15em; display: inline-block; margin-bottom: 8px;" data-i18n="flagship-badge">★ FLAGSHIP QUANT MODEL / 旗艦自研量化模型</span>
+        <h2 style="font-family: var(--dir-serif); font-size: 26px; font-weight: 800; margin: 0 0 10px 0; color: #fff;" data-i18n="flagship-title">Leviathan (利維坦) 量化模型</h2>
+        <p style="color: var(--dir-muted); font-size: 13.5px; line-height: 1.6; margin: 0;" data-i18n="flagship-desc">
+          基於市場流動性、多空量化因子與主動持股動態進行智慧調倉。以 50 萬 TWD 初始資金實盤校準，專注於創造超越大盤的超額回報 (Alpha)。
+        </p>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 8px 0;">
+        <div style="border-left: 1px solid var(--dir-line); padding-left: 14px;">
+          <div style="font-size: 9px; color: var(--dir-muted); font-family: var(--dir-mono); margin-bottom: 4px;" data-i18n="lbl-total-return">TOTAL RETURN / 總報酬率</div>
+          <div style="font-family: var(--dir-mono); font-size: 18px; font-weight: 800; color: var(--dir-green);" id="flagship-total">47.09%</div>
+        </div>
+        <div style="border-left: 1px solid var(--dir-line); padding-left: 14px;">
+          <div style="font-size: 9px; color: var(--dir-muted); font-family: var(--dir-mono); margin-bottom: 4px;" data-i18n="lbl-annualized">ANNUALIZED / 年化報酬率</div>
+          <div style="font-family: var(--dir-mono); font-size: 18px; font-weight: 800; color: var(--dir-green);" id="flagship-annual">67.78%</div>
+        </div>
+        <div style="border-left: 1px solid var(--dir-line); padding-left: 14px;">
+          <div style="font-size: 9px; color: var(--dir-muted); font-family: var(--dir-mono); margin-bottom: 4px;" data-i18n="lbl-peak-return">PEAK RETURN / 最高報酬率</div>
+          <div style="font-family: var(--dir-mono); font-size: 18px; font-weight: 800; color: var(--dir-green);" id="flagship-peak">109.85%</div>
+        </div>
+        <div style="border-left: 1px solid var(--dir-line); padding-left: 14px;">
+          <div style="font-size: 9px; color: var(--dir-muted); font-family: var(--dir-mono); margin-bottom: 4px;" data-i18n="lbl-sortino">SORTINO / 索提諾比率</div>
+          <div style="font-family: var(--dir-mono); font-size: 18px; font-weight: 800; color: var(--dir-green);" id="flagship-sortino">2.388</div>
+        </div>
+      </div>
+      
+      <div>
+        <a href="./etf.html?code=LEVIATHAN" style="display: inline-flex; align-items: center; gap: 8px; background: var(--dir-green); color: #fff; text-decoration: none; padding: 10px 20px; font-size: 12px; font-weight: 700; font-family: var(--dir-serif); border-radius: var(--radius-sm); box-shadow: 0 4px 12px rgba(217,43,75,0.25); transition: all 0.2s ease;" class="flagship-cta-btn">
+          <span data-i18n="flagship-cta">查看 Leviathan 詳情與即時調倉訊號 ➔</span>
+        </a>
+      </div>
+    </div>
+    
+    <div class="flagship-visual" style="position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: var(--radius-sm); border: 1px solid var(--dir-line); background: #000; padding: 20px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" style="width: 120px; height: 120px; transition: transform 0.4s ease;" class="flagship-logo-img">
+        <defs>
+          <linearGradient id="whale-grad-hero" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#d92b4b" />
+            <stop offset="100%" stop-color="#2b82d9" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#whale-grad-hero)" d="M32 54C32 54 31 38 22 30C14 23 8 25 6 20C4 15 12 16 26 23C31 25.5 31.5 28 32 30C32.5 28 33 25.5 38 23C52 16 60 15 58 20C56 25 50 23 42 30C33 38 32 54 32 54Z"/>
+      </svg>
+    </div>
+  </section>
+
+  <div class="controls">
+    <label for="sort" data-i18n="sort-label">排序</label>
+    <select id="sort">
+      <option value="aum" data-i18n="sort-aum">規模</option>
+      <option value="code" data-i18n="sort-code">代號</option>
+      <option value="listing" data-i18n="sort-listing">上市日（新 → 舊）</option>
+      <option value="price_chg" data-i18n="sort-price-chg">近一個月漲跌</option>
+    </select>
+
+    <nav class="observe-nav" aria-label="觀察工具">
+      <a href="./index.html" data-member-only="true"><span data-i18n="nav-rank">加碼標的排行</span> <i class="observe-lock">MEMBER</i></a>
+    </nav>
+  </div>
+
+  <div class="etf-list" id="list"></div>
+  <template id="etf-row-template">
+    <a class="etf-row">
+      <div class="er-id">
+        <span class="er-code"></span>
+        <span class="er-issuer"></span>
+      </div>
+      <span class="er-name"></span>
+      <div class="er-aum">
+        <span class="er-aum-v"></span><span class="er-aum-u" data-i18n="aum-unit">億</span>
+      </div>
+      <div class="er-spark">
+        <span class="er-spark-svg"></span>
+        <span class="er-pct"></span>
+      </div>
+      <span class="er-date"></span>
+    </a>
+  </template>
+</main>  <footer class="public-disclosure-footer" data-policy-version="membership-2026-07-21.v1"> <div class="public-disclosure-footer__inner"> <a class="public-disclosure-footer__brand" href="./index.html"> <img src="./brand-mark.svg" alt="" width="24" height="24"> <span>Leviathan</span> </a> <nav class="public-disclosure-footer__links" aria-label="訂閱與客服資訊"> <a href="/contact/">聯絡我們</a> <a href="/policies/refund/">取消訂閱與退款政策</a> <a href="/policies/delivery/">商品交付政策</a> </nav> </div> </footer> <script src="./shared-preview-data.js"></script> <script type="module">const $ = id => document.getElementById(id);
+
+// ── date / format helpers ────────────────────────────────────────────────────
+const dateKey = d => d ? String(d).replaceAll('-', '').replaceAll('/', '') : '';
+const fmt = d => {
+  const k = dateKey(d);
+  return k.length === 8 ? `${k.slice(0, 4)}-${k.slice(4, 6)}-${k.slice(6, 8)}` : '—';
+};
+let currentCurr = localStorage.getItem('leviathan_currency') || 'USD';
+let twdRate = 32.5;
+
+const fmtAumObj = v => {
+  if (v == null) return { val: '—', unit: '' };
+  const twdValue = v * 100000000;
+  if (currentCurr === 'TWD') {
+    if (currentLang === 'zh') {
+      if (v < 0.1) {
+        return { val: (v * 10000).toFixed(0), unit: ' 萬' };
+      }
+      return { val: (v >= 1000 ? v.toFixed(0) : v.toFixed(1)), unit: ' 億' };
+    } else {
+      if (v < 0.1) {
+        return { val: (v * 100).toFixed(1), unit: ' M TWD' };
+      }
+      const valBillion = v / 10;
+      return { val: (valBillion >= 100 ? valBillion.toFixed(0) : valBillion.toFixed(2)), unit: ' B TWD' };
+    }
+  } else {
+    const usdValue = twdValue / twdRate;
+    if (currentLang === 'zh') {
+      if (usdValue >= 100000000) {
+        return { val: (usdValue / 100000000).toFixed(2), unit: ' 億美元' };
+      }
+      if (usdValue >= 10000) {
+        return { val: (usdValue / 10000).toFixed(0), unit: ' 萬美元' };
+      }
+      return { val: usdValue.toFixed(0), unit: ' 美元' };
+    } else {
+      if (usdValue >= 1000000000) {
+        return { val: '$' + (usdValue / 1000000000).toFixed(2), unit: ' B' };
+      }
+      if (usdValue >= 1000000) {
+        return { val: '$' + (usdValue / 1000000).toFixed(1), unit: ' M' };
+      }
+      if (usdValue >= 1000) {
+        return { val: '$' + (usdValue / 1000).toFixed(0), unit: ' K' };
+      }
+      return { val: '$' + usdValue.toFixed(0), unit: '' };
+    }
+  }
+};
+
+const fmtAum = v => {
+  const obj = fmtAumObj(v);
+  return obj.val + obj.unit;
+};
+
+// ── page state / DOM anchors ─────────────────────────────────────────────────
+const list = $('list');
+const mastStat = $('mast-stat');
+const sortSel = $('sort');
+const rowTemplate = $('etf-row-template');
+const prefetchedDetails = new Set();
+const supportedSorts = ['aum', 'code', 'listing', 'price_chg'];
+
+let etfs = [];
+let idx = null;
+let customQuant = null;
+
+// ── i18n Localization ────────────────────────────────────────────────────────
+const i18n = {
+  zh: {
+    'mast-sub': '旗艦量化交易展示平台',
+    'sort-label': '排序',
+    'sort-aum': '規模',
+    'sort-code': '代號',
+    'sort-listing': '上市日（新 → 舊）',
+    'sort-price-chg': '近一個月漲跌',
+    'upload-btn-text': '+ 載入自研模型交易明細 (CSV)',
+    'clear-btn-text': '清除自訂模型',
+    'nav-rank': '加碼標的排行',
+    'no-data': '尚無資料',
+    'loaded-text': '已載入：',
+    'calculating': '計算中...',
+    'loading-db': '載入股價資料庫...',
+    'running-sim': '執行量化模擬...',
+    'upload-fail': '載入失敗：',
+    'upload-reloading': '重新載入自研模型 (CSV)',
+    'flagship-badge': '★ 旗艦自研量化模型',
+    'flagship-title': 'Leviathan (利維坦) 量化模型',
+    'flagship-desc': '基於市場流動性、多空量化因子與主動持股動態進行智慧調倉。以 50 萬 TWD 初始資金實盤校準，專注於創造超越大盤的超額回報 (Alpha)。',
+    'flagship-cta': '查看 Leviathan 詳情與即時調倉訊號 ➔',
+    'lbl-total-return': '總報酬率',
+    'lbl-annualized': '年化報酬率',
+    'lbl-peak-return': '歷史最高報酬',
+    'lbl-sortino': '索提諾比率'
+  },
+  en: {
+    'mast-sub': 'Flagship Quant Showcase Platform',
+    'sort-label': 'Sort',
+    'sort-aum': 'AUM',
+    'sort-code': 'Code',
+    'sort-listing': 'Listing Date (New → Old)',
+    'sort-price-chg': '1-Month Return',
+    'upload-btn-text': '+ Upload Quant Trade Log (CSV)',
+    'clear-btn-text': 'Clear Quant Model',
+    'nav-rank': 'Top Additions Rank',
+    'no-data': 'No Data Available',
+    'loaded-text': 'Loaded: ',
+    'calculating': 'Calculating...',
+    'loading-db': 'Loading Database...',
+    'running-sim': 'Running Simulation...',
+    'upload-fail': 'Upload failed: ',
+    'upload-reloading': 'Reupload Quant Model (CSV)',
+    'flagship-badge': '★ FLAGSHIP QUANT MODEL',
+    'flagship-title': 'Leviathan Quant Model',
+    'flagship-desc': 'Dynamic allocation based on market liquidity, multi-factor quant overlays, and active holdings. Engineered to capture structural Alpha and outperform benchmarks.',
+    'flagship-cta': 'View Leviathan Performance & Live Signals ➔',
+    'lbl-total-return': 'TOTAL RETURN',
+    'lbl-annualized': 'ANNUALIZED RETURN',
+    'lbl-peak-return': 'PEAK RETURN',
+    'lbl-sortino': 'SORTINO RATIO'
+  }
+};
+
+let currentLang = localStorage.getItem('leviathan_lang') || 'zh';
+
+function setLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('leviathan_lang', lang);
+  document.title = lang === 'zh' ? 'Leviathan 量化展示平台' : 'Leviathan Quant Platform';
+
+  const toggleBtn = $('lang-toggle-btn');
+  if (toggleBtn) {
+    toggleBtn.textContent = lang === 'zh' ? 'EN' : '繁中';
+  }
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (i18n[lang][key]) {
+      el.innerHTML = i18n[lang][key];
+    }
+  });
+
+
+
+  if (idx) {
+    renderMastSummary();
+  }
+
+  if (etfs.length) {
+    render(sortSel.value);
+  }
+}
+
+function setCurrency(curr) {
+  currentCurr = curr;
+  localStorage.setItem('leviathan_currency', curr);
+
+  const toggleBtn = $('curr-toggle-btn');
+  if (toggleBtn) {
+    toggleBtn.textContent = curr === 'USD' ? 'TWD' : 'USD';
+  }
+
+  if (idx) {
+    renderMastSummary();
+  }
+
+  if (etfs.length) {
+    render(sortSel.value);
+  }
+}
+
+function getSortFromHash() {
+  const rawSort = (location.hash || '#aum').slice(1);
+  return supportedSorts.includes(rawSort) ? rawSort : 'aum';
+}
+
+function syncSortControl(sortKey) {
+  if (sortSel.value !== sortKey) sortSel.value = sortKey;
+}
+
+// ── data loading / masthead summary ──────────────────────────────────────────
+function renderMastSummary() {
+  const totalAum = etfs.reduce((sum, etf) => sum + (etf.total_av_yi || 0), 0);
+  const formattedAum = fmtAum(totalAum);
+  mastStat.innerHTML = `${currentLang === 'zh' ? '瀏覽人數' : 'Visits'} <strong style="color: var(--dir-red);">—</strong> &nbsp;·&nbsp; <strong>${idx.n_etfs + (customQuant ? 1 : 0)}</strong> ETFs &nbsp;·&nbsp; AUM <strong>${formattedAum}</strong> &nbsp;·&nbsp; ${fmt(idx.as_of)}`;
+  renderTrafficPulse();
+}
+
+function renderTrafficPulse() {
+  fetch('./site-stats.json')
+    .then(r => r.ok ? r.json() : null)
+    .then(d => {
+      if (d && d.ok) {
+        const visits = d.total?.visits ?? d.today?.visits;
+        const text = visits >= 10000 
+          ? (currentLang === 'zh' ? `${(visits / 10000).toFixed(0)}萬` : `${(visits / 10000).toFixed(0)}0K`) 
+          : Number(visits).toLocaleString();
+        
+        const countSpan = mastStat.querySelector('strong');
+        if (countSpan) {
+          countSpan.textContent = text;
+        }
+      }
+    });
+}
+async function loadAndRender() {
+  if (etfs.length) return;
+
+  idx = await fetch('./etfs.json').then(r => r.json());
+  etfs = idx.etfs || [];
+
+  try {
+    const prices = await fetch('./prices.json').then(r => r.json());
+    if (prices['TWD=X'] && prices['TWD=X'].length) {
+      twdRate = prices['TWD=X'][prices['TWD=X'].length - 1].c || 32.5;
+    }
+  } catch (e) {
+    console.warn('Failed to load prices.json:', e.message);
+  }
+
+  try {
+    const res = await fetch('./api/backtest').then(r => r.json());
+    if (res && res.ok && res.model) {
+      customQuant = res.model;
+    }
+  } catch (e) {
+    console.warn('Failed to load custom quant model from server:', e.message);
+  }
+
+  if (customQuant) {
+    etfs.push(customQuant);
+    
+    // Update flagship banner stats dynamically
+    const fTotal = $('flagship-total');
+    const fAnnual = $('flagship-annual');
+    const fPeak = $('flagship-peak');
+    const fSortino = $('flagship-sortino');
+    if (fTotal) fTotal.textContent = customQuant.total_return ? `${customQuant.total_return.toFixed(2)}%` : '47.09%';
+    if (fAnnual) fAnnual.textContent = customQuant.annualized_return ? `${customQuant.annualized_return.toFixed(2)}%` : '67.78%';
+    if (fPeak) fPeak.textContent = customQuant.max_return ? `${customQuant.max_return.toFixed(2)}%` : '109.85%';
+    if (fSortino) fSortino.textContent = customQuant.sortino_ratio ? customQuant.sortino_ratio.toFixed(3) : '2.388';
+  }
+
+  setLanguage(currentLang);
+  setCurrency(currentCurr);
+  applySort(getSortFromHash());
+
+  const toggleBtn = $('lang-toggle-btn');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      setLanguage(currentLang === 'zh' ? 'en' : 'zh');
+    });
+  }
+
+  const currBtn = $('curr-toggle-btn');
+  if (currBtn) {
+    currBtn.addEventListener('click', () => {
+      setCurrency(currentCurr === 'USD' ? 'TWD' : 'USD');
+    });
+  }
+}
+// ── sparkline / price change helpers ─────────────────────────────────────────
+function parseDateKeyUTC(d) {
+  const k = dateKey(d);
+  if (k.length !== 8) return null;
+  return new Date(Date.UTC(Number(k.slice(0, 4)), Number(k.slice(4, 6)) - 1, Number(k.slice(6, 8))));
+}
+
+function recentMonthSeries(etf) {
+  const series = etf.price_series || [];
+  if (series.length < 2) return series;
+
+  const latestDate = parseDateKeyUTC(series[series.length - 1]?.d);
+  if (!latestDate) return series;
+
+  const anchorDate = new Date(latestDate);
+  anchorDate.setUTCMonth(anchorDate.getUTCMonth() - 1);
+
+  let anchorIdx = -1;
+  for (let i = 0; i < series.length; i += 1) {
+    const pointDate = parseDateKeyUTC(series[i]?.d);
+    if (pointDate && pointDate <= anchorDate) anchorIdx = i;
+  }
+
+  return series.slice(Math.max(anchorIdx, 0));
+}
+
+function pricePct(etf) {
+  const series = recentMonthSeries(etf);
+  if (series.length < 2) return null;
+  return (series[series.length - 1].c - series[0].c) / series[0].c * 100;
+}
+
+function pctClassName(pct) {
+  if (pct == null) return 'flat';
+  if (pct > 0.2) return 'up';
+  if (pct < -0.2) return 'down';
+  return 'flat';
+}
+
+function renderSpark(series) {
+  if (!series || series.length < 2) return '';
+
+  const vals = series.map(point => point.c);
+  const w = 80;
+  const h = 20;
+  const pad = 2;
+  const min = Math.min(...vals);
+  const max = Math.max(...vals);
+  const range = max - min || 1;
+  const delta = (vals[vals.length - 1] - vals[0]) / vals[0] * 100;
+  const cls = pctClassName(delta);
+  const pts = vals.map((value, index) => {
+    const x = pad + (index / (vals.length - 1)) * (w - 2 * pad);
+    const y = pad + (1 - (value - min) / range) * (h - 2 * pad);
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(' ');
+
+  return `<svg class="spark ${cls}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none"><polyline points="${pts}"/></svg>`;
+}
+
+// ── detail prefetch helper ───────────────────────────────────────────────────
+function prefetchDetail(href) {
+  if (!href || prefetchedDetails.has(href)) return;
+
+  prefetchedDetails.add(href);
+  const link = document.createElement('link');
+  link.rel = 'prefetch';
+  link.href = href;
+  link.as = 'document';
+  document.head.appendChild(link);
+}
+
+// ── row renderer ──────────────────────────────────────────────────────────────
+function createRow(etf) {
+  const monthSeries = recentMonthSeries(etf);
+  const pct = pricePct(etf);
+  const pctStr = pct == null ? '' : `${pct > 0 ? '+' : ''}${pct.toFixed(1)}%`;
+  const pctCls = pctClassName(pct);
+  const row = rowTemplate.content.firstElementChild.cloneNode(true);
+  const href = `./etf.html?code=${etf.code}`;
+
+  row.href = href;
+  row.querySelector('.er-code').textContent = etf.code;
+  row.querySelector('.er-issuer').textContent = etf.issuer || '';
+  row.querySelector('.er-name').textContent = etf.name;
+  const aumObj = fmtAumObj(etf.total_av_yi);
+  row.querySelector('.er-aum-v').textContent = aumObj.val;
+  row.querySelector('.er-aum-u').textContent = aumObj.unit;
+  row.querySelector('.er-spark-svg').innerHTML = renderSpark(monthSeries);
+
+  const pctEl = row.querySelector('.er-pct');
+  pctEl.textContent = pctStr;
+  pctEl.className = `er-pct ${pctCls}`;
+  pctEl.hidden = !pctStr;
+
+  row.querySelector('.er-date').textContent = fmt(etf.listing_date);
+
+  if (etf.is_custom_quant) {
+    row.classList.add('custom-quant');
+    row.style.border = '1px dashed var(--dir-green)';
+    row.style.boxShadow = '0 0 12px rgba(230, 46, 46, 0.2)';
+    row.querySelector('.er-code').style.color = 'var(--dir-green)';
+    row.querySelector('.er-code').innerHTML += ' <span style="font-size: 8px; padding: 1px 3px; border: 1px solid var(--dir-green); vertical-align: middle; margin-left: 4px; border-radius: 0;">QUANT</span>';
+  }
+
+  row.addEventListener('pointerenter', () => prefetchDetail(href), { once: true });
+  row.addEventListener('focus', () => prefetchDetail(href), { once: true });
+
+  return row;
+}
+
+function render(sortKey) {
+  const sorters = {
+    aum: (a, b) => (b.total_av_yi || 0) - (a.total_av_yi || 0) || a.code.localeCompare(b.code),
+    code: (a, b) => a.code.localeCompare(b.code),
+    listing: (a, b) => dateKey(b.listing_date).localeCompare(dateKey(a.listing_date)) || a.code.localeCompare(b.code),
+    price_chg: (a, b) => {
+      const pa = pricePct(a);
+      const pb = pricePct(b);
+      if (pa == null && pb == null) return a.code.localeCompare(b.code);
+      if (pa == null) return 1;
+      if (pb == null) return -1;
+      return pb - pa || a.code.localeCompare(b.code);
+    },
+  };
+  const sorted = [...etfs].sort(sorters[sortKey] || sorters.aum);
+
+  list.innerHTML = '';
+  if (!sorted.length) {
+    list.innerHTML = `<div class="empty">${i18n[currentLang]['no-data']}</div>`;
+    return;
+  }
+
+  for (const etf of sorted) list.appendChild(createRow(etf));
+}
+
+// ── sort/hash controller boot ────────────────────────────────────────────────
+function applySort(sortKey) {
+  syncSortControl(sortKey);
+  if (!etfs.length) return;
+  render(sortKey);
+}
+
+
+syncSortControl(getSortFromHash());
+sortSel.addEventListener('change', () => {
+  location.hash = sortSel.value;
+  applySort(sortSel.value);
+});
+window.addEventListener('hashchange', () => {
+  applySort(getSortFromHash());
+});
+
+// ── page boot ─────────────────────────────────────────────────────────────────
+window.addEventListener('pageshow', loadAndRender);</script> <script src="./shared-refresh.js"></script> <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"a400df8b69eb494694673291fa1ce74b","r":1}' crossorigin="anonymous"></script>
+</body> </html>

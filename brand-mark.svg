@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Leviathan Logo</title>
+  <desc id="desc">Minimalist, sleek whale tail representing Leviathan quantitative models.</desc>
+  <defs>
+    <linearGradient id="whale-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d92b4b" />
+      <stop offset="100%" stop-color="#2b82d9" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0a122c"/>
+  <path fill="url(#whale-grad)" d="M32 54C32 54 31 38 22 30C14 23 8 25 6 20C4 15 12 16 26 23C31 25.5 31.5 28 32 30C32.5 28 33 25.5 38 23C52 16 60 15 58 20C56 25 50 23 42 30C33 38 32 54 32 54Z"/>
+</svg>

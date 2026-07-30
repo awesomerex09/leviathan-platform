@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>基金與量化詳情 · Leviathan</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./shared.css">
+  <style>
+    :root {
+      --dir-bg: #030712;
+      --dir-panel: #0a122c;
+      --dir-panel-hot: #101b42;
+      --dir-line: #162552;
+      --dir-line-hot: #213670;
+      --dir-ink: #c5d1e8;
+      --dir-muted: #6b7c96;
+      --dir-green: #d92b4b;
+      --dir-mint: #2b82d9;
+      --dir-red: #d92b4b;
+      --dir-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+      --dir-serif: "Inter", "PingFang TC", "Noto Sans TC", sans-serif;
+    }
+
+    html {
+      background: var(--dir-bg);
+    }
+
+    body {
+      color: var(--dir-ink);
+      background:
+        linear-gradient(rgba(217, 43, 75, .03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(43, 130, 217, .04) 1px, transparent 1px),
+        var(--dir-bg);
+      background-size: 72px 72px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .detail-main {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 42px 0 70px;
+      display: grid;
+      gap: 24px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--dir-muted);
+      text-decoration: none;
+      font-family: var(--dir-mono);
+      font-size: 11px;
+      margin-bottom: 8px;
+      transition: color 0.16s ease;
+    }
+
+    .back-btn:hover {
+      color: var(--dir-green);
+    }
+
+    .etf-header-card {
+      border: 1px solid var(--dir-line);
+      background: linear-gradient(135deg, rgba(0, 21, 43, 0.9), rgba(2, 7, 18, 0.97));
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      position: relative;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, .28);
+    }
+
+    .etf-header-card.custom-quant {
+      border: 1px dashed var(--dir-green);
+      box-shadow: 0 0 20px rgba(230, 46, 46, 0.2);
+    }
+
+    .etf-title-area h1 {
+      margin: 8px 0;
+      font-family: var(--dir-serif);
+      font-size: 36px;
+      color: var(--dir-ink);
+    }
+
+    .etf-title-area h1 em {
+      color: var(--dir-green);
+      font-style: normal;
+    }
+
+    .etf-meta-tag {
+      font-family: var(--dir-mono);
+      font-size: 11px;
+      color: var(--dir-green);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+    }
+
+    .etf-issuer {
+      font-size: 13px;
+      color: var(--dir-muted);
+    }
+
+    .etf-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      align-items: center;
+    }
+
+    .stat-box {
+      border-left: 1px solid var(--dir-line);
+      padding-left: 16px;
+    }
+
+    .stat-label {
+      font-size: 9px;
+      color: var(--dir-muted);
+      font-family: var(--dir-mono);
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .stat-value {
+      font-family: var(--dir-mono);
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .stat-value.up { color: var(--dir-red); }
+    .stat-value.down { color: var(--dir-mint); }
+
+    .chart-section {
+      border: 1px solid var(--dir-line);
+      background: rgba(10, 18, 44, 0.95);
+      padding: 24px;
+    }
+
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .chart-title {
+      font-family: var(--dir-serif);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .chart-controls {
+      display: flex;
+      gap: 8px;
+    }
+
+    .chart-btn {
+      background: var(--dir-panel);
+      border: 1px solid var(--dir-line);
+      color: var(--dir-muted);
+      font-family: var(--dir-mono);
+      font-size: 9px;
+      font-weight: 800;
+      padding: 6px 12px;
+      cursor: pointer;
+      transition: all 0.16s ease;
+      border-radius: 0;
+    }
+
+    .chart-btn.active, .chart-btn:hover {
+      border-color: var(--dir-green);
+      color: var(--dir-green);
+      background: var(--dir-panel-hot);
+    }
+
+    .chart-container {
+      position: relative;
+      height: 360px;
+      width: 100%;
+    }
+
+    .data-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .data-card {
+      border: 1px solid var(--dir-line);
+      background: rgba(10, 18, 44, 0.95);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .data-card h2 {
+      font-family: var(--dir-serif);
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--dir-line);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .data-card h2 span {
+      font-family: var(--dir-mono);
+      font-size: 9px;
+      color: var(--dir-muted);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .data-table th {
+      font-family: var(--dir-mono);
+      font-size: 9px;
+      color: var(--dir-muted);
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--dir-line);
+      font-weight: 800;
+    }
+
+    .data-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(10, 31, 61, 0.4);
+      font-size: 12px;
+    }
+
+    .data-table tr:hover td {
+      background: rgba(230, 46, 46, 0.02);
+    }
+
+    .td-code {
+      font-family: var(--dir-mono);
+      color: var(--dir-green);
+      font-weight: 700;
+    }
+
+    .td-val {
+      font-family: var(--dir-mono);
+      text-align: right;
+    }
+
+    .pct-badge {
+      font-family: var(--dir-mono);
+      font-size: 9px;
+      font-weight: 800;
+    }
+    .pct-badge.up { color: var(--dir-red); }
+    .pct-badge.down { color: var(--dir-mint); }
+
+    .signals-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .signal-group-title {
+      font-family: var(--dir-mono);
+      font-size: 9px;
+      font-weight: 800;
+      color: var(--dir-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .signal-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .signal-pill {
+      background: var(--dir-panel);
+      border: 1px solid var(--dir-line);
+      padding: 6px 10px;
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .signal-pill.add { border-color: rgba(230, 46, 46, 0.3); }
+    .signal-pill.add .sig-icon { color: var(--dir-red); }
+    .signal-pill.reduction { border-color: rgba(51, 153, 255, 0.3); }
+    .signal-pill.reduction .sig-icon { color: var(--dir-mint); }
+    .signal-pill.new { border-color: rgba(230, 46, 46, 0.4); background: rgba(230, 46, 46, 0.02); }
+    .signal-pill.new .sig-icon { color: var(--dir-red); }
+    .signal-pill.exit { border-color: rgba(132, 156, 181, 0.4); }
+    .signal-pill.exit .sig-icon { color: var(--dir-muted); }
+
+    .sig-name {
+      font-weight: 700;
+    }
+    .sig-meta {
+      font-family: var(--dir-mono);
+      font-size: 9px;
+      color: var(--dir-muted);
+    }
+
+    .empty-signal {
+      font-family: var(--dir-mono);
+      font-size: 10px;
+      color: var(--dir-muted);
+      padding: 6px 0;
+    }
+
+    .disclosure-box {
+      border: 1px solid var(--dir-line);
+      background: rgba(0, 21, 43, 0.5);
+      padding: 16px;
+      font-size: 11px;
+      color: var(--dir-muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 760px) {
+      .detail-main {
+        width: min(100% - 24px, 680px);
+      }
+      .etf-header-card {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+      .etf-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .data-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="mast">
+    <div class="mast-l">
+      <a class="mast-brand mast-brand--link" href="./index.html">
+        <img class="mast-brand__mark" src="./brand-mark.svg" alt="" width="28" height="28">
+        <span class="mast-title">Leviathan</span>
+      </a>
+      <span class="mast-sub" data-i18n="mast-sub">主動型基金與量化詳情</span>
+    </div>
+    <div class="mast-r" style="display: flex; align-items: center; gap: 8px;">
+      <span id="mast-stat">—</span>
+      <button id="curr-toggle-btn" style="background: transparent; border: 1px solid var(--dir-line); color: var(--dir-muted); font-family: var(--dir-mono); font-size: 10px; font-weight: 800; padding: 4px 8px; cursor: pointer; transition: all 0.16s ease; border-radius: 0;">USD</button>
+      <button id="lang-toggle-btn" style="background: transparent; border: 1px solid var(--dir-line); color: var(--dir-muted); font-family: var(--dir-mono); font-size: 10px; font-weight: 800; padding: 4px 8px; cursor: pointer; transition: all 0.16s ease; border-radius: 0;">EN</button>
+    </div>
+  </div>
+
+  <main class="detail-main">
+    <div>
+      <a href="./index.html" class="back-btn" data-i18n="back-btn">← BACK TO LIST / 返回列表</a>
+    </div>
+
+    <header class="etf-header-card" id="header-card">
+      <div class="etf-title-area">
+        <span class="etf-meta-tag" id="etf-code-tag">CODE</span>
+        <h1 id="etf-name">載入中...</h1>
+        <span class="etf-issuer" id="etf-issuer">ISSUER</span>
+      </div>
+      <div class="etf-stats-grid">
+        <div class="stat-box">
+          <div class="stat-label" data-i18n="nav-label">NET ASSET VALUE / 淨值</div>
+          <div class="stat-value" id="val-nav">—</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label" data-i18n="aum-label">AUM / 規模</div>
+          <div class="stat-value" id="val-aum">—</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label" data-i18n="return-label">1M RETURN / 近月報酬</div>
+          <div class="stat-value" id="val-return">—</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label" data-i18n="listing-label">LISTING DATE / 上市日</div>
+          <div class="stat-value" id="val-listing">—</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Quant Stats Card for Leviathan -->
+    <div id="quant-stats-card" style="display: none; border: 1px solid var(--dir-line); border-radius: var(--radius-md); background: linear-gradient(135deg, rgba(217, 43, 75, 0.05), rgba(10, 18, 44, 0.95)); padding: 24px; box-shadow: var(--shadow-soft);">
+      <h2 style="font-family: var(--dir-serif); font-size: 16px; font-weight: 700; margin-top: 0; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--dir-line); color: var(--dir-green); display: flex; align-items: center; gap: 8px;">
+        <span data-i18n="quant-metrics-title">★ BACKTEST QUANT METRICS / 實盤回測指標</span>
+        <span style="font-family: var(--dir-mono); font-size: 9px; color: var(--dir-muted); font-weight: normal; margin-left: auto;" id="quant-capital-label">Initial Capital: 500,000 TWD / 初始資金：50萬</span>
+      </h2>
+      <div class="etf-stats-grid" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="stat-box">
+          <div class="stat-label">TOTAL RETURN / 總報酬率</div>
+          <div class="stat-value" style="color: var(--dir-green);" id="val-quant-total">47.09%</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">ANNUALIZED RETURN / 年化報酬率</div>
+          <div class="stat-value" style="color: var(--dir-green);" id="val-quant-annual">67.78%</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">MAX RETURN / 歷史最高報酬</div>
+          <div class="stat-value" style="color: var(--dir-green);" id="val-quant-max">109.85%</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">SORTINO RATIO / 最高索提諾比率</div>
+          <div class="stat-value" style="color: var(--dir-green);" id="val-quant-sortino">2.388</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="chart-section">
+      <div class="chart-header">
+        <span class="chart-title" id="chart-title-header">與台灣五十大盤對比走勢 (0050 BENCHMARK COMPARE)</span>
+        <div class="chart-controls">
+          <button class="chart-btn" data-range="1m" data-i18n="range-1m">近一個月</button>
+          <button class="chart-btn" data-range="3m" data-i18n="range-3m">近三個月</button>
+          <button class="chart-btn active" data-range="all" data-i18n="range-all">全部歷史</button>
+        </div>
+      </div>
+      <div class="chart-container">
+        <canvas id="perfChart"></canvas>
+      </div>
+    </section>
+
+    <div class="data-grid">
+      <!-- Holdings Card -->
+      <section class="data-card">
+        <h2 data-i18n="holdings-title">PORTFOLIO HOLDINGS <span>當前持股明細</span></h2>
+        <div style="overflow-x: auto; flex: 1;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th data-i18n="th-code">代號</th>
+                <th data-i18n="th-name">名稱</th>
+                <th style="text-align: right;" data-i18n="th-weight">權重</th>
+                <th style="text-align: right;" data-i18n="th-shares">股數</th>
+              </tr>
+            </thead>
+            <tbody id="holdings-body">
+              <tr>
+                <td colspan="4" style="text-align: center; color: var(--dir-muted); padding: 32px 0;">載入中...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Signals Card -->
+      <section class="data-card">
+        <h2 data-i18n="signals-title">SHARES SIGNALS <span>近 30 日調倉軌跡</span></h2>
+        <div class="signals-container">
+          <div>
+            <div class="signal-group-title" data-i18n="sig-adds">加碼標的 (Top Adds)</div>
+            <div class="signal-list" id="adds-list">
+              <div class="empty-signal">—</div>
+            </div>
+          </div>
+          <div>
+            <div class="signal-group-title" data-i18n="sig-reductions">減碼標的 (Top Reductions)</div>
+            <div class="signal-list" id="reductions-list">
+              <div class="empty-signal">—</div>
+            </div>
+          </div>
+          <div>
+            <div class="signal-group-title" data-i18n="sig-news">新進標的 (New Positions)</div>
+            <div class="signal-list" id="new-list">
+              <div class="empty-signal">—</div>
+            </div>
+          </div>
+          <div>
+            <div class="signal-group-title" data-i18n="sig-exits">出清標的 (Exits)</div>
+            <div class="signal-list" id="exits-list">
+              <div class="empty-signal">—</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="disclosure-box" id="info-disclosure" data-i18n="disclosure-note">
+      * 聲明與註記：以上資料包含自研模型回測結果。自研量化模型之計算邏輯由交易明細解析引擎還原，股價資料均使用歷史除權息調整收盤價。回測績效不代表未來實際表現之保證。本平台資料僅供學術與技術展示，不構成任何投資建議。
+    </footer>
+  </main>
+
+  <script type="module">
+    const $ = id => document.getElementById(id);
+
+    // Get URL Parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code') || '';
+
+    let etf = null;
+    let indexData = null;
+    let prices = null;
+    let chartInstance = null;
+    let selectedRange = 'all';
+
+    // ── Localization Dictionaries ──────────────────────────────────────────────
+    const i18n = {
+      zh: {
+        'mast-sub': '主動 ETF 對比詳情',
+        'back-btn': '← BACK TO LIST / 返回列表',
+        'nav-label': 'NET ASSET VALUE / 淨值',
+        'aum-label': 'AUM / 規模',
+        'return-label': '1M RETURN / 近月報酬',
+        'listing-label': 'LISTING DATE / 上市日',
+        'chart-title': '與台灣五十大盤對比走勢 (0050 BENCHMARK COMPARE)',
+        'range-1m': '近一個月',
+        'range-3m': '近三個月',
+        'range-all': '全部歷史',
+        'holdings-title': 'PORTFOLIO HOLDINGS <span>當前持股明細</span>',
+        'th-code': '代號',
+        'th-name': '名稱',
+        'th-weight': '權重',
+        'th-shares': '股數',
+        'signals-title': 'SHARES SIGNALS <span>近 30 日調倉軌跡</span>',
+        'sig-adds': '加碼標的 (Top Adds)',
+        'sig-reductions': '減碼標的 (Top Reductions)',
+        'sig-news': '新進標的 (New Positions)',
+        'sig-exits': '出清標的 (Exits)',
+        'disclosure-note': '* 聲明與註記：以上資料包含自研模型回測結果。自研量化模型之計算邏輯由交易明細解析引擎還原，股價資料均使用歷史除權息調整收盤價。回測績效不代表未來實際表現之保證。本平台資料僅供學術與技術展示，不構成任何投資建議。',
+        'real-etf-note': '* 真實主動 ETF 僅揭露前三大持股，完整持股請參閱發行商官網。',
+        'no-data': '無持股資料',
+        'custom-tag': '自訂模型',
+        'visits-prefix': '瀏覽人數 ',
+        'sig-add-meta': '加碼',
+        'sig-reduce-meta': '減碼',
+        'sig-new-meta': '新進',
+        'sig-exit-meta': '出清',
+        'aum-unit': '億',
+        'bench-label': '大盤對比 (0050.TW)'
+      },
+      en: {
+        'mast-sub': 'Active ETF Details',
+        'back-btn': '← BACK TO LIST',
+        'nav-label': 'NET ASSET VALUE',
+        'aum-label': 'AUM',
+        'return-label': '1M RETURN',
+        'listing-label': 'LISTING DATE',
+        'chart-title': '0050 Benchmark Comparison Chart',
+        'range-1m': '1 Month',
+        'range-3m': '3 Months',
+        'range-all': 'All History',
+        'holdings-title': 'PORTFOLIO HOLDINGS <span>Current Holdings</span>',
+        'th-code': 'Symbol',
+        'th-name': 'Name',
+        'th-weight': 'Weight',
+        'th-shares': 'Shares',
+        'signals-title': 'SHARES SIGNALS <span>Trade Signals (Last 30 Days)</span>',
+        'sig-adds': 'Top Adds',
+        'sig-reductions': 'Top Reductions',
+        'sig-news': 'New Positions',
+        'sig-exits': 'Exits',
+        'disclosure-note': '* Disclaimer: The data above includes backtest results of our custom quantitative model. Calculations are performed on the trade log in the browser, using adjusted stock prices. Backtest performance does not guarantee future results. This data is for technical demonstration and does not constitute investment advice.',
+        'real-etf-note': '* Real active ETFs only disclose top 3 holdings; visit issuer website for details.',
+        'no-data': 'No holdings data available',
+        'custom-tag': 'QUANT MODEL',
+        'visits-prefix': 'Visits ',
+        'sig-add-meta': 'Added',
+        'sig-reduce-meta': 'Reduced',
+        'sig-new-meta': 'New Position',
+        'sig-exit-meta': 'Exited',
+        'aum-unit': 'B TWD',
+        'bench-label': '0050.TW Index Benchmark'
+      }
+    };
+
+    let currentLang = localStorage.getItem('leviathan_lang') || 'zh';
+    let currentCurr = localStorage.getItem('leviathan_currency') || 'USD';
+    let twdRate = 32.5;
+
+    const fmtAumObj = v => {
+      if (v == null) return { val: '—', unit: '' };
+      const twdValue = v * 100000000;
+      if (currentCurr === 'TWD') {
+        if (currentLang === 'zh') {
+          if (v < 0.1) {
+            return { val: (v * 10000).toFixed(0), unit: ' 萬' };
+          }
+          return { val: (v >= 1000 ? v.toFixed(0) : v.toFixed(1)), unit: ' 億' };
+        } else {
+          if (v < 0.1) {
+            return { val: (v * 100).toFixed(1), unit: ' M TWD' };
+          }
+          const valBillion = v / 10;
+          return { val: (valBillion >= 100 ? valBillion.toFixed(0) : valBillion.toFixed(2)), unit: ' B TWD' };
+        }
+      } else {
+        const usdValue = twdValue / twdRate;
+        if (currentLang === 'zh') {
+          if (usdValue >= 100000000) {
+            return { val: (usdValue / 100000000).toFixed(2), unit: ' 億美元' };
+          }
+          if (usdValue >= 10000) {
+            return { val: (usdValue / 10000).toFixed(0), unit: ' 萬美元' };
+          }
+          return { val: usdValue.toFixed(0), unit: ' 美元' };
+        } else {
+          if (usdValue >= 1000000000) {
+            return { val: '$' + (usdValue / 1000000000).toFixed(2), unit: ' B' };
+          }
+          if (usdValue >= 1000000) {
+            return { val: '$' + (usdValue / 1000000).toFixed(1), unit: ' M' };
+          }
+          if (usdValue >= 1000) {
+            return { val: '$' + (usdValue / 1000).toFixed(0), unit: ' K' };
+          }
+          return { val: '$' + usdValue.toFixed(0), unit: '' };
+        }
+      }
+    };
+
+    const fmtAum = v => {
+      const obj = fmtAumObj(v);
+      return obj.val + obj.unit;
+    };
+
+    function setCurrency(curr) {
+      currentCurr = curr;
+      localStorage.setItem('leviathan_currency', curr);
+
+      const toggleBtn = $('curr-toggle-btn');
+      if (toggleBtn) {
+        toggleBtn.textContent = curr === 'USD' ? 'TWD' : 'USD';
+      }
+
+      if (etf) {
+        renderHeader();
+        renderHoldings();
+        renderSignals();
+        renderChart();
+      }
+    }
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('leviathan_lang', lang);
+      document.title = lang === 'zh' ? '基金與量化詳情 · Leviathan' : 'Fund & Quant Details · Leviathan';
+
+      const toggleBtn = $('lang-toggle-btn');
+      if (toggleBtn) {
+        toggleBtn.textContent = lang === 'zh' ? 'EN' : '繁中';
+      }
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[lang][key]) {
+          el.innerHTML = i18n[lang][key];
+        }
+      });
+
+      if (etf) {
+        renderHeader();
+        renderHoldings();
+        renderSignals();
+        renderChart();
+      }
+    }
+
+    async function loadData() {
+      if (!code) {
+        alert('請指定 ETF 代號 / Please specify ETF code');
+        window.location.href = './index.html';
+        return;
+      }
+
+      indexData = await fetch('./etfs.json').then(r => r.json());
+      
+      try {
+        prices = await fetch('./prices.json').then(r => r.json());
+        if (prices['TWD=X'] && prices['TWD=X'].length) {
+          twdRate = prices['TWD=X'][prices['TWD=X'].length - 1].c || 32.5;
+        }
+      } catch (err) {
+        console.warn('無法載入 prices.json:', err.message);
+      }
+
+      renderTrafficPulse();
+
+      if (code === 'LEVIATHAN') {
+        try {
+          const res = await fetch('./api/backtest').then(r => r.json());
+          if (res && res.ok && res.model) {
+            etf = res.model;
+          }
+        } catch (e) {
+          console.warn('Failed to load custom quant model from server:', e.message);
+        }
+      } else {
+        etf = indexData.etfs.find(e => e.code === code);
+      }
+
+      if (!etf) {
+        alert('找不到指定的 ETF 資料 / ETF not found');
+        window.location.href = './index.html';
+        return;
+      }
+
+      setLanguage(currentLang);
+      setCurrency(currentCurr);
+      
+      const toggleBtn = $('lang-toggle-btn');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+          setLanguage(currentLang === 'zh' ? 'en' : 'zh');
+        });
+      }
+
+      const currBtn = $('curr-toggle-btn');
+      if (currBtn) {
+        currBtn.addEventListener('click', () => {
+          setCurrency(currentCurr === 'USD' ? 'TWD' : 'USD');
+        });
+      }
+
+      // Hook range filter events
+      document.querySelectorAll('.chart-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          document.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
+          e.target.classList.add('active');
+          selectedRange = e.target.getAttribute('data-range');
+          renderChart();
+        });
+      });
+    }
+
+    function renderTrafficPulse() {
+      fetch('./site-stats.json')
+        .then(r => r.ok ? r.json() : null)
+        .then(d => {
+          if (d && d.ok) {
+            const visits = d.total?.visits ?? d.today?.visits;
+            const text = visits >= 10000 
+              ? (currentLang === 'zh' ? `${(visits / 10000).toFixed(0)}萬` : `${(visits / 10000).toFixed(0)}0K`) 
+              : Number(visits).toLocaleString();
+            $('mast-stat').innerHTML = `${i18n[currentLang]['visits-prefix']}<strong style="color: var(--dir-red);">${text}</strong>`;
+          }
+        });
+    }
+
+    function renderHeader() {
+      if (etf.is_custom_quant) {
+        $('header-card').classList.add('custom-quant');
+        $('etf-code-tag').textContent = i18n[currentLang]['custom-tag'];
+        $('etf-name').innerHTML = `${currentLang === 'zh' ? '自研量化模型 (Leviathan)' : 'Proprietary Quant Model (Leviathan)'} <em>★</em>`;
+        $('etf-issuer').textContent = currentLang === 'zh' ? 'Custom Quant Model · 基於交易明細回測' : 'Custom Quant Model · Backtested from Trade Log';
+        const qCard = $('quant-stats-card');
+        if (qCard) qCard.style.display = 'block';
+        
+        // Populate quant stats dynamically
+        const qTotal = $('val-quant-total');
+        const qAnnual = $('val-quant-annual');
+        const qMax = $('val-quant-max');
+        const qSortino = $('val-quant-sortino');
+        if (qTotal) qTotal.textContent = etf.total_return ? `${etf.total_return.toFixed(2)}%` : '47.09%';
+        if (qAnnual) qAnnual.textContent = etf.annualized_return ? `${etf.annualized_return.toFixed(2)}%` : '67.78%';
+        if (qMax) qMax.textContent = etf.max_return ? `${etf.max_return.toFixed(2)}%` : '109.85%';
+        if (qSortino) qSortino.textContent = etf.sortino_ratio ? etf.sortino_ratio.toFixed(3) : '2.388';
+        
+        const qCap = $('quant-capital-label');
+        if (qCap) {
+          if (currentCurr === 'USD') {
+            const usdCap = (500000 / twdRate).toLocaleString(undefined, { maximumFractionDigits: 0 });
+            qCap.textContent = currentLang === 'zh' ? `初始資金：$${usdCap} 美元` : `Initial Capital: $${usdCap} USD`;
+          } else {
+            qCap.textContent = currentLang === 'zh' ? '初始資金：50 萬 TWD' : 'Initial Capital: 500,000 TWD';
+          }
+        }
+      } else {
+        $('header-card').classList.remove('custom-quant');
+        $('etf-code-tag').textContent = etf.code;
+        $('etf-name').textContent = etf.name;
+        $('etf-issuer').textContent = etf.issuer_full || etf.issuer;
+        const qCard = $('quant-stats-card');
+        if (qCard) qCard.style.display = 'none';
+      }
+
+      const chartTitleHeader = $('chart-title-header');
+      if (chartTitleHeader) {
+        chartTitleHeader.textContent = currentLang === 'zh' ? '與台灣五十大盤對比走勢 (0050 BENCHMARK COMPARE)' : '0050 Index Benchmark Comparison Chart';
+      }
+
+      if (etf.nav) {
+        if (etf.is_custom_quant) {
+          $('val-nav').textContent = currentCurr === 'USD' ? `$ ${etf.nav.toFixed(2)}` : `${etf.nav.toFixed(2)} 元`;
+        } else {
+          $('val-nav').textContent = currentCurr === 'USD' ? `$ ${(etf.nav / twdRate).toFixed(2)}` : `${etf.nav.toFixed(2)} 元`;
+        }
+      } else {
+        $('val-nav').textContent = '—';
+      }
+      
+      $('val-aum').textContent = etf.total_av_yi ? fmtAum(etf.total_av_yi) : '—';
+      
+      const series = etf.price_series || [];
+      if (series.length >= 2) {
+        const latestC = series[series.length - 1].c;
+        const mSeries = recentMonthSeries(etf);
+        const firstC = mSeries[0]?.c || series[0].c;
+        const pct = ((latestC - firstC) / firstC) * 100;
+        
+        $('val-return').textContent = `${pct > 0 ? '+' : ''}${pct.toFixed(2)}%`;
+        $('val-return').className = `stat-value ${pct > 0 ? 'up' : pct < 0 ? 'down' : ''}`;
+      } else {
+        $('val-return').textContent = '—';
+      }
+
+      const listingKey = etf.listing_date ? String(etf.listing_date).replaceAll('-', '').replaceAll('/', '') : '';
+      $('val-listing').textContent = listingKey.length === 8 ? `${listingKey.slice(0, 4)}-${listingKey.slice(4, 6)}-${listingKey.slice(6, 8)}` : '—';
+    }
+
+    function recentMonthSeries(targetEtf) {
+      const s = targetEtf.price_series || [];
+      if (s.length < 2) return s;
+      const latest = parseDateKeyUTC(s[s.length - 1]?.d);
+      if (!latest) return s;
+      const anchor = new Date(latest);
+      anchor.setUTCMonth(anchor.getUTCMonth() - 1);
+      let anchorIdx = -1;
+      for (let i = 0; i < s.length; i++) {
+        const ptD = parseDateKeyUTC(s[i]?.d);
+        if (ptD && ptD <= anchor) anchorIdx = i;
+      }
+      return s.slice(Math.max(anchorIdx, 0));
+    }
+
+    function parseDateKeyUTC(d) {
+      const k = String(d).replaceAll('-', '').replaceAll('/', '');
+      if (k.length !== 8) return null;
+      return new Date(Date.UTC(Number(k.slice(0, 4)), Number(k.slice(4, 6)) - 1, Number(k.slice(6, 8))));
+    }
+
+    function renderHoldings() {
+      const tbody = $('holdings-body');
+      tbody.innerHTML = '';
+      
+      const holdings = etf.holdings || [];
+      if (!holdings.length) {
+        const top3 = etf.top3 || [];
+        if (top3.length) {
+          top3.forEach(h => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td class="td-code">${h.code}</td>
+              <td>${h.name}</td>
+              <td class="td-val">${h.weight.toFixed(2)}%</td>
+              <td class="td-val" style="color: var(--dir-muted);">—</td>
+            `;
+            tbody.appendChild(tr);
+          });
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td colspan="4" style="text-align: center; color: var(--dir-muted); font-size: 10px; padding: 12px 0;">
+              ${i18n[currentLang]['real-etf-note']}
+            </td>
+          `;
+          tbody.appendChild(tr);
+        } else {
+          tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--dir-muted); padding: 32px 0;">${i18n[currentLang]['no-data']}</td></tr>`;
+        }
+      } else {
+        holdings.forEach(h => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td class="td-code">${h.code}</td>
+            <td>${h.name}</td>
+            <td class="td-val">${h.weight.toFixed(2)}%</td>
+            <td class="td-val">${h.shares ? Math.round(h.shares).toLocaleString() : '—'}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+    }
+
+    function renderSignals() {
+      const signals = etf.shares_signal || {};
+      
+      const renderList = (elId, list, type) => {
+        const container = $(elId);
+        container.innerHTML = '';
+        if (!list || !list.length) {
+          container.innerHTML = '<div class="empty-signal">—</div>';
+          return;
+        }
+        
+        list.slice(0, 10).forEach(item => {
+          const pill = document.createElement('div');
+          pill.className = `signal-pill ${type}`;
+          
+          let content = '';
+          const metaLabel = i18n[currentLang][`sig-${type}-meta`] || type;
+          if (type === 'add') {
+            content = `<span class="sig-icon">▲</span> <span class="sig-name">${item.name}</span> <span class="sig-meta">+${item.pct}% (${metaLabel}, Weight ${item.weight}%)</span>`;
+          } else if (type === 'reduction') {
+            content = `<span class="sig-icon">▼</span> <span class="sig-name">${item.name}</span> <span class="sig-meta">-${item.pct}% (${metaLabel}, Weight ${item.weight}%)</span>`;
+          } else if (type === 'new') {
+            content = `<span class="sig-icon">★</span> <span class="sig-name">${item.name}</span> <span class="sig-meta">${metaLabel} (Weight ${item.weight}%)</span>`;
+          } else {
+            content = `<span class="sig-icon">×</span> <span class="sig-name">${item.name}</span> <span class="sig-meta">${metaLabel}</span>`;
+          }
+          pill.innerHTML = content;
+          container.appendChild(pill);
+        });
+      };
+
+      renderList('adds-list', signals.top_adds, 'add');
+      renderList('reductions-list', signals.top_reductions, 'reduction');
+      renderList('new-list', signals.new_positions, 'new');
+      renderList('exits-list', signals.exits, 'exit');
+    }
+
+    function renderChart() {
+      const canvas = $('perfChart');
+      if (!canvas) return;
+
+      const series = etf.price_series || [];
+      if (!series.length) return;
+
+      let filteredSeries = [...series];
+      if (selectedRange === '1m') {
+        filteredSeries = recentMonthSeries(etf);
+      } else if (selectedRange === '3m') {
+        const latest = parseDateKeyUTC(series[series.length - 1]?.d);
+        if (latest) {
+          const anchor = new Date(latest);
+          anchor.setUTCMonth(anchor.getUTCMonth() - 3);
+          filteredSeries = series.filter(pt => {
+            const ptD = parseDateKeyUTC(pt.d);
+            return ptD && ptD >= anchor;
+          });
+        }
+      }
+
+      const labels = filteredSeries.map(pt => {
+        const k = String(pt.d);
+        return `${k.slice(4, 6)}/${k.slice(6, 8)}`;
+      });
+      
+      const startEtfPrice = filteredSeries[0].c;
+      const etfValues = filteredSeries.map(pt => (pt.c / startEtfPrice) * 100);
+
+      function getLeviathanSeries() {
+        const stored = localStorage.getItem('custom_quant_model');
+        if (stored) {
+          try {
+            const parsed = JSON.parse(stored);
+            if (parsed && parsed.price_series) return parsed.price_series;
+          } catch (e) {}
+        }
+        return null;
+      }
+
+      let benchmarkValues = [];
+      const benchmarkLabel = currentLang === 'zh' ? '大盤對比 (0050.TW)' : '0050.TW Index Benchmark';
+      const benchmarkColor = 'rgba(51, 153, 255, 0.8)';
+      const isBenchmarkDashed = true;
+      
+      if (prices && prices['0050.TW']) {
+        const benchSeries = prices['0050.TW'];
+        const alignedBench = filteredSeries.map(pt => {
+          const match = benchSeries.find(b => b.d === pt.d) || benchSeries.filter(b => b.d <= pt.d).pop();
+          return match ? match.c : null;
+        });
+        const startBenchPrice = alignedBench[0] || 1;
+        benchmarkValues = alignedBench.map(p => p ? (p / startBenchPrice) * 100 : 100);
+      }
+
+      if (chartInstance) {
+        chartInstance.destroy();
+      }
+
+      const datasets = [
+        {
+          label: etf.name,
+          data: etfValues,
+          borderColor: 'rgba(230, 46, 46, 0.95)',
+          borderWidth: 2,
+          pointRadius: 0,
+          pointHoverRadius: 4,
+          fill: false,
+          tension: 0.1
+        }
+      ];
+
+      if (benchmarkValues.length) {
+        datasets.push({
+          label: benchmarkLabel,
+          data: benchmarkValues,
+          borderColor: benchmarkColor,
+          borderWidth: 1.8,
+          borderDash: isBenchmarkDashed ? [4, 4] : [],
+          pointRadius: 0,
+          pointHoverRadius: 0,
+          fill: false,
+          tension: 0.1
+        });
+      }
+
+      chartInstance = new Chart(canvas, {
+        type: 'line',
+        data: {
+          labels,
+          datasets
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: {
+            mode: 'index',
+            intersect: false
+          },
+          plugins: {
+            legend: {
+              display: true,
+              labels: {
+                color: '#849cb5',
+                font: {
+                  family: 'Consolas, monospace',
+                  size: 10
+                }
+              }
+            },
+            tooltip: {
+              enabled: true,
+              callbacks: {
+                label: function(context) {
+                  let label = context.dataset.label || '';
+                  if (label) {
+                    label += ': ';
+                  }
+                  if (context.parsed.y !== null) {
+                    label += (context.parsed.y - 100).toFixed(2) + '%';
+                  }
+                  return label;
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: {
+                color: 'rgba(10, 31, 61, 0.4)'
+              },
+              ticks: {
+                color: '#849cb5',
+                font: {
+                  family: 'Consolas, monospace',
+                  size: 9
+                }
+              }
+            },
+            y: {
+              grid: {
+                color: 'rgba(10, 31, 61, 0.4)'
+              },
+              ticks: {
+                color: '#849cb5',
+                font: {
+                  family: 'Consolas, monospace',
+                  size: 9
+                },
+                callback: function(value) {
+                  return (value - 100).toFixed(0) + '%';
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    window.addEventListener('load', loadData);
+  </script>
+</body>
+</html>

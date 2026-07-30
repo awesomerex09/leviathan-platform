@@ -1,16 +1,16 @@
 <!DOCTYPE html><html lang="zh-Hant"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Leviathan 量化展示平台</title><meta name="description" content="Leviathan 量化交易模型與主動基金展示平台。"><link rel="icon" href="./favicon.svg" type="image/svg+xml"><link rel="manifest" href="/manifest.json"><link rel="preconnect" href="https://static.cloudflareinsights.com"><link rel="preload" href="./shared.css" as="style"><link rel="stylesheet" href="./shared.css"><style>:root {
-  --dir-bg: #030712;
-  --dir-panel: #0a122c;
-  --dir-panel-hot: #101b42;
-  --dir-line: #162552;
-  --dir-line-hot: #213670;
-  --dir-ink: #c5d1e8;
-  --dir-muted: #6b7c96;
-  --dir-green: #d92b4b;
-  --dir-mint: #2b82d9;
-  --dir-red: #d92b4b;
-  --dir-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
-  --dir-serif: "Inter", "PingFang TC", "Noto Sans TC", sans-serif;
+  --dir-bg: var(--night);
+  --dir-panel: var(--night-panel);
+  --dir-panel-hot: var(--night-lift);
+  --dir-line: var(--night-rule);
+  --dir-line-hot: var(--night-rule-strong);
+  --dir-ink: #ffffff;
+  --dir-muted: var(--fog);
+  --dir-green: var(--accent);
+  --dir-mint: var(--down);
+  --dir-red: var(--accent);
+  --dir-mono: var(--font-mono);
+  --dir-serif: var(--font-display);
 }
 
 html {
@@ -19,11 +19,7 @@ html {
 
 body {
   color: var(--dir-ink);
-  background:
-    linear-gradient(rgba(217, 43, 75, .03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(43, 130, 217, .04) 1px, transparent 1px),
-    var(--dir-bg);
-  background-size: 72px 72px;
+  background: var(--dir-bg);
 }
 
 .directory-main,
@@ -203,42 +199,47 @@ body {
   letter-spacing: .08em;
 }
 
-.etf-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 16px;
-  border: none;
-  margin-top: 24px;
+.scroll-container {
+  position: relative;
+  height: 500vh;
+  margin-top: 40px;
+}
+.sticky-wrapper {
+  position: sticky;
+  top: 60px;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.horizontal-track {
+  display: flex;
+  gap: 24px;
+  padding: 0 40px;
+  will-change: transform;
+  transition: transform 0.08s cubic-bezier(0.1, 0.8, 0.2, 1);
 }
 
 a.etf-row {
   position: relative;
-  display: grid;
-  grid-template-columns: 80px minmax(0, 1fr) 80px;
-  grid-template-areas:
-    "id name aum"
-    "id spark date";
-  min-width: 0;
-  min-height: 130px;
-  align-items: center;
-  gap: 12px;
-  padding: 20px;
+  flex: 0 0 320px;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px;
   border: 1px solid var(--dir-line);
   border-radius: var(--radius-md);
   color: inherit;
-  background: rgba(10, 18, 44, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: var(--dir-panel);
   text-decoration: none;
-  box-shadow: var(--shadow-soft);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
 }
 
 a.etf-row:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border-color: var(--dir-green);
-  background: rgba(16, 27, 66, 0.6);
-  box-shadow: 0 12px 30px rgba(217, 43, 75, 0.15);
+  background: var(--dir-panel-hot);
 }
 
 a.etf-row::before {
@@ -246,71 +247,76 @@ a.etf-row::before {
 }
 
 .er-id {
-  grid-area: id;
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
 }
 
 .er-code {
   color: var(--dir-green);
   font-family: var(--dir-mono);
-  font-size: 14px;
-  font-weight: 800;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .er-issuer {
   color: var(--dir-muted);
   font-size: 9px;
   letter-spacing: .04em;
+  text-transform: uppercase;
 }
 
 .er-name {
-  grid-area: name;
   min-width: 0;
-  overflow: hidden;
   color: var(--dir-ink);
   font-family: var(--dir-serif);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.45;
+  margin: 12px 0;
+  white-space: normal;
+  overflow: visible;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 52px;
 }
 
 .er-aum {
-  grid-area: aum;
-  color: var(--dir-mint);
+  color: #ffffff;
   font-family: var(--dir-mono);
-  text-align: right;
 }
 
 .er-aum-v {
-  font-size: 13px;
-  font-weight: 800;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .er-aum-u {
   margin-left: 2px;
   color: var(--dir-muted);
-  font-size: 8px;
+  font-size: 9px;
 }
 
 .er-spark {
-  grid-area: spark;
+  flex: 1;
   display: flex;
-  min-width: 0;
   align-items: center;
-  gap: 9px;
+  width: 100%;
+  margin: 16px 0;
+  border-bottom: 1px solid var(--dir-line);
+  padding-bottom: 16px;
 }
 
 .er-spark-svg {
-  min-width: 0;
+  width: 100%;
 }
 
 .er-pct {
   font-family: var(--dir-mono);
-  font-size: 9px;
-  font-weight: 800;
+  font-size: 11px;
+  font-weight: 700;
   white-space: nowrap;
 }
 
@@ -320,13 +326,13 @@ a.etf-row::before {
 
 svg.spark {
   display: block;
-  width: 72px;
-  height: 18px;
+  width: 100%;
+  height: 60px;
 }
 
 svg.spark polyline {
   fill: none;
-  stroke-width: 1.3;
+  stroke-width: 1.5;
 }
 
 svg.spark.up polyline { stroke: var(--dir-red); }
@@ -334,11 +340,9 @@ svg.spark.down polyline { stroke: var(--dir-mint); }
 svg.spark.flat polyline { stroke: var(--dir-muted); }
 
 .er-date {
-  grid-area: date;
-  color: #6f8478;
+  color: var(--dir-muted);
   font-family: var(--dir-mono);
   font-size: 9px;
-  text-align: right;
 }
 
 .empty {
@@ -351,201 +355,228 @@ svg.spark.flat polyline { stroke: var(--dir-muted); }
   font-size: 11px;
 }
 
-@media (max-width: 760px) {
-  .directory-main {
-    width: min(100% - 24px, 680px);
-    padding-top: 18px;
-  }
-
-  .directory-hero {
-    grid-template-columns: 1fr;
-    min-height: 0;
-  }
-
-  .directory-hero-mark {
-    display: none;
-  }
-
-  .directory-hero-copy {
-    padding: 38px 34px 34px;
-  }
-
-  .etf-list {
-    grid-template-columns: 1fr;
-  }
-
-  a.etf-row {
-    border-right: 0;
-  }
-}
-
-@media (max-width: 640px) {
-  body {
-    background-size: 44px 44px;
-  }
-
+@media (max-width: 768px) {
   .directory-main {
     width: 100%;
-    padding: 0 0 36px;
+    padding: 24px 0 40px;
   }
-
-  .directory-hero,
-  .controls,
-  .etf-list {
-    border-right: 0;
-    border-left: 0;
-  }
-
-  .directory-hero-copy {
-    padding: 32px 20px 27px;
-  }
-
-  .directory-hero p {
-    font-size: 9px;
-  }
-
-  .directory-hero h1 {
+  .scroll-container {
+    height: auto !important;
     margin-top: 24px;
-    font-size: 43px;
   }
-
-  .directory-hero-copy > div {
-    display: grid;
-    gap: 5px;
-    margin-top: 20px;
+  .sticky-wrapper {
+    position: relative !important;
+    top: 0 !important;
+    height: auto !important;
+    overflow-x: auto !important;
+    display: block !important;
+    padding-bottom: 16px;
+    -webkit-overflow-scrolling: touch;
   }
-
+  .horizontal-track {
+    transform: none !important;
+    padding: 0 20px !important;
+    gap: 16px !important;
+  }
+  a.etf-row {
+    flex: 0 0 280px;
+    height: 380px;
+    padding: 20px;
+  }
+  .er-name {
+    font-size: 16px;
+    height: 48px;
+  }
+  svg.spark {
+    height: 50px;
+  }
   .controls {
     flex-wrap: wrap;
-    margin-top: 10px;
+    margin: 10px 20px 0;
     padding: 12px;
   }
-
   .observe-nav {
     width: 100%;
     margin-left: 0;
   }
-
   .observe-nav a {
     width: 100%;
     justify-content: space-between;
   }
-
-  a.etf-row {
-    grid-template-columns: 66px minmax(0, 1fr) 68px;
-    min-height: 96px;
-    padding: 15px 13px;
-  }
-
-  a.etf-row:hover {
-    padding-left: 13px;
-  }
-
-  .er-name {
-    font-size: 14px;
-  }
-
-  .er-spark {
-    gap: 6px;
-  }
-
-  svg.spark {
-    width: 56px;
-  }
-
-  .er-date {
-    display: none;
-  }
-}
-
-@media (max-width: 380px) {
-  a.etf-row {
-    grid-template-columns: 58px minmax(0, 1fr) 62px;
-    gap: 7px;
-    padding: 14px 10px;
-  }
-
-  .er-code,
-  .er-aum-v {
-    font-size: 12px;
-  }
-
-  .er-name {
-    font-size: 13px;
-  }
 }
   .flagship-banner {
-    transition: all 0.25s ease;
+    margin-bottom: 32px;
+    border: 1px solid var(--dir-line);
+    border-radius: var(--radius-md);
+    background: var(--dir-panel);
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.25s ease;
   }
   .flagship-banner:hover {
-    border-color: rgba(217, 43, 75, 0.4) !important;
-    box-shadow: 0 12px 40px rgba(217, 43, 75, 0.15) !important;
+    border-color: var(--dir-line-hot);
   }
-  .flagship-banner:hover .flagship-logo-img {
-    transform: scale(1.05);
+  .flagship-badge {
+    font-family: var(--dir-mono);
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--dir-green);
+    letter-spacing: 0.12em;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .flagship-title {
+    font-family: var(--dir-serif);
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+  }
+  .flagship-desc {
+    color: var(--dir-muted);
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 680px;
+  }
+  .flagship-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 16px 0;
+  }
+  .flagship-stat-box {
+    padding: 0 16px;
+    border-left: 1px solid var(--dir-line);
+  }
+  .flagship-stat-box:first-child {
+    border-left: none;
+    padding-left: 0;
+  }
+  .flagship-stat-label {
+    font-size: 8px;
+    color: var(--dir-muted);
+    font-family: var(--dir-mono);
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .flagship-stat-value {
+    font-family: var(--dir-mono);
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+  .flagship-stat-value.accent {
+    color: var(--dir-green);
+  }
+  .flagship-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid var(--dir-line-hot);
+    padding: 8px 16px;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: var(--dir-serif);
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
   .flagship-cta-btn:hover {
-    background: #ff3b5c !important;
-    box-shadow: 0 6px 18px rgba(217,43,75,0.4) !important;
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.04);
+  }
+  .flagship-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--dir-line);
+    background: var(--dir-bg);
+    padding: 20px;
+    min-height: 180px;
+  }
+  .flagship-logo-img {
+    width: 90px;
+    height: 90px;
+    transition: transform 0.4s ease;
+  }
+  .flagship-banner:hover .flagship-logo-img {
+    transform: scale(1.06);
   }
   @media (max-width: 768px) {
     .flagship-banner {
-      grid-template-columns: 1fr !important;
-      padding: 20px !important;
-      gap: 20px !important;
+      grid-template-columns: 1fr;
+      padding: 24px;
+      gap: 24px;
     }
     .flagship-visual {
-      display: none !important;
+      display: none;
+    }
+    .flagship-stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px 0;
+    }
+    .flagship-stat-box:nth-child(odd) {
+      border-left: none;
+      padding-left: 0;
     }
   }
 </style><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "ab4500d237674d5682b68427d216ea36"}'></script></head> <body>  <div class="mast"><div class="mast-l"><a class="mast-brand mast-brand--link" href="./index.html"><img class="mast-brand__mark" src="./brand-mark.svg" alt="" width="28" height="28"><span class="mast-title">Leviathan</span></a><span class="mast-sub" data-i18n="mast-sub">旗艦量化交易展示平台</span></div><div class="mast-r" style="display: flex; align-items: center; gap: 8px;"><span id="mast-stat">—</span><button id="curr-toggle-btn" style="background: transparent; border: 1px solid var(--dir-line); color: var(--dir-muted); font-family: var(--dir-mono); font-size: 10px; font-weight: 800; padding: 4px 8px; cursor: pointer; transition: all 0.16s ease; border-radius: var(--radius-sm);">USD</button><button id="lang-toggle-btn" style="background: transparent; border: 1px solid var(--dir-line); color: var(--dir-muted); font-family: var(--dir-mono); font-size: 10px; font-weight: 800; padding: 4px 8px; cursor: pointer; transition: all 0.16s ease; border-radius: var(--radius-sm);">EN</button></div></div> <main class="directory-main">
 
   <!-- Flagship Quant Model Banner -->
-  <section class="flagship-banner" style="margin-bottom: 32px; border: 1px solid var(--dir-line); border-radius: var(--radius-md); background: linear-gradient(135deg, rgba(217, 43, 75, 0.08), rgba(10, 18, 44, 0.95)); padding: 28px; display: grid; grid-template-columns: 1fr 300px; gap: 32px; box-shadow: 0 8px 32px rgba(0,0,0,0.4); border-left: 3px solid var(--dir-green); position: relative; overflow: hidden;">
-    <!-- Visual background accent -->
-    <div style="position: absolute; top: -50px; right: -50px; width: 250px; height: 250px; background: radial-gradient(circle, rgba(43, 130, 217, 0.15) 0%, transparent 70%); pointer-events: none;"></div>
-    
-    <div class="flagship-info" style="display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+  <section class="flagship-banner">
+    <div class="flagship-info">
       <div>
-        <span style="font-family: var(--dir-mono); font-size: 10px; font-weight: 800; color: var(--dir-green); letter-spacing: 0.15em; display: inline-block; margin-bottom: 8px;" data-i18n="flagship-badge">★ FLAGSHIP QUANT MODEL / 旗艦自研量化模型</span>
-        <h2 style="font-family: var(--dir-serif); font-size: 26px; font-weight: 800; margin: 0 0 10px 0; color: #fff;" data-i18n="flagship-title">Leviathan (利維坦) 量化模型</h2>
-        <p style="color: var(--dir-muted); font-size: 13.5px; line-height: 1.6; margin: 0;" data-i18n="flagship-desc">
+        <span class="flagship-badge" data-i18n="flagship-badge">★ FLAGSHIP QUANT MODEL / 旗艦自研量化模型</span>
+        <h2 class="flagship-title" data-i18n="flagship-title">Leviathan (利維坦) 量化模型</h2>
+        <p class="flagship-desc" data-i18n="flagship-desc">
           基於市場流動性、多空量化因子與主動持股動態進行智慧調倉。以 50 萬 TWD 初始資金實盤校準，專注於創造超越大盤的超額回報 (Alpha)。
         </p>
       </div>
       
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 8px 0;">
-        <div style="border-left: 1px solid var(--dir-line); padding-left: 14px;">
-          <div style="font-size: 9px; color: var(--dir-muted); font-family: var(--dir-mono); margin-bottom: 4px;" data-i18n="lbl-total-return">TOTAL RETURN / 總報酬率</div>
-          <div style="font-family: var(--dir-mono); font-size: 18px; font-weight: 800; color: var(--dir-green);" id="flagship-total">47.09%</div>
+      <div class="flagship-stats-grid">
+        <div class="flagship-stat-box">
+          <div class="flagship-stat-label" data-i18n="lbl-total-return">TOTAL RETURN / 總報酬率</div>
+          <div class="flagship-stat-value accent" id="flagship-total">47.09%</div>
         </div>
-        <div style="border-left: 1px solid var(--dir-line); padding-left: 14px;">
-          <div style="font-size: 9px; color: var(--dir-muted); font-family: var(--dir-mono); margin-bottom: 4px;" data-i18n="lbl-annualized">ANNUALIZED / 年化報酬率</div>
-          <div style="font-family: var(--dir-mono); font-size: 18px; font-weight: 800; color: var(--dir-green);" id="flagship-annual">67.78%</div>
+        <div class="flagship-stat-box">
+          <div class="flagship-stat-label" data-i18n="lbl-annualized">ANNUALIZED / 年化報酬率</div>
+          <div class="flagship-stat-value accent" id="flagship-annual">67.78%</div>
         </div>
-        <div style="border-left: 1px solid var(--dir-line); padding-left: 14px;">
-          <div style="font-size: 9px; color: var(--dir-muted); font-family: var(--dir-mono); margin-bottom: 4px;" data-i18n="lbl-peak-return">PEAK RETURN / 最高報酬率</div>
-          <div style="font-family: var(--dir-mono); font-size: 18px; font-weight: 800; color: var(--dir-green);" id="flagship-peak">109.85%</div>
+        <div class="flagship-stat-box">
+          <div class="flagship-stat-label" data-i18n="lbl-peak-return">PEAK RETURN / 最高報酬率</div>
+          <div class="flagship-stat-value accent" id="flagship-peak">109.85%</div>
         </div>
-        <div style="border-left: 1px solid var(--dir-line); padding-left: 14px;">
-          <div style="font-size: 9px; color: var(--dir-muted); font-family: var(--dir-mono); margin-bottom: 4px;" data-i18n="lbl-sortino">SORTINO / 索提諾比率</div>
-          <div style="font-family: var(--dir-mono); font-size: 18px; font-weight: 800; color: var(--dir-green);" id="flagship-sortino">2.388</div>
+        <div class="flagship-stat-box">
+          <div class="flagship-stat-label" data-i18n="lbl-sortino">SORTINO / 索提諾比率</div>
+          <div class="flagship-stat-value accent" id="flagship-sortino">2.388</div>
         </div>
       </div>
       
       <div>
-        <a href="./etf.html?code=LEVIATHAN" style="display: inline-flex; align-items: center; gap: 8px; background: var(--dir-green); color: #fff; text-decoration: none; padding: 10px 20px; font-size: 12px; font-weight: 700; font-family: var(--dir-serif); border-radius: var(--radius-sm); box-shadow: 0 4px 12px rgba(217,43,75,0.25); transition: all 0.2s ease;" class="flagship-cta-btn">
+        <a href="./etf.html?code=LEVIATHAN" class="flagship-cta-btn">
           <span data-i18n="flagship-cta">查看 Leviathan 詳情與即時調倉訊號 ➔</span>
         </a>
       </div>
     </div>
     
-    <div class="flagship-visual" style="position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: var(--radius-sm); border: 1px solid var(--dir-line); background: #000; padding: 20px;">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" style="width: 120px; height: 120px; transition: transform 0.4s ease;" class="flagship-logo-img">
+    <div class="flagship-visual">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" class="flagship-logo-img">
         <defs>
           <linearGradient id="whale-grad-hero" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#d92b4b" />
-            <stop offset="100%" stop-color="#2b82d9" />
+            <stop offset="0%" stop-color="#ff453a" />
+            <stop offset="100%" stop-color="#0a84ff" />
           </linearGradient>
         </defs>
         <path fill="url(#whale-grad-hero)" d="M32 54C32 54 31 38 22 30C14 23 8 25 6 20C4 15 12 16 26 23C31 25.5 31.5 28 32 30C32.5 28 33 25.5 38 23C52 16 60 15 58 20C56 25 50 23 42 30C33 38 32 54 32 54Z"/>
@@ -567,7 +598,13 @@ svg.spark.flat polyline { stroke: var(--dir-muted); }
     </nav>
   </div>
 
-  <div class="etf-list" id="list"></div>
+  <!-- Sticky horizontal scroll track container -->
+  <div class="scroll-container" id="scroll-container">
+    <div class="sticky-wrapper">
+      <div class="horizontal-track" id="list"></div>
+    </div>
+  </div>
+
   <template id="etf-row-template">
     <a class="etf-row">
       <div class="er-id">
@@ -575,14 +612,18 @@ svg.spark.flat polyline { stroke: var(--dir-muted); }
         <span class="er-issuer"></span>
       </div>
       <span class="er-name"></span>
-      <div class="er-aum">
-        <span class="er-aum-v"></span><span class="er-aum-u" data-i18n="aum-unit">億</span>
-      </div>
       <div class="er-spark">
-        <span class="er-spark-svg"></span>
-        <span class="er-pct"></span>
+        <div class="er-spark-svg"></div>
       </div>
-      <span class="er-date"></span>
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%; border-top: 1px solid var(--dir-line); padding-top: 12px;">
+        <div class="er-aum">
+          <span class="er-aum-v"></span><span class="er-aum-u" data-i18n="aum-unit">億</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
+          <span class="er-pct"></span>
+          <span class="er-date"></span>
+        </div>
+      </div>
     </a>
   </template>
 </main>  <footer class="public-disclosure-footer" data-policy-version="membership-2026-07-21.v1"> <div class="public-disclosure-footer__inner"> <a class="public-disclosure-footer__brand" href="./index.html"> <img src="./brand-mark.svg" alt="" width="24" height="24"> <span>Leviathan</span> </a> <nav class="public-disclosure-footer__links" aria-label="訂閱與客服資訊"> <a href="/contact/">聯絡我們</a> <a href="/policies/refund/">取消訂閱與退款政策</a> <a href="/policies/delivery/">商品交付政策</a> </nav> </div> </footer> <script src="./shared-preview-data.js"></script> <script type="module">const $ = id => document.getElementById(id);
@@ -982,7 +1023,44 @@ function render(sortKey) {
   }
 
   for (const etf of sorted) list.appendChild(createRow(etf));
+  requestAnimationFrame(animateHorizontalScroll);
 }
+
+// ── scroll-driven horizontal flow ──────────────────────────────────────────────
+const scrollContainer = $('scroll-container');
+function animateHorizontalScroll() {
+  if (!scrollContainer || !list) return;
+  
+  if (window.innerWidth <= 768) {
+    list.style.transform = 'none';
+    return;
+  }
+
+  const containerHeight = scrollContainer.offsetHeight;
+  const viewportHeight = window.innerHeight;
+
+  const start = scrollContainer.offsetTop;
+  const scrollableRange = containerHeight - viewportHeight;
+  const scrollTop = window.scrollY;
+
+  let progress = (scrollTop - start) / scrollableRange;
+  progress = Math.max(0, Math.min(1, progress));
+
+  const maxTranslate = list.scrollWidth - window.innerWidth + 80;
+  if (maxTranslate > 0) {
+    const translateAmount = progress * maxTranslate;
+    list.style.transform = `translateX(-${translateAmount}px)`;
+  } else {
+    list.style.transform = 'none';
+  }
+}
+
+window.addEventListener('scroll', () => {
+  requestAnimationFrame(animateHorizontalScroll);
+});
+window.addEventListener('resize', () => {
+  requestAnimationFrame(animateHorizontalScroll);
+});
 
 // ── sort/hash controller boot ────────────────────────────────────────────────
 function applySort(sortKey) {

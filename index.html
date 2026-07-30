@@ -535,43 +535,49 @@ svg.spark.flat polyline { stroke: var(--dir-muted); }
 </style><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "ab4500d237674d5682b68427d216ea36"}'></script></head> <body>  <div class="mast"><div class="mast-l"><a class="mast-brand mast-brand--link" href="./index.html"><img class="mast-brand__mark" src="./brand-mark.svg" alt="" width="28" height="28"><span class="mast-title">Leviathan</span></a><span class="mast-sub" data-i18n="mast-sub">旗艦量化交易展示平台</span></div><div class="mast-r" style="display: flex; align-items: center; gap: 8px;"><span id="mast-stat">—</span><button id="curr-toggle-btn" style="background: transparent; border: 1px solid var(--dir-line); color: var(--dir-muted); font-family: var(--dir-mono); font-size: 10px; font-weight: 800; padding: 4px 8px; cursor: pointer; transition: all 0.16s ease; border-radius: var(--radius-sm);">USD</button><button id="lang-toggle-btn" style="background: transparent; border: 1px solid var(--dir-line); color: var(--dir-muted); font-family: var(--dir-mono); font-size: 10px; font-weight: 800; padding: 4px 8px; cursor: pointer; transition: all 0.16s ease; border-radius: var(--radius-sm);">EN</button></div></div> <main class="directory-main">
 
   <!-- Flagship Quant Model Banner -->
-  <section class="flagship-banner">
+  <section class="flagship-banner reveal-card">
     <div class="flagship-info">
       <div>
-        <span class="flagship-badge" data-i18n="flagship-badge">★ FLAGSHIP QUANT MODEL / 旗艦自研量化模型</span>
-        <h2 class="flagship-title" data-i18n="flagship-title">Leviathan (利維坦) 量化模型</h2>
-        <p class="flagship-desc" data-i18n="flagship-desc">
-          基於市場流動性、多空量化因子與主動持股動態進行智慧調倉。以 50 萬 TWD 初始資金實盤校準，專注於創造超越大盤的超額回報 (Alpha)。
-        </p>
+        <div class="reveal-wrapper">
+          <span class="flagship-badge reveal-text" data-i18n="flagship-badge">★ FLAGSHIP QUANT MODEL / 旗艦自研量化模型</span>
+        </div>
+        <div class="reveal-wrapper">
+          <h2 class="flagship-title reveal-text delay-1" data-i18n="flagship-title">Leviathan (利維坦) 量化模型</h2>
+        </div>
+        <div class="reveal-wrapper">
+          <p class="flagship-desc reveal-text delay-2" data-i18n="flagship-desc">
+            基於市場流動性、多空量化因子與主動持股動態進行智慧調倉。以 50 萬 TWD 初始資金實盤校準，專注於創造超越大盤的超額回報 (Alpha)。
+          </p>
+        </div>
       </div>
       
       <div class="flagship-stats-grid">
-        <div class="flagship-stat-box">
+        <div class="flagship-stat-box reveal-card delay-3">
           <div class="flagship-stat-label" data-i18n="lbl-total-return">TOTAL RETURN / 總報酬率</div>
           <div class="flagship-stat-value accent" id="flagship-total">47.09%</div>
         </div>
-        <div class="flagship-stat-box">
+        <div class="flagship-stat-box reveal-card delay-4">
           <div class="flagship-stat-label" data-i18n="lbl-annualized">ANNUALIZED / 年化報酬率</div>
           <div class="flagship-stat-value accent" id="flagship-annual">67.78%</div>
         </div>
-        <div class="flagship-stat-box">
+        <div class="flagship-stat-box reveal-card delay-5">
           <div class="flagship-stat-label" data-i18n="lbl-peak-return">PEAK RETURN / 最高報酬率</div>
           <div class="flagship-stat-value accent" id="flagship-peak">109.85%</div>
         </div>
-        <div class="flagship-stat-box">
+        <div class="flagship-stat-box reveal-card delay-6">
           <div class="flagship-stat-label" data-i18n="lbl-sortino">SORTINO / 索提諾比率</div>
           <div class="flagship-stat-value accent" id="flagship-sortino">2.388</div>
         </div>
       </div>
       
-      <div>
-        <a href="./etf.html?code=LEVIATHAN" class="flagship-cta-btn">
+      <div class="reveal-wrapper">
+        <a href="./etf.html?code=LEVIATHAN" class="flagship-cta-btn reveal-text delay-5">
           <span data-i18n="flagship-cta">查看 Leviathan 詳情與即時調倉訊號 ➔</span>
         </a>
       </div>
     </div>
     
-    <div class="flagship-visual">
+    <div class="flagship-visual reveal-card delay-3">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" class="flagship-logo-img">
         <defs>
           <linearGradient id="whale-grad-hero" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -584,7 +590,7 @@ svg.spark.flat polyline { stroke: var(--dir-muted); }
     </div>
   </section>
 
-  <div class="controls">
+  <div class="controls reveal-card">
     <label for="sort" data-i18n="sort-label">排序</label>
     <select id="sort">
       <option value="aum" data-i18n="sort-aum">規模</option>
@@ -627,6 +633,24 @@ svg.spark.flat polyline { stroke: var(--dir-muted); }
     </a>
   </template>
 </main>  <footer class="public-disclosure-footer" data-policy-version="membership-2026-07-21.v1"> <div class="public-disclosure-footer__inner"> <a class="public-disclosure-footer__brand" href="./index.html"> <img src="./brand-mark.svg" alt="" width="24" height="24"> <span>Leviathan</span> </a> <nav class="public-disclosure-footer__links" aria-label="訂閱與客服資訊"> <a href="/contact/">聯絡我們</a> <a href="/policies/refund/">取消訂閱與退款政策</a> <a href="/policies/delivery/">商品交付政策</a> </nav> </div> </footer> <script src="./shared-preview-data.js"></script> <script type="module">const $ = id => document.getElementById(id);
+
+// ── scroll reveal observer ──────────────────────────────────────────────────
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, {
+  threshold: 0.05,
+  rootMargin: '0px 0px -40px 0px'
+});
+
+function initScrollReveal() {
+  document.querySelectorAll('.reveal-text, .reveal-card').forEach(el => {
+    revealObserver.observe(el);
+  });
+}
 
 // ── date / format helpers ────────────────────────────────────────────────────
 const dateKey = d => d ? String(d).replaceAll('-', '').replaceAll('/', '') : '';
@@ -888,6 +912,7 @@ async function loadAndRender() {
       setCurrency(currentCurr === 'USD' ? 'TWD' : 'USD');
     });
   }
+  initScrollReveal();
 }
 // ── sparkline / price change helpers ─────────────────────────────────────────
 function parseDateKeyUTC(d) {
@@ -968,6 +993,7 @@ function createRow(etf) {
   const pctStr = pct == null ? '' : `${pct > 0 ? '+' : ''}${pct.toFixed(1)}%`;
   const pctCls = pctClassName(pct);
   const row = rowTemplate.content.firstElementChild.cloneNode(true);
+  row.classList.add('reveal-card');
   const href = `./etf.html?code=${etf.code}`;
 
   row.href = href;
@@ -1022,7 +1048,11 @@ function render(sortKey) {
     return;
   }
 
-  for (const etf of sorted) list.appendChild(createRow(etf));
+  for (const etf of sorted) {
+    const row = createRow(etf);
+    list.appendChild(row);
+    revealObserver.observe(row);
+  }
   requestAnimationFrame(animateHorizontalScroll);
 }
 

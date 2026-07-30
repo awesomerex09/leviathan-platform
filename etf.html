@@ -370,30 +370,36 @@
   </div>
 
   <main class="detail-main">
-    <div>
+    <div class="reveal-card">
       <a href="./index.html" class="back-btn" data-i18n="back-btn">← BACK TO LIST / 返回列表</a>
     </div>
 
-    <header class="etf-header-card" id="header-card">
+    <header class="etf-header-card reveal-card" id="header-card">
       <div class="etf-title-area">
-        <span class="etf-meta-tag" id="etf-code-tag">CODE</span>
-        <h1 id="etf-name">載入中...</h1>
-        <span class="etf-issuer" id="etf-issuer">ISSUER</span>
+        <div class="reveal-wrapper">
+          <span class="etf-meta-tag reveal-text" id="etf-code-tag">CODE</span>
+        </div>
+        <div class="reveal-wrapper">
+          <h1 id="etf-name" class="reveal-text delay-1">載入中...</h1>
+        </div>
+        <div class="reveal-wrapper">
+          <span class="etf-issuer reveal-text delay-2" id="etf-issuer">ISSUER</span>
+        </div>
       </div>
       <div class="etf-stats-grid">
-        <div class="stat-box">
+        <div class="stat-box reveal-card delay-3">
           <div class="stat-label" data-i18n="nav-label">NET ASSET VALUE / 淨值</div>
           <div class="stat-value" id="val-nav">—</div>
         </div>
-        <div class="stat-box">
+        <div class="stat-box reveal-card delay-4">
           <div class="stat-label" data-i18n="aum-label">AUM / 規模</div>
           <div class="stat-value" id="val-aum">—</div>
         </div>
-        <div class="stat-box">
+        <div class="stat-box reveal-card delay-5">
           <div class="stat-label" data-i18n="return-label">1M RETURN / 近月報酬</div>
           <div class="stat-value" id="val-return">—</div>
         </div>
-        <div class="stat-box">
+        <div class="stat-box reveal-card delay-6">
           <div class="stat-label" data-i18n="listing-label">LISTING DATE / 上市日</div>
           <div class="stat-value" id="val-listing">—</div>
         </div>
@@ -401,32 +407,32 @@
     </header>
 
     <!-- Quant Stats Card for Leviathan -->
-    <div id="quant-stats-card" style="display: none; border: 1px solid var(--dir-line); border-radius: var(--radius-md); background: linear-gradient(135deg, rgba(217, 43, 75, 0.05), rgba(10, 18, 44, 0.95)); padding: 24px; box-shadow: var(--shadow-soft);">
+    <div id="quant-stats-card" style="display: none; border: 1px solid var(--dir-line); border-radius: var(--radius-md); background: var(--dir-panel); padding: 24px;" class="reveal-card">
       <h2 style="font-family: var(--dir-serif); font-size: 16px; font-weight: 700; margin-top: 0; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--dir-line); color: var(--dir-green); display: flex; align-items: center; gap: 8px;">
         <span data-i18n="quant-metrics-title">★ BACKTEST QUANT METRICS / 實盤回測指標</span>
         <span style="font-family: var(--dir-mono); font-size: 9px; color: var(--dir-muted); font-weight: normal; margin-left: auto;" id="quant-capital-label">Initial Capital: 500,000 TWD / 初始資金：50萬</span>
       </h2>
       <div class="etf-stats-grid" style="grid-template-columns: repeat(4, 1fr);">
-        <div class="stat-box">
+        <div class="stat-box reveal-card delay-1">
           <div class="stat-label">TOTAL RETURN / 總報酬率</div>
           <div class="stat-value" style="color: var(--dir-green);" id="val-quant-total">47.09%</div>
         </div>
-        <div class="stat-box">
+        <div class="stat-box reveal-card delay-2">
           <div class="stat-label">ANNUALIZED RETURN / 年化報酬率</div>
           <div class="stat-value" style="color: var(--dir-green);" id="val-quant-annual">67.78%</div>
         </div>
-        <div class="stat-box">
+        <div class="stat-box reveal-card delay-3">
           <div class="stat-label">MAX RETURN / 歷史最高報酬</div>
           <div class="stat-value" style="color: var(--dir-green);" id="val-quant-max">109.85%</div>
         </div>
-        <div class="stat-box">
+        <div class="stat-box reveal-card delay-4">
           <div class="stat-label">SORTINO RATIO / 最高索提諾比率</div>
           <div class="stat-value" style="color: var(--dir-green);" id="val-quant-sortino">2.388</div>
         </div>
       </div>
     </div>
 
-    <section class="chart-section">
+    <section class="chart-section reveal-card">
       <div class="chart-header">
         <span class="chart-title" id="chart-title-header">與台灣五十大盤對比走勢 (0050 BENCHMARK COMPARE)</span>
         <div class="chart-controls">
@@ -442,7 +448,7 @@
 
     <div class="data-grid">
       <!-- Holdings Card -->
-      <section class="data-card">
+      <section class="data-card reveal-card">
         <h2 data-i18n="holdings-title">PORTFOLIO HOLDINGS <span>當前持股明細</span></h2>
         <div style="overflow-x: auto; flex: 1;">
           <table class="data-table">
@@ -464,7 +470,7 @@
       </section>
 
       <!-- Signals Card -->
-      <section class="data-card">
+      <section class="data-card reveal-card">
         <h2 data-i18n="signals-title">SHARES SIGNALS <span>近 30 日調倉軌跡</span></h2>
         <div class="signals-container">
           <div>
@@ -495,13 +501,31 @@
       </section>
     </div>
 
-    <footer class="disclosure-box" id="info-disclosure" data-i18n="disclosure-note">
+    <footer class="disclosure-box reveal-card" id="info-disclosure" data-i18n="disclosure-note">
       * 聲明與註記：以上資料包含自研模型回測結果。自研量化模型之計算邏輯由交易明細解析引擎還原，股價資料均使用歷史除權息調整收盤價。回測績效不代表未來實際表現之保證。本平台資料僅供學術與技術展示，不構成任何投資建議。
     </footer>
   </main>
 
   <script type="module">
     const $ = id => document.getElementById(id);
+
+    // ── scroll reveal observer ──────────────────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, {
+      threshold: 0.05,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    function initScrollReveal() {
+      document.querySelectorAll('.reveal-text, .reveal-card').forEach(el => {
+        revealObserver.observe(el);
+      });
+    }
 
     // Get URL Parameters
     const urlParams = new URLSearchParams(window.location.search);
@@ -740,6 +764,7 @@
           renderChart();
         });
       });
+      initScrollReveal();
     }
 
     function renderTrafficPulse() {

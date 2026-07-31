@@ -844,10 +844,6 @@ function getSortFromHash() {
   return supportedSorts.includes(rawSort) ? rawSort : 'aum';
 }
 
-function syncSortControl(sortKey) {
-  if (sortSel.value !== sortKey) sortSel.value = sortKey;
-}
-
 // ── data loading / masthead summary ──────────────────────────────────────────
 function renderMastSummary() {
   const todayStr = new Date().toLocaleDateString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-');

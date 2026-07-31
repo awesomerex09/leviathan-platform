@@ -617,7 +617,7 @@
           <div style="display: flex; align-items: center; gap: 12px;">
             <span style="font-size: 24px; line-height: 1;">🔔</span>
             <div>
-              <div style="font-size: 13px; font-weight: 700; color: #ffffff;" id="promo-text-title">想要在下次調倉前即時收到 Discord 通知嗎？</div>
+              <div style="font-size: 13px; font-weight: 700; color: #ffffff;" id="promo-text-title">想要在下次調倉前即時掌握量化跟投訊號嗎？</div>
               <div style="font-size: 11px; color: var(--dir-muted); margin-top: 4px;" id="promo-text-desc">訂閱 Leviathan Signals，即時跟投自研模型交易訊號。</div>
             </div>
           </div>
@@ -878,7 +878,7 @@
       const promoDesc = $('promo-text-desc');
       const promoBtn = $('promo-btn-text');
       if (promoTitle && promoDesc && promoBtn) {
-        promoTitle.textContent = lang === 'zh' ? '想要在下次調倉前即時收到 Discord 通知嗎？' : 'Want real-time Discord alerts before the next rebalance?';
+        promoTitle.textContent = lang === 'zh' ? '想要在下次調倉前即時掌握量化跟投訊號嗎？' : 'Want real-time quant alerts before the next rebalance?';
         promoDesc.textContent = lang === 'zh' ? '訂閱 Leviathan Signals，即時跟投自研模型交易訊號。' : 'Subscribe to Leviathan Signals and track our proprietary quant moves live.';
         promoBtn.textContent = lang === 'zh' ? '立即訂閱跟投訊號 ➔' : 'SUBSCRIBE TO SIGNALS ➔';
       }
@@ -977,6 +977,49 @@
         });
     }
 
+    function getEtfName(code, defaultName) {
+      if (currentLang !== 'en') return defaultName;
+      const dict = {
+        '00981A': 'Unified Taiwan Growth Active ETF',
+        '00403A': 'Unified Upgrade 50 Active ETF',
+        '00991A': 'Fuhwa Future 50 Active ETF',
+        '00988A': 'Unified Global Innovation Active ETF',
+        '00982A': 'Capital Taiwan Strong Active ETF',
+        '00990A': 'Yuanta AI New Economy Active ETF',
+        '00992A': 'Capital Tech Innovation Active ETF',
+        '00407A': 'KGI Taiwan Active ETF',
+        '00400A': 'Cathay Momentum High Dividend Active ETF',
+        'LEVIATHAN': 'Leviathan Flagship Quant Model',
+        'SPY': 'SPDR S&P 500 ETF Trust',
+        'QQQ': 'Invesco QQQ Trust',
+        'ARKK': 'ARK Innovation ETF'
+      };
+      return dict[code] || defaultName;
+    }
+
+    function getIssuerName(issuer) {
+      if (!issuer) return '';
+      if (currentLang !== 'en') return issuer;
+      const dict = {
+        '統一投信': 'Unified IT',
+        '復華投信': 'Fuhwa IT',
+        '群益投信': 'Capital IT',
+        '元大投信': 'Yuanta IT',
+        '凱基投信': 'KGI IT',
+        '國泰投信': 'Cathay IT',
+        '統一證券投資信託股份有限公司': 'Unified Securities Investment Trust Co., Ltd.',
+        '復華證券投資信託股份有限公司': 'Fuhwa Securities Investment Trust Co., Ltd.',
+        '群益證券投資信託股份有限公司': 'Capital Securities Investment Trust Co., Ltd.',
+        '元大證券投資信託股份有限公司': 'Yuanta Securities Investment Trust Co., Ltd.',
+        '凱基證券投資信託股份有限公司': 'KGI Securities Investment Trust Co., Ltd.',
+        '國泰證券投資信託股份有限公司': 'Cathay Securities Investment Trust Co., Ltd.',
+        'State Street Global Advisors': 'SSGA',
+        'Invesco': 'Invesco',
+        'ARK Invest': 'ARK Invest'
+      };
+      return dict[issuer] || issuer;
+    }
+
     function renderHeader() {
       if (etf.is_custom_quant) {
         $('header-card').classList.add('custom-quant');
@@ -1008,8 +1051,8 @@
       } else {
         $('header-card').classList.remove('custom-quant');
         $('etf-code-tag').textContent = etf.code;
-        $('etf-name').textContent = etf.name;
-        $('etf-issuer').textContent = etf.issuer_full || etf.issuer;
+        $('etf-name').textContent = getEtfName(etf.code, etf.name);
+        $('etf-issuer').textContent = getIssuerName(etf.issuer_full || etf.issuer);
         const qCard = $('quant-stats-card');
         if (qCard) qCard.style.display = 'none';
       }
@@ -1117,6 +1160,53 @@
         : `https://www.google.com/finance/quote/${cleanCode}:TPE`;
     }
 
+    function getStockName(code, defaultName) {
+      if (currentLang !== 'en') return defaultName;
+      const cleanCode = String(code).trim().replace(' TW', '').replace('.TW', '');
+      const dict = {
+        '2330': 'TSMC',
+        '2454': 'MediaTek',
+        '2317': 'Foxconn',
+        '2303': 'UMC',
+        '3711': 'ASE Technology',
+        '2449': 'KYEC',
+        '5274': 'ASPEED',
+        '3529': 'eMemory',
+        '6488': 'GlobalWafers',
+        '5347': 'VIS',
+        '6515': 'WinWay',
+        '3583': 'Scientech',
+        '6510': 'CHPT',
+        '2458': 'Elan Micro',
+        '2379': 'Realtek',
+        '3034': 'Novatek',
+        '4961': 'Fitipower',
+        '3035': 'Faraday',
+        '2408': 'Nanya Tech',
+        '2382': 'Quanta Computer',
+        '3231': 'Wistron',
+        '6669': 'Wiwynn',
+        '2308': 'Delta Electronics',
+        '2360': 'Chroma ATE',
+        '3017': 'AVC',
+        '3653': 'Jentech',
+        '3665': 'BizLink',
+        '2383': 'EMC',
+        '3037': 'Unimicron',
+        '8046': 'Nan Ya PCB',
+        '4958': 'Zhen Ding Tech',
+        '3026': 'Holy Stone',
+        '3008': 'Largan',
+        '3406': 'Geniustek',
+        '2345': 'Accton',
+        '3081': 'Lotes',
+        '3105': 'Win Semi',
+        '0050': 'Polaris Taiwan Top 50',
+        '0056': 'Yuanta High Dividend'
+      };
+      return dict[cleanCode] || defaultName;
+    }
+
     function renderHoldings() {
       const tbody = $('holdings-body');
       tbody.innerHTML = '';
@@ -1131,7 +1221,7 @@
           const tr = document.createElement('tr');
           tr.innerHTML = `
             <td class="td-code">${h.code}</td>
-            <td>${h.name}</td>
+            <td>${getStockName(h.code, h.name)}</td>
             <td class="td-val">${h.weight.toFixed(2)}%</td>
             <td class="td-val">${h.shares ? Math.round(h.shares).toLocaleString() : '—'}</td>
           `;
@@ -1177,7 +1267,7 @@
             <div class="sector-stock-item">
               <div class="stock-meta">
                 <span class="stock-code">${s.code}</span>
-                <span class="stock-name">${s.name}</span>
+                <span class="stock-name">${getStockName(s.code, s.name)}</span>
               </div>
               <div style="display: flex; align-items: center;">
                 <span class="stock-weight-val">${s.weight.toFixed(2)}%</span>
@@ -1255,14 +1345,15 @@
           
           let content = '';
           const metaLabel = i18n[currentLang][`sig-${type}-meta`] || type;
+          const displayName = getStockName(item.code, item.name);
           if (type === 'add') {
-            content = `<span class="sig-icon">▲</span> <span class="sig-name">${item.name}</span> <span class="sig-meta">+${item.pct}% (${metaLabel}, Weight ${item.weight}%)</span>`;
+            content = `<span class="sig-icon">▲</span> <span class="sig-name">${displayName}</span> <span class="sig-meta">+${item.pct}% (${metaLabel}, Weight ${item.weight}%)</span>`;
           } else if (type === 'reduction') {
-            content = `<span class="sig-icon">▼</span> <span class="sig-name">${item.name}</span> <span class="sig-meta">-${item.pct}% (${metaLabel}, Weight ${item.weight}%)</span>`;
+            content = `<span class="sig-icon">▼</span> <span class="sig-name">${displayName}</span> <span class="sig-meta">-${item.pct}% (${metaLabel}, Weight ${item.weight}%)</span>`;
           } else if (type === 'new') {
-            content = `<span class="sig-icon">★</span> <span class="sig-name">${item.name}</span> <span class="sig-meta">${metaLabel} (Weight ${item.weight}%)</span>`;
+            content = `<span class="sig-icon">★</span> <span class="sig-name">${displayName}</span> <span class="sig-meta">${metaLabel} (Weight ${item.weight}%)</span>`;
           } else {
-            content = `<span class="sig-icon">×</span> <span class="sig-name">${item.name}</span> <span class="sig-meta">${metaLabel}</span>`;
+            content = `<span class="sig-icon">×</span> <span class="sig-name">${displayName}</span> <span class="sig-meta">${metaLabel}</span>`;
           }
           pill.innerHTML = content;
           container.appendChild(pill);
@@ -1453,14 +1544,14 @@
           <h4>訂閱取消</h4>
           <p>您可以隨時登入您的 Whop 帳戶，進入「訂閱管理」或透過 Whop 平台進行取消訂閱。取消後，您的會員權益將持續保留至當前計費週期結束，且下一個帳期起將停止自動扣款。</p>
           <h4>退款原則</h4>
-          <p>由於本產品為數位內容服務（包含即時 Discord 跟投通知與網頁數據存取權），產品一旦經付款程序完成即交付，不適用於一般實體商品之七天鑑賞期。一經訂閱恕不提供退款，敬請見諒。</p>
+          <p>由於本產品為數位內容服務（包含即時量化跟投訊號與網頁數據存取權），產品一旦經付款程序完成即交付，不適用於一般實體商品之七天鑑賞期。一經訂閱恕不提供退款，敬請見諒。</p>
           <p>如因系統或平台重大技術故障，導致您於訂閱期間內無法正常讀取訊號，請聯繫客服提交退款申請，我們將會個案審查並退還相應比例之費用。</p>
         `,
         deliveryTitle: '商品交付政策 / Delivery Policy',
         deliveryBody: `
           <p>Leviathan Signals 為純數位內容與社群存取權服務，無實體物品交付。</p>
           <h4>交付方式與時效</h4>
-          <p>當您在 Whop 完成付款後，系統會即時將 Whop 邀請信及帳戶啟用連結寄送至您填寫的電子信箱。您可以立即在 Whop 儀表板中讀取量化訊號，並自動受邀加入我們的專屬 Discord 頻道以接收即時推播通知，整個交付流程通常在付款完成後 1 分鐘內完成。</p>
+          <p>當您在 Whop 完成付款後，系統會即時將 Whop 邀請信及帳戶啟用連結寄送至您填寫的電子信箱。您可以立即在 Whop 儀表板中讀取量化訊號，並在 Whop 平台或帳戶後台直接獲取量化數據與訊號，整個交付流程通常在付款完成後 1 分鐘內完成。</p>
           <h4>交付障礙排除</h4>
           <p>若您在付款完成後 5 分鐘內未收到邀請信，請先檢查電子信箱之垃圾郵件資料夾。若仍未收到，請透過 Instagram 或 Whop 商店客服與我們聯絡，我們將立即為您手動開通存取權。</p>
         `
@@ -1481,14 +1572,14 @@
           <h4>Subscription Cancellation</h4>
           <p>You can cancel your subscription at any time via your Whop account dashboard. Access will remain active until the end of the current billing cycle, after which automatic renewal will be stopped.</p>
           <h4>Refund Terms</h4>
-          <p>Since our products are instantly delivered digital content (including Discord alerts and live dashboard access), all subscriptions are strictly non-refundable once processed. There is no trial period or satisfaction guarantee.</p>
+          <p>Since our products are instantly delivered digital content (including real-time quant alerts and live dashboard access), all subscriptions are strictly non-refundable once processed. There is no trial period or satisfaction guarantee.</p>
           <p>If a severe system failure occurs that prevents you from receiving signals for an extended duration, please contact support to request a case-by-case review.</p>
         `,
         deliveryTitle: 'Product Delivery Policy',
         deliveryBody: `
           <p>Leviathan Signals is a digital-only service. No physical shipping is required.</p>
           <h4>Delivery Timeline</h4>
-          <p>Upon successful payment on Whop, a membership invite email containing your Whop activation link and Discord join credentials will be sent instantly to your registered email address. Setup is automated and usually completes within 60 seconds.</p>
+          <p>Upon successful payment on Whop, a membership invite email containing your Whop activation link  will be sent instantly to your registered email address. Setup is automated and usually completes within 60 seconds.</p>
           <h4>Troubleshooting</h4>
           <p>If you do not receive your activation link within 5 minutes, please inspect your spam folder, or reach out to us via Instagram for manual provisioning.</p>
         `

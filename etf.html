@@ -40,6 +40,7 @@
       margin: 0 auto;
       padding: 42px 0 70px;
       display: grid;
+      grid-template-columns: 100%;
       gap: 24px;
     }
 
@@ -60,18 +61,30 @@
     }
 
     .etf-header-card {
-      border: 1px solid var(--dir-line);
+      width: 100vw;
+      position: relative;
+      left: calc(50% - 50vw);
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
+      border-top: 1px solid var(--dir-line);
+      border-bottom: 1px solid var(--dir-line);
       background: var(--dir-panel);
-      padding: 32px;
+    }
+
+    .etf-header-card-inner {
+      max-width: 1180px;
+      width: calc(100% - 40px);
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 24px;
-      position: relative;
-      border-radius: var(--radius-md);
+      padding: 32px 0;
     }
 
     .etf-header-card.custom-quant {
-      border: 1px solid var(--dir-line);
+      border-left: none;
+      border-right: none;
     }
 
     .etf-title-area h1 {
@@ -341,9 +354,9 @@
       .detail-main {
         width: min(100% - 24px, 680px);
       }
-      .etf-header-card {
+      .etf-header-card-inner {
         grid-template-columns: 1fr;
-        padding: 20px;
+        padding: 20px 0;
       }
       .etf-stats-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -505,33 +518,35 @@
     </div>
 
     <header class="etf-header-card reveal-card" id="header-card">
-      <div class="etf-title-area">
-        <div class="reveal-wrapper">
-          <span class="etf-meta-tag reveal-text" id="etf-code-tag">CODE</span>
+      <div class="etf-header-card-inner">
+        <div class="etf-title-area">
+          <div class="reveal-wrapper">
+            <span class="etf-meta-tag reveal-text" id="etf-code-tag">CODE</span>
+          </div>
+          <div class="reveal-wrapper">
+            <h1 id="etf-name" class="reveal-text delay-1">載入中...</h1>
+          </div>
+          <div class="reveal-wrapper">
+            <span class="etf-issuer reveal-text delay-2" id="etf-issuer">ISSUER</span>
+          </div>
         </div>
-        <div class="reveal-wrapper">
-          <h1 id="etf-name" class="reveal-text delay-1">載入中...</h1>
-        </div>
-        <div class="reveal-wrapper">
-          <span class="etf-issuer reveal-text delay-2" id="etf-issuer">ISSUER</span>
-        </div>
-      </div>
-      <div class="etf-stats-grid">
-        <div class="stat-box reveal-card delay-3">
-          <div class="stat-label" data-i18n="nav-label">NET ASSET VALUE / 淨值</div>
-          <div class="stat-value" id="val-nav">—</div>
-        </div>
-        <div class="stat-box reveal-card delay-4">
-          <div class="stat-label" data-i18n="aum-label">AUM / 規模</div>
-          <div class="stat-value" id="val-aum">—</div>
-        </div>
-        <div class="stat-box reveal-card delay-5">
-          <div class="stat-label" data-i18n="return-label">1M RETURN / 近月報酬</div>
-          <div class="stat-value" id="val-return">—</div>
-        </div>
-        <div class="stat-box reveal-card delay-6">
-          <div class="stat-label" data-i18n="listing-label">LISTING DATE / 上市日</div>
-          <div class="stat-value" id="val-listing">—</div>
+        <div class="etf-stats-grid">
+          <div class="stat-box reveal-card delay-3">
+            <div class="stat-label" data-i18n="nav-label">NET ASSET VALUE / 淨值</div>
+            <div class="stat-value" id="val-nav">—</div>
+          </div>
+          <div class="stat-box reveal-card delay-4">
+            <div class="stat-label" data-i18n="aum-label">AUM / 規模</div>
+            <div class="stat-value" id="val-aum">—</div>
+          </div>
+          <div class="stat-box reveal-card delay-5">
+            <div class="stat-label" data-i18n="return-label">1M RETURN / 近月報酬</div>
+            <div class="stat-value" id="val-return">—</div>
+          </div>
+          <div class="stat-box reveal-card delay-6">
+            <div class="stat-label" data-i18n="listing-label">LISTING DATE / 上市日</div>
+            <div class="stat-value" id="val-listing">—</div>
+          </div>
         </div>
       </div>
     </header>

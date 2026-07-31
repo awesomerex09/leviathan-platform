@@ -418,17 +418,27 @@ svg.spark.flat polyline { stroke: var(--dir-muted); }
   }
 }
   .flagship-banner {
-    margin-bottom: 32px;
-    border: 1px solid var(--dir-line);
-    border-radius: var(--radius-md);
+    width: 100vw;
+    position: relative;
+    left: calc(50% - 50vw);
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    border-top: 1px solid var(--dir-line);
+    border-bottom: 1px solid var(--dir-line);
     background: var(--dir-panel);
-    padding: 32px;
+    margin-bottom: 32px;
+    overflow: hidden;
+    transition: border-color 0.25s ease;
+  }
+  .flagship-banner-inner {
+    max-width: 1180px;
+    width: calc(100% - 40px);
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 240px;
     gap: 32px;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.25s ease;
+    padding: 32px 0;
   }
   .flagship-banner:hover {
     border-color: var(--dir-line-hot);
@@ -528,9 +538,9 @@ svg.spark.flat polyline { stroke: var(--dir-muted); }
     transform: scale(1.06);
   }
   @media (max-width: 768px) {
-    .flagship-banner {
+    .flagship-banner-inner {
       grid-template-columns: 1fr;
-      padding: 24px;
+      padding: 24px 0;
       gap: 24px;
     }
     .flagship-visual {
@@ -572,60 +582,62 @@ svg.spark.flat polyline { stroke: var(--dir-muted); }
 
   <!-- Flagship Quant Model Banner -->
   <section class="flagship-banner reveal-card">
-    <div class="flagship-info">
-      <div>
-        <div class="reveal-wrapper">
-          <span class="flagship-badge reveal-text" data-i18n="flagship-badge">★ FLAGSHIP QUANT MODEL / 旗艦自研量化模型</span>
+    <div class="flagship-banner-inner">
+      <div class="flagship-info">
+        <div>
+          <div class="reveal-wrapper">
+            <span class="flagship-badge reveal-text" data-i18n="flagship-badge">★ FLAGSHIP QUANT MODEL / 旗艦自研量化模型</span>
+          </div>
+          <div class="reveal-wrapper">
+            <h2 class="flagship-title reveal-text delay-1" data-i18n="flagship-title">Leviathan (利維坦) 量化模型</h2>
+          </div>
+          <div class="reveal-wrapper">
+            <p class="flagship-desc reveal-text delay-2" data-i18n="flagship-desc">
+              基於市場流動性、多空量化因子與主動持股動態進行智慧調倉。以 50 萬 TWD 初始資金實盤校準，專注於創造超越大盤的超額回報 (Alpha)。
+            </p>
+          </div>
         </div>
-        <div class="reveal-wrapper">
-          <h2 class="flagship-title reveal-text delay-1" data-i18n="flagship-title">Leviathan (利維坦) 量化模型</h2>
+        
+        <div class="flagship-stats-grid">
+          <div class="flagship-stat-box reveal-card delay-3">
+            <div class="flagship-stat-label" data-i18n="lbl-total-return">TOTAL RETURN / 總報酬率</div>
+            <div class="flagship-stat-value accent" id="flagship-total">47.09%</div>
+          </div>
+          <div class="flagship-stat-box reveal-card delay-4">
+            <div class="flagship-stat-label" data-i18n="lbl-annualized">ANNUALIZED / 年化報酬率</div>
+            <div class="flagship-stat-value accent" id="flagship-annual">67.78%</div>
+          </div>
+          <div class="flagship-stat-box reveal-card delay-5">
+            <div class="flagship-stat-label" data-i18n="lbl-peak-return">PEAK RETURN / 最高報酬率</div>
+            <div class="flagship-stat-value accent" id="flagship-peak">109.85%</div>
+          </div>
+          <div class="flagship-stat-box reveal-card delay-6">
+            <div class="flagship-stat-label" data-i18n="lbl-sortino">SORTINO / 索提諾比率</div>
+            <div class="flagship-stat-value accent" id="flagship-sortino">2.388</div>
+          </div>
         </div>
-        <div class="reveal-wrapper">
-          <p class="flagship-desc reveal-text delay-2" data-i18n="flagship-desc">
-            基於市場流動性、多空量化因子與主動持股動態進行智慧調倉。以 50 萬 TWD 初始資金實盤校準，專注於創造超越大盤的超額回報 (Alpha)。
-          </p>
+        
+        <div class="reveal-wrapper" style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
+          <a href="./etf.html?code=LEVIATHAN" class="flagship-cta-btn reveal-text delay-5" style="margin-right: 0;">
+            <span data-i18n="flagship-cta">查看 Leviathan 詳情 ➔</span>
+          </a>
+          <a href="https://whop.com/checkout/plan_Bo924r8xg0r3X" target="_blank" class="flagship-cta-btn reveal-text delay-6" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05); margin-right: 0;">
+            <span data-i18n="flagship-subscribe">訂閱跟投訊號 (Whop) ↗</span>
+          </a>
         </div>
       </div>
       
-      <div class="flagship-stats-grid">
-        <div class="flagship-stat-box reveal-card delay-3">
-          <div class="flagship-stat-label" data-i18n="lbl-total-return">TOTAL RETURN / 總報酬率</div>
-          <div class="flagship-stat-value accent" id="flagship-total">47.09%</div>
-        </div>
-        <div class="flagship-stat-box reveal-card delay-4">
-          <div class="flagship-stat-label" data-i18n="lbl-annualized">ANNUALIZED / 年化報酬率</div>
-          <div class="flagship-stat-value accent" id="flagship-annual">67.78%</div>
-        </div>
-        <div class="flagship-stat-box reveal-card delay-5">
-          <div class="flagship-stat-label" data-i18n="lbl-peak-return">PEAK RETURN / 最高報酬率</div>
-          <div class="flagship-stat-value accent" id="flagship-peak">109.85%</div>
-        </div>
-        <div class="flagship-stat-box reveal-card delay-6">
-          <div class="flagship-stat-label" data-i18n="lbl-sortino">SORTINO / 索提諾比率</div>
-          <div class="flagship-stat-value accent" id="flagship-sortino">2.388</div>
-        </div>
+      <div class="flagship-visual reveal-card delay-3">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" class="flagship-logo-img">
+          <defs>
+            <linearGradient id="whale-grad-hero" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ff453a" />
+              <stop offset="100%" stop-color="#0a84ff" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#whale-grad-hero)" d="M32 54C32 54 31 38 22 30C14 23 8 25 6 20C4 15 12 16 26 23C31 25.5 31.5 28 32 30C32.5 28 33 25.5 38 23C52 16 60 15 58 20C56 25 50 23 42 30C33 38 32 54 32 54Z"/>
+        </svg>
       </div>
-      
-      <div class="reveal-wrapper" style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
-        <a href="./etf.html?code=LEVIATHAN" class="flagship-cta-btn reveal-text delay-5" style="margin-right: 0;">
-          <span data-i18n="flagship-cta">查看 Leviathan 詳情 ➔</span>
-        </a>
-        <a href="https://whop.com/checkout/plan_Bo924r8xg0r3X" target="_blank" class="flagship-cta-btn reveal-text delay-6" style="border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05); margin-right: 0;">
-          <span data-i18n="flagship-subscribe">訂閱跟投訊號 (Whop) ↗</span>
-        </a>
-      </div>
-    </div>
-    
-    <div class="flagship-visual reveal-card delay-3">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" class="flagship-logo-img">
-        <defs>
-          <linearGradient id="whale-grad-hero" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#ff453a" />
-            <stop offset="100%" stop-color="#0a84ff" />
-          </linearGradient>
-        </defs>
-        <path fill="url(#whale-grad-hero)" d="M32 54C32 54 31 38 22 30C14 23 8 25 6 20C4 15 12 16 26 23C31 25.5 31.5 28 32 30C32.5 28 33 25.5 38 23C52 16 60 15 58 20C56 25 50 23 42 30C33 38 32 54 32 54Z"/>
-      </svg>
     </div>
   </section>
 

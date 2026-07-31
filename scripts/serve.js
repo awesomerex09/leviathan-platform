@@ -231,14 +231,15 @@ function parseCSV(text) {
       qty: parseFloat(cols[2]),
       price: cols[3] ? parseFloat(cols[3]) : 0,
       commission: cols[4] ? parseFloat(cols[4]) : 0,
-      date: cols[5].trim().split(' ')[0].replaceAll('-', '').replaceAll('/', '')
+      date: cols[5].trim().split(' ')[0].replaceAll('-', '').replaceAll('/', ''),
+      datetime: cols[5] ? cols[5].trim() : ''
     });
   }
   return result;
 }
 
 function calculateBacktest(trades, prices, etfs) {
-  trades.sort((a, b) => a.date.localeCompare(b.date));
+  trades.sort((a, b) => a.datetime.localeCompare(b.datetime));
 
   if (!prices['0050.TW']) {
     throw new Error('prices.json 缺少 0050.TW 價格資料');

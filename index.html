@@ -654,7 +654,13 @@ svg.spark.flat polyline { stroke: var(--dir-muted); }
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('active');
+      if (entry.target.classList.contains('reveal-wrapper')) {
+        const text = entry.target.querySelector('.reveal-text');
+        if (text) text.classList.add('active');
+      } else {
+        entry.target.classList.add('active');
+        entry.target.querySelectorAll('.reveal-text').forEach(t => t.classList.add('active'));
+      }
     }
   });
 }, {
@@ -663,7 +669,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 });
 
 function initScrollReveal() {
-  document.querySelectorAll('.reveal-text, .reveal-card').forEach(el => {
+  document.querySelectorAll('.reveal-wrapper, .reveal-card').forEach(el => {
     revealObserver.observe(el);
   });
 }
@@ -874,8 +880,9 @@ async function loadAndRender() {
   idx = await fetch('./etfs.json').then(r => r.json());
   etfs = idx.etfs || [];
 
+  let prices = {};
   try {
-    const prices = await fetch('./prices.json').then(r => r.json());
+    prices = await fetch('./prices.json').then(r => r.json());
     if (prices['TWD=X'] && prices['TWD=X'].length) {
       twdRate = prices['TWD=X'][prices['TWD=X'].length - 1].c || 32.5;
     }
@@ -883,14 +890,7 @@ async function loadAndRender() {
     console.warn('Failed to load prices.json:', e.message);
   }
 
-  try {
-    const res = await fetch('./api/backtest').then(r => r.json());
-    if (res && res.ok && res.model) {
-      customQuant = res.model;
-    }
-  } catch (e) {
-    console.warn('Failed to load custom quant model from server:', e.message);
-  }
+  customQuant = await window.leviathanData.getBacktestModel(prices, etfs);
 
   if (customQuant) {
     etfs.push(customQuant);

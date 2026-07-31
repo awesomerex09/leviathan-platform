@@ -353,6 +353,133 @@
         grid-template-columns: 1fr;
       }
     }
+      .holdings-tabs {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 16px;
+        border-bottom: 1px solid var(--dir-line);
+        padding-bottom: 8px;
+      }
+      .holdings-tab {
+        background: transparent;
+        border: none;
+        color: var(--dir-muted);
+        font-family: var(--dir-mono);
+        font-size: 10px;
+        font-weight: 700;
+        cursor: pointer;
+        padding: 4px 8px;
+        transition: all 0.2s ease;
+        border-radius: var(--radius-sm);
+      }
+      .holdings-tab:hover {
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .holdings-tab.active {
+        color: var(--dir-green);
+        border-bottom: 2px solid var(--dir-green);
+        background: rgba(230, 46, 46, 0.05);
+      }
+      .sector-row {
+        border: 1px solid var(--dir-line);
+        border-radius: var(--radius-sm);
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.01);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .sector-row:hover {
+        background: rgba(255, 255, 255, 0.03);
+        border-color: var(--dir-line-hot);
+      }
+      .sector-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+      .sector-name {
+        font-family: var(--font-body);
+        font-size: 12px;
+        font-weight: 700;
+        color: #ffffff;
+      }
+      .sector-weight {
+        font-family: var(--dir-mono);
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--dir-green);
+      }
+      .sector-bar-track {
+        height: 4px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+      .sector-bar-fill {
+        height: 100%;
+        background: var(--dir-green);
+        border-radius: 2px;
+        transition: width 0.6s cubic-bezier(0.1, 0.9, 0.2, 1);
+      }
+      .sector-stocks {
+        display: none;
+        margin-top: 12px;
+        border-top: 1px dashed var(--dir-line);
+        padding-top: 12px;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .sector-stocks.active {
+        display: flex;
+      }
+      .sector-stock-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 11px;
+      }
+      .stock-meta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .stock-code {
+        font-family: var(--dir-mono);
+        color: var(--dir-green);
+        background: rgba(230, 46, 46, 0.1);
+        padding: 1px 4px;
+        font-size: 9px;
+        border-radius: 2px;
+      }
+      .stock-name {
+        color: #ffffff;
+      }
+      .stock-weight-val {
+        font-family: var(--dir-mono);
+        color: var(--dir-muted);
+      }
+      .stock-actions {
+        display: flex;
+        gap: 8px;
+        margin-left: 12px;
+      }
+      .stock-link {
+        font-size: 8px;
+        color: var(--dir-muted);
+        text-decoration: none;
+        border: 1px solid var(--dir-line);
+        padding: 2px 6px;
+        transition: all 0.16s ease;
+        border-radius: 2px;
+        font-family: var(--dir-mono);
+      }
+      .stock-link:hover {
+        color: #ffffff;
+        border-color: #ffffff;
+        background: rgba(255, 255, 255, 0.04);
+      }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -453,7 +580,13 @@
       <!-- Holdings Card -->
       <section class="data-card reveal-card">
         <h2 data-i18n="holdings-title">PORTFOLIO HOLDINGS <span>當前持股明細</span></h2>
-        <div style="overflow-x: auto; flex: 1;">
+        
+        <div class="holdings-tabs">
+          <button class="holdings-tab active" id="tab-btn-list">LIST / 持股明細</button>
+          <button class="holdings-tab" id="tab-btn-sectors">SECTORS / 產業權重</button>
+        </div>
+
+        <div id="holdings-list-view" style="overflow-x: auto; flex: 1;">
           <table class="data-table">
             <thead>
               <tr>
@@ -469,6 +602,10 @@
               </tr>
             </tbody>
           </table>
+        </div>
+
+        <div id="holdings-sectors-view" style="display: none; flex: 1; flex-direction: column; gap: 12px; overflow-y: auto; max-height: 480px; padding-right: 4px;">
+          <!-- Sector breakdowns will render dynamically -->
         </div>
       </section>
 
@@ -509,6 +646,7 @@
     </footer>
   </main>
 
+  <script src="./shared-preview-data.js"></script>
   <script type="module">
     const $ = id => document.getElementById(id);
 
@@ -516,7 +654,13 @@
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('active');
+          if (entry.target.classList.contains('reveal-wrapper')) {
+            const text = entry.target.querySelector('.reveal-text');
+            if (text) text.classList.add('active');
+          } else {
+            entry.target.classList.add('active');
+            entry.target.querySelectorAll('.reveal-text').forEach(t => t.classList.add('active'));
+          }
         }
       });
     }, {
@@ -525,7 +669,7 @@
     });
 
     function initScrollReveal() {
-      document.querySelectorAll('.reveal-text, .reveal-card').forEach(el => {
+      document.querySelectorAll('.reveal-wrapper, .reveal-card').forEach(el => {
         revealObserver.observe(el);
       });
     }
@@ -723,14 +867,7 @@
       renderTrafficPulse();
 
       if (code === 'LEVIATHAN') {
-        try {
-          const res = await fetch('./api/backtest').then(r => r.json());
-          if (res && res.ok && res.model) {
-            etf = res.model;
-          }
-        } catch (e) {
-          console.warn('Failed to load custom quant model from server:', e.message);
-        }
+        etf = await window.leviathanData.getBacktestModel(prices, indexData.etfs);
       } else {
         etf = indexData.etfs.find(e => e.code === code);
       }
@@ -877,34 +1014,63 @@
       return new Date(Date.UTC(Number(k.slice(0, 4)), Number(k.slice(4, 6)) - 1, Number(k.slice(6, 8))));
     }
 
+    function getStockSector(code) {
+      const codeStr = String(code).trim().replace(' TW', '').replace('.TW', '');
+      // Semiconductor codes
+      if (['2330', '2454', '2303', '3711', '2449', '5274', '3529', '6488', '5347', '6515', '3583', '6510', '2458', '2379', '3034', '4961', '3035', '2408'].includes(codeStr)) {
+        return currentLang === 'zh' ? '半導體產業' : 'Semiconductors';
+      }
+      // Hardware & Components
+      if (['2317', '2382', '3231', '6669', '2308', '2360', '3017', '3653', '3665', '2383', '3037', '8046', '4958', '8021', '6239', '3026'].includes(codeStr)) {
+        return currentLang === 'zh' ? '電腦與零組件' : 'Hardware & Components';
+      }
+      // Financials
+      if (['2881', '2882', '2891', '2886', '2884', '2892', '2890', '2885', '2880', '2883', '2887', '2888'].includes(codeStr)) {
+        return currentLang === 'zh' ? '金融保險業' : 'Financials & Insurance';
+      }
+      // Optoelectronics / Communication
+      if (['3008', '3406', '2345', '4979', '3081', '3105', '6442', '6187', '6196'].includes(codeStr)) {
+        return currentLang === 'zh' ? '光電與通信網路' : 'Optoelectronics & Telecom';
+      }
+      // Default
+      return currentLang === 'zh' ? '其他電子與製造' : 'Others & General';
+    }
+
+    function getStockLink(code, platform) {
+      const cleanCode = String(code).trim();
+      const isAlphabetic = /^[A-Za-z\-]+$/.test(cleanCode.replace(' US', ''));
+      if (cleanCode.endsWith(' US') || isAlphabetic) {
+        const symbol = cleanCode.replace(' US', '');
+        return platform === 'yahoo' 
+          ? `https://finance.yahoo.com/quote/${symbol}`
+          : `https://www.google.com/finance/quote/${symbol}:NASDAQ`;
+      }
+      if (cleanCode.endsWith(' JP')) {
+        const symbol = cleanCode.replace(' JP', '');
+        return platform === 'yahoo' 
+          ? `https://finance.yahoo.com/quote/${symbol}.T`
+          : `https://www.google.com/finance/quote/${symbol}:TYO`;
+      }
+      if (cleanCode.endsWith(' KS')) {
+        const symbol = cleanCode.replace(' KS', '');
+        return platform === 'yahoo' 
+          ? `https://finance.yahoo.com/quote/${symbol}.KS`
+          : `https://www.google.com/finance/quote/${symbol}:KRX`;
+      }
+      return platform === 'yahoo'
+        ? `https://tw.stock.yahoo.com/quote/${cleanCode}`
+        : `https://www.google.com/finance/quote/${cleanCode}:TPE`;
+    }
+
     function renderHoldings() {
       const tbody = $('holdings-body');
       tbody.innerHTML = '';
       
-      const holdings = etf.holdings || [];
+      const holdings = etf.holdings || etf.top3 || [];
+      
+      // 1. Render regular list view
       if (!holdings.length) {
-        const top3 = etf.top3 || [];
-        if (top3.length) {
-          top3.forEach(h => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-              <td class="td-code">${h.code}</td>
-              <td>${h.name}</td>
-              <td class="td-val">${h.weight.toFixed(2)}%</td>
-              <td class="td-val" style="color: var(--dir-muted);">—</td>
-            `;
-            tbody.appendChild(tr);
-          });
-          const tr = document.createElement('tr');
-          tr.innerHTML = `
-            <td colspan="4" style="text-align: center; color: var(--dir-muted); font-size: 10px; padding: 12px 0;">
-              ${i18n[currentLang]['real-etf-note']}
-            </td>
-          `;
-          tbody.appendChild(tr);
-        } else {
-          tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--dir-muted); padding: 32px 0;">${i18n[currentLang]['no-data']}</td></tr>`;
-        }
+        tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--dir-muted); padding: 32px 0;">${i18n[currentLang]['no-data']}</td></tr>`;
       } else {
         holdings.forEach(h => {
           const tr = document.createElement('tr');
@@ -916,8 +1082,106 @@
           `;
           tbody.appendChild(tr);
         });
+        if (!etf.holdings || !etf.holdings.length) {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td colspan="4" style="text-align: center; color: var(--dir-muted); font-size: 10px; padding: 12px 0;">
+              ${i18n[currentLang]['real-etf-note']}
+            </td>
+          `;
+          tbody.appendChild(tr);
+        }
+      }
+
+      // 2. Render sectors view
+      const sectorsContainer = $('holdings-sectors-view');
+      sectorsContainer.innerHTML = '';
+      
+      if (!holdings.length) {
+        sectorsContainer.innerHTML = `<div style="text-align: center; color: var(--dir-muted); padding: 32px 0;">${i18n[currentLang]['no-data']}</div>`;
+      } else {
+        // Group holdings by sector
+        const sectorGroups = {};
+        holdings.forEach(h => {
+          const sec = getStockSector(h.code);
+          if (!sectorGroups[sec]) {
+            sectorGroups[sec] = { name: sec, totalWeight: 0, stocks: [] };
+          }
+          sectorGroups[sec].totalWeight += h.weight;
+          sectorGroups[sec].stocks.push(h);
+        });
+        
+        // Sort sectors by descending total weight
+        const sortedSectors = Object.values(sectorGroups).sort((a, b) => b.totalWeight - a.totalWeight);
+        
+        sortedSectors.forEach((sec, idx) => {
+          const row = document.createElement('div');
+          row.className = 'sector-row';
+          
+          const stockItemsHTML = sec.stocks.map(s => `
+            <div class="sector-stock-item">
+              <div class="stock-meta">
+                <span class="stock-code">${s.code}</span>
+                <span class="stock-name">${s.name}</span>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <span class="stock-weight-val">${s.weight.toFixed(2)}%</span>
+                <div class="stock-actions">
+                  <a class="stock-link" href="${getStockLink(s.code, 'yahoo')}" target="_blank">Yahoo ↗</a>
+                  <a class="stock-link" href="${getStockLink(s.code, 'google')}" target="_blank">Google ↗</a>
+                </div>
+              </div>
+            </div>
+          `).join('');
+          
+          row.innerHTML = `
+            <div class="sector-header">
+              <span class="sector-name">${sec.name} (${sec.stocks.length} 檔持股)</span>
+              <span class="sector-weight">${sec.totalWeight.toFixed(2)}%</span>
+            </div>
+            <div class="sector-bar-track">
+              <div class="sector-bar-fill" style="width: 0%"></div>
+            </div>
+            <div class="sector-stocks">
+              ${stockItemsHTML}
+            </div>
+          `;
+          
+          row.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') return;
+            const listContainer = row.querySelector('.sector-stocks');
+            if (listContainer) listContainer.classList.toggle('active');
+          });
+          
+          sectorsContainer.appendChild(row);
+          
+          setTimeout(() => {
+            const fill = row.querySelector('.sector-bar-fill');
+            if (fill) fill.style.width = `${Math.min(100, sec.totalWeight)}%`;
+          }, 50 + idx * 30);
+        });
       }
     }
+
+    // Bind tab toggle events
+    setTimeout(() => {
+      const tabList = $('tab-btn-list');
+      const tabSectors = $('tab-btn-sectors');
+      if (tabList && tabSectors) {
+        tabList.addEventListener('click', () => {
+          tabList.classList.add('active');
+          tabSectors.classList.remove('active');
+          $('holdings-list-view').style.display = 'block';
+          $('holdings-sectors-view').style.display = 'none';
+        });
+        tabSectors.addEventListener('click', () => {
+          tabSectors.classList.add('active');
+          tabList.classList.remove('active');
+          $('holdings-sectors-view').style.display = 'flex';
+          $('holdings-list-view').style.display = 'none';
+        });
+      }
+    }, 100);
 
     function renderSignals() {
       const signals = etf.shares_signal || {};

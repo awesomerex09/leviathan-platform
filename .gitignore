@@ -4,3 +4,6 @@ visits.json
 *.har
 .DS_Store
 Thumbs.db
+
+.vercel
+.env*

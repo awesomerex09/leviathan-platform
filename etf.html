@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>基金與量化詳情 · Leviathan</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Noto+Serif+TC:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./shared.css">
   <style>
     :root {
@@ -776,7 +779,8 @@
             const text = visits >= 10000 
               ? (currentLang === 'zh' ? `${(visits / 10000).toFixed(0)}萬` : `${(visits / 10000).toFixed(0)}0K`) 
               : Number(visits).toLocaleString();
-            $('mast-stat').innerHTML = `${i18n[currentLang]['visits-prefix']}<strong style="color: var(--dir-red);">${text}</strong>`;
+            const todayStr = new Date().toLocaleDateString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-');
+            $('mast-stat').innerHTML = `${currentLang === 'zh' ? '瀏覽人數' : 'Visits'} <strong style="color: var(--dir-red);">${text}</strong> &nbsp;·&nbsp; ${currentLang === 'zh' ? '成立於 2026' : 'Since 2026'} &nbsp;·&nbsp; ${todayStr}`;
           }
         });
     }

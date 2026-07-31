@@ -13,8 +13,8 @@
   --signal: #ff3b30;
   --fog: #888888;
   --haze: #cccccc;
-  --font-display: "Inter Display", "Inter", "PingFang TC", "Noto Sans TC", sans-serif;
-  --font-body: "Inter", "PingFang TC", "Noto Sans TC", sans-serif;
+  --font-display: "Bodoni Moda", "Noto Serif TC", serif;
+  --font-body: "Inter", "Noto Serif TC", sans-serif;
   --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
   --radius-sm: 2px;
   --radius-md: 4px;

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-Hant"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Leviathan 量化展示平台</title><meta name="description" content="Leviathan 量化交易模型與主動基金展示平台。"><link rel="icon" href="./favicon.svg" type="image/svg+xml"><link rel="manifest" href="/manifest.json"><link rel="preconnect" href="https://static.cloudflareinsights.com"><link rel="preload" href="./shared.css" as="style"><link rel="stylesheet" href="./shared.css"><style>:root {
+<!DOCTYPE html><html lang="zh-Hant"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Leviathan 量化展示平台</title><meta name="description" content="Leviathan 量化交易模型與主動基金展示平台。"><link rel="icon" href="./favicon.svg" type="image/svg+xml"><link rel="manifest" href="/manifest.json"><link rel="preconnect" href="https://static.cloudflareinsights.com"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Noto+Serif+TC:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"><link rel="preload" href="./shared.css" as="style"><link rel="stylesheet" href="./shared.css"><style>:root {
   --dir-bg: var(--night);
   --dir-panel: var(--night-panel);
   --dir-panel-hot: var(--night-lift);
@@ -121,43 +121,55 @@ body {
   font-weight: 300;
   line-height: .8;
 }
-
-.controls {
+.controls-new {
   display: flex;
-  min-height: 64px;
+  min-height: 54px;
   align-items: center;
-  gap: 10px;
-  margin-top: 16px;
-  padding: 10px 14px 10px 18px;
+  gap: 16px;
+  margin-top: 24px;
+  padding: 10px 18px;
   border: 1px solid var(--dir-line);
   border-radius: var(--radius-sm);
   color: var(--dir-muted);
-  background: rgba(10, 18, 44, .85);
-  font-size: 10px;
+  background: var(--dir-panel);
+  font-size: 11px;
 }
 
-.controls label {
+.sort-title {
   font-family: var(--dir-mono);
   font-size: 9px;
-  font-weight: 800;
-  letter-spacing: .12em;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
-.controls select {
-  min-height: 40px;
-  padding: 7px 34px 7px 12px;
-  border: 1px solid var(--dir-line);
-  border-radius: var(--radius-sm);
-  color: var(--dir-ink);
-  background: var(--dir-panel);
+.sort-links {
+  display: flex;
+  gap: 8px;
+}
+
+.sort-link {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--dir-muted);
   font-family: var(--dir-mono);
   font-size: 10px;
+  font-weight: 500;
+  padding: 6px 12px;
   cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: var(--radius-sm);
 }
 
-.controls select:focus {
-  outline: 1px solid var(--dir-green);
+.sort-link:hover {
+  color: #ffffff;
+}
+
+.sort-link.active {
   border-color: var(--dir-green);
+  color: var(--dir-green);
+  background: var(--dir-panel-hot);
+  font-weight: 700;
 }
 
 .observe-nav {
@@ -390,10 +402,11 @@ svg.spark.flat polyline { stroke: var(--dir-muted); }
   svg.spark {
     height: 50px;
   }
-  .controls {
+  .controls-new {
     flex-wrap: wrap;
     margin: 10px 20px 0;
     padding: 12px;
+    gap: 12px;
   }
   .observe-nav {
     width: 100%;
@@ -590,17 +603,17 @@ svg.spark.flat polyline { stroke: var(--dir-muted); }
     </div>
   </section>
 
-  <div class="controls reveal-card">
-    <label for="sort" data-i18n="sort-label">排序</label>
-    <select id="sort">
-      <option value="aum" data-i18n="sort-aum">規模</option>
-      <option value="code" data-i18n="sort-code">代號</option>
-      <option value="listing" data-i18n="sort-listing">上市日（新 → 舊）</option>
-      <option value="price_chg" data-i18n="sort-price-chg">近一個月漲跌</option>
-    </select>
+  <div class="controls-new reveal-card">
+    <span class="sort-title" data-i18n="sort-label">排序方式</span>
+    <div class="sort-links" id="sort-links-container">
+      <button class="sort-link active" data-sort="aum" data-i18n="sort-aum">規模</button>
+      <button class="sort-link" data-sort="code" data-i18n="sort-code">代號</button>
+      <button class="sort-link" data-sort="listing" data-i18n="sort-listing">上市日期</button>
+      <button class="sort-link" data-sort="price_chg" data-i18n="sort-price-chg">近一個月漲跌</button>
+    </div>
 
     <nav class="observe-nav" aria-label="觀察工具">
-      <a href="./index.html" data-member-only="true"><span data-i18n="nav-rank">加碼標的排行</span> <i class="observe-lock">MEMBER</i></a>
+      <a href="./index.html" data-member-only="true"><span data-i18n="nav-rank">加碼加倉排行</span> <i class="observe-lock">MEMBER</i></a>
     </nav>
   </div>
 
@@ -622,8 +635,11 @@ svg.spark.flat polyline { stroke: var(--dir-muted); }
         <div class="er-spark-svg"></div>
       </div>
       <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%; border-top: 1px solid var(--dir-line); padding-top: 12px;">
-        <div class="er-aum">
-          <span class="er-aum-v"></span><span class="er-aum-u" data-i18n="aum-unit">億</span>
+        <div style="display: flex; flex-direction: column; gap: 4px; align-items: flex-start;">
+          <span style="font-size: 7px; color: var(--dir-muted); font-family: var(--dir-mono); text-transform: uppercase; letter-spacing: 0.05em;">AUM / 規模</span>
+          <div class="er-aum" style="margin-top: 0;">
+            <span class="er-aum-v"></span><span class="er-aum-u" data-i18n="aum-unit">億</span>
+          </div>
         </div>
         <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
           <span class="er-pct"></span>
@@ -710,7 +726,7 @@ const fmtAum = v => {
 // ── page state / DOM anchors ─────────────────────────────────────────────────
 const list = $('list');
 const mastStat = $('mast-stat');
-const sortSel = $('sort');
+let currentSort = 'aum';
 const rowTemplate = $('etf-row-template');
 const prefetchedDetails = new Set();
 const supportedSorts = ['aum', 'code', 'listing', 'price_chg'];
@@ -801,7 +817,7 @@ function setLanguage(lang) {
   }
 
   if (etfs.length) {
-    render(sortSel.value);
+    render(currentSort);
   }
 }
 
@@ -819,7 +835,7 @@ function setCurrency(curr) {
   }
 
   if (etfs.length) {
-    render(sortSel.value);
+    render(currentSort);
   }
 }
 
@@ -834,9 +850,8 @@ function syncSortControl(sortKey) {
 
 // ── data loading / masthead summary ──────────────────────────────────────────
 function renderMastSummary() {
-  const totalAum = etfs.reduce((sum, etf) => sum + (etf.total_av_yi || 0), 0);
-  const formattedAum = fmtAum(totalAum);
-  mastStat.innerHTML = `${currentLang === 'zh' ? '瀏覽人數' : 'Visits'} <strong style="color: var(--dir-red);">—</strong> &nbsp;·&nbsp; <strong>${idx.n_etfs + (customQuant ? 1 : 0)}</strong> ETFs &nbsp;·&nbsp; AUM <strong>${formattedAum}</strong> &nbsp;·&nbsp; ${fmt(idx.as_of)}`;
+  const todayStr = new Date().toLocaleDateString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-');
+  mastStat.innerHTML = `${currentLang === 'zh' ? '瀏覽人數' : 'Visits'} <strong style="color: var(--dir-red);">—</strong> &nbsp;·&nbsp; ${currentLang === 'zh' ? '成立於 2026' : 'Since 2026'} &nbsp;·&nbsp; ${todayStr}`;
   renderTrafficPulse();
 }
 
@@ -1094,17 +1109,37 @@ window.addEventListener('resize', () => {
 
 // ── sort/hash controller boot ────────────────────────────────────────────────
 function applySort(sortKey) {
+  currentSort = sortKey;
   syncSortControl(sortKey);
   if (!etfs.length) return;
   render(sortKey);
 }
 
+function syncSortControl(sortKey) {
+  const container = $('sort-links-container');
+  if (!container) return;
+  container.querySelectorAll('.sort-link').forEach(btn => {
+    if (btn.getAttribute('data-sort') === sortKey) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+}
 
-syncSortControl(getSortFromHash());
-sortSel.addEventListener('change', () => {
-  location.hash = sortSel.value;
-  applySort(sortSel.value);
-});
+// Hook click events to sort links
+const sortContainer = $('sort-links-container');
+if (sortContainer) {
+  sortContainer.querySelectorAll('.sort-link').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const sortKey = e.target.getAttribute('data-sort');
+      location.hash = sortKey;
+      applySort(sortKey);
+    });
+  });
+}
+
+applySort(getSortFromHash());
 window.addEventListener('hashchange', () => {
   applySort(getSortFromHash());
 });

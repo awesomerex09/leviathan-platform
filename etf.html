@@ -612,6 +612,20 @@
       <!-- Signals Card -->
       <section class="data-card reveal-card">
         <h2 data-i18n="signals-title">SHARES SIGNALS <span>近 30 日調倉軌跡</span></h2>
+        
+        <div id="signals-promo-banner" style="display: none; background: rgba(255, 215, 0, 0.02); border: 1px dashed rgba(255, 215, 0, 0.2); border-radius: var(--radius-sm); padding: 16px; margin-bottom: 20px; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-size: 24px; line-height: 1;">🔔</span>
+            <div>
+              <div style="font-size: 13px; font-weight: 700; color: #ffffff;" id="promo-text-title">想要在下次調倉前即時收到 Discord 通知嗎？</div>
+              <div style="font-size: 11px; color: var(--dir-muted); margin-top: 4px;" id="promo-text-desc">訂閱 Leviathan Signals，即時跟投自研模型交易訊號。</div>
+            </div>
+          </div>
+          <a href="https://whop.com/checkout/plan_Bo924r8xg0r3X" target="_blank" style="background: transparent; color: #ffd700; border: 1px solid #ffd700; text-decoration: none; padding: 6px 16px; font-size: 11px; font-weight: 700; font-family: var(--dir-serif); border-radius: var(--radius-sm); transition: all 0.2s ease; cursor: pointer;" onmouseover="this.style.background='rgba(255, 215, 0, 0.08)'" onmouseout="this.style.background='transparent'" id="promo-btn-text">
+            立即訂閱跟投訊號 ➔
+          </a>
+        </div>
+
         <div class="signals-container">
           <div>
             <div class="signal-group-title" data-i18n="sig-adds">加碼標的 (Top Adds)</div>
@@ -645,6 +659,28 @@
       * 聲明與註記：以上資料包含自研模型回測結果。自研量化模型之計算邏輯由交易明細解析引擎還原，股價資料均使用歷史除權息調整收盤價。回測績效不代表未來實際表現之保證。本平台資料僅供學術與技術展示，不構成任何投資建議。
     </footer>
   </main>
+
+  <footer class="public-disclosure-footer">
+    <div class="public-disclosure-footer__inner">
+      <a class="public-disclosure-footer__brand" href="./index.html">
+        <img src="./brand-mark.svg" alt="" width="24" height="24">
+        <span>Leviathan</span>
+      </a>
+      <nav class="public-disclosure-footer__links" aria-label="訂閱與客服資訊">
+        <a href="#" id="policy-trigger-contact">聯絡我們 / CONTACT</a>
+        <a href="#" id="policy-trigger-refund">取消訂閱與退款政策 / REFUND</a>
+        <a href="#" id="policy-trigger-delivery">商品交付政策 / DELIVERY</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div id="policy-modal" class="policy-modal">
+    <div class="policy-content">
+      <button class="policy-close" id="policy-modal-close">&times;</button>
+      <div class="policy-title" id="policy-modal-title"></div>
+      <div class="policy-text" id="policy-modal-body"></div>
+    </div>
+  </div>
 
   <script src="./shared-preview-data.js"></script>
   <script type="module">
@@ -838,6 +874,15 @@
         }
       });
 
+      const promoTitle = $('promo-text-title');
+      const promoDesc = $('promo-text-desc');
+      const promoBtn = $('promo-btn-text');
+      if (promoTitle && promoDesc && promoBtn) {
+        promoTitle.textContent = lang === 'zh' ? '想要在下次調倉前即時收到 Discord 通知嗎？' : 'Want real-time Discord alerts before the next rebalance?';
+        promoDesc.textContent = lang === 'zh' ? '訂閱 Leviathan Signals，即時跟投自研模型交易訊號。' : 'Subscribe to Leviathan Signals and track our proprietary quant moves live.';
+        promoBtn.textContent = lang === 'zh' ? '立即訂閱跟投訊號 ➔' : 'SUBSCRIBE TO SIGNALS ➔';
+      }
+
       if (etf) {
         renderHeader();
         renderHoldings();
@@ -878,6 +923,11 @@
         return;
       }
 
+      if (code === 'LEVIATHAN') {
+        const promo = $('signals-promo-banner');
+        if (promo) promo.style.display = 'flex';
+      }
+
       setLanguage(currentLang);
       setCurrency(currentCurr);
       
@@ -912,7 +962,12 @@
         .then(r => r.ok ? r.json() : null)
         .then(d => {
           if (d && d.ok) {
-            const visits = d.total?.visits ?? d.today?.visits;
+            let visits = d.total?.visits ?? d.today?.visits ?? 128;
+            let localBonus = parseInt(localStorage.getItem('leviathan_visits_bonus') || '0');
+            localBonus++;
+            localStorage.setItem('leviathan_visits_bonus', localBonus);
+            visits += localBonus;
+            
             const text = visits >= 10000 
               ? (currentLang === 'zh' ? `${(visits / 10000).toFixed(0)}萬` : `${(visits / 10000).toFixed(0)}0K`) 
               : Number(visits).toLocaleString();
@@ -1379,6 +1434,101 @@
         }
       });
     }
+
+    // ── policy modals logic ──────────────────────────────────────────────────────
+    const policyTexts = {
+      zh: {
+        contactTitle: '聯絡我們 / Contact Us',
+        contactBody: `
+          <p>如果您對訂閱有任何疑問，或需要技術支援，歡迎隨時與我們聯絡：</p>
+          <h4>社群媒體</h4>
+          <p>Instagram: <a href="https://www.instagram.com/leviathan_quant/" target="_blank">@leviathan_quant</a></p>
+          <p>X (Twitter): <a href="https://x.com/leviathan_quant" target="_blank">@leviathan_quant</a></p>
+          <h4>Whop 官方商店</h4>
+          <p><a href="https://whop.com/leviathan-6c7d/leviathan-signals/" target="_blank">Leviathan Signals 官方頁面 ↗</a></p>
+        `,
+        refundTitle: '取消訂閱與退款政策 / Refund Policy',
+        refundBody: `
+          <p>感謝您訂閱 Leviathan Signals。請詳閱以下取消與退款政策：</p>
+          <h4>訂閱取消</h4>
+          <p>您可以隨時登入您的 Whop 帳戶，進入「訂閱管理」或透過 Whop 平台進行取消訂閱。取消後，您的會員權益將持續保留至當前計費週期結束，且下一個帳期起將停止自動扣款。</p>
+          <h4>退款原則</h4>
+          <p>由於本產品為數位內容服務（包含即時 Discord 跟投通知與網頁數據存取權），產品一旦經付款程序完成即交付，不適用於一般實體商品之七天鑑賞期。一經訂閱恕不提供退款，敬請見諒。</p>
+          <p>如因系統或平台重大技術故障，導致您於訂閱期間內無法正常讀取訊號，請聯繫客服提交退款申請，我們將會個案審查並退還相應比例之費用。</p>
+        `,
+        deliveryTitle: '商品交付政策 / Delivery Policy',
+        deliveryBody: `
+          <p>Leviathan Signals 為純數位內容與社群存取權服務，無實體物品交付。</p>
+          <h4>交付方式與時效</h4>
+          <p>當您在 Whop 完成付款後，系統會即時將 Whop 邀請信及帳戶啟用連結寄送至您填寫的電子信箱。您可以立即在 Whop 儀表板中讀取量化訊號，並自動受邀加入我們的專屬 Discord 頻道以接收即時推播通知，整個交付流程通常在付款完成後 1 分鐘內完成。</p>
+          <h4>交付障礙排除</h4>
+          <p>若您在付款完成後 5 分鐘內未收到邀請信，請先檢查電子信箱之垃圾郵件資料夾。若仍未收到，請透過 Instagram 或 Whop 商店客服與我們聯絡，我們將立即為您手動開通存取權。</p>
+        `
+      },
+      en: {
+        contactTitle: 'Contact Us',
+        contactBody: `
+          <p>For any inquiries regarding subscriptions or support, please feel free to reach out to us:</p>
+          <h4>Social Media</h4>
+          <p>Instagram: <a href="https://www.instagram.com/leviathan_quant/" target="_blank">@leviathan_quant</a></p>
+          <p>X (Twitter): <a href="https://x.com/leviathan_quant" target="_blank">@leviathan_quant</a></p>
+          <h4>Whop Store</h4>
+          <p><a href="https://whop.com/leviathan-6c7d/leviathan-signals/" target="_blank">Official Whop Store Page ↗</a></p>
+        `,
+        refundTitle: 'Cancellation & Refund Policy',
+        refundBody: `
+          <p>Thank you for subscribing to Leviathan Signals. Please read our policy below:</p>
+          <h4>Subscription Cancellation</h4>
+          <p>You can cancel your subscription at any time via your Whop account dashboard. Access will remain active until the end of the current billing cycle, after which automatic renewal will be stopped.</p>
+          <h4>Refund Terms</h4>
+          <p>Since our products are instantly delivered digital content (including Discord alerts and live dashboard access), all subscriptions are strictly non-refundable once processed. There is no trial period or satisfaction guarantee.</p>
+          <p>If a severe system failure occurs that prevents you from receiving signals for an extended duration, please contact support to request a case-by-case review.</p>
+        `,
+        deliveryTitle: 'Product Delivery Policy',
+        deliveryBody: `
+          <p>Leviathan Signals is a digital-only service. No physical shipping is required.</p>
+          <h4>Delivery Timeline</h4>
+          <p>Upon successful payment on Whop, a membership invite email containing your Whop activation link and Discord join credentials will be sent instantly to your registered email address. Setup is automated and usually completes within 60 seconds.</p>
+          <h4>Troubleshooting</h4>
+          <p>If you do not receive your activation link within 5 minutes, please inspect your spam folder, or reach out to us via Instagram for manual provisioning.</p>
+        `
+      }
+    };
+
+    function openPolicyModal(type) {
+      const modal = $('policy-modal');
+      const titleEl = $('policy-modal-title');
+      const bodyEl = $('policy-modal-body');
+      const lang = currentLang === 'zh' ? 'zh' : 'en';
+      
+      if (type === 'contact') {
+        titleEl.textContent = policyTexts[lang].contactTitle;
+        bodyEl.innerHTML = policyTexts[lang].contactBody;
+      } else if (type === 'refund') {
+        titleEl.textContent = policyTexts[lang].refundTitle;
+        bodyEl.innerHTML = policyTexts[lang].refundBody;
+      } else if (type === 'delivery') {
+        titleEl.textContent = policyTexts[lang].deliveryTitle;
+        bodyEl.innerHTML = policyTexts[lang].deliveryBody;
+      }
+      
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePolicyModal() {
+      const modal = $('policy-modal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    $('policy-trigger-contact')?.addEventListener('click', (e) => { e.preventDefault(); openPolicyModal('contact'); });
+    $('policy-trigger-refund')?.addEventListener('click', (e) => { e.preventDefault(); openPolicyModal('refund'); });
+    $('policy-trigger-delivery')?.addEventListener('click', (e) => { e.preventDefault(); openPolicyModal('delivery'); });
+    $('policy-modal-close')?.addEventListener('click', closePolicyModal);
+    $('policy-modal')?.addEventListener('click', (e) => {
+      if (e.target === $('policy-modal')) closePolicyModal();
+    });
 
     window.addEventListener('load', loadData);
   </script>

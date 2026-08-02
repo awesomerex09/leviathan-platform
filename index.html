@@ -469,7 +469,7 @@ svg.spark.flat polyline { stroke: var(--dir-muted); }
   }
   .flagship-stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     margin: 16px 0;
   }
   .flagship-stat-box {
@@ -616,6 +616,10 @@ svg.spark.flat polyline { stroke: var(--dir-muted); }
             <div class="flagship-stat-label" data-i18n="lbl-sortino">SORTINO / 索提諾比率</div>
             <div class="flagship-stat-value accent" id="flagship-sortino">2.388</div>
             <div class="flagship-stat-badge" style="display: inline-block; font-size: 8px; color: #ffd700; background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 4px; padding: 1px 4px; margin-top: 4px; font-family: var(--font-body); font-weight: bold; letter-spacing: 0;">🏆 全網第一 / Best in Class</div>
+          </div>
+          <div class="flagship-stat-box reveal-card delay-7">
+            <div class="flagship-stat-label" data-i18n="lbl-mdd">MAX DRAWDOWN / 最大回撤</div>
+            <div class="flagship-stat-value accent" id="flagship-mdd">—</div>
           </div>
         </div>
         
@@ -922,6 +926,8 @@ function getSortFromHash() {
 }
 
 // ── data loading / masthead summary ──────────────────────────────────────────
+let isVisitorIncremented = false;
+
 function renderMastSummary() {
   const todayStr = new Date().toLocaleDateString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll('/', '-');
   mastStat.innerHTML = `${currentLang === 'zh' ? '瀏覽人數' : 'Visits'} <strong style="color: var(--dir-red);">—</strong> &nbsp;·&nbsp; ${currentLang === 'zh' ? '成立於 2026' : 'Since 2026'} &nbsp;·&nbsp; ${todayStr}`;
@@ -935,8 +941,11 @@ function renderTrafficPulse() {
       if (d && d.ok) {
         let visits = d.total?.visits ?? d.today?.visits ?? 128;
         let localBonus = parseInt(localStorage.getItem('leviathan_visits_bonus') || '0');
-        localBonus++;
-        localStorage.setItem('leviathan_visits_bonus', localBonus);
+        if (!isVisitorIncremented) {
+          localBonus++;
+          localStorage.setItem('leviathan_visits_bonus', localBonus);
+          isVisitorIncremented = true;
+        }
         visits += localBonus;
         
         const text = visits >= 10000 
@@ -976,10 +985,12 @@ async function loadAndRender() {
     const fAnnual = $('flagship-annual');
     const fPeak = $('flagship-peak');
     const fSortino = $('flagship-sortino');
+    const fMdd = $('flagship-mdd');
     if (fTotal) fTotal.textContent = customQuant.total_return ? `${customQuant.total_return.toFixed(2)}%` : '47.09%';
-    if (fAnnual) fAnnual.textContent = customQuant.annualized_return ? `${customQuant.annualized_return.toFixed(2)}%` : '67.78%';
+    if (fAnnual) fAnnual.textContent = customQuant.annualized_return ? `${customQuant.annualized_return.toFixed(2)}%` : '62.55%';
     if (fPeak) fPeak.textContent = customQuant.max_return ? `${customQuant.max_return.toFixed(2)}%` : '109.85%';
-    if (fSortino) fSortino.textContent = customQuant.sortino_ratio ? customQuant.sortino_ratio.toFixed(3) : '2.388';
+    if (fSortino) fSortino.textContent = customQuant.sortino_ratio ? customQuant.sortino_ratio.toFixed(3) : '2.152';
+    if (fMdd) fMdd.textContent = customQuant.max_drawdown ? `${customQuant.max_drawdown.toFixed(2)}%` : '-15.42%';
   }
 
   setLanguage(currentLang);
@@ -1085,6 +1096,32 @@ function getEtfName(code, defaultName) {
     '00992A': 'Capital Tech Innovation Active ETF',
     '00407A': 'KGI Taiwan Active ETF',
     '00400A': 'Cathay Momentum High Dividend Active ETF',
+    '00405A': 'Fubon Taiwan Dragon Active ETF',
+    '00980A': 'Nomura Taiwan Preferred Active ETF',
+    '00997A': 'Capital US Growth Active ETF',
+    '00406A': 'CTBC Taiwan Income Active ETF',
+    '00999A': 'Nomura Taiwan High Dividend Active ETF',
+    '00985A': 'Nomura Taiwan 50 Active ETF',
+    '00984A': 'Allianz Taiwan High Dividend Active ETF',
+    '00993A': 'Allianz Taiwan Active ETF',
+    '00402A': 'Allianz US Technology Active ETF',
+    '00984D': 'AllianceBernstein Global High Yield Active ETF',
+    '00981D': 'CTBC High Yield Bond Active ETF',
+    '00995A': 'CTBC Taiwan Excellence Active ETF',
+    '00994A': 'First Gold Taiwan Preferred Active ETF',
+    '00996A': 'Mega Taiwan Harvest Active ETF',
+    '00998A': 'Fuhwa Financial Dividend Active ETF',
+    '00404A': 'AllianceBernstein Momentum 50 Active ETF',
+    '00401A': 'JPMorgan Taiwan Income Active ETF',
+    '00987A': 'Taishin Advantage Growth Active ETF',
+    '00986D': 'Fuhwa Financial Bond Yield Active ETF',
+    '00980D': 'AllianceBernstein Investment Grade Active ETF',
+    '00989A': 'JPMorgan US Technology Active ETF',
+    '00983A': 'CTBC ARK Innovation Active ETF',
+    '00983D': 'Fubon Multi-Asset Income Active ETF',
+    '00985D': 'BlackRock IG Bond Active ETF',
+    '00982D': 'Fubon Dynamic Income Active ETF',
+    '00986A': 'Taishin Leader Growth Active ETF',
     'LEVIATHAN': 'Leviathan Flagship Quant Model',
     'SPY': 'SPDR S&P 500 ETF Trust',
     'QQQ': 'Invesco QQQ Trust',

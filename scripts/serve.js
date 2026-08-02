@@ -396,6 +396,16 @@ function calculateBacktest(trades, prices, etfs) {
 
   const total_return = Number(((calFinal - calStart) / calStart * 100).toFixed(2));
   const max_return = Number(((calMax - calStart) / calStart * 100).toFixed(2));
+  
+  let peak = calStart;
+  let maxDrawdown = 0;
+  for (const pt of price_series) {
+    if (pt.c > peak) peak = pt.c;
+    const dd = (pt.c - peak) / peak;
+    if (dd < maxDrawdown) maxDrawdown = dd;
+  }
+  const max_drawdown = Number((maxDrawdown * 100).toFixed(2));
+
   const annualized_return = Number(((Math.pow(calFinal / calStart, 1 / (diffYears || 1)) - 1) * 100).toFixed(2));
   
   const calReturns = [];
@@ -515,6 +525,7 @@ function calculateBacktest(trades, prices, etfs) {
     is_calibrated: true,
     total_return,
     max_return,
+    max_drawdown,
     annualized_return,
     sortino_ratio,
     total_av_yi: Number((latestPortfolioVal / 100000000).toFixed(4)),

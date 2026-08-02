@@ -178,6 +178,15 @@
     const maxVal = Math.max(...navSeries.map(pt => pt.c), initialCapital);
     const maxReturn = ((maxVal - initialCapital) / initialCapital) * 100;
 
+    let peak = initialCapital;
+    let maxDrawdown = 0;
+    for (const pt of navSeries) {
+      if (pt.c > peak) peak = pt.c;
+      const dd = (pt.c - peak) / peak;
+      if (dd < maxDrawdown) maxDrawdown = dd;
+    }
+    const maxDrawdownPct = maxDrawdown * 100;
+
     const startD = parseDateKeyUTC(firstTradeDate);
     const endD = parseDateKeyUTC(lastDay);
     const diffYears = (endD - startD) / (1000 * 60 * 60 * 24 * 365.25);
@@ -266,6 +275,7 @@
       total_return: totalReturn,
       annualized_return: annualizedReturn,
       max_return: maxReturn,
+      max_drawdown: maxDrawdownPct,
       sortino_ratio: sortinoRatio,
       price_series: navSeries,
       holdings: finalHoldings,

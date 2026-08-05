@@ -7,6 +7,6 @@
   "sharpe_ratio": true,
   "sortino_ratio": true,
   "calmar_ratio": true,
-  "alpha": true,
+  "alpha": false,
   "beta": true
 }

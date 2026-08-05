@@ -68,38 +68,15 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // GET /api/settings
-  if (pathname === '/api/settings' && req.method === 'GET') {
+  // /api/settings (GET / POST)
+  if (pathname === '/api/settings') {
     try {
-      const settingsPath = path.join(ROOT, 'settings.json');
-      let settings = {
-        total_return: true,
-        annualized_return: true,
-        max_return: true,
-        max_drawdown: true,
-        current_drawdown: true,
-        sharpe_ratio: true,
-        sortino_ratio: true,
-        calmar_ratio: true,
-        alpha: true,
-        beta: true
-      };
-      if (fs.existsSync(settingsPath)) {
-        try {
-          settings = Object.assign(settings, JSON.parse(fs.readFileSync(settingsPath, 'utf8')));
-        } catch(e) {}
-      } else {
-        fs.writeFileSync(settingsPath, JSON.stringify(settings, null, 2), 'utf8');
-      }
-      res.writeHead(200, {
-        'Content-Type': 'application/json; charset=utf-8',
-        'Cache-Control': 'no-store, no-cache, must-revalidate'
-      });
-      res.end(JSON.stringify({ ok: true, settings }));
+      const settingsHandler = require(path.join(ROOT, 'api', 'settings.js'));
+      return settingsHandler(req, res);
     } catch (e) {
-      console.error(e);
+      console.error('Error handling /api/settings:', e);
       res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
-      res.end(JSON.stringify({ error: e.message }));
+      res.end(JSON.stringify({ ok: false, error: e.message }));
     }
     return;
   }
@@ -171,45 +148,7 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // POST /api/settings
-  if (pathname === '/api/settings' && req.method === 'POST') {
-    let body = '';
-    req.on('data', chunk => { body += chunk; });
-    req.on('end', () => {
-      try {
-        let newSettings = {};
-        const parsed = JSON.parse(body);
-        newSettings = parsed.settings || parsed;
-        const settingsPath = path.join(ROOT, 'settings.json');
-        let currentSettings = {
-          total_return: true,
-          annualized_return: true,
-          max_return: true,
-          max_drawdown: true,
-          current_drawdown: true,
-          sharpe_ratio: true,
-          sortino_ratio: true,
-          calmar_ratio: true,
-          alpha: true,
-          beta: true
-        };
-        if (fs.existsSync(settingsPath)) {
-          try {
-            currentSettings = Object.assign(currentSettings, JSON.parse(fs.readFileSync(settingsPath, 'utf8')));
-          } catch(e) {}
-        }
-        const updated = Object.assign({}, currentSettings, newSettings);
-        fs.writeFileSync(settingsPath, JSON.stringify(updated, null, 2), 'utf8');
-        res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
-        res.end(JSON.stringify({ ok: true, settings: updated }));
-      } catch (e) {
-        console.error(e);
-        res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
-        res.end(JSON.stringify({ error: e.message }));
-      }
-    });
-    return;
-  }
+
 
   // POST /api/upload
   if (pathname === '/api/upload' && req.method === 'POST') {

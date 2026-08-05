@@ -463,6 +463,7 @@
           if (trades && trades.length) {
             model = window.leviathanData.calculateBacktest(trades, pricesRes || {}, (etfsRes && etfsRes.etfs) ? etfsRes.etfs : []);
             if (model) {
+              model.version = '2026.08.06.v2';
               localStorage.setItem('leviathan_custom_model', JSON.stringify(model));
               showStatus(`純前端回測成功！\n模型名稱：${model.name}\n已將最新數據儲存至 localStorage 快取！`);
             }

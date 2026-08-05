@@ -1,138 +1,104 @@
-# TASK_PLAN.md：Leviathan 量化系統全站數據對齊、調倉軌跡校準與時間延伸修復案
+# TASK_PLAN.md：Leviathan 量化系統數據同步、時間軸延伸與快取失效架構修復案
 
-## 1. 專案概述與系統架構 (System Architecture & Data Flow)
+## 1. 問題深度分析與根因診斷 (Root Cause Analysis)
 
-本升級案旨在徹底修復 **Leviathan 量化展示平台** 當前存在的五大關鍵數據與邏輯異常：
+根據使用者回饋與實測截圖（圖一、圖二、圖三），系統當前存在以下兩大核心架構缺失：
 
-1. **Leviathan 圖形與淨值截斷至 7/29**：
-   - 原回測引擎 `calculateBacktest` 之 `activeDays` 僅執行至交易紀錄 CSV 的最後交易日（7 月 29 日），導致 Leviathan 的走勢圖與淨值在 7/29 停滯，無法延伸至今日（`2026-08-05`）。
-   - **解法**：`activeDays` 必須從首個交易日一直延伸至價格庫最新日（`2026-08-05`）。在最後交易日之後，模型持續持有最新持股組合，淨值每日依個股股價收盤動態更新至今日。
+### 1.1 問題一：Leviathan 走勢圖卡在 7/29 (圖二) 與其他基金/大盤數據凍結/平線 (圖一)
+1. **Leviathan 7/29 截斷根因**：
+   - 伺服器與瀏覽器端回測引擎 `calculateBacktest` 之前將 `activeDays` 範圍限定為 `firstTradeDate <= d <= lastTradeDate`。
+   - 由於上傳的 CSV 交易日誌（如 `Leviathan.csv` 或 `lvis.csv`）最後一筆交易發生於 7 月 29 日，`lastTradeDate` 為 `2026-07-29`，導致回測產生的 `navSeries` 與 `price_series` 陣列長度僅計算至 7/29。
+   - 在 7/29 之後至 8/05 期間，Leviathan 的走勢資料點完全空白，因此 Chart.js 畫圖時紅線直接在 07/29 斷掉。
+2. **其他基金與大盤 (0050.TW) 平線 (Flatline) 根因 (圖一)**：
+   - `extendPricesAndEtfsToToday` 在將價格庫 `prices.json` 由 7/29 延伸至 8/5 時，若無真實股價資料，採用了簡單複製 7/29 收盤價的方式（如 $200, $200, $200...）。
+   - 價格不變導致 daily return 為 0.00%，在折線圖上呈現完全水平的橫線（Flatline），且 1M 報酬率與 NAV 數據看似凍結。
 
-2. **近 30 日調倉軌跡 (`shares_signal`) 標的歸類錯誤**：
-   - 原歸類邏輯未比對 30 天前的持股狀態，僅判斷 30 天內是否有賣出，導致長期持有的股票（如台積電 2330）因近期有股利或買進而被錯誤歸類為「新進標的 (`new_positions`)」，而真實的新建倉標的反被錯歸為「加碼」。
-   - **解法**：重構 `shares_signal` 演算法，精確重構 `T-30` 天前與 `T` 天（今日）的持股組合，以持股數量與權重變化進行嚴格比對：
-     - **新進標的 (`new_positions`)**：`T-30` 股數 = 0 且 `T` 股數 > 0。
-     - **加碼標的 (`top_adds`)**：`T-30` 股數 > 0 且 `T` 股數 > `T-30` 股數。
-     - **減碼標的 (`top_reductions`)**：`T` 股數 > 0 且 `T` 股數 < `T-30` 股數。
-     - **出清標的 (`exits`)**：`T-30` 股數 > 0 且 `T` 股數 = 0。
-
-3. **股利交易 (Dividend) 污染持股張數 Bug**：
-   - `parseCSV` 解析 `Side: Dividend` 時，將現金股利金額錯當作股票張數/股數累加至 `holdings`，導致發放股利的股票張數與持股比例嚴重失真。
-   - **解法**：`Dividend` 交易僅增加現金 `cash += div`，嚴禁修改持股張數 `holdings[symbol]`。
-
-4. **持股明細 (Holdings)、產業權重 (Sectors) 與調倉軌跡不同步**：
-   - 股票代號格式不統一（如 `TWSE:2330` vs `2330` vs `2330.TW`），導致列表、產業視圖與軌跡無法關聯。
-   - **解法**：全站統一採用 `cleanSymbolCode` 正規化代號，並全面升級 `getStockName` 與 `getStockSector` 字典。
-
-5. **全站其他 ETF 與 Benchmark 數據與走勢更新**：
-   - 其它 ETF 與大盤對比在向前填充後未重新計算 1M 報酬率與 NAV，導致數據看似凍結。
-   - **解法**：在 `extendPricesAndEtfsToToday` 中，一併動態更新所有 ETF 之 `nav`, `close_price`, `1M 報酬率` 與 `Total 報酬率`。
+### 1.2 問題二：使用者端截圖 (圖三) 與伺服器不同步，及調倉軌跡歸類不精確
+1. **使用者端 LocalStorage 快取不同步根因 (圖三)**：
+   - 使用者先前曾在 `/admin.html` 後台手動拖曳上傳過 `lvis.csv` 或 `lv.csv`。
+   - `getBacktestModel()` 目前優先讀取瀏覽器 `localStorage.getItem('leviathan_custom_model')`，且**缺乏版本號 (Version/Timestamp) 與失效機制**。
+   - 即使伺服器程式碼已更新，使用者瀏覽器依然永久讀取本機快取的舊版 `lvis.csv` 回測結果，導致顯示出包含「MPTI (+1.6%)」、「禾伸堂 (+2%)」的舊截圖 (圖三)。
+2. **調倉軌跡與持股列表不同步根因**：
+   - 原 `shares_signal` 先前僅靠 `last30DaysTrades` 判斷是否有買賣，未精確還原 `T-30` 天（30 天前）的真實持股組合 `holdings30DaysAgo`。
+   - 若某標的（如 Bel Fuse / BELFA）在 30 天內有買進但 30 天前的歷史持股已有數量，若僅計算單次買進，易導致新進標的與加減碼標的分組錯位。
 
 ---
 
-## 2. 核心計算邏輯與虛擬碼 (Core Math & Pseudocode)
+## 2. 系統架構升級設計 (Architecture Redesign)
 
-### 2.1 嚴格 30 日調倉軌跡判定演算法 (Pseudocode)
-
-```javascript
-function calculateTradeSignals(holdingsHistory, activeDays, finalHoldings, stockNameLookup) {
-  const latestIdx = activeDays.length - 1;
-  const latestRecord = holdingsHistory[latestIdx]; // T 天 (今日) 持股
-  
-  // 尋找 30 天前的歷史索引 (約 22 個交易日)
-  const prevIdx = Math.max(0, latestIdx - 22);
-  const prevRecord = holdingsHistory[prevIdx]; // T-30 天持股
-  
-  const currentMap = latestRecord.holdings; // { "TWSE:2330": 1000, ... }
-  const prevMap = prevRecord.holdings;       // { "TWSE:2330": 1000, ... }
-  
-  const new_positions = [];
-  const top_adds = [];
-  const top_reductions = [];
-  const exits = [];
-  
-  // 1. 檢驗當前持股 (Current Holdings)
-  for (const [symbol, curShares] of Object.entries(currentMap)) {
-    const code = cleanSymbolCode(symbol);
-    const name = stockNameLookup(code);
-    const curWeight = finalHoldings.find(h => h.code === code)?.weight || 0;
-    const prevShares = prevMap[symbol] || 0;
-    const prevWeight = getHistoricalWeight(prevRecord, symbol);
-    
-    if (prevShares === 0) {
-      // 30 天前持股為 0 -> 新進標的
-      new_positions.push({ code, name, weight: curWeight, shares: curShares });
-    } else if (curShares > prevShares) {
-      // 30 天前已有持股且加碼
-      const weightDelta = parseFloat((curWeight - prevWeight).toFixed(2));
-      top_adds.push({ code, name, pct: Math.abs(weightDelta) || 1.0, weight: curWeight });
-    } else if (curShares < prevShares) {
-      // 30 天前已有持股且減碼
-      const weightDelta = parseFloat((prevWeight - curWeight).toFixed(2));
-      top_reductions.push({ code, name, pct: Math.abs(weightDelta) || 1.0, weight: curWeight });
-    }
-  }
-  
-  // 2. 檢驗 30 天前有持股但目前歸零者 -> 出清標的
-  for (const [symbol, prevShares] of Object.entries(prevMap)) {
-    if (!currentMap[symbol] || currentMap[symbol] <= 0) {
-      const code = cleanSymbolCode(symbol);
-      const name = stockNameLookup(code);
-      exits.push({ code, name });
-    }
-  }
-  
-  return { new_positions, top_adds, top_reductions, exits };
-}
+```
+[使用者上傳 CSV / 程式碼版號更新]
+              |
+              v
+[快取失效機制 (Version Check)] ---> 舊 LocalStorage 自動作廢清空
+              |
+              v
+[計算引擎 calculateBacktest]
+  ├── 1. activeDays 時間軸延伸：由 firstTradeDate 強制延伸至今日 (2026-08-05)
+  ├── 2. 7/29 ~ 8/05 期間：維持最後持股組合，根據股價每日動態計算 NAV 走勢 (消除 7/29 截斷)
+  └── 3. T-30 持股還原：精確比對 T-30 天與今日持股數量
+              |
+              v
+[全站前端頁面渲染]
+  ├── index.html: 置頂卡片與開關同步
+  └── etf.html  : 走勢圖拉伸至今日 + LIST / SECTORS / SIGNALS 100% 對齊
 ```
 
 ---
 
 ## 3. 批次執行任務清單 (Batch Execution Scope)
 
-### 批次模組 A：Leviathan 回測時間軸拉伸與股利計算修復 (`shared-preview-data.js` & `serve.js`)
-- [ ] **時間軸拉伸至今日**：
-  - 修改 `calculateBacktest` 中 `activeDays` 範圍，使其由 `firstTradeDate` 持續延伸至 `tradingDays[tradingDays.length - 1]`（即今日 `2026-08-05`）。
-  - 在最後交易日之後，持續計算持股組合的每日市值與 NAV 變化，確保 Leviathan 走勢圖右側端點拉伸至今日。
-- [ ] **修復 Dividend 股利計算**：
-  - 在交易迴圈中，當 `trade.side === 'Dividend'` 時，僅執行 `cash += div`，嚴禁修改 `holdings[trade.symbol]` 數量。
+### 批次模組 A：LocalStorage 快取版本控管與強制作廢機制 (`shared-preview-data.js` & `admin.html`)
+- [ ] **引入模型快取版本號 (`MODEL_CACHE_VERSION = "2026.08.06.v1"`)**：
+  - 在 `localStorage` 儲存時附加 `version` 與 `updated_at` 時間戳。
+  - 在 `getBacktestModel()` 讀取快取時，校驗版本號。若版本過舊，自動作廢並重新計算，解決使用者端與線上程式碼不同步問題。
+- [ ] **後台重置按鈕強化**：
+  - 在 `/admin.html` 的「清除目前發布模型」按鈕中，強制執行 `localStorage.removeItem('leviathan_custom_model')` 並刷新全站快取。
 
 ---
 
-### 批次模組 B：近 30 日調倉軌跡重構 (`shared-preview-data.js` & `serve.js`)
-- [ ] **實作 `T-30` 持股比對演算法**：
-  - 根據 `holdingsHistory` 紀錄，對比 `T-30` 與 `T`（今日）的持股狀態。
-  - 精確劃分 `new_positions`（新進）、`top_adds`（加碼）、`top_reductions`（減碼）、`exits`（出清）。
-- [ ] **動態計算權重變動 (`pct`)**：
-  - 將加減碼標的之 `pct` 改為 `T` 與 `T-30` 的權重變化量，徹底移除硬編碼。
-- [ ] **股票代號與名稱正規化**：
-  - 使用 `cleanSymbolCode` 統一清洗 `TWSE:`, `NASDAQ:`, `.TW`, `.TWO`, ` US` 等字串，確保名稱查詢 100% 匹配。
+### 批次模組 B：Leviathan 走勢圖由 7/29 無縫延伸至今日 (`shared-preview-data.js` & `serve.js`)
+- [ ] **`activeDays` 時間軸完整拉伸**：
+  - 修改 `calculateBacktest` 中的 `activeDays` 定義：
+    ```javascript
+    const activeDays = tradingDays.filter(d => d >= firstTradeDate);
+    ```
+  - 確保從 `firstTradeDate` 一直計算到 `tradingDays` 的最後一天（即今日 `2026-08-05`）。
+- [ ] **無交易日之淨值動態延續**：
+  - 在最後一筆交易日之後至今日之間，維持最新持股 `holdings` 不變，並根據每日價格庫 `prices` 估算每日市值與 NAV `totalValue`。
+  - 確保 Leviathan 的紅線在折線圖上連續繪製至 8/05，徹底解決圖形卡在 7/29 的問題。
 
 ---
 
-### 批次模組 C：持股列表與產業權重 100% 對齊 (`etf.html` & `shared-preview-data.js`)
-- [ ] **`getFullHoldings` 統一化**：
-  - 確保 `LEVIATHAN` 與全站所有 ETF 的 `holdings` 均通過相同的 `cleanSymbolCode` 與 `getStockName` / `getStockSector` 處理。
-- [ ] **產業字典全面升級 (`getStockSector`)**：
-  - 補全全站台美股標的之產業對照（半導體、電腦零組件、光電通訊、生化醫療、軟體雲端、金融保險、航運能源等），消除「其他電子與製造」預設分類。
-- [ ] **全站 ETF 1M & Total 報酬率拉伸對齊**：
-  - 在 `extendPricesAndEtfsToToday` 中，同步更新全站 ETF 之 `m1_return` 與 `nav`，使其走勢與數據同步拉伸至今日。
+### 批次模組 C：全站 ETF 與大盤 (0050.TW) 數據動態更新 (`shared-preview-data.js`)
+- [ ] **大盤與基金走勢真實波動補全**：
+  - 優化 `extendPricesAndEtfsToToday`，確保大盤 `0050.TW` 與各基金在延伸至今日時，1M 報酬率、累積總報酬率與最新 NAV 依據最新區間動態重新計算，消除平線與數據凍結感。
+
+---
+
+### 批次模組 D：近 30 日調倉軌跡與持股明細 100% 精確連動 (`shared-preview-data.js`, `serve.js`, `etf.html`)
+- [ ] **`T-30` 持股還原與四類標的精確判定**：
+  - 記錄每日 `holdingsHistory`，並取得 `T-30` 天（約 22 個交易日）前的歷史持股 `prevMap` 與今日持股 `currentMap`：
+    - **`new_positions` (新進標的)**：`prevMap[symbol] === 0` 且 `currentMap[symbol] > 0` (如 `Liquidia Corp`, `Tango Therapeutics`)。
+    - **`top_adds` (加碼標的)**：`prevMap[symbol] > 0` 且 `currentMap[symbol] > prevMap[symbol]` (如 `台積電 2330`, `International Seaways`)。
+    - **`top_reductions` (減碼標的)**：`prevMap[symbol] > 0` 且 `currentMap[symbol] < prevMap[symbol]` (如 `Bel Fuse / BELFA` 若張數減少)。
+    - **`exits` (出清標的)**：`prevMap[symbol] > 0` 且 `currentMap[symbol] === 0` (如 `台達電`, `台燿`, `旺矽`)。
+- [ ] **動態變動百分比計算 (`pct`)**：
+  - 計算 `pct = Math.abs(currentWeight - prevWeight)`，真實展示持股權重變動幅度的百分點。
+- [ ] **持股明細 (LIST) 與產業權重 (SECTORS) 字典完全連動**：
+  - 確保 `MPTI`, `BELFA`, `INSW`, `VISN`, `TNGX`, `LQDA`, `3026` 禾伸堂等全量個股的中英文名稱與產業歸類 100% 一致。
 
 ---
 
 ## 4. 人工驗收與測試切點 (Acceptance Checklist)
 
-### 4.1 本地 Node.js 驗證步驟
-1. 啟動伺服器：`node scripts/serve.js`。
-2. 進入 `http://localhost:3000/etf.html?code=LEVIATHAN`：
-   - 驗證走勢圖右側端點拉伸至今日（`2026-08-05`）。
-   - 驗證「近 30 日調倉軌跡」中，台積電已離開「新進標的」，加減碼與新進標的完全符合 30 天前的持股比對。
-   - 驗證「持股明細 (List View)」與「產業權重 (Sectors View)」所展示的標的與比例 100% 一致。
-3. 檢查全站其他 ETF 詳情頁，確認圖表與指標均延伸至今日且無離奇數據停滯。
-
-### 4.2 Vercel 線上託管驗證步驟
-1. 執行雲端發布：
-   ```cmd
-   cmd /c "set NODE_OPTIONS=--dns-result-order=ipv4first && npx vercel --prod --yes"
-   ```
-2. 造訪 `https://leviathan-platform.vercel.app/etf?code=LEVIATHAN`，驗證調倉軌跡、持股明細、產業權重與走勢圖對齊今日。
+### 4.1 本地與線上驗證步驟
+1. 開啟 `/admin.html`，點擊「清除目前發布模型 / 還原預設」以清除本機舊 `localStorage` 快取。
+2. 進入 `etf.html?code=LEVIATHAN` 詳情頁：
+   - **時間軸檢查**：懸停折線圖右側端點，確認日期推進至 `08/05`，紅線無在中途 07/29 斷掉。
+   - **調倉軌跡檢查**：
+     - 確認 `Tango Therapeutics` 與 `Liquidia Corp` 位於「新進標的」。
+     - 確認 `台積電 (2330)` 與 `International Seaways (INSW)` 位於「加碼標的」。
+     - 確認出清標的正確列出 `台達電`、`台燿`、`旺矽` 等。
+   - **持股與產業對齊檢查**：確認 LIST 與 SECTORS 所列個股名稱、權重與調倉軌跡完全連動對應。
+3. 檢查大盤對比 `0050.TW` 與全站其他 ETF 詳情頁，確認走勢圖與數據均動態對齊今日。

@@ -392,6 +392,7 @@
       code: 'LEVIATHAN',
       name: '自研量化模型 (Leviathan)',
       issuer: 'Custom Quant Model',
+      version: '2026.08.06.v2',
       total_av_yi: parseFloat((finalValue / 100000000).toFixed(4)),
       listing_date: firstTradeDate,
       is_custom_quant: true,
@@ -506,6 +507,8 @@
     beta: true
   });
 
+  const MODEL_CACHE_VERSION = '2026.08.06.v2';
+
   window.leviathanData = Object.freeze({
     fetchJson,
     fetchOptionalJson(url, opts = {}) {
@@ -554,7 +557,11 @@
         const localModel = localStorage.getItem('leviathan_custom_model');
         if (localModel) {
           const parsed = JSON.parse(localModel);
-          if (parsed) return parsed;
+          if (parsed && parsed.version === MODEL_CACHE_VERSION) {
+            return parsed;
+          } else {
+            localStorage.removeItem('leviathan_custom_model');
+          }
         }
       } catch (e) {}
       try {
@@ -562,7 +569,11 @@
         if (!csvRes.ok) throw new Error('Leviathan.csv not found');
         const csvText = await csvRes.text();
         const trades = parseCSV(csvText);
-        return calculateBacktest(trades, prices, etfs);
+        const model = calculateBacktest(trades, prices, etfs);
+        if (model) {
+          model.version = MODEL_CACHE_VERSION;
+        }
+        return model;
       } catch (err) {
         console.error('Client-side backtest failed:', err.message);
         return null;

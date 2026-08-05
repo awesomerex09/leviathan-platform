@@ -2,5 +2,11 @@
   "cleanUrls": true,
   "buildCommand": "",
   "installCommand": "",
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "crons": [
+    {
+      "path": "/api/cron-refresh-etfs",
+      "schedule": "30 10 * * 1-5"
+    }
+  ]
 }

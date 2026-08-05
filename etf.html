@@ -939,7 +939,11 @@
         return;
       }
 
-      indexData = await fetch('./etfs.json').then(r => r.json());
+      if (window.leviathanData && window.leviathanData.fetchEtfDataset) {
+        indexData = await window.leviathanData.fetchEtfDataset();
+      } else {
+        indexData = await fetch('./etfs.json').then(r => r.json());
+      }
       
       try {
         prices = await fetch('./prices.json').then(r => r.json());

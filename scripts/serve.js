@@ -114,6 +114,29 @@ const server = http.createServer((req, res) => {
       res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
       res.end(JSON.stringify({ ok: false, error: e.message }));
     }
+  // GET /api/etfs
+  if (pathname === '/api/etfs' && req.method === 'GET') {
+    try {
+      const etfsHandler = require(path.join(ROOT, 'api', 'etfs.js'));
+      return etfsHandler(req, res);
+    } catch (e) {
+      console.error('Error handling /api/etfs:', e);
+      res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify({ ok: false, error: e.message }));
+    }
+    return;
+  }
+
+  // GET or POST /api/cron-refresh-etfs
+  if (pathname === '/api/cron-refresh-etfs') {
+    try {
+      const cronHandler = require(path.join(ROOT, 'api', 'cron-refresh-etfs.js'));
+      return cronHandler(req, res);
+    } catch (e) {
+      console.error('Error handling /api/cron-refresh-etfs:', e);
+      res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify({ ok: false, error: e.message }));
+    }
     return;
   }
 

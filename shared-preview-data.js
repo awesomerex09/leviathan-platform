@@ -537,6 +537,19 @@
     beta: true
   });
 
+  async function fetchEtfDataset() {
+    try {
+      const res = await fetchJson('./api/etfs', { optional: true });
+      if (res && res.ok && res.etfs) return res;
+    } catch (e) {}
+    try {
+      return await fetchJson('./etfs.json');
+    } catch (e) {
+      console.warn('Failed to load etfs dataset:', e.message);
+      return { etfs: [] };
+    }
+  }
+
   const MODEL_CACHE_VERSION = '2026.08.06.v2';
 
   window.leviathanData = Object.freeze({
@@ -547,6 +560,7 @@
     parseCSV,
     calculateBacktest,
     fetchLiveMarketPrices,
+    fetchEtfDataset,
     extendPricesAndEtfsToToday,
     async getSettings() {
       try {

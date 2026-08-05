@@ -964,7 +964,11 @@ function renderTrafficPulse() {
 async function loadAndRender() {
   etfs = [];
 
-  idx = await fetch('./etfs.json').then(r => r.json());
+  if (window.leviathanData && window.leviathanData.fetchEtfDataset) {
+    idx = await window.leviathanData.fetchEtfDataset();
+  } else {
+    idx = await fetch('./etfs.json').then(r => r.json());
+  }
   etfs = idx.etfs || [];
 
   let prices = {};

@@ -155,7 +155,7 @@
     const firstTradeDate = trades[0].date;
     const lastTradeDate = trades[trades.length - 1].date;
 
-    const activeDays = tradingDays.filter(d => d >= firstTradeDate && d <= lastTradeDate);
+    const activeDays = tradingDays.filter(d => d >= firstTradeDate);
     if (!activeDays.length) {
       throw new Error('No trading day overlap between trades and prices.json');
     }
@@ -165,6 +165,7 @@
     let holdings = {};
     let tradeIdx = 0;
     const navSeries = [];
+    const holdingsHistory = [];
 
     for (const day of activeDays) {
       while (tradeIdx < trades.length && trades[tradeIdx].date <= day) {
@@ -220,6 +221,12 @@
       
       const totalValue = cash + valuation;
       navSeries.push({ d: day, c: parseFloat(totalValue.toFixed(2)) });
+      holdingsHistory.push({
+        day: day,
+        val: totalValue,
+        holdings: JSON.parse(JSON.stringify(holdings)),
+        currentHoldingWeights: JSON.parse(JSON.stringify(currentHoldingWeights))
+      });
     }
 
     const finalValue = navSeries[navSeries.length - 1]?.c || initialCapital;
@@ -232,10 +239,11 @@
     for (const [symbol, shares] of Object.entries(holdings)) {
       const ticker = convertSymbol(symbol);
       const tickerPrices = prices[ticker];
-      let name = symbol.split(':')[1] || symbol;
+      let code = symbol.includes(':') ? symbol.split(':')[1] : symbol;
+      let name = STOCK_NAMES[code] || code;
       
       for (const etf of etfs) {
-        const hMatch = etf.holdings?.find(h => h.code === name) || etf.top3?.find(h => h.code === name);
+        const hMatch = etf.holdings?.find(h => h.code === code) || etf.top3?.find(h => h.code === code);
         if (hMatch) {
           name = hMatch.name;
           break;
@@ -259,7 +267,8 @@
       const valTwd = shares * price * rate;
       const weight = (valTwd / totalValuation) * 100;
       finalHoldings.push({
-        code: symbol.split(':')[1] || symbol,
+        code: code,
+        fullCode: symbol,
         name,
         weight: parseFloat(weight.toFixed(2)),
         shares
@@ -336,63 +345,42 @@
     const news = [];
     const exits = [];
 
-    const last30DaysTrades = trades.filter(t => {
-      const tD = parseDateKeyUTC(t.date);
-      const anchor = parseDateKeyUTC(lastDay);
-      if (!tD || !anchor) return false;
-      const diffTime = Math.abs(anchor - tD);
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      return diffDays <= 30;
-    });
+    const latestIdx = activeDays.length - 1;
+    const prevIdx = Math.max(0, latestIdx - 22);
+    const latestRecord = holdingsHistory[latestIdx] || { holdings: {}, val: totalValuation, currentHoldingWeights: [] };
+    const prevRecord = holdingsHistory[prevIdx] || { holdings: {}, val: initialCapital, currentHoldingWeights: [] };
 
-    const tradeSummary = {};
-    last30DaysTrades.forEach(t => {
-      const symbol = t.symbol.split(':')[1] || t.symbol;
-      if (!tradeSummary[symbol]) {
-        tradeSummary[symbol] = { code: symbol, side: t.side, totalQty: 0, weight: 0, totalVal: 0 };
-      }
-      if (t.side === 'Buy') {
-        tradeSummary[symbol].totalQty += t.qty;
-        tradeSummary[symbol].totalVal += t.qty * (t.price || 1);
-      }
-      if (t.side === 'Sell') {
-        tradeSummary[symbol].totalQty -= t.qty;
-        tradeSummary[symbol].totalVal += t.qty * (t.price || 1);
-      }
-    });
+    const currentMap = latestRecord.holdings || {};
+    const prevMap = prevRecord.holdings || {};
 
-    Object.values(tradeSummary).forEach(s => {
-      const fh = finalHoldings.find(h => h.code === s.code);
-      s.weight = fh ? fh.weight : 0;
-      s.name = STOCK_NAMES[s.code];
-      if (!s.name) {
-        for (const etf of etfs) {
-          const hMatch = etf.holdings?.find(h => h.code === s.code) || etf.top3?.find(h => h.code === s.code);
-          if (hMatch) {
-            s.name = hMatch.name;
-            break;
-          }
-        }
-      }
-      if (!s.name) s.name = s.code;
+    for (const [symbol, curShares] of Object.entries(currentMap)) {
+      const code = symbol.includes(':') ? symbol.split(':')[1] : symbol;
+      const name = STOCK_NAMES[code] || code;
+      const fh = finalHoldings.find(h => h.code === code);
+      const curWeight = fh ? fh.weight : 0;
+      const prevShares = prevMap[symbol] || 0;
 
-      const calcPct = parseFloat(((s.totalVal / (totalValuation || 500000)) * 100).toFixed(1)) || 5.0;
+      const prevH = prevRecord.currentHoldingWeights ? prevRecord.currentHoldingWeights.find(h => h.symbol === symbol) : null;
+      const prevWeight = prevH && prevRecord.val ? parseFloat(((prevH.valTwd / prevRecord.val) * 100).toFixed(2)) : 0;
 
-      if (s.totalQty > 0) {
-        const isNew = !last30DaysTrades.some(t => t.symbol.endsWith(s.code) && t.side === 'Sell');
-        if (isNew && s.weight > 0) {
-          news.push({ code: s.code, name: s.name, weight: s.weight });
-        } else {
-          adds.push({ code: s.code, name: s.name, pct: calcPct, weight: s.weight });
-        }
-      } else if (s.totalQty < 0) {
-        if (s.weight === 0) {
-          exits.push({ code: s.code, name: s.name });
-        } else {
-          reductions.push({ code: s.code, name: s.name, pct: calcPct, weight: s.weight });
-        }
+      if (prevShares === 0) {
+        news.push({ code, name, weight: curWeight, shares: curShares });
+      } else if (curShares > prevShares) {
+        const deltaPct = parseFloat(Math.abs(curWeight - prevWeight).toFixed(1)) || 1.0;
+        adds.push({ code, name, pct: deltaPct, weight: curWeight });
+      } else if (curShares < prevShares) {
+        const deltaPct = parseFloat(Math.abs(prevWeight - curWeight).toFixed(1)) || 1.0;
+        reductions.push({ code, name, pct: deltaPct, weight: curWeight });
       }
-    });
+    }
+
+    for (const [symbol, prevShares] of Object.entries(prevMap)) {
+      if (!currentMap[symbol] || currentMap[symbol] <= 0) {
+        const code = symbol.includes(':') ? symbol.split(':')[1] : symbol;
+        const name = STOCK_NAMES[code] || code;
+        exits.push({ code, name });
+      }
+    }
 
     function parseDateKeyUTC(d) {
       const k = String(d).replaceAll('-', '').replaceAll('/', '');
@@ -493,6 +481,14 @@
         }
         etf.nav = etf.price_series[etf.price_series.length - 1].c;
         etf.close_price = etf.nav;
+        if (etf.price_series.length > 22) {
+          const s = etf.price_series;
+          const curN = s[s.length - 1].c;
+          const p1M = s[s.length - 22] ? s[s.length - 22].c : s[0].c;
+          const pInit = s[0].c;
+          etf.m1_return = parseFloat((((curN - p1M) / p1M) * 100).toFixed(2));
+          etf.total_return = parseFloat((((curN - pInit) / pInit) * 100).toFixed(2));
+        }
       }
     }
   }

@@ -356,6 +356,14 @@ function extendPricesAndEtfsToToday(prices, etfs) {
       }
       etf.nav = etf.price_series[etf.price_series.length - 1].c;
       etf.close_price = etf.nav;
+      if (etf.price_series.length > 22) {
+        const s = etf.price_series;
+        const curN = s[s.length - 1].c;
+        const p1M = s[s.length - 22] ? s[s.length - 22].c : s[0].c;
+        const pInit = s[0].c;
+        etf.m1_return = parseFloat((((curN - p1M) / p1M) * 100).toFixed(2));
+        etf.total_return = parseFloat((((curN - pInit) / pInit) * 100).toFixed(2));
+      }
     }
   }
 }
@@ -409,7 +417,7 @@ function calculateBacktest(trades, prices, etfs) {
   const firstTradeDate = trades[0].date;
   const lastTradeDate = trades[trades.length - 1].date;
 
-  const activeDays = tradingDays.filter(d => d >= firstTradeDate && d <= lastTradeDate);
+  const activeDays = tradingDays.filter(d => d >= firstTradeDate);
   if (!activeDays.length) {
     throw new Error('交易紀錄時間與股價資料庫時間範圍不重疊');
   }
@@ -642,40 +650,39 @@ function calculateBacktest(trades, prices, etfs) {
     weight: h.weight
   }));
 
-  const prevIndex = Math.max(0, latestIndex - 30);
-  const prevDayRecord = holdingsHistory[prevIndex];
+  const prevIndex = Math.max(0, latestIndex - 22);
+  const prevDayRecord = holdingsHistory[prevIndex] || { holdings: {}, val: startVal, currentHoldingWeights: [] };
   
   const top_adds = [];
   const top_reductions = [];
   const new_positions = [];
   const exits = [];
 
-  const finalHoldingsMap = latestDayRecord.holdings;
-  const prevHoldingsMap = prevDayRecord.holdings;
+  const finalHoldingsMap = latestDayRecord.holdings || {};
+  const prevHoldingsMap = prevDayRecord.holdings || {};
 
   for (const [symbol, shares] of Object.entries(finalHoldingsMap)) {
     const code = symbol.includes(':') ? symbol.split(':')[1] : symbol;
     const name = getStockName(symbol);
-    const currentWeight = finalHoldings.find(h => h.fullCode === symbol)?.weight || 0;
+    const currentWeight = finalHoldings.find(h => h.code === code)?.weight || 0;
+    const prevShares = prevHoldingsMap[symbol] || 0;
     
-    if (!(symbol in prevHoldingsMap)) {
+    const prevH = prevDayRecord.currentHoldingWeights ? prevDayRecord.currentHoldingWeights.find(h => h.symbol === symbol) : null;
+    const prevWeight = prevH && prevDayRecord.val ? Number(((prevH.valTwd / prevDayRecord.val) * 100).toFixed(2)) : 0;
+
+    if (prevShares === 0) {
       new_positions.push({ code, name, weight: currentWeight, shares });
-    } else {
-      const prevShares = prevHoldingsMap[symbol];
-      if (shares > prevShares) {
-        const delta = shares - prevShares;
-        const pct = (delta / prevShares) * 100;
-        top_adds.push({ code, name, delta, pct: Number(pct.toFixed(2)), weight: currentWeight });
-      } else if (shares < prevShares) {
-        const delta = prevShares - shares;
-        const pct = (delta / prevShares) * 100;
-        top_reductions.push({ code, name, delta, pct: Number(pct.toFixed(2)), weight: currentWeight });
-      }
+    } else if (shares > prevShares) {
+      const deltaPct = Number(Math.abs(currentWeight - prevWeight).toFixed(1)) || 1.0;
+      top_adds.push({ code, name, pct: deltaPct, weight: currentWeight });
+    } else if (shares < prevShares) {
+      const deltaPct = Number(Math.abs(prevWeight - currentWeight).toFixed(1)) || 1.0;
+      top_reductions.push({ code, name, pct: deltaPct, weight: currentWeight });
     }
   }
 
-  for (const symbol of Object.keys(prevHoldingsMap)) {
-    if (!(symbol in finalHoldingsMap)) {
+  for (const [symbol, prevShares] of Object.entries(prevHoldingsMap)) {
+    if (!finalHoldingsMap[symbol] || finalHoldingsMap[symbol] <= 0) {
       const code = symbol.includes(':') ? symbol.split(':')[1] : symbol;
       const name = getStockName(symbol);
       exits.push({ code, name });

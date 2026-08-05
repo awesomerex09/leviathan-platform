@@ -68,36 +68,109 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // GET /api/backtest
-  if (pathname === '/api/backtest' && req.method === 'GET') {
+  // GET /api/settings
+  if (pathname === '/api/settings' && req.method === 'GET') {
     try {
-      const csvPath = path.join(ROOT, 'Leviathan.csv');
-      const pricesPath = path.join(ROOT, 'prices.json');
-      const etfsPath = path.join(ROOT, 'etfs.json');
-
-      if (!fs.existsSync(csvPath)) {
-        res.writeHead(404, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ error: 'Leviathan.csv not found' }));
-        return;
+      const settingsPath = path.join(ROOT, 'settings.json');
+      let settings = {
+        total_return: true,
+        annualized_return: true,
+        max_return: true,
+        max_drawdown: true,
+        current_drawdown: true,
+        sharpe_ratio: true,
+        sortino_ratio: true,
+        calmar_ratio: true,
+        alpha: true,
+        beta: true
+      };
+      if (fs.existsSync(settingsPath)) {
+        try {
+          settings = Object.assign(settings, JSON.parse(fs.readFileSync(settingsPath, 'utf8')));
+        } catch(e) {}
+      } else {
+        fs.writeFileSync(settingsPath, JSON.stringify(settings, null, 2), 'utf8');
       }
-
-      const csvData = fs.readFileSync(csvPath, 'utf8');
-      const pricesData = fs.readFileSync(pricesPath, 'utf8');
-      const etfsData = fs.readFileSync(etfsPath, 'utf8');
-
-      const prices = JSON.parse(pricesData);
-      const etfs = JSON.parse(etfsData).etfs || [];
-
-      const trades = parseCSV(csvData);
-      const model = calculateBacktest(trades, prices, etfs);
-
-      res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
-      res.end(JSON.stringify({ ok: true, model }));
+      res.writeHead(200, {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': 'no-store, no-cache, must-revalidate'
+      });
+      res.end(JSON.stringify({ ok: true, settings }));
     } catch (e) {
       console.error(e);
       res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
       res.end(JSON.stringify({ error: e.message }));
     }
+    return;
+  }
+
+  // GET /api/backtest
+  if (pathname === '/api/backtest' && req.method === 'GET') {
+    try {
+      const csvPath = path.join(ROOT, 'Leviathan.csv');
+      if (fs.existsSync(csvPath)) {
+        const pricesPath = path.join(ROOT, 'prices.json');
+        const etfsPath = path.join(ROOT, 'etfs.json');
+        const prices = JSON.parse(fs.readFileSync(pricesPath, 'utf8'));
+        const etfs = JSON.parse(fs.readFileSync(etfsPath, 'utf8')).etfs || [];
+
+        const trades = parseCSV(fs.readFileSync(csvPath, 'utf8'));
+        const model = calculateBacktest(trades, prices, etfs);
+        
+        res.writeHead(200, {
+          'Content-Type': 'application/json; charset=utf-8',
+          'Cache-Control': 'no-store, no-cache, must-revalidate'
+        });
+        res.end(JSON.stringify({ ok: true, model }));
+      } else {
+        res.writeHead(404, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Leviathan.csv not found' }));
+      }
+    } catch (e) {
+      console.error(e);
+      res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify({ error: e.message }));
+    }
+    return;
+  }
+
+  // POST /api/settings
+  if (pathname === '/api/settings' && req.method === 'POST') {
+    let body = '';
+    req.on('data', chunk => { body += chunk; });
+    req.on('end', () => {
+      try {
+        let newSettings = {};
+        const parsed = JSON.parse(body);
+        newSettings = parsed.settings || parsed;
+        const settingsPath = path.join(ROOT, 'settings.json');
+        let currentSettings = {
+          total_return: true,
+          annualized_return: true,
+          max_return: true,
+          max_drawdown: true,
+          current_drawdown: true,
+          sharpe_ratio: true,
+          sortino_ratio: true,
+          calmar_ratio: true,
+          alpha: true,
+          beta: true
+        };
+        if (fs.existsSync(settingsPath)) {
+          try {
+            currentSettings = Object.assign(currentSettings, JSON.parse(fs.readFileSync(settingsPath, 'utf8')));
+          } catch(e) {}
+        }
+        const updated = Object.assign({}, currentSettings, newSettings);
+        fs.writeFileSync(settingsPath, JSON.stringify(updated, null, 2), 'utf8');
+        res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify({ ok: true, settings: updated }));
+      } catch (e) {
+        console.error(e);
+        res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify({ error: e.message }));
+      }
+    });
     return;
   }
 
@@ -405,6 +478,7 @@ function calculateBacktest(trades, prices, etfs) {
     if (dd < maxDrawdown) maxDrawdown = dd;
   }
   const max_drawdown = Number((maxDrawdown * 100).toFixed(2));
+  const current_drawdown = Number((((calFinal - peak) / peak) * 100).toFixed(2));
 
   const annualized_return = Number(((Math.pow(calFinal / calStart, 1 / (diffYears || 1)) - 1) * 100).toFixed(2));
   
@@ -417,6 +491,47 @@ function calculateBacktest(trades, prices, etfs) {
   const calDownside = Math.sqrt(calNeg.reduce((sum, r) => sum + r * r, 0) / (calReturns.length || 1)) || 0.0001;
   let sortino_ratio = Number(((calMean / calDownside) * Math.sqrt(252)).toFixed(3));
   if (sortino_ratio > 2.3 && sortino_ratio < 2.4) sortino_ratio = 2.388;
+
+  // Benchmark (0050.TW) daily returns & Advanced Metrics
+  const benchSeries = prices['0050.TW'] || [];
+  const benchPrices = [];
+  for (let i = 0; i < activeDays.length; i++) {
+    const day = activeDays[i];
+    const bPt = benchSeries.find(p => p.d === day) || benchSeries.filter(p => p.d <= day).pop();
+    benchPrices.push(bPt ? bPt.c : 1.0);
+  }
+  const benchReturns = [];
+  for (let i = 1; i < benchPrices.length; i++) {
+    benchReturns.push((benchPrices[i] - benchPrices[i - 1]) / benchPrices[i - 1]);
+  }
+
+  // Sharpe Ratio
+  const dailyRf = 0.02 / 252;
+  const calVariance = calReturns.reduce((sum, r) => sum + Math.pow(r - calMean, 2), 0) / (calReturns.length || 1);
+  const stdDevModel = Math.sqrt(calVariance);
+  const sharpe_ratio = stdDevModel === 0 ? 0 : Number((((calMean - dailyRf) / stdDevModel) * Math.sqrt(252)).toFixed(3));
+
+  // Calmar Ratio
+  const calmar_ratio = max_drawdown === 0 ? 0 : Number((annualized_return / Math.abs(max_drawdown)).toFixed(3));
+
+  // Beta
+  const meanBench = benchReturns.reduce((a, b) => a + b, 0) / (benchReturns.length || 1);
+  let covar = 0;
+  let varBench = 0;
+  for (let i = 0; i < calReturns.length; i++) {
+    covar += (calReturns[i] - calMean) * (benchReturns[i] - meanBench);
+    varBench += Math.pow(benchReturns[i] - meanBench, 2);
+  }
+  covar = covar / (calReturns.length || 1);
+  varBench = varBench / (benchReturns.length || 1);
+  const beta = varBench === 0 ? 1.0 : Number((covar / varBench).toFixed(3));
+
+  // Alpha
+  const bStart = benchPrices[0] || 1.0;
+  const bFinal = benchPrices[benchPrices.length - 1] || 1.0;
+  const annBenchRet = ((Math.pow(bFinal / bStart, 1 / (diffYears || 1)) - 1) * 100);
+  const riskFreeRate = 2.0; // 2%
+  const alpha = Number((annualized_return - (riskFreeRate + beta * (annBenchRet - riskFreeRate))).toFixed(2));
 
   const latestIndex = activeDays.length - 1;
   const latestDayRecord = holdingsHistory[latestIndex];
@@ -526,8 +641,13 @@ function calculateBacktest(trades, prices, etfs) {
     total_return,
     max_return,
     max_drawdown,
+    current_drawdown,
     annualized_return,
+    sharpe_ratio,
     sortino_ratio,
+    calmar_ratio,
+    alpha,
+    beta,
     total_av_yi: Number((latestPortfolioVal / 100000000).toFixed(4)),
     listing_date: firstTradeDate,
     close_price: price_series[price_series.length - 1].c,

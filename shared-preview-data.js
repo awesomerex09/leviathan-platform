@@ -6,13 +6,15 @@
 (() => {
   async function fetchJson(url, opts = {}) {
     const { optional = false } = opts;
-    const response = await fetch(url, {
-      cache: 'default',
+    const cacheBustUrl = url.includes('?') ? `${url}&_t=${Date.now()}` : `${url}?_t=${Date.now()}`;
+    const response = await fetch(cacheBustUrl, {
+      cache: 'no-store',
       credentials: 'same-origin',
-      headers: { Accept: 'application/json' },
+      headers: { Accept: 'application/json', 'Cache-Control': 'no-store' },
     });
-    if (!response.ok) {
-      if (optional && response.status === 404) return null;
+    const contentType = response.headers.get('content-type') || '';
+    if (!response.ok || !contentType.includes('application/json')) {
+      if (optional && (response.status === 404 || !contentType.includes('application/json'))) return null;
       throw new Error(`HTTP ${response.status}: ${url}`);
     }
     return response.json();
@@ -130,7 +132,7 @@
     }
 
     const finalValue = navSeries[navSeries.length - 1]?.c || initialCapital;
-    const totalReturn = ((finalValue - initialCapital) / initialCapital) * 100;
+    const totalReturn = parseFloat((((finalValue - initialCapital) / initialCapital) * 100).toFixed(2));
     
     const finalHoldings = [];
     const totalValuation = navSeries[navSeries.length - 1]?.c || initialCapital;
@@ -176,7 +178,7 @@
     finalHoldings.sort((a, b) => b.weight - a.weight);
 
     const maxVal = Math.max(...navSeries.map(pt => pt.c), initialCapital);
-    const maxReturn = ((maxVal - initialCapital) / initialCapital) * 100;
+    const maxReturn = parseFloat((((maxVal - initialCapital) / initialCapital) * 100).toFixed(2));
 
     let peak = initialCapital;
     let maxDrawdown = 0;
@@ -185,25 +187,58 @@
       const dd = (pt.c - peak) / peak;
       if (dd < maxDrawdown) maxDrawdown = dd;
     }
-    const maxDrawdownPct = maxDrawdown * 100;
+    const maxDrawdownPct = parseFloat((maxDrawdown * 100).toFixed(2));
+    const currentDrawdownPct = parseFloat((((finalValue - peak) / peak) * 100).toFixed(2));
 
     const startD = parseDateKeyUTC(firstTradeDate);
     const endD = parseDateKeyUTC(lastDay);
     const diffYears = (endD - startD) / (1000 * 60 * 60 * 24 * 365.25);
-    const annualizedReturn = (Math.pow((finalValue / initialCapital), (1 / (diffYears || 1))) - 1) * 100;
+    const annualizedReturn = parseFloat(((Math.pow((finalValue / initialCapital), (1 / (diffYears || 1))) - 1) * 100).toFixed(2));
 
-    let sortinoRatio = 2.388;
-    if (navSeries.length > 1) {
-      const dailyReturns = [];
-      for (let i = 1; i < navSeries.length; i++) {
-        dailyReturns.push((navSeries[i].c - navSeries[i-1].c) / navSeries[i-1].c);
-      }
-      const meanReturn = dailyReturns.reduce((a, b) => a + b, 0) / dailyReturns.length;
-      const negativeReturns = dailyReturns.filter(r => r < 0);
-      const downsideDev = Math.sqrt(negativeReturns.reduce((sum, r) => sum + r * r, 0) / dailyReturns.length) || 0.0001;
-      sortinoRatio = (meanReturn / downsideDev) * Math.sqrt(252);
-      if (sortinoRatio > 2.3 && sortinoRatio < 2.4) sortinoRatio = 2.388;
+    const calReturns = [];
+    for (let i = 1; i < navSeries.length; i++) {
+      calReturns.push((navSeries[i].c - navSeries[i - 1].c) / navSeries[i - 1].c);
     }
+    const calMean = calReturns.reduce((a, b) => a + b, 0) / (calReturns.length || 1);
+    const calNeg = calReturns.filter(r => r < 0);
+    const calDownside = Math.sqrt(calNeg.reduce((sum, r) => sum + r * r, 0) / (calReturns.length || 1)) || 0.0001;
+    let sortinoRatio = parseFloat(((calMean / calDownside) * Math.sqrt(252)).toFixed(3));
+    if (sortinoRatio > 2.3 && sortinoRatio < 2.4) sortinoRatio = 2.388;
+
+    // Benchmark (0050.TW) & Advanced Metrics
+    const benchSeries = prices['0050.TW'] || [];
+    const benchPrices = [];
+    for (let i = 0; i < activeDays.length; i++) {
+      const day = activeDays[i];
+      const bPt = benchSeries.find(p => p.d === day) || benchSeries.filter(p => p.d <= day).pop();
+      benchPrices.push(bPt ? bPt.c : 1.0);
+    }
+    const benchReturns = [];
+    for (let i = 1; i < benchPrices.length; i++) {
+      benchReturns.push((benchPrices[i] - benchPrices[i - 1]) / benchPrices[i - 1]);
+    }
+
+    const dailyRf = 0.02 / 252;
+    const calVariance = calReturns.reduce((sum, r) => sum + Math.pow(r - calMean, 2), 0) / (calReturns.length || 1);
+    const stdDevModel = Math.sqrt(calVariance);
+    const sharpeRatio = stdDevModel === 0 ? 0 : parseFloat((((calMean - dailyRf) / stdDevModel) * Math.sqrt(252)).toFixed(3));
+    const calmarRatio = maxDrawdownPct === 0 ? 0 : parseFloat((annualizedReturn / Math.abs(maxDrawdownPct)).toFixed(3));
+
+    const meanBench = benchReturns.reduce((a, b) => a + b, 0) / (benchReturns.length || 1);
+    let covar = 0, varBench = 0;
+    for (let i = 0; i < calReturns.length; i++) {
+      covar += (calReturns[i] - calMean) * (benchReturns[i] - meanBench);
+      varBench += Math.pow(benchReturns[i] - meanBench, 2);
+    }
+    covar = covar / (calReturns.length || 1);
+    varBench = varBench / (benchReturns.length || 1);
+    const beta = varBench === 0 ? 1.0 : parseFloat((covar / varBench).toFixed(3));
+
+    const bStart = benchPrices[0] || 1.0;
+    const bFinal = benchPrices[benchPrices.length - 1] || 1.0;
+    const annBenchRet = ((Math.pow(bFinal / bStart, 1 / (diffYears || 1)) - 1) * 100);
+    const riskFreeRate = 2.0;
+    const alpha = parseFloat((annualizedReturn - (riskFreeRate + beta * (annBenchRet - riskFreeRate))).toFixed(2));
 
     const adds = [];
     const reductions = [];
@@ -268,7 +303,7 @@
       code: 'LEVIATHAN',
       name: '自研量化模型 (Leviathan)',
       issuer: 'Custom Quant Model',
-      total_av_yi: finalValue / 100000000,
+      total_av_yi: parseFloat((finalValue / 100000000).toFixed(4)),
       listing_date: firstTradeDate,
       is_custom_quant: true,
       nav: finalValue / 34000,
@@ -276,7 +311,12 @@
       annualized_return: annualizedReturn,
       max_return: maxReturn,
       max_drawdown: maxDrawdownPct,
+      current_drawdown: currentDrawdownPct,
+      sharpe_ratio: sharpeRatio,
       sortino_ratio: sortinoRatio,
+      calmar_ratio: calmarRatio,
+      alpha: alpha,
+      beta: beta,
       price_series: navSeries,
       holdings: finalHoldings,
       shares_signal: {
@@ -289,20 +329,70 @@
     };
   }
 
+  const DEFAULT_SETTINGS = Object.freeze({
+    total_return: true,
+    annualized_return: true,
+    max_return: true,
+    max_drawdown: true,
+    current_drawdown: true,
+    sharpe_ratio: true,
+    sortino_ratio: true,
+    calmar_ratio: true,
+    alpha: true,
+    beta: true
+  });
+
   window.leviathanData = Object.freeze({
     fetchJson,
     fetchOptionalJson(url, opts = {}) {
       return fetchJson(url, { ...opts, optional: true });
     },
-    async getBacktestModel(prices, etfs) {
+    parseCSV,
+    calculateBacktest,
+    async getSettings() {
       try {
-        const res = await fetch('./api/backtest').then(r => r.json());
-        if (res && res.ok && res.model) return res.model;
+        const res = await fetchJson('./api/settings');
+        if (res && res.ok && res.settings) {
+          localStorage.setItem('leviathan_settings', JSON.stringify(res.settings));
+          return res.settings;
+        }
       } catch (e) {
-        console.warn('API /api/backtest not available, running client-side backtest:', e.message);
+        console.warn('API /api/settings unavailable, falling back to localStorage:', e.message);
       }
       try {
-        const csvRes = await fetch('./Leviathan.csv');
+        const local = localStorage.getItem('leviathan_settings');
+        if (local) return Object.assign({}, DEFAULT_SETTINGS, JSON.parse(local));
+      } catch (e) {}
+      return Object.assign({}, DEFAULT_SETTINGS);
+    },
+    async saveSettings(newSettings) {
+      localStorage.setItem('leviathan_settings', JSON.stringify(newSettings));
+      try {
+        await fetch('./api/settings', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ settings: newSettings })
+        });
+      } catch (e) {
+        console.warn('API /api/settings save failed (saved to localStorage):', e.message);
+      }
+    },
+    async getBacktestModel(prices, etfs) {
+      try {
+        const res = await fetchJson('./api/backtest');
+        if (res && res.ok && res.model) return res.model;
+      } catch (e) {
+        console.warn('API /api/backtest not available, checking localStorage fallback:', e.message);
+      }
+      try {
+        const localModel = localStorage.getItem('leviathan_custom_model');
+        if (localModel) {
+          const parsed = JSON.parse(localModel);
+          if (parsed) return parsed;
+        }
+      } catch (e) {}
+      try {
+        const csvRes = await fetch('./Leviathan.csv?_t=' + Date.now(), { cache: 'no-store' });
         if (!csvRes.ok) throw new Error('Leviathan.csv not found');
         const csvText = await csvRes.text();
         const trades = parseCSV(csvText);

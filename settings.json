@@ -1,0 +1,12 @@
+{
+  "total_return": true,
+  "annualized_return": true,
+  "max_return": true,
+  "max_drawdown": true,
+  "current_drawdown": true,
+  "sharpe_ratio": true,
+  "sortino_ratio": true,
+  "calmar_ratio": true,
+  "alpha": true,
+  "beta": true
+}

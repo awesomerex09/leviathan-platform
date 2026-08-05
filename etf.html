@@ -557,28 +557,48 @@
         <span data-i18n="quant-metrics-title">★ BACKTEST QUANT METRICS / 實盤回測指標</span>
         <span style="font-family: var(--dir-mono); font-size: 9px; color: var(--dir-muted); font-weight: normal; margin-left: auto;" id="quant-capital-label">Initial Capital: 500,000 TWD / 初始資金：50萬</span>
       </h2>
-      <div class="etf-stats-grid" style="grid-template-columns: repeat(5, 1fr);">
-        <div class="stat-box reveal-card delay-1">
+      <div class="etf-stats-grid" id="quant-metrics-grid" style="grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px;">
+        <div class="stat-box reveal-card" id="box-total">
           <div class="stat-label">TOTAL RETURN / 總報酬率</div>
-          <div class="stat-value" style="color: var(--dir-green);" id="val-quant-total">47.09%</div>
+          <div class="stat-value" style="color: var(--dir-green);" id="val-quant-total">—</div>
         </div>
-        <div class="stat-box reveal-card delay-2">
+        <div class="stat-box reveal-card" id="box-annual">
           <div class="stat-label">ANNUALIZED RETURN / 年化報酬率</div>
-          <div class="stat-value" style="color: var(--dir-green);" id="val-quant-annual">67.78%</div>
+          <div class="stat-value" style="color: var(--dir-green);" id="val-quant-annual">—</div>
           <div class="flagship-stat-badge" style="display: inline-block; font-size: 8px; color: #ffd700; background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 4px; padding: 1px 4px; margin-top: 4px; font-family: var(--font-body); font-weight: bold; letter-spacing: 0;">🔥 同類最高 / Top Peer</div>
         </div>
-        <div class="stat-box reveal-card delay-3">
+        <div class="stat-box reveal-card" id="box-max">
           <div class="stat-label">MAX RETURN / 歷史最高報酬</div>
-          <div class="stat-value" style="color: var(--dir-green);" id="val-quant-max">109.85%</div>
+          <div class="stat-value" style="color: var(--dir-green);" id="val-quant-max">—</div>
         </div>
-        <div class="stat-box reveal-card delay-4">
-          <div class="stat-label">SORTINO RATIO / 最高索提諾比率</div>
-          <div class="stat-value" style="color: var(--dir-green);" id="val-quant-sortino">2.388</div>
-          <div class="flagship-stat-badge" style="display: inline-block; font-size: 8px; color: #ffd700; background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 4px; padding: 1px 4px; margin-top: 4px; font-family: var(--font-body); font-weight: bold; letter-spacing: 0;">🏆 全網第一 / Best in Class</div>
-        </div>
-        <div class="stat-box reveal-card delay-5">
+        <div class="stat-box reveal-card" id="box-mdd">
           <div class="stat-label">MAX DRAWDOWN / 最大回撤</div>
           <div class="stat-value" style="color: var(--dir-green);" id="val-quant-mdd">—</div>
+        </div>
+        <div class="stat-box reveal-card" id="box-cdd">
+          <div class="stat-label">CURRENT DRAWDOWN / 當前回撤</div>
+          <div class="stat-value" style="color: var(--dir-green);" id="val-quant-cdd">—</div>
+        </div>
+        <div class="stat-box reveal-card" id="box-sharpe">
+          <div class="stat-label">SHARPE RATIO / 夏普比率</div>
+          <div class="stat-value" style="color: var(--dir-green);" id="val-quant-sharpe">—</div>
+        </div>
+        <div class="stat-box reveal-card" id="box-sortino">
+          <div class="stat-label">SORTINO RATIO / 最高索提諾比率</div>
+          <div class="stat-value" style="color: var(--dir-green);" id="val-quant-sortino">—</div>
+          <div class="flagship-stat-badge" style="display: inline-block; font-size: 8px; color: #ffd700; background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 4px; padding: 1px 4px; margin-top: 4px; font-family: var(--font-body); font-weight: bold; letter-spacing: 0;">🏆 全網第一 / Best in Class</div>
+        </div>
+        <div class="stat-box reveal-card" id="box-calmar">
+          <div class="stat-label">CALMAR RATIO / 卡馬比率</div>
+          <div class="stat-value" style="color: var(--dir-green);" id="val-quant-calmar">—</div>
+        </div>
+        <div class="stat-box reveal-card" id="box-alpha">
+          <div class="stat-label">ALPHA / 超額報酬</div>
+          <div class="stat-value" style="color: var(--dir-green);" id="val-quant-alpha">—</div>
+        </div>
+        <div class="stat-box reveal-card" id="box-beta">
+          <div class="stat-label">BETA / 市場 BETA</div>
+          <div class="stat-value" style="color: var(--dir-green);" id="val-quant-beta">—</div>
         </div>
       </div>
     </div>
@@ -1068,14 +1088,26 @@
     }
 
     function calculateEtfMetrics(etf) {
+      if (etf.total_return !== undefined && etf.current_drawdown !== undefined && etf.beta !== undefined) {
+        return {
+          totalReturn: Number(etf.total_return) || 0,
+          annualizedReturn: Number(etf.annualized_return) || 0,
+          maxReturn: Number(etf.max_return) || 0,
+          sortinoRatio: Number(etf.sortino_ratio) || 0,
+          maxDrawdown: Number(etf.max_drawdown) || 0,
+          currentDrawdown: Number(etf.current_drawdown) || 0,
+          sharpeRatio: Number(etf.sharpe_ratio) || 0,
+          calmarRatio: Number(etf.calmar_ratio) || 0,
+          alpha: Number(etf.alpha) || 0,
+          beta: Number(etf.beta) || 0
+        };
+      }
       const series = etf.price_series || [];
       if (!series.length) {
         return {
-          totalReturn: 0,
-          annualizedReturn: 0,
-          maxReturn: 0,
-          sortinoRatio: 0,
-          maxDrawdown: 0
+          totalReturn: 0, annualizedReturn: 0, maxReturn: 0, sortinoRatio: 0,
+          maxDrawdown: 0, currentDrawdown: 0, sharpeRatio: 0, calmarRatio: 0,
+          alpha: 0, beta: 0
         };
       }
       
@@ -1083,16 +1115,14 @@
       const finalVal = series[series.length - 1].c;
       const peakVal = Math.max(...series.map(pt => pt.c), startVal);
       
-      const totalReturn = ((finalVal - startVal) / (startVal || 1)) * 100;
-      const maxReturn = ((peakVal - startVal) / (startVal || 1)) * 100;
+      const totalReturn = Number((((finalVal - startVal) / (startVal || 1)) * 100).toFixed(2));
+      const maxReturn = Number((((peakVal - startVal) / (startVal || 1)) * 100).toFixed(2));
       
-      // Annualized Return
       const startD = parseDateKeyUTC(series[0].d);
       const endD = parseDateKeyUTC(series[series.length - 1].d);
       const diffYears = (endD - startD) / (1000 * 60 * 60 * 24 * 365.25);
-      const annualizedReturn = (Math.pow((finalVal / (startVal || 1)), (1 / (diffYears || 1))) - 1) * 100;
+      const annualizedReturn = Number(((Math.pow((finalVal / (startVal || 1)), (1 / (diffYears || 1))) - 1) * 100).toFixed(2));
       
-      // Max Drawdown
       let peak = startVal;
       let maxDrawdown = 0;
       for (const pt of series) {
@@ -1100,117 +1130,153 @@
         const dd = (pt.c - peak) / (peak || 1);
         if (dd < maxDrawdown) maxDrawdown = dd;
       }
-      const maxDrawdownPct = maxDrawdown * 100;
+      const maxDrawdownPct = Number((maxDrawdown * 100).toFixed(2));
+      const currentDrawdownPct = Number((((finalVal - peak) / (peak || 1)) * 100).toFixed(2));
       
-      // Sortino Ratio
       let sortinoRatio = 0;
+      let calReturns = [];
       if (series.length > 1) {
-        const dailyReturns = [];
         for (let i = 1; i < series.length; i++) {
-          dailyReturns.push((series[i].c - series[i-1].c) / (series[i-1].c || 1));
+          calReturns.push((series[i].c - series[i-1].c) / (series[i-1].c || 1));
         }
-        const meanReturn = dailyReturns.reduce((a, b) => a + b, 0) / dailyReturns.length;
-        const negativeReturns = dailyReturns.filter(r => r < 0);
-        const downsideDev = Math.sqrt(negativeReturns.reduce((sum, r) => sum + r * r, 0) / dailyReturns.length) || 0.0001;
-        sortinoRatio = (meanReturn / downsideDev) * Math.sqrt(252);
-        
+        const meanReturn = calReturns.reduce((a, b) => a + b, 0) / calReturns.length;
+        const negativeReturns = calReturns.filter(r => r < 0);
+        const downsideDev = Math.sqrt(negativeReturns.reduce((sum, r) => sum + r * r, 0) / calReturns.length) || 0.0001;
+        sortinoRatio = Number(((meanReturn / downsideDev) * Math.sqrt(252)).toFixed(3));
         if (etf.is_custom_quant && sortinoRatio > 2.0 && sortinoRatio < 2.3) {
           sortinoRatio = 2.152;
         }
       }
-      
+
+      const calMean = calReturns.reduce((a, b) => a + b, 0) / (calReturns.length || 1);
+      const dailyRf = 0.02 / 252;
+      const calVariance = calReturns.reduce((sum, r) => sum + Math.pow(r - calMean, 2), 0) / (calReturns.length || 1);
+      const stdDevModel = Math.sqrt(calVariance);
+      const sharpeRatio = stdDevModel === 0 ? 0 : Number((((calMean - dailyRf) / stdDevModel) * Math.sqrt(252)).toFixed(3));
+      const calmarRatio = maxDrawdownPct === 0 ? 0 : Number((annualizedReturn / Math.abs(maxDrawdownPct)).toFixed(3));
+
+      let beta = etf.beta !== undefined ? Number(etf.beta) : 1.0;
+      let alpha = etf.alpha !== undefined ? Number(etf.alpha) : 0.0;
+
       return {
         totalReturn,
         annualizedReturn,
         maxReturn,
         sortinoRatio,
-        maxDrawdown: maxDrawdownPct
+        maxDrawdown: maxDrawdownPct,
+        currentDrawdown: currentDrawdownPct,
+        sharpeRatio,
+        calmarRatio,
+        alpha,
+        beta
       };
     }
 
-    function renderHeader() {
-      const qCard = $('quant-stats-card');
-      if (qCard) qCard.style.display = 'block';
+    async function renderHeader() {
+      try {
+        const qCard = $('quant-stats-card');
+        if (qCard) qCard.style.display = 'block';
 
-      const qTitle = document.querySelector('#quant-stats-card h2 span[data-i18n="quant-metrics-title"]');
-      const qCap = $('quant-capital-label');
+        const qTitle = document.querySelector('#quant-stats-card h2 span[data-i18n="quant-metrics-title"]');
+        const qCap = $('quant-capital-label');
 
-      if (etf.is_custom_quant) {
-        $('header-card').classList.add('custom-quant');
-        $('etf-code-tag').textContent = i18n[currentLang]['custom-tag'];
-        $('etf-name').innerHTML = `${currentLang === 'zh' ? '自研量化模型 (Leviathan)' : 'Proprietary Quant Model (Leviathan)'} <em>★</em>`;
-        $('etf-issuer').textContent = currentLang === 'zh' ? 'Custom Quant Model · 基於交易明細回測' : 'Custom Quant Model · Backtested from Trade Log';
-        if (qTitle) qTitle.textContent = currentLang === 'zh' ? '★ BACKTEST QUANT METRICS / 實盤回測指標' : '★ BACKTEST QUANT METRICS';
-        if (qCap) {
-          qCap.style.display = 'inline';
-          if (currentCurr === 'USD') {
-            const usdCap = (500000 / twdRate).toLocaleString(undefined, { maximumFractionDigits: 0 });
-            qCap.textContent = currentLang === 'zh' ? `初始資金：$${usdCap} 美元` : `Initial Capital: $${usdCap} USD`;
-          } else {
-            qCap.textContent = currentLang === 'zh' ? '初始資金：50 萬 TWD' : 'Initial Capital: 500,000 TWD';
-          }
-        }
-      } else {
-        $('header-card').classList.remove('custom-quant');
-        $('etf-code-tag').textContent = etf.code;
-        $('etf-name').textContent = getEtfName(etf.code, etf.name);
-        $('etf-issuer').textContent = getIssuerName(etf.issuer_full || etf.issuer);
-        if (qTitle) qTitle.textContent = currentLang === 'zh' ? '★ QUANT PORTFOLIO METRICS / 基金量化分析指標' : '★ QUANT PORTFOLIO METRICS';
-        if (qCap) qCap.style.display = 'none';
-      }
-
-      // Populate quant stats dynamically
-      const metrics = calculateEtfMetrics(etf);
-      const qTotal = $('val-quant-total');
-      const qAnnual = $('val-quant-annual');
-      const qMax = $('val-quant-max');
-      const qSortino = $('val-quant-sortino');
-      const qMdd = $('val-quant-mdd');
-
-      if (qTotal) qTotal.textContent = `${metrics.totalReturn.toFixed(2)}%`;
-      if (qAnnual) qAnnual.textContent = `${metrics.annualizedReturn.toFixed(2)}%`;
-      if (qMax) qMax.textContent = `${metrics.maxReturn.toFixed(2)}%`;
-      if (qSortino) qSortino.textContent = metrics.sortinoRatio.toFixed(3);
-      if (qMdd) qMdd.textContent = `${metrics.maxDrawdown.toFixed(2)}%`;
-
-      // Show/hide the gold badges based on whether it is custom quant (Leviathan)
-      const badges = document.querySelectorAll('#quant-stats-card .flagship-stat-badge');
-      badges.forEach(b => {
-        b.style.display = etf.is_custom_quant ? 'inline-block' : 'none';
-      });
-
-      const chartTitleHeader = $('chart-title-header');
-      if (chartTitleHeader) {
-        chartTitleHeader.textContent = currentLang === 'zh' ? '與台灣五十大盤對比走勢 (0050 BENCHMARK COMPARE)' : '0050 Index Benchmark Comparison Chart';
-      }
-
-      if (etf.nav) {
         if (etf.is_custom_quant) {
-          $('val-nav').textContent = currentCurr === 'USD' ? `$ ${etf.nav.toFixed(2)}` : `${etf.nav.toFixed(2)} 元`;
+          $('header-card').classList.add('custom-quant');
+          $('etf-code-tag').textContent = i18n[currentLang]['custom-tag'];
+          $('etf-name').innerHTML = `${currentLang === 'zh' ? '自研量化模型 (Leviathan)' : 'Proprietary Quant Model (Leviathan)'} <em>★</em>`;
+          $('etf-issuer').textContent = currentLang === 'zh' ? 'Custom Quant Model · 基於交易明細回測' : 'Custom Quant Model · Backtested from Trade Log';
+          if (qTitle) qTitle.textContent = currentLang === 'zh' ? '★ BACKTEST QUANT METRICS / 實盤回測指標' : '★ BACKTEST QUANT METRICS';
+          if (qCap) {
+            qCap.style.display = 'inline';
+            if (currentCurr === 'USD') {
+              const usdCap = (500000 / twdRate).toLocaleString(undefined, { maximumFractionDigits: 0 });
+              qCap.textContent = currentLang === 'zh' ? `初始資金：$${usdCap} 美元` : `Initial Capital: $${usdCap} USD`;
+            } else {
+              qCap.textContent = currentLang === 'zh' ? '初始資金：50 萬 TWD' : 'Initial Capital: 500,000 TWD';
+            }
+          }
         } else {
-          $('val-nav').textContent = currentCurr === 'USD' ? `$ ${(etf.nav / twdRate).toFixed(2)}` : `${etf.nav.toFixed(2)} 元`;
+          $('header-card').classList.remove('custom-quant');
+          $('etf-code-tag').textContent = etf.code;
+          $('etf-name').textContent = getEtfName(etf.code, etf.name);
+          $('etf-issuer').textContent = getIssuerName(etf.issuer_full || etf.issuer);
+          if (qTitle) qTitle.textContent = currentLang === 'zh' ? '★ QUANT PORTFOLIO METRICS / 基金量化分析指標' : '★ QUANT PORTFOLIO METRICS';
+          if (qCap) qCap.style.display = 'none';
         }
-      } else {
-        $('val-nav').textContent = '—';
-      }
-      
-      $('val-aum').textContent = etf.total_av_yi ? fmtAum(etf.total_av_yi) : '—';
-      
-      const series = etf.price_series || [];
-      if (series.length >= 2) {
-        const latestC = series[series.length - 1].c;
-        const mSeries = recentMonthSeries(etf);
-        const firstC = mSeries[0]?.c || series[0].c;
-        const pct = ((latestC - firstC) / firstC) * 100;
-        
-        $('val-return').textContent = `${pct > 0 ? '+' : ''}${pct.toFixed(2)}%`;
-        $('val-return').className = `stat-value ${pct > 0 ? 'up' : pct < 0 ? 'down' : ''}`;
-      } else {
-        $('val-return').textContent = '—';
-      }
 
-      const listingKey = etf.listing_date ? String(etf.listing_date).replaceAll('-', '').replaceAll('/', '') : '';
-      $('val-listing').textContent = listingKey.length === 8 ? `${listingKey.slice(0, 4)}-${listingKey.slice(4, 6)}-${listingKey.slice(6, 8)}` : '—';
+        const metrics = calculateEtfMetrics(etf);
+        
+        if ($('val-quant-total')) $('val-quant-total').textContent = `${(Number(metrics.totalReturn) || 0).toFixed(2)}%`;
+        if ($('val-quant-annual')) $('val-quant-annual').textContent = `${(Number(metrics.annualizedReturn) || 0).toFixed(2)}%`;
+        if ($('val-quant-max')) $('val-quant-max').textContent = `${(Number(metrics.maxReturn) || 0).toFixed(2)}%`;
+        if ($('val-quant-mdd')) $('val-quant-mdd').textContent = `${(Number(metrics.maxDrawdown) || 0).toFixed(2)}%`;
+        if ($('val-quant-cdd')) $('val-quant-cdd').textContent = `${(Number(metrics.currentDrawdown) || 0).toFixed(2)}%`;
+        if ($('val-quant-sharpe')) $('val-quant-sharpe').textContent = (Number(metrics.sharpeRatio) || 0).toFixed(3);
+        if ($('val-quant-sortino')) $('val-quant-sortino').textContent = (Number(metrics.sortinoRatio) || 0).toFixed(3);
+        if ($('val-quant-calmar')) $('val-quant-calmar').textContent = (Number(metrics.calmarRatio) || 0).toFixed(3);
+        if ($('val-quant-alpha')) $('val-quant-alpha').textContent = `${(Number(metrics.alpha) || 0).toFixed(2)}%`;
+        if ($('val-quant-beta')) $('val-quant-beta').textContent = (Number(metrics.beta) || 0).toFixed(3);
+
+        // Fetch settings & apply display toggles
+        const settings = window.leviathanData ? await window.leviathanData.getSettings() : {};
+        const keyMap = {
+          'box-total': settings.total_return !== false,
+          'box-annual': settings.annualized_return !== false,
+          'box-max': settings.max_return !== false,
+          'box-mdd': settings.max_drawdown !== false,
+          'box-cdd': settings.current_drawdown !== false,
+          'box-sharpe': settings.sharpe_ratio !== false,
+          'box-sortino': settings.sortino_ratio !== false,
+          'box-calmar': settings.calmar_ratio !== false,
+          'box-alpha': settings.alpha !== false,
+          'box-beta': settings.beta !== false
+        };
+
+        for (const [boxId, show] of Object.entries(keyMap)) {
+          const el = $(boxId);
+          if (el) el.style.display = show ? '' : 'none';
+        }
+
+        const badges = document.querySelectorAll('#quant-stats-card .flagship-stat-badge');
+        badges.forEach(b => {
+          b.style.display = etf.is_custom_quant ? 'inline-block' : 'none';
+        });
+
+        const chartTitleHeader = $('chart-title-header');
+        if (chartTitleHeader) {
+          chartTitleHeader.textContent = currentLang === 'zh' ? '與台灣五十大盤對比走勢 (0050 BENCHMARK COMPARE)' : '0050 Index Benchmark Comparison Chart';
+        }
+
+        if (etf.nav) {
+          if (etf.is_custom_quant) {
+            $('val-nav').textContent = currentCurr === 'USD' ? `$ ${etf.nav.toFixed(2)}` : `${etf.nav.toFixed(2)} 元`;
+          } else {
+            $('val-nav').textContent = currentCurr === 'USD' ? `$ ${(etf.nav / twdRate).toFixed(2)}` : `${etf.nav.toFixed(2)} 元`;
+          }
+        } else {
+          $('val-nav').textContent = '—';
+        }
+        
+        $('val-aum').textContent = etf.total_av_yi ? fmtAum(etf.total_av_yi) : '—';
+        
+        const series = etf.price_series || [];
+        if (series.length >= 2) {
+          const latestC = series[series.length - 1].c;
+          const mSeries = recentMonthSeries(etf);
+          const firstC = mSeries[0]?.c || series[0].c;
+          const pct = ((latestC - firstC) / firstC) * 100;
+          
+          $('val-return').textContent = `${pct > 0 ? '+' : ''}${pct.toFixed(2)}%`;
+          $('val-return').className = `stat-value ${pct > 0 ? 'up' : pct < 0 ? 'down' : ''}`;
+        } else {
+          $('val-return').textContent = '—';
+        }
+
+        const listingKey = etf.listing_date ? String(etf.listing_date).replaceAll('-', '').replaceAll('/', '') : '';
+        $('val-listing').textContent = listingKey.length === 8 ? `${listingKey.slice(0, 4)}-${listingKey.slice(4, 6)}-${listingKey.slice(6, 8)}` : '—';
+      } catch (err) {
+        console.error('Error in renderHeader:', err);
+      }
     }
 
     function recentMonthSeries(targetEtf) {

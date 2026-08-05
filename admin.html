@@ -195,10 +195,23 @@
     </div>
   </div>
 
+  <script src="./shared-preview-data.js"></script>
   <main class="admin-main">
     <div>
       <a href="./index.html" class="back-btn">← 返回首頁 / BACK TO INDEX</a>
     </div>
+
+    <!-- 指標顯示控制 -->
+    <section class="admin-card">
+      <h1>前台指標顯示動態控制</h1>
+      <p style="color: var(--dir-muted); font-size: 13px; margin: 0;">
+        勾選欲於前台 (etf.html) 顯示的量化指標方塊。勾選狀態將即時同步至伺服器 (`settings.json`) 與快取層 (`localStorage`)。
+      </p>
+      <div id="settings-matrix" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 8px;">
+        <!-- Checkboxes loaded by JS -->
+      </div>
+      <div id="settings-save-status" style="font-size: 12px; color: var(--dir-mint); display: none; font-family: var(--dir-mono);">✓ 設定已自動儲存</div>
+    </section>
 
     <section class="admin-card">
       <h1>量化模型上傳與管理</h1>
@@ -215,7 +228,7 @@
       <div class="status-panel" id="status-panel"></div>
 
       <div id="preview-section" style="display: none;">
-        <h3 style="font-size: 14px; margin-top: 10px; margin-bottom: 12px; font-family: var(--dir-serif); border-bottom: 1px solid var(--dir-line); padding-bottom: 8px;">回測模型數據預覽 (Leviathan)</h3>
+        <h3 style="font-size: 14px; margin-top: 10px; margin-bottom: 12px; font-family: var(--dir-serif); border-bottom: 1px solid var(--dir-line); padding-bottom: 8px;">回測模型數據預覽 (Leviathan - 10 大指標)</h3>
         <div class="preview-grid">
           <div class="preview-box">
             <div class="preview-label">總報酬率 / TOTAL RETURN</div>
@@ -230,8 +243,32 @@
             <div class="preview-value highlight" id="val-admin-max">—</div>
           </div>
           <div class="preview-box">
-            <div class="preview-label">最高索提諾比率 / SORTINO RATIO</div>
+            <div class="preview-label">最大回撤 / MAX DRAWDOWN</div>
+            <div class="preview-value highlight" id="val-admin-mdd">—</div>
+          </div>
+          <div class="preview-box">
+            <div class="preview-label">當前回撤 / CURRENT DRAWDOWN</div>
+            <div class="preview-value highlight" id="val-admin-cdd">—</div>
+          </div>
+          <div class="preview-box">
+            <div class="preview-label">夏普比率 / SHARPE RATIO</div>
+            <div class="preview-value highlight" id="val-admin-sharpe">—</div>
+          </div>
+          <div class="preview-box">
+            <div class="preview-label">索提諾比率 / SORTINO RATIO</div>
             <div class="preview-value highlight" id="val-admin-sortino">—</div>
+          </div>
+          <div class="preview-box">
+            <div class="preview-label">卡馬比率 / CALMAR RATIO</div>
+            <div class="preview-value highlight" id="val-admin-calmar">—</div>
+          </div>
+          <div class="preview-box">
+            <div class="preview-label">ALPHA 超額報酬 / ALPHA</div>
+            <div class="preview-value highlight" id="val-admin-alpha">—</div>
+          </div>
+          <div class="preview-box">
+            <div class="preview-label">BETA 比率 / BETA</div>
+            <div class="preview-value highlight" id="val-admin-beta">—</div>
           </div>
         </div>
       </div>
@@ -251,19 +288,95 @@
     const previewSection = $('preview-section');
     const clearBtn = $('clear-btn');
 
+    const METRIC_DEFS = [
+      { key: 'total_return', label: '總報酬率 (Total Return)' },
+      { key: 'annualized_return', label: '年化報酬率 (Annualized Return)' },
+      { key: 'max_return', label: '歷史最高報酬率 (Max Return)' },
+      { key: 'max_drawdown', label: '最大回撤 (Max Drawdown)' },
+      { key: 'current_drawdown', label: '當前回撤 (Current Drawdown)' },
+      { key: 'sharpe_ratio', label: '夏普比率 (Sharpe Ratio)' },
+      { key: 'sortino_ratio', label: '索提諾比率 (Sortino Ratio)' },
+      { key: 'calmar_ratio', label: '卡馬比率 (Calmar Ratio)' },
+      { key: 'alpha', label: 'Alpha 超額報酬 (Alpha)' },
+      { key: 'beta', label: 'Beta 比率 (Beta)' }
+    ];
+
+    async function initSettingsMatrix() {
+      const container = $('settings-matrix');
+      container.innerHTML = '';
+      const currentSettings = await window.leviathanData.getSettings();
+
+      METRIC_DEFS.forEach(item => {
+        const wrapper = document.createElement('label');
+        wrapper.style.display = 'flex';
+        wrapper.style.alignItems = 'center';
+        wrapper.style.gap = '8px';
+        wrapper.style.cursor = 'pointer';
+        wrapper.style.padding = '8px 12px';
+        wrapper.style.background = 'rgba(3, 7, 18, 0.4)';
+        wrapper.style.border = '1px solid var(--dir-line)';
+        wrapper.style.borderRadius = 'var(--radius-sm)';
+
+        const chk = document.createElement('input');
+        chk.type = 'checkbox';
+        chk.dataset.key = item.key;
+        chk.checked = currentSettings[item.key] !== false;
+
+        chk.addEventListener('change', async () => {
+          const updated = {};
+          const inputs = container.querySelectorAll('input[type="checkbox"]');
+          inputs.forEach(input => {
+            updated[input.dataset.key] = input.checked;
+          });
+          await window.leviathanData.saveSettings(updated);
+          const saveMsg = $('settings-save-status');
+          saveMsg.style.display = 'block';
+          setTimeout(() => { saveMsg.style.display = 'none'; }, 2000);
+        });
+
+        const span = document.createElement('span');
+        span.style.fontSize = '12px';
+        span.style.color = '#fff';
+        span.textContent = item.label;
+
+        wrapper.appendChild(chk);
+        wrapper.appendChild(span);
+        container.appendChild(wrapper);
+      });
+    }
+    initSettingsMatrix();
+
     // Load active status
     async function loadActiveStatus() {
       try {
-        const res = await fetch('./api/backtest').then(r => r.json());
-        if (res && res.ok && res.model) {
-          const parsed = res.model;
+        let parsed = null;
+        if (window.leviathanData) {
+          const pricesRes = await window.leviathanData.fetchOptionalJson('./prices.json');
+          const etfsRes = await window.leviathanData.fetchOptionalJson('./etfs.json');
+          parsed = await window.leviathanData.getBacktestModel(pricesRes || {}, (etfsRes && etfsRes.etfs) ? etfsRes.etfs : []);
+        }
+        if (!parsed) {
+          const res = await fetch('./api/backtest');
+          const contentType = res.headers.get('content-type') || '';
+          if (res.ok && contentType.includes('application/json')) {
+            const resJson = await res.json();
+            if (resJson && resJson.ok) parsed = resJson.model;
+          }
+        }
+        if (parsed) {
           showStatus(`目前已發布模型：${parsed.name}\n代號：${parsed.code}`);
           previewSection.style.display = 'block';
           
-          $('val-admin-total').textContent = parsed.total_return ? `${parsed.total_return.toFixed(2)}%` : '47.09%';
-          $('val-admin-annual').textContent = parsed.annualized_return ? `${parsed.annualized_return.toFixed(2)}%` : '67.78%';
-          $('val-admin-max').textContent = parsed.max_return ? `${parsed.max_return.toFixed(2)}%` : '109.85%';
-          $('val-admin-sortino').textContent = parsed.sortino_ratio ? parsed.sortino_ratio.toFixed(3) : '2.388';
+          $('val-admin-total').textContent = (parsed.total_return !== undefined && parsed.total_return !== null) ? `${Number(parsed.total_return).toFixed(2)}%` : '—';
+          $('val-admin-annual').textContent = (parsed.annualized_return !== undefined && parsed.annualized_return !== null) ? `${Number(parsed.annualized_return).toFixed(2)}%` : '—';
+          $('val-admin-max').textContent = (parsed.max_return !== undefined && parsed.max_return !== null) ? `${Number(parsed.max_return).toFixed(2)}%` : '—';
+          $('val-admin-mdd').textContent = (parsed.max_drawdown !== undefined && parsed.max_drawdown !== null) ? `${Number(parsed.max_drawdown).toFixed(2)}%` : '—';
+          $('val-admin-cdd').textContent = (parsed.current_drawdown !== undefined && parsed.current_drawdown !== null) ? `${Number(parsed.current_drawdown).toFixed(2)}%` : '—';
+          $('val-admin-sharpe').textContent = (parsed.sharpe_ratio !== undefined && parsed.sharpe_ratio !== null) ? Number(parsed.sharpe_ratio).toFixed(3) : '—';
+          $('val-admin-sortino').textContent = (parsed.sortino_ratio !== undefined && parsed.sortino_ratio !== null) ? Number(parsed.sortino_ratio).toFixed(3) : '—';
+          $('val-admin-calmar').textContent = (parsed.calmar_ratio !== undefined && parsed.calmar_ratio !== null) ? Number(parsed.calmar_ratio).toFixed(3) : '—';
+          $('val-admin-alpha').textContent = (parsed.alpha !== undefined && parsed.alpha !== null) ? `${Number(parsed.alpha).toFixed(2)}%` : '—';
+          $('val-admin-beta').textContent = (parsed.beta !== undefined && parsed.beta !== null) ? Number(parsed.beta).toFixed(3) : '—';
         }
       } catch (e) {
         console.warn('Failed to load active status:', e.message);
@@ -296,22 +409,21 @@
       if (file) processFile(file);
     });
 
-    clearBtn.addEventListener('click', async () => {
+    clearBtn.addEventListener('click', async (e) => {
+      if (e) e.preventDefault();
       if (confirm('確定要清除已發布的自研模型嗎？清除後前台將還原為預設模型。')) {
+        localStorage.removeItem('leviathan_custom_model');
         try {
           showStatus('正在清除自研模型並還原預設版...');
           const res = await fetch('./api/clear', { method: 'POST' }).then(r => r.json());
           if (res && res.ok) {
             showStatus('已清除自研模型，並成功還原為預設模型！');
-            previewSection.style.display = 'none';
-            setTimeout(() => location.reload(), 1500);
-          } else {
-            throw new Error(res.error || '清除失敗');
           }
         } catch (e) {
-          alert('清除失敗: ' + e.message);
-          showStatus('清除失敗：' + e.message);
+          console.warn('API 清除失敗 (已清除 localStorage 快取):', e.message);
+          showStatus('已從本地快取清除自研模型，前台將還原為預設模型。');
         }
+        previewSection.style.display = 'none';
       }
     });
 
@@ -321,21 +433,56 @@
     }
 
     async function processFile(file) {
-      showStatus('上傳交易明細並執行伺服器端量化回測...');
+      if (!file) return;
+      showStatus('處理交易明細中...');
       try {
         const text = await file.text();
-        const res = await fetch('./api/upload', {
-          method: 'POST',
-          headers: { 'Content-Type': 'text/plain; charset=utf-8' },
-          body: text
-        }).then(r => r.json());
-        
-        if (res && res.ok && res.model) {
-          showStatus(`伺服器回測計算成功！\n模型名稱：${res.model.name}\n已成功儲存並發布至前台！`);
+        let model = null;
+        try {
+          const res = await fetch('./api/upload', {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+            body: text
+          }).then(r => {
+            const contentType = r.headers.get('content-type') || '';
+            if (!r.ok || !contentType.includes('application/json')) {
+              throw new Error(`HTTP ${r.status} / Invalid response`);
+            }
+            return r.json();
+          });
+          if (res && res.ok && res.model) {
+            model = res.model;
+            showStatus(`伺服器回測計算成功！\n模型名稱：${model.name}\n已成功儲存並發布至前台！`);
+          }
+        } catch (apiErr) {
+          console.warn('API /api/upload 離線，切換至純前端靜態回測模式:', apiErr.message);
+          showStatus('切換至靜態備援模式：正在瀏覽器端進行靜態量化回測...');
+          const pricesRes = await window.leviathanData.fetchOptionalJson('./prices.json');
+          const etfsRes = await window.leviathanData.fetchOptionalJson('./etfs.json');
+          const trades = window.leviathanData.parseCSV ? window.leviathanData.parseCSV(text) : [];
+          if (trades && trades.length) {
+            model = window.leviathanData.calculateBacktest(trades, pricesRes || {}, (etfsRes && etfsRes.etfs) ? etfsRes.etfs : []);
+            if (model) {
+              localStorage.setItem('leviathan_custom_model', JSON.stringify(model));
+              showStatus(`純前端回測成功！\n模型名稱：${model.name}\n已將最新數據儲存至 localStorage 快取！`);
+            }
+          } else {
+            throw new Error('CSV 格式解析失敗或無有效交易紀錄');
+          }
+        }
+
+        if (model) {
           previewSection.style.display = 'block';
-          setTimeout(() => location.reload(), 2000);
-        } else {
-          throw new Error(res.error || '回測計算失敗');
+          $('val-admin-total').textContent = (model.total_return !== undefined && model.total_return !== null) ? `${Number(model.total_return).toFixed(2)}%` : '—';
+          $('val-admin-annual').textContent = (model.annualized_return !== undefined && model.annualized_return !== null) ? `${Number(model.annualized_return).toFixed(2)}%` : '—';
+          $('val-admin-max').textContent = (model.max_return !== undefined && model.max_return !== null) ? `${Number(model.max_return).toFixed(2)}%` : '—';
+          $('val-admin-mdd').textContent = (model.max_drawdown !== undefined && model.max_drawdown !== null) ? `${Number(model.max_drawdown).toFixed(2)}%` : '—';
+          $('val-admin-cdd').textContent = (model.current_drawdown !== undefined && model.current_drawdown !== null) ? `${Number(model.current_drawdown).toFixed(2)}%` : '—';
+          $('val-admin-sharpe').textContent = (model.sharpe_ratio !== undefined && model.sharpe_ratio !== null) ? Number(model.sharpe_ratio).toFixed(3) : '—';
+          $('val-admin-sortino').textContent = (model.sortino_ratio !== undefined && model.sortino_ratio !== null) ? Number(model.sortino_ratio).toFixed(3) : '—';
+          $('val-admin-calmar').textContent = (model.calmar_ratio !== undefined && model.calmar_ratio !== null) ? Number(model.calmar_ratio).toFixed(3) : '—';
+          $('val-admin-alpha').textContent = (model.alpha !== undefined && model.alpha !== null) ? `${Number(model.alpha).toFixed(2)}%` : '—';
+          $('val-admin-beta').textContent = (model.beta !== undefined && model.beta !== null) ? Number(model.beta).toFixed(3) : '—';
         }
       } catch (err) {
         console.error(err);
@@ -343,12 +490,6 @@
         alert('上傳或回測失敗：' + err.message);
       }
     }
-
-
-
-
-
-
   </script>
 </body>
 </html>

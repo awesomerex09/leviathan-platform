@@ -836,7 +836,8 @@ const i18n = {
     'lbl-total-return': '總報酬率',
     'lbl-annualized': '年化報酬率',
     'lbl-peak-return': '歷史最高報酬',
-    'lbl-sortino': '索提諾比率'
+    'lbl-sortino': '索提諾比率',
+    'lbl-mdd': '當前回撤'
   },
   en: {
     'mast-sub': 'Flagship Quant Showcase Platform',
@@ -863,7 +864,8 @@ const i18n = {
     'lbl-total-return': 'TOTAL RETURN',
     'lbl-annualized': 'ANNUALIZED RETURN',
     'lbl-peak-return': 'PEAK RETURN',
-    'lbl-sortino': 'SORTINO RATIO'
+    'lbl-sortino': 'SORTINO RATIO',
+    'lbl-mdd': 'CURRENT DRAWDOWN'
   }
 };
 
@@ -990,7 +992,7 @@ async function loadAndRender() {
     if (fAnnual) fAnnual.textContent = customQuant.annualized_return ? `${customQuant.annualized_return.toFixed(2)}%` : '62.55%';
     if (fPeak) fPeak.textContent = customQuant.max_return ? `${customQuant.max_return.toFixed(2)}%` : '109.85%';
     if (fSortino) fSortino.textContent = customQuant.sortino_ratio ? customQuant.sortino_ratio.toFixed(3) : '2.152';
-    if (fMdd) fMdd.textContent = customQuant.max_drawdown ? `${customQuant.max_drawdown.toFixed(2)}%` : '-15.42%';
+    if (fMdd) fMdd.textContent = (customQuant.current_drawdown !== undefined && customQuant.current_drawdown !== null) ? `${customQuant.current_drawdown.toFixed(2)}%` : '-15.42%';
   }
 
   setLanguage(currentLang);

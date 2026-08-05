@@ -307,52 +307,42 @@ function extendPricesAndEtfsToToday(prices, etfs) {
   
   const benchSeries = prices['0050.TW'];
   if (!benchSeries.length) return;
-  const lastBenchDateStr = benchSeries[benchSeries.length - 1].d;
-  if (lastBenchDateStr >= todayStr) return;
-
-  const missingDates = [];
-  const k = String(lastBenchDateStr).replaceAll('-', '').replaceAll('/', '');
-  let cur = new Date(Date.UTC(Number(k.slice(0, 4)), Number(k.slice(4, 6)) - 1, Number(k.slice(6, 8))));
-  cur.setUTCDate(cur.getUTCDate() + 1);
-
-  while (formatYYYYMMDD(cur) <= todayStr) {
-    const dayOfWeek = cur.getUTCDay();
-    if (dayOfWeek !== 0 && dayOfWeek !== 6) {
-      missingDates.push(formatYYYYMMDD(cur));
-    }
+  if (lastBenchDateStr < todayStr) {
+    const missingDates = [];
+    const k = String(lastBenchDateStr).replaceAll('-', '').replaceAll('/', '');
+    let cur = new Date(Date.UTC(Number(k.slice(0, 4)), Number(k.slice(4, 6)) - 1, Number(k.slice(6, 8))));
     cur.setUTCDate(cur.getUTCDate() + 1);
-  }
 
-  if (!missingDates.length) return;
+    while (formatYYYYMMDD(cur) <= todayStr) {
+      const dayOfWeek = cur.getUTCDay();
+      if (dayOfWeek !== 0 && dayOfWeek !== 6) {
+        missingDates.push(formatYYYYMMDD(cur));
+      }
+      cur.setUTCDate(cur.getUTCDate() + 1);
+    }
 
-  for (const [symbol, series] of Object.entries(prices)) {
-    if (!series || !series.length) continue;
-    const lastPrice = series[series.length - 1].c;
-    for (const newDate of missingDates) {
-      series.push({ d: newDate, c: lastPrice });
+    if (missingDates.length) {
+      const lastPrice = benchSeries[benchSeries.length - 1].c;
+      for (const newDate of missingDates) {
+        benchSeries.push({ d: newDate, c: lastPrice });
+      }
     }
   }
 
   if (etfs && etfs.length) {
     for (const etf of etfs) {
       if (!etf.price_series || !etf.price_series.length) continue;
-      const ticker = convertSymbol(etf.code);
-      const tickerPrices = prices[ticker];
-      const lastPoint = etf.price_series[etf.price_series.length - 1];
-      let lastNav = lastPoint.c;
-      const etfLastDate = lastPoint.d;
+      const etfLastDate = etf.price_series[etf.price_series.length - 1].d;
+      const lastNav = etf.price_series[etf.price_series.length - 1].c;
+      const anchorBenchPt = benchSeries.find(p => p.d === etfLastDate) || benchSeries[0];
 
-      for (const newDate of missingDates) {
-        if (newDate <= etfLastDate) continue;
+      const targetDays = benchSeries.filter(p => p.d > etfLastDate);
+      for (const pt of targetDays) {
         let currentPrice = lastNav;
-        if (tickerPrices) {
-          const pPoint = tickerPrices.find(p => p.d === newDate);
-          const prevPricePoint = tickerPrices.find(p => p.d === etfLastDate) || tickerPrices[0];
-          if (pPoint && prevPricePoint && prevPricePoint.c > 0) {
-            currentPrice = lastNav * (pPoint.c / prevPricePoint.c);
-          }
+        if (anchorBenchPt && anchorBenchPt.c > 0) {
+          currentPrice = lastNav * (pt.c / anchorBenchPt.c);
         }
-        etf.price_series.push({ d: newDate, c: parseFloat(currentPrice.toFixed(2)) });
+        etf.price_series.push({ d: pt.d, c: parseFloat(currentPrice.toFixed(2)) });
       }
       etf.nav = etf.price_series[etf.price_series.length - 1].c;
       etf.close_price = etf.nav;

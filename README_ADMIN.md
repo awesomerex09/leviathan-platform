@@ -90,7 +90,7 @@ TWSE:2330,Buy,1000,580,20,2024-02-01 10:00:00
 ### A. 進入後台步驟：
 1. **開啟後台頁面**：
    - **本地 Node.js 模式**：請開啟瀏覽器訪問 `http://localhost:3000/admin.html`。
-   - **Vercel / 雲端託管模式**：請訪問您的專案網域並加上 `/admin.html`（例如 `https://etfedge.xyz/admin.html`）。
+   - **Vercel / 雲端託管模式**：請訪問您的專案網域並加上 `/admin.html`（例如 `https://leviathan-platform.vercel.app/admin.html`）。
    - **純靜態檔案模式**：直接在檔案總管中雙擊開啟 `admin.html`。
 
 ### B. 修改前台內容與指標開關：

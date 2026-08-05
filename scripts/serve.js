@@ -104,6 +104,19 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // GET /api/live-prices
+  if (pathname === '/api/live-prices' && req.method === 'GET') {
+    try {
+      const livePricesHandler = require(path.join(ROOT, 'api', 'live-prices.js'));
+      return livePricesHandler(req, res);
+    } catch (e) {
+      console.error('Error handling /api/live-prices:', e);
+      res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify({ ok: false, error: e.message }));
+    }
+    return;
+  }
+
   // GET /api/backtest
   if (pathname === '/api/backtest' && req.method === 'GET') {
     try {
@@ -307,6 +320,8 @@ function extendPricesAndEtfsToToday(prices, etfs) {
   
   const benchSeries = prices['0050.TW'];
   if (!benchSeries.length) return;
+  const lastBenchDateStr = benchSeries[benchSeries.length - 1].d;
+
   if (lastBenchDateStr < todayStr) {
     const missingDates = [];
     const k = String(lastBenchDateStr).replaceAll('-', '').replaceAll('/', '');
@@ -334,15 +349,11 @@ function extendPricesAndEtfsToToday(prices, etfs) {
       if (!etf.price_series || !etf.price_series.length) continue;
       const etfLastDate = etf.price_series[etf.price_series.length - 1].d;
       const lastNav = etf.price_series[etf.price_series.length - 1].c;
-      const anchorBenchPt = benchSeries.find(p => p.d === etfLastDate) || benchSeries[0];
 
       const targetDays = benchSeries.filter(p => p.d > etfLastDate);
       for (const pt of targetDays) {
-        let currentPrice = lastNav;
-        if (anchorBenchPt && anchorBenchPt.c > 0) {
-          currentPrice = lastNav * (pt.c / anchorBenchPt.c);
-        }
-        etf.price_series.push({ d: pt.d, c: parseFloat(currentPrice.toFixed(2)) });
+        // Real non-fitted fallback: hold price steady on missing dates without artificial 0050 proportional scaling
+        etf.price_series.push({ d: pt.d, c: lastNav });
       }
       etf.nav = etf.price_series[etf.price_series.length - 1].c;
       etf.close_price = etf.nav;

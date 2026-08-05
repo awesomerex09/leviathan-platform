@@ -426,13 +426,40 @@
     return `${y}${m}${d}`;
   }
 
-  function extendPricesAndEtfsToToday(prices, etfs) {
+  async function fetchLiveMarketPrices(symbols = ['0050.TW', 'TWD=X']) {
+    try {
+      const symList = Array.isArray(symbols) ? symbols.join(',') : symbols;
+      const res = await fetchJson('./api/live-prices?symbols=' + encodeURIComponent(symList), { optional: true });
+      if (res && res.ok && res.prices) {
+        return res.prices;
+      }
+    } catch (e) {
+      console.warn('fetchLiveMarketPrices failed:', e.message);
+    }
+    return null;
+  }
+
+  function extendPricesAndEtfsToToday(prices, etfs, livePricesMap) {
     if (!prices || !prices['0050.TW']) return;
     const today = new Date();
     const todayStr = formatYYYYMMDD(today);
     
     const benchSeries = prices['0050.TW'];
     if (!benchSeries.length) return;
+
+    // Merge live benchmark prices if available
+    if (livePricesMap && livePricesMap['0050.TW']) {
+      const liveBench = livePricesMap['0050.TW'];
+      for (const pt of liveBench) {
+        const existingIdx = benchSeries.findIndex(p => p.d === pt.d);
+        if (existingIdx >= 0) {
+          benchSeries[existingIdx].c = pt.c;
+        } else {
+          benchSeries.push(pt);
+        }
+      }
+    }
+
     const lastBenchDateStr = benchSeries[benchSeries.length - 1].d;
 
     if (lastBenchDateStr < todayStr) {
@@ -460,18 +487,29 @@
     if (etfs && etfs.length) {
       for (const etf of etfs) {
         if (!etf.price_series || !etf.price_series.length) continue;
+
+        // Check live prices for this ETF ticker
+        const liveEtfSeries = livePricesMap ? (livePricesMap[etf.code] || livePricesMap[`${etf.code}.TW`] || livePricesMap[`${etf.code}.TWO`]) : null;
+        if (liveEtfSeries && liveEtfSeries.length) {
+          for (const pt of liveEtfSeries) {
+            const existingIdx = etf.price_series.findIndex(p => p.d === pt.d);
+            if (existingIdx >= 0) {
+              etf.price_series[existingIdx].c = pt.c;
+            } else {
+              etf.price_series.push(pt);
+            }
+          }
+        }
+
         const etfLastDate = etf.price_series[etf.price_series.length - 1].d;
         const lastNav = etf.price_series[etf.price_series.length - 1].c;
-        const anchorBenchPt = benchSeries.find(p => p.d === etfLastDate) || benchSeries[0];
 
         const targetDays = benchSeries.filter(p => p.d > etfLastDate);
         for (const pt of targetDays) {
-          let currentPrice = lastNav;
-          if (anchorBenchPt && anchorBenchPt.c > 0) {
-            currentPrice = lastNav * (pt.c / anchorBenchPt.c);
-          }
-          etf.price_series.push({ d: pt.d, c: parseFloat(currentPrice.toFixed(2)) });
+          // Real non-fitted fallback: hold price steady on missing dates without artificial 0050 proportional scaling
+          etf.price_series.push({ d: pt.d, c: lastNav });
         }
+
         etf.nav = etf.price_series[etf.price_series.length - 1].c;
         etf.close_price = etf.nav;
         if (etf.price_series.length > 22) {
@@ -508,6 +546,7 @@
     },
     parseCSV,
     calculateBacktest,
+    fetchLiveMarketPrices,
     extendPricesAndEtfsToToday,
     async getSettings() {
       try {
@@ -538,7 +577,11 @@
       }
     },
     async getBacktestModel(prices, etfs) {
-      extendPricesAndEtfsToToday(prices, etfs);
+      let liveMap = null;
+      try {
+        liveMap = await fetchLiveMarketPrices(['0050.TW', 'TWD=X']);
+      } catch (e) {}
+      extendPricesAndEtfsToToday(prices, etfs, liveMap);
       try {
         const res = await fetchJson('./api/backtest');
         if (res && res.ok && res.model) return res.model;

@@ -952,8 +952,16 @@
 
       renderTrafficPulse();
 
-      if (window.leviathanData && window.leviathanData.extendPricesAndEtfsToToday) {
-        window.leviathanData.extendPricesAndEtfsToToday(prices, indexData.etfs);
+      if (window.leviathanData) {
+        let liveMap = null;
+        if (window.leviathanData.fetchLiveMarketPrices) {
+          try {
+            liveMap = await window.leviathanData.fetchLiveMarketPrices(['0050.TW', 'TWD=X', code, `${code}.TW`, `${code}.TWO`]);
+          } catch (e) {}
+        }
+        if (window.leviathanData.extendPricesAndEtfsToToday) {
+          window.leviathanData.extendPricesAndEtfsToToday(prices, indexData.etfs, liveMap);
+        }
       }
 
       if (code === 'LEVIATHAN') {

@@ -33,22 +33,113 @@
     return s;
   }
 
+  const STOCK_NAMES = {
+    '2330': '台積電',
+    '2454': '聯發科',
+    '2317': '鴻海',
+    '2303': '聯電',
+    '3711': '日月光投控',
+    '2449': '京元電子',
+    '5274': '信驊',
+    '3529': '力旺',
+    '6488': '環球晶',
+    '5347': '世界先進',
+    '6515': '穎崴',
+    '3583': '辛耘',
+    '6510': '精測',
+    '2458': '義隆',
+    '2379': '瑞昱',
+    '3034': '聯詠',
+    '4961': '天鈺',
+    '3035': '智原',
+    '2408': '南亞科',
+    '2382': '廣達',
+    '3231': '緯創',
+    '6669': '緯穎',
+    '2308': '台達電',
+    '2360': '致茂',
+    '3017': '奇鋐',
+    '3653': '健策',
+    '3665': '貿聯-KY',
+    '2383': '台光電',
+    '3037': '欣興',
+    '8046': '南電',
+    '4958': '臻鼎-KY',
+    '3026': '禾伸堂',
+    '3008': '大立光',
+    '3406': '玉晶光',
+    '2345': '智邦',
+    '3081': '聯舟',
+    '3105': '穩懋',
+    '8299': '群聯',
+    '8996': '高力',
+    '6442': '光聖',
+    '5289': '宜鼎',
+    '6139': '亞翔',
+    '6223': '旺矽',
+    '6187': '萬潤',
+    '6274': '台燿',
+    '3595': '亞諾法',
+    '5536': '聖暉',
+    '3661': '世芯-KY',
+    '2368': '金像電',
+    'BELFA': 'Bel Fuse Inc',
+    'HUT': 'Hut 8 Corp',
+    'INSW': 'International Seaways',
+    'VISN': 'Vislink Tech',
+    'TNGX': 'Tango Therapeutics',
+    'LQDA': 'Liquidia Corp',
+    'AEHR': 'Aehr Test Systems',
+    'APLD': 'Applied Digital',
+    'CIFR': 'Cipher Mining',
+    'WULF': 'TeraWulf Inc',
+    'POWL': 'Powell Industries',
+    'NVDA': 'NVIDIA Corp',
+    'TSM': 'TSMC (Taiwan Semi)',
+    'AAPL': 'Apple Inc',
+    'MSFT': 'Microsoft Corp',
+    'AMZN': 'Amazon.com',
+    'GOOGL': 'Alphabet Inc',
+    'META': 'Meta Platforms',
+    'TSLA': 'Tesla Inc',
+    'AVGO': 'Broadcom Inc',
+    'AMD': 'Advanced Micro Devices'
+  };
+
   function parseCSV(text) {
+    if (!text) return [];
     const lines = text.split(/\r?\n/);
     const result = [];
     for (let i = 1; i < lines.length; i++) {
       const line = lines[i].trim();
       if (!line) continue;
-      const cols = line.split(',');
-      if (cols.length < 6) continue;
+      const cols = line.split(',').map(c => c.trim());
+      if (cols.length < 3) continue;
+      const symbol = cols[0];
+      const side = cols[1];
+      const qty = parseFloat(cols[2]) || 0;
+      let price = 0, commission = 0, dateStr = '';
+      
+      if (cols.length >= 6) {
+        price = parseFloat(cols[3]) || 0;
+        commission = parseFloat(cols[4]) || 0;
+        dateStr = cols[5];
+      } else {
+        dateStr = cols[cols.length - 1];
+        if (cols.length >= 4) price = parseFloat(cols[3]) || 0;
+        if (cols.length >= 5) commission = parseFloat(cols[4]) || 0;
+      }
+
+      if (!dateStr || dateStr === 'Date') continue;
+      const cleanDate = dateStr.split(' ')[0].replaceAll('-', '').replaceAll('/', '');
       result.push({
-        symbol: cols[0].trim(),
-        side: cols[1].trim(),
-        qty: parseFloat(cols[2]),
-        price: cols[3] ? parseFloat(cols[3]) : 0,
-        commission: cols[4] ? parseFloat(cols[4]) : 0,
-        date: cols[5].trim().split(' ')[0].replaceAll('-', '').replaceAll('/', ''),
-        datetime: cols[5] ? cols[5].trim() : ''
+        symbol: symbol,
+        side: side,
+        qty: qty,
+        price: price,
+        commission: commission,
+        date: cleanDate,
+        datetime: dateStr
       });
     }
     return result;
@@ -258,37 +349,47 @@
     last30DaysTrades.forEach(t => {
       const symbol = t.symbol.split(':')[1] || t.symbol;
       if (!tradeSummary[symbol]) {
-        tradeSummary[symbol] = { code: symbol, side: t.side, totalQty: 0, weight: 0 };
+        tradeSummary[symbol] = { code: symbol, side: t.side, totalQty: 0, weight: 0, totalVal: 0 };
       }
-      if (t.side === 'Buy') tradeSummary[symbol].totalQty += t.qty;
-      if (t.side === 'Sell') tradeSummary[symbol].totalQty -= t.qty;
+      if (t.side === 'Buy') {
+        tradeSummary[symbol].totalQty += t.qty;
+        tradeSummary[symbol].totalVal += t.qty * (t.price || 1);
+      }
+      if (t.side === 'Sell') {
+        tradeSummary[symbol].totalQty -= t.qty;
+        tradeSummary[symbol].totalVal += t.qty * (t.price || 1);
+      }
     });
 
     Object.values(tradeSummary).forEach(s => {
       const fh = finalHoldings.find(h => h.code === s.code);
       s.weight = fh ? fh.weight : 0;
-      
-      for (const etf of etfs) {
-        const hMatch = etf.holdings?.find(h => h.code === s.code) || etf.top3?.find(h => h.code === s.code);
-        if (hMatch) {
-          s.name = hMatch.name;
-          break;
+      s.name = STOCK_NAMES[s.code];
+      if (!s.name) {
+        for (const etf of etfs) {
+          const hMatch = etf.holdings?.find(h => h.code === s.code) || etf.top3?.find(h => h.code === s.code);
+          if (hMatch) {
+            s.name = hMatch.name;
+            break;
+          }
         }
       }
       if (!s.name) s.name = s.code;
+
+      const calcPct = parseFloat(((s.totalVal / (totalValuation || 500000)) * 100).toFixed(1)) || 5.0;
 
       if (s.totalQty > 0) {
         const isNew = !last30DaysTrades.some(t => t.symbol.endsWith(s.code) && t.side === 'Sell');
         if (isNew && s.weight > 0) {
           news.push({ code: s.code, name: s.name, weight: s.weight });
         } else {
-          adds.push({ code: s.code, name: s.name, pct: 20, weight: s.weight });
+          adds.push({ code: s.code, name: s.name, pct: calcPct, weight: s.weight });
         }
       } else if (s.totalQty < 0) {
         if (s.weight === 0) {
           exits.push({ code: s.code, name: s.name });
         } else {
-          reductions.push({ code: s.code, name: s.name, pct: 20, weight: s.weight });
+          reductions.push({ code: s.code, name: s.name, pct: calcPct, weight: s.weight });
         }
       }
     });

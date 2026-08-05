@@ -361,21 +361,39 @@ function extendPricesAndEtfsToToday(prices, etfs) {
 }
 
 function parseCSV(text) {
+  if (!text) return [];
   const lines = text.split(/\r?\n/);
   const result = [];
   for (let i = 1; i < lines.length; i++) {
     const line = lines[i].trim();
     if (!line) continue;
-    const cols = line.split(',');
-    if (cols.length < 6) continue;
+    const cols = line.split(',').map(c => c.trim());
+    if (cols.length < 3) continue;
+    const symbol = cols[0];
+    const side = cols[1];
+    const qty = parseFloat(cols[2]) || 0;
+    let price = 0, commission = 0, dateStr = '';
+    
+    if (cols.length >= 6) {
+      price = parseFloat(cols[3]) || 0;
+      commission = parseFloat(cols[4]) || 0;
+      dateStr = cols[5];
+    } else {
+      dateStr = cols[cols.length - 1];
+      if (cols.length >= 4) price = parseFloat(cols[3]) || 0;
+      if (cols.length >= 5) commission = parseFloat(cols[4]) || 0;
+    }
+
+    if (!dateStr || dateStr === 'Date') continue;
+    const cleanDate = dateStr.split(' ')[0].replaceAll('-', '').replaceAll('/', '');
     result.push({
-      symbol: cols[0].trim(),
-      side: cols[1].trim(),
-      qty: parseFloat(cols[2]),
-      price: cols[3] ? parseFloat(cols[3]) : 0,
-      commission: cols[4] ? parseFloat(cols[4]) : 0,
-      date: cols[5].trim().split(' ')[0].replaceAll('-', '').replaceAll('/', ''),
-      datetime: cols[5] ? cols[5].trim() : ''
+      symbol: symbol,
+      side: side,
+      qty: qty,
+      price: price,
+      commission: commission,
+      date: cleanDate,
+      datetime: dateStr
     });
   }
   return result;

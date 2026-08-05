@@ -1305,22 +1305,30 @@
     }
 
     function getStockSector(code) {
-      const codeStr = String(code).trim().replace(' TW', '').replace('.TW', '');
+      const codeStr = String(code).trim().replace(' TW', '').replace('.TW', '').replace(' US', '');
       // Semiconductor codes
-      if (['2330', '2454', '2303', '3711', '2449', '5274', '3529', '6488', '5347', '6515', '3583', '6510', '2458', '2379', '3034', '4961', '3035', '2408'].includes(codeStr)) {
+      if (['2330', '2454', '2303', '3711', '2449', '5274', '3529', '6488', '5347', '6515', '3583', '6510', '2458', '2379', '3034', '4961', '3035', '2408', '8299', '5289', '6223', '6187', '3661', 'NVDA', 'TSM', 'AVGO', 'AMD', 'AEHR'].includes(codeStr)) {
         return currentLang === 'zh' ? '半導體產業' : 'Semiconductors';
       }
       // Hardware & Components
-      if (['2317', '2382', '3231', '6669', '2308', '2360', '3017', '3653', '3665', '2383', '3037', '8046', '4958', '8021', '6239', '3026'].includes(codeStr)) {
+      if (['2317', '2382', '3231', '6669', '2308', '2360', '3017', '3653', '3665', '2383', '3037', '8046', '4958', '8021', '6239', '3026', '8996', '6139', '6274', '5536', '2368', 'BELFA', 'AAPL', 'POWL', 'APLD', 'CIFR', 'WULF'].includes(codeStr)) {
         return currentLang === 'zh' ? '電腦與零組件' : 'Hardware & Components';
+      }
+      // Optoelectronics / Communication
+      if (['3008', '3406', '2345', '4979', '3081', '3105', '6442', '6187', '6196', 'VISN'].includes(codeStr)) {
+        return currentLang === 'zh' ? '光電與通信網路' : 'Optoelectronics & Telecom';
+      }
+      // Biotech & Healthcare
+      if (['3595', 'TNGX', 'LQDA'].includes(codeStr)) {
+        return currentLang === 'zh' ? '生化生技醫療' : 'Biotech & Healthcare';
+      }
+      // Software & Cloud Services
+      if (['MSFT', 'AMZN', 'GOOGL', 'META', 'HUT'].includes(codeStr)) {
+        return currentLang === 'zh' ? '軟體與雲端服務' : 'Software & Cloud Services';
       }
       // Financials
       if (['2881', '2882', '2891', '2886', '2884', '2892', '2890', '2885', '2880', '2883', '2887', '2888'].includes(codeStr)) {
         return currentLang === 'zh' ? '金融保險業' : 'Financials & Insurance';
-      }
-      // Optoelectronics / Communication
-      if (['3008', '3406', '2345', '4979', '3081', '3105', '6442', '6187', '6196'].includes(codeStr)) {
-        return currentLang === 'zh' ? '光電與通信網路' : 'Optoelectronics & Telecom';
       }
       // Default
       return currentLang === 'zh' ? '其他電子與製造' : 'Others & General';
@@ -1353,8 +1361,36 @@
     }
 
     function getStockName(code, defaultName) {
-      if (currentLang !== 'en') return defaultName;
       const cleanCode = String(code).trim().replace(' TW', '').replace('.TW', '');
+      const dictZh = {
+        '8299': '群聯',
+        '8996': '高力',
+        '6442': '光聖',
+        '5289': '宜鼎',
+        '6139': '亞翔',
+        '6223': '旺矽',
+        '6187': '萬潤',
+        '6274': '台燿',
+        '3595': '亞諾法',
+        '5536': '聖暉',
+        '3661': '世芯-KY',
+        '2368': '金像電',
+        'BELFA': 'Bel Fuse Inc',
+        'HUT': 'Hut 8 Corp',
+        'INSW': 'International Seaways',
+        'VISN': 'Vislink Tech',
+        'TNGX': 'Tango Therapeutics',
+        'LQDA': 'Liquidia Corp',
+        'AEHR': 'Aehr Test Systems',
+        'APLD': 'Applied Digital',
+        'CIFR': 'Cipher Mining',
+        'WULF': 'TeraWulf Inc',
+        'POWL': 'Powell Industries'
+      };
+      if (dictZh[cleanCode] && (!defaultName || defaultName === cleanCode)) {
+        return dictZh[cleanCode];
+      }
+      if (currentLang !== 'en') return dictZh[cleanCode] || defaultName;
       const dict = {
         '2330': 'TSMC',
         '2454': 'MediaTek',
@@ -1393,6 +1429,18 @@
         '2345': 'Accton',
         '3081': 'Lotes',
         '3105': 'Win Semi',
+        '8299': 'Phison',
+        '8996': 'Kaori',
+        '6442': 'EZconn',
+        '5289': 'Innodisk',
+        '6139': 'L&K Eng',
+        '6223': 'MPI Corp',
+        '6187': 'All Ring Tech',
+        '6274': 'TUIT',
+        '3595': 'Abnova',
+        '5536': 'Hubbell',
+        '3661': 'Alchip',
+        '2368': 'GCE',
         '0050': 'Polaris Taiwan Top 50',
         '0056': 'Yuanta High Dividend'
       };

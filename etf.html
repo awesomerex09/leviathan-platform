@@ -952,6 +952,10 @@
 
       renderTrafficPulse();
 
+      if (window.leviathanData && window.leviathanData.extendPricesAndEtfsToToday) {
+        window.leviathanData.extendPricesAndEtfsToToday(prices, indexData.etfs);
+      }
+
       if (code === 'LEVIATHAN') {
         etf = await window.leviathanData.getBacktestModel(prices, indexData.etfs);
       } else {

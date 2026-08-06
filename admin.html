@@ -475,7 +475,7 @@
             const symbolsToFetch = Array.from(new Set(['0050.TW', 'TWD=X', ...tradeSymbols]));
             
             try {
-              showStatus(`正在為 ${symbolsToFetch.length} 檔標的抓取最新即時與歷史報價 (補全 8/6 及個股數據)...`);
+              showStatus(`正在為 ${symbolsToFetch.length} 檔標的抓取最新即時與歷史報價 (自動補全當前最新個股數據)...`);
               const liveMap = await window.leviathanData.fetchLiveMarketPrices(symbolsToFetch, 'max');
               if (liveMap) {
                 // Merge all liveMap series into pricesRes
@@ -505,7 +505,7 @@
               // 標記為 PREVIEW，讓 etf.html 知道這是手動上傳的預覽模型，不受限於伺服器 CSV 長度
               model.csvLength = 'PREVIEW';
               localStorage.setItem('leviathan_custom_model', JSON.stringify(model));
-              showStatus(`純前端回測計算成功！\n模型名稱：${model.name}\n已成功補全 8/6 最新股價與個股數據 (包含 ${tradeSymbols.join(', ')})！`);
+              showStatus(`純前端回測計算成功！\n模型名稱：${model.name}\n已成功自動補全最新即時股價與個股數據 (包含 ${tradeSymbols.join(', ')})！`);
             }
           } else {
             throw new Error('CSV 格式解析失敗或無有效交易紀錄');

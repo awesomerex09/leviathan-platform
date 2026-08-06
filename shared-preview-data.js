@@ -392,7 +392,7 @@
       code: 'LEVIATHAN',
       name: '自研量化模型 (Leviathan)',
       issuer: 'Custom Quant Model',
-      version: '2026.08.06.v2',
+      version: MODEL_CACHE_VERSION,
       total_av_yi: parseFloat((finalValue / 100000000).toFixed(4)),
       listing_date: firstTradeDate,
       is_custom_quant: true,
@@ -590,7 +590,8 @@
     }
   }
 
-  const MODEL_CACHE_VERSION = '2026.08.06.v5';
+  // 為了避免前後臺版本號不一致導致更新異常，去除日期與版號，統一改為 'MODEL_CACHE'
+  const MODEL_CACHE_VERSION = 'MODEL_CACHE';
 
   window.leviathanData = Object.freeze({
     fetchJson,
@@ -647,9 +648,11 @@
           const localModel = localStorage.getItem('leviathan_custom_model');
           if (localModel) {
             const parsed = JSON.parse(localModel);
-            if (parsed && parsed.version === MODEL_CACHE_VERSION) {
+            // 驗證版本號與 CSV 長度。如果伺服器上的 CSV 被修改 (長度不同)，就自動清除快取，避免前端一直卡在舊資料！
+            if (parsed && parsed.version === MODEL_CACHE_VERSION && (parsed.csvLength === csvText.length || parsed.csvLength === 'PREVIEW')) {
               return parsed;
             } else {
+              console.warn('Cache invalidated: CSV length changed or version mismatch');
               localStorage.removeItem('leviathan_custom_model');
             }
           }
@@ -658,6 +661,7 @@
         const model = calculateBacktest(trades, prices, etfs);
         if (model) {
           model.version = MODEL_CACHE_VERSION;
+          model.csvLength = csvText.length;
         }
         return model;
       } catch (err) {

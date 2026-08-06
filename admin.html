@@ -500,7 +500,10 @@
 
             model = window.leviathanData.calculateBacktest(trades, pricesRes, etfsList);
             if (model) {
-              model.version = '2026.08.06.v2';
+              // 統一快取版本標記，防止前後臺版號不一致引發快取被誤刪
+              model.version = 'MODEL_CACHE';
+              // 標記為 PREVIEW，讓 etf.html 知道這是手動上傳的預覽模型，不受限於伺服器 CSV 長度
+              model.csvLength = 'PREVIEW';
               localStorage.setItem('leviathan_custom_model', JSON.stringify(model));
               showStatus(`純前端回測計算成功！\n模型名稱：${model.name}\n已成功補全 8/6 最新股價與個股數據 (包含 ${tradeSymbols.join(', ')})！`);
             }

@@ -640,7 +640,14 @@
 
         try {
           const res = await fetchJson('./api/backtest');
-          if (res && res.ok && res.model) return res.model;
+          if (res && res.ok) {
+            if (res.model) {
+              try { localStorage.setItem('leviathan_custom_model', JSON.stringify(res.model)); } catch (e) {}
+              return res.model;
+            } else {
+              try { localStorage.removeItem('leviathan_custom_model'); } catch (e) {}
+            }
+          }
         } catch (e) {
           console.warn('API /api/backtest not available, checking localStorage fallback:', e.message);
         }

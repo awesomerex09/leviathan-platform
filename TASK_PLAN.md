@@ -454,3 +454,30 @@ async function loadAndHydrateETFData(etfCode) {
 
 *   **模組 C：全域狀態與架構清理 (`scripts/update-data.js`)**
     *   [x] 確認本地 Node.js 腳本僅供開發者本地更新靜態檔案使用，並清楚標示生產環境 (Vercel) 必須依賴「模組 B」的前端快取與動態抓取機制，來維持資料真實性與高效能。
+
+---
+
+## 🚨 08/07 緊急 Bug 追蹤：後臺修改 (CSV 模型更新) 僅在單一瀏覽器生效 (Local Storage 隔離問題)
+
+### 💥 問題根因分析 (Root Cause)
+使用者回報：「從後臺修改後，只有同一個 Chrome 瀏覽器能看到修改結果，手機或無痕模式依然是舊版資料。」
+經過深度分析，問題出在**資料持久化 (Data Persistence) 與儲存位置**：
+1. **`/api/upload` 端點缺失**：在 `admin.html` 中，當上傳 CSV 時，前端會嘗試呼叫 `POST /api/upload`。但由於這個後端 API 檔案尚未建立，請求會失敗。
+2. **退回純前端快取 (Fallback to LocalStorage)**：當 API 失敗時，前端會觸發 `catch` 備援機制，直接在瀏覽器端計算回測結果，並將結果存入 `localStorage.setItem('leviathan_custom_model', ...)`。
+3. **瀏覽器隔離 (Browser Isolation)**：`localStorage` 是綁定在單一瀏覽器的本地儲存空間。不同裝置（手機）、不同瀏覽器、或無痕模式（Incognito），都無法讀取這份存在您 Chrome 裡的快取。這導致其他裝置打開網頁時，只能看到靜態的預設模型，無法同步後臺的更新。
+
+### 🛠️ 解決方法與執行計畫 (Implementation Plan)
+要讓後臺修改全球同步生效，我們必須將「模型資料」存放在**雲端持久化儲存空間**，而不是使用者的單機瀏覽器中。考慮到 Vercel Serverless 是唯讀且短暫的，我們將採用與 `api/settings.js` 相同的「零設定雲端備援 (Zero-setup Fallback)」架構。
+
+#### 執行步驟 (Batch Execution Scope)：
+1. [x] **建立新的模型持久化儲存 (JSONBlob / Vercel KV)**：
+   - 準備一組新的免費 JSONBlob URL（或共用 KV 邏輯），專門用來存放編譯後的 `leviathan_custom_model` 雲端 JSON 資料。
+2. [x] **實作 `/api/upload.js` (模型上傳端點)**：
+   - 建立此 Serverless API，接收前端傳來的 CSV 字串。
+   - 在伺服器端呼叫 `shared-preview-data.js` 的邏輯計算淨值（或直接儲存前端傳來的解析結果）。
+   - 將最新的 `model` 資料寫入 Vercel KV 或 JSONBlob 持久化保存。
+3. [x] **實作 `/api/backtest.js` 與 `/api/clear.js` (模型讀取與清除端點)**：
+   - 建立 `backtest.js`，負責從雲端持久化空間讀取最新發布的模型資料，提供給所有訪客。
+   - 建立 `clear.js` 讓後台可以清除雲端模型，還原為預設值。
+4. [x] **清理前端快取依賴 (`shared-preview-data.js` & `admin.html`)**：
+   - 修正 `getBacktestModel` 函數，使其首選向 `/api/backtest` 請求真實資料。這樣一來，所有裝置 (含手機、無痕模式) 在載入時，皆會取得全域同步的最新模型。

@@ -452,6 +452,7 @@
           });
           if (res && res.ok && res.model) {
             model = res.model;
+            try { localStorage.setItem('leviathan_custom_model', JSON.stringify(model)); } catch (e) {}
             showStatus(`伺服器回測計算成功！\n模型名稱：${model.name}\n已成功儲存並發布至前台！`);
           }
         } catch (apiErr) {

@@ -116,6 +116,16 @@
   2. 在 `admin.html` 進行回測前，先掃描 CSV 內的所有股票代號。若發現有股票不在 `prices.json` 中，就立刻動態呼叫 `/api/live-prices?symbols=6274.TW&range=max` 去 Yahoo Finance 即時把這些缺漏的股票歷史資料抓回來。
   這樣就能完美支援任何您自選的個股回測，再也不會因為找不到股價而讓淨值歸零。
 
+### 5. etf.html 的 ETF 詳情頁面 (如 QQQ, SPY) 依然顯示假波形，未讀取真實即時資料
+- **問題原因**：
+  雖然我們已經成功為 `admin.html` 的回測系統串接了 Yahoo Finance API (`/api/live-prices.js`) 來動態抓取真實股價，但是負責展示各檔基金的 **`etf.html` 頁面本身卻尚未升級**。
+  目前 `etf.html` 在載入 ETF 詳情時，依然是「純靜態」地讀取 `etfs.json` 裡面預先寫死、由 0050.TW 模擬出來的假資料。因為 `etf.html` 漏掉了呼叫 API 的邏輯，導致即使是 QQQ、SPY 這種擁有真實歷史資料的標的，畫出來的線圖與計算的指標依然是假的。
+- **解決方案**：
+  修改 `etf.html` 的資料載入與繪圖邏輯。在頁面取得當前 ETF 代碼後：
+  1. 立即呼叫 `await window.leviathanData.fetchLiveMarketPrices([etf.code], 'max')`，去 Yahoo API 把該檔 ETF 的真實歷史報價全部抓回來。
+  2. 將抓回來的真實資料（`liveMap`）交給 `extendPricesAndEtfsToToday`，用真實報價**徹底覆寫** `etfs.json` 原本的假波形。
+  3. 最後再將覆寫後的真實股價陣列丟給 Chart.js 繪圖，並重新計算各項量化分析指標（如 MDD, Sharpe 等）。
+
 - [x] 前端與 Server 端無縫呼叫 `/api/live-prices` 每日自動刷新即時報價。
 
 ---

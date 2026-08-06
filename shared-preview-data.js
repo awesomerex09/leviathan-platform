@@ -497,12 +497,17 @@
         // Check live prices for this ETF ticker
         const liveEtfSeries = livePricesMap ? (livePricesMap[etf.code] || livePricesMap[`${etf.code}.TW`] || livePricesMap[`${etf.code}.TWO`]) : null;
         if (liveEtfSeries && liveEtfSeries.length) {
-          for (const pt of liveEtfSeries) {
-            const existingIdx = etf.price_series.findIndex(p => p.d === pt.d);
-            if (existingIdx >= 0) {
-              etf.price_series[existingIdx].c = pt.c;
-            } else {
-              etf.price_series.push(pt);
+          if (liveEtfSeries.length > 30) {
+            // Full historical API data fetched, replace fake mock series completely
+            etf.price_series = JSON.parse(JSON.stringify(liveEtfSeries));
+          } else {
+            for (const pt of liveEtfSeries) {
+              const existingIdx = etf.price_series.findIndex(p => p.d === pt.d);
+              if (existingIdx >= 0) {
+                etf.price_series[existingIdx].c = pt.c;
+              } else {
+                etf.price_series.push(pt);
+              }
             }
           }
         }

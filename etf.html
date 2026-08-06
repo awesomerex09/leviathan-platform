@@ -960,7 +960,7 @@
         let liveMap = null;
         if (window.leviathanData.fetchLiveMarketPrices) {
           try {
-            liveMap = await window.leviathanData.fetchLiveMarketPrices(['0050.TW', 'TWD=X', code, `${code}.TW`, `${code}.TWO`]);
+            liveMap = await window.leviathanData.fetchLiveMarketPrices(['0050.TW', 'TWD=X', code, `${code}.TW`, `${code}.TWO`], 'max');
           } catch (e) {}
         }
         if (window.leviathanData.extendPricesAndEtfsToToday) {

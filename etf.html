@@ -956,17 +956,7 @@
 
       renderTrafficPulse();
 
-      if (window.leviathanData) {
-        let liveMap = null;
-        if (window.leviathanData.fetchLiveMarketPrices) {
-          try {
-            liveMap = await window.leviathanData.fetchLiveMarketPrices(['0050.TW', 'TWD=X', code, `${code}.TW`, `${code}.TWO`], 'max');
-          } catch (e) {}
-        }
-        if (window.leviathanData.extendPricesAndEtfsToToday) {
-          window.leviathanData.extendPricesAndEtfsToToday(prices, indexData.etfs, liveMap);
-        }
-      }
+
 
       if (code === 'LEVIATHAN') {
         etf = await window.leviathanData.getBacktestModel(prices, indexData.etfs);
@@ -978,6 +968,47 @@
         alert('找不到指定的 ETF 資料 / ETF not found');
         window.location.href = './index.html';
         return;
+      }
+
+      // Dynamic Live API Hydration with daily localStorage cache
+      if (code !== 'LEVIATHAN' && etf) {
+        const todayStr = new Date().toISOString().slice(0, 10).replaceAll('-', '');
+        const cacheKey = 'etf_real_cache_' + code;
+        try {
+          const cached = localStorage.getItem(cacheKey);
+          if (cached) {
+            const parsed = JSON.parse(cached);
+            if (parsed && parsed.date === todayStr && Array.isArray(parsed.series) && parsed.series.length > 5) {
+              etf.price_series = parsed.series;
+              etf.nav = parsed.series[parsed.series.length - 1].c;
+            }
+          }
+        } catch (e) {}
+
+        // Background hydration from /api/live-prices to override mock 0050 wave
+        (async () => {
+          try {
+            if (window.leviathanData && window.leviathanData.fetchLiveMarketPrices) {
+              const liveMap = await window.leviathanData.fetchLiveMarketPrices([code], 'max');
+              if (liveMap) {
+                const realSeries = liveMap[code] || liveMap[`${code}.TW`] || liveMap[`${code}.TWO`] || liveMap[code.replace(/\.(TW|TWO)$/, '')];
+                if (realSeries && realSeries.length > 30) {
+                  realSeries.sort((a, b) => a.d.localeCompare(b.d));
+                  etf.price_series = realSeries;
+                  etf.nav = realSeries[realSeries.length - 1].c;
+                  etf.close_price = etf.nav;
+                  try {
+                    localStorage.setItem(cacheKey, JSON.stringify({ date: todayStr, series: realSeries }));
+                  } catch (e) {}
+                  renderHeader();
+                  renderChart();
+                }
+              }
+            }
+          } catch (err) {
+            console.warn('Background live price hydration failed:', err);
+          }
+        })();
       }
 
       if (code === 'LEVIATHAN') {
@@ -1741,8 +1772,8 @@
         return `${k.slice(4, 6)}/${k.slice(6, 8)}`;
       });
       
-      const startEtfPrice = filteredSeries[0].c;
-      const etfValues = filteredSeries.map(pt => (pt.c / startEtfPrice) * 100);
+      let startEtfPrice = filteredSeries[0].c;
+      let etfValues = filteredSeries.map(pt => (pt.c / startEtfPrice) * 100);
 
       function getLeviathanSeries() {
         const stored = localStorage.getItem('custom_quant_model');
@@ -1776,11 +1807,17 @@
           return match ? match.c : null;
         });
 
-        // Find the first non-null price to serve as starting benchmark base
-        const firstValidBenchPrice = rawAligned.find(p => p !== null && p !== undefined);
+        // Find the first joint index where benchmark has valid data
+        const jointIndex = rawAligned.findIndex(p => p !== null && p !== undefined);
 
-        if (firstValidBenchPrice) {
-          benchmarkValues = rawAligned.map(p => (p !== null && p !== undefined) ? (p / firstValidBenchPrice) * 100 : null);
+        if (jointIndex !== -1) {
+          const baseBenchPrice = rawAligned[jointIndex];
+          startEtfPrice = filteredSeries[jointIndex].c; // Re-align ETF base to joint index
+          
+          // Recalculate ETF values so both start at 100% on the joint date
+          etfValues = filteredSeries.map(pt => (pt.c / startEtfPrice) * 100);
+          
+          benchmarkValues = rawAligned.map(p => (p !== null && p !== undefined) ? (p / baseBenchPrice) * 100 : null);
         }
       }
 

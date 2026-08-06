@@ -590,7 +590,7 @@
     }
   }
 
-  const MODEL_CACHE_VERSION = '2026.08.06.v2';
+  const MODEL_CACHE_VERSION = '2026.08.06.v5';
 
   window.leviathanData = Object.freeze({
     fetchJson,
@@ -631,33 +631,30 @@
       }
     },
     async getBacktestModel(prices, etfs) {
-      let liveMap = null;
-      try {
-        liveMap = await fetchLiveMarketPrices(['0050.TW', 'TWD=X']);
-      } catch (e) {}
-      extendPricesAndEtfsToToday(prices, etfs, liveMap);
-      try {
-        const res = await fetchJson('./api/backtest');
-        if (res && res.ok && res.model) return res.model;
-      } catch (e) {
-        console.warn('API /api/backtest not available, checking localStorage fallback:', e.message);
-      }
-      try {
-        const localModel = localStorage.getItem('leviathan_custom_model');
-        if (localModel) {
-          const parsed = JSON.parse(localModel);
-          if (parsed && parsed.version === MODEL_CACHE_VERSION) {
-            return parsed;
-          } else {
-            localStorage.removeItem('leviathan_custom_model');
-          }
-        }
-      } catch (e) {}
       try {
         const csvRes = await fetch('./Leviathan.csv?_t=' + Date.now(), { cache: 'no-store' });
         if (!csvRes.ok) throw new Error('Leviathan.csv not found');
         const csvText = await csvRes.text();
         const trades = parseCSV(csvText);
+
+        try {
+          const res = await fetchJson('./api/backtest');
+          if (res && res.ok && res.model) return res.model;
+        } catch (e) {
+          console.warn('API /api/backtest not available, checking localStorage fallback:', e.message);
+        }
+        try {
+          const localModel = localStorage.getItem('leviathan_custom_model');
+          if (localModel) {
+            const parsed = JSON.parse(localModel);
+            if (parsed && parsed.version === MODEL_CACHE_VERSION) {
+              return parsed;
+            } else {
+              localStorage.removeItem('leviathan_custom_model');
+            }
+          }
+        } catch (e) {}
+
         const model = calculateBacktest(trades, prices, etfs);
         if (model) {
           model.version = MODEL_CACHE_VERSION;

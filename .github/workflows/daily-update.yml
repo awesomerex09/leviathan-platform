@@ -1,0 +1,29 @@
+name: Daily Market Data Update
+
+on:
+  schedule:
+    # Runs at 21:00 UTC (5:00 AM TWD next day / 5:00 PM EST after US Market Close)
+    - cron: '0 21 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run daily update script
+        run: node scripts/update-data.js
+
+      - name: Commit & Push updated data
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add prices.json etfs.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: automated daily market data update [skip ci]" && git push)

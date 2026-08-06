@@ -2,7 +2,14 @@ const https = require('https');
 
 function fetchSingleYahoo(symbol, range = '1mo') {
   return new Promise((resolve) => {
-    const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?interval=1d&range=${range}`;
+    const period2 = Math.floor(Date.now() / 1000);
+    let period1 = period2 - (30 * 24 * 60 * 60); // 1mo default
+    if (range === 'max') period1 = 0;
+    else if (range === '3mo') period1 = period2 - (90 * 24 * 60 * 60);
+    else if (range === '1y') period1 = period2 - (365 * 24 * 60 * 60);
+    else if (range === '5y') period1 = period2 - (5 * 365 * 24 * 60 * 60);
+
+    const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?interval=1d&period1=${period1}&period2=${period2}`;
     const options = {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
@@ -20,7 +27,7 @@ function fetchSingleYahoo(symbol, range = '1mo') {
           const result = parsed.chart?.result?.[0];
           if (!result) return resolve(null);
           const timestamps = result.timestamp || [];
-          const closes = result.indicators?.quote?.[0]?.close || [];
+          const closes = result.indicators?.adjclose?.[0]?.adjclose || result.indicators?.quote?.[0]?.close || [];
           const series = [];
           for (let i = 0; i < timestamps.length; i++) {
             if (closes[i] !== null && closes[i] !== undefined) {
@@ -92,10 +99,11 @@ module.exports = async function handler(req, res) {
     }
 
     let symbolList = symbolsStr ? symbolsStr.split(',').map(s => s.trim()).filter(Boolean) : ['0050.TW', 'TWD=X'];
-    symbolList = Array.from(new Set(symbolList)).slice(0, 30);
+    symbolList = Array.from(new Set(symbolList)).slice(0, 100);
 
     const priceMap = {};
-    await Promise.all(symbolList.map(async (sym) => {
+    for (let i = 0; i < symbolList.length; i++) {
+      const sym = symbolList[i];
       const series = await fetchYahooSymbol(sym, range);
       if (series && series.length) {
         priceMap[sym] = series;
@@ -109,7 +117,12 @@ module.exports = async function handler(req, res) {
           priceMap[sym + '.TWO'] = series;
         }
       }
-    }));
+      
+      // Delay to prevent 429 Too Many Requests
+      if (i < symbolList.length - 1) {
+        await new Promise(resolve => setTimeout(resolve, 350));
+      }
+    }
 
     if (res.status && typeof res.status === 'function') {
       res.status(200).json({ ok: true, timestamp: new Date().toISOString(), prices: priceMap });

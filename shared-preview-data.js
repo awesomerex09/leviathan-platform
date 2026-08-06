@@ -444,6 +444,28 @@
     const today = new Date();
     const todayStr = formatYYYYMMDD(today);
     
+    // Normalize date strings in livePricesMap
+    if (livePricesMap) {
+      for (const [k, series] of Object.entries(livePricesMap)) {
+        if (Array.isArray(series)) {
+          for (const pt of series) {
+            if (pt && pt.d) pt.d = String(pt.d).replaceAll('-', '').replaceAll('/', '');
+          }
+          series.sort((a, b) => a.d.localeCompare(b.d));
+        }
+      }
+    }
+
+    // Normalize date strings in prices database
+    for (const [k, series] of Object.entries(prices)) {
+      if (Array.isArray(series)) {
+        for (const pt of series) {
+          if (pt && pt.d) pt.d = String(pt.d).replaceAll('-', '').replaceAll('/', '');
+        }
+        series.sort((a, b) => a.d.localeCompare(b.d));
+      }
+    }
+
     const benchSeries = prices['0050.TW'];
     if (!benchSeries.length) return;
 

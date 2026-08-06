@@ -1760,14 +1760,28 @@
       const benchmarkColor = 'rgba(51, 153, 255, 0.8)';
       const isBenchmarkDashed = true;
       
-      if (prices && prices['0050.TW']) {
-        const benchSeries = prices['0050.TW'];
-        const alignedBench = filteredSeries.map(pt => {
-          const match = benchSeries.find(b => b.d === pt.d) || benchSeries.filter(b => b.d <= pt.d).pop();
+      if (prices && prices['0050.TW'] && prices['0050.TW'].length) {
+        // Clean and sort benchSeries to 8-digit YYYYMMDD strings
+        const benchSeries = prices['0050.TW'].map(b => ({
+          d: String(b.d).replaceAll('-', '').replaceAll('/', ''),
+          c: b.c
+        })).sort((a, b) => a.d.localeCompare(b.d));
+
+        const minBenchDate = benchSeries[0].d;
+
+        const rawAligned = filteredSeries.map(pt => {
+          const ptKey = String(pt.d).replaceAll('-', '').replaceAll('/', '');
+          if (ptKey < minBenchDate) return null;
+          const match = benchSeries.find(b => b.d === ptKey) || benchSeries.filter(b => b.d <= ptKey).pop();
           return match ? match.c : null;
         });
-        const startBenchPrice = alignedBench[0] || 1;
-        benchmarkValues = alignedBench.map(p => p ? (p / startBenchPrice) * 100 : 100);
+
+        // Find the first non-null price to serve as starting benchmark base
+        const firstValidBenchPrice = rawAligned.find(p => p !== null && p !== undefined);
+
+        if (firstValidBenchPrice) {
+          benchmarkValues = rawAligned.map(p => (p !== null && p !== undefined) ? (p / firstValidBenchPrice) * 100 : null);
+        }
       }
 
       if (chartInstance) {

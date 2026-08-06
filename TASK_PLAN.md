@@ -82,6 +82,40 @@
   4. 即使 Vercel Serverless 容器被完全銷毀 (Cold Start)，下一次啟動時系統依然會先去 JSONBlob 讀回最新設定。
   **結果：您的 QUANT PORTFOLIO METRICS 再也不會跳回去了！**
 
+### 3. 上傳 CSV 缺漏最新交易日資料 (例如 8/6 的 6274 持股未被納入)
+- **問題原因**：
+  當您在 `admin.html` 上傳 CSV 時，系統會進入純前端的靜態回測模式。此時程式碼只讀取了靜態的 `./prices.json` (只到 8/5)，就**直接**丟進 `calculateBacktest()` 計算。
+  因為漏掉了呼叫 `fetchLiveMarketPrices()` 去抓取 Yahoo Finance 的「今日最新即時報價」來補足 8/6 的股價，回測系統判斷歷史交易日只到 8/5，因此直接**忽略了 CSV 內所有 8/6 的交易紀錄**（包含新增的 6274），導致圖表與持股都不包含 8/6 的數據。
+- **解決方案**：
+  修改 `admin.html` 內的 `processFile` 函式，在呼叫 `calculateBacktest` 前，先抓取並擴充即時報價：
+  ```javascript
+  // 1. 讀取靜態歷史報價
+  const pricesRes = await window.leviathanData.fetchOptionalJson('./prices.json');
+  const etfsRes = await window.leviathanData.fetchOptionalJson('./etfs.json');
+  
+  // 2. 抓取今日最新報價並合併 (補足 8/6)
+  try {
+    const liveMap = await window.leviathanData.fetchLiveMarketPrices(['0050.TW', 'TWD=X']);
+    window.leviathanData.extendPricesAndEtfsToToday(pricesRes || {}, (etfsRes && etfsRes.etfs) ? etfsRes.etfs : [], liveMap);
+  } catch (e) {
+    console.warn('無法抓取最新報價', e);
+  }
+
+  // 3. 進行回測 (此時交易日曆已包含 8/6)
+  const trades = window.leviathanData.parseCSV ? window.leviathanData.parseCSV(text) : [];
+  model = window.leviathanData.calculateBacktest(trades, pricesRes || {}, (etfsRes && etfsRes.etfs) ? etfsRes.etfs : []);
+  ```
+
+### 4. 買入特定持股 (如 6274) 時報酬率異常急遽下降
+- **問題原因**：
+  在 `shared-preview-data.js` 的回測邏輯中，系統會依賴靜態的 `prices.json` 來計算每日的總市值。但 `prices.json` 原本的設計，只收錄了各大 ETF 的「前十大權重股」歷史報價。
+  如果您的 CSV 內包含不在這份名單內的股票（例如 6274 剛好不是前十大），系統在歷史庫中找不到它的股價，就會在計算時**將股價預設為 0**。
+  結果就是：當買進 6274 時，您的現金減少了，但計算出來的持股市值卻是 0。這導致您的總淨值 (NAV) 在買入當下瞬間蒸發了該筆投資的所有本金，這正是您的圖表在特定幾天會突然陡降（甚至呈現負數或崩跌）的真正原因。
+- **解決方案**：
+  1. 修改 `api/live-prices.js` 代理端點，使其支援 `?range=max` 參數以獲取個股的「完整歷史股價」。
+  2. 在 `admin.html` 進行回測前，先掃描 CSV 內的所有股票代號。若發現有股票不在 `prices.json` 中，就立刻動態呼叫 `/api/live-prices?symbols=6274.TW&range=max` 去 Yahoo Finance 即時把這些缺漏的股票歷史資料抓回來。
+  這樣就能完美支援任何您自選的個股回測，再也不會因為找不到股價而讓淨值歸零。
+
 - [x] 前端與 Server 端無縫呼叫 `/api/live-prices` 每日自動刷新即時報價。
 
 ---

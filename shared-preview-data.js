@@ -426,10 +426,10 @@
     return `${y}${m}${d}`;
   }
 
-  async function fetchLiveMarketPrices(symbols = ['0050.TW', 'TWD=X']) {
+  async function fetchLiveMarketPrices(symbols = ['0050.TW', 'TWD=X'], range = '1mo') {
     try {
       const symList = Array.isArray(symbols) ? symbols.join(',') : symbols;
-      const res = await fetchJson('./api/live-prices?symbols=' + encodeURIComponent(symList), { optional: true });
+      const res = await fetchJson('./api/live-prices?symbols=' + encodeURIComponent(symList) + '&range=' + encodeURIComponent(range), { optional: true });
       if (res && res.ok && res.prices) {
         return res.prices;
       }

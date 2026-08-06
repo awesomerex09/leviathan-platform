@@ -1,8 +1,8 @@
 const https = require('https');
 
-function fetchYahooSymbol(symbol) {
+function fetchSingleYahoo(symbol, range = '1mo') {
   return new Promise((resolve) => {
-    const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?interval=1d&range=1mo`;
+    const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?interval=1d&range=${range}`;
     const options = {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
@@ -45,6 +45,25 @@ function fetchYahooSymbol(symbol) {
   });
 }
 
+async function fetchYahooSymbol(symbol, range = '1mo') {
+  let series = await fetchSingleYahoo(symbol, range);
+  if (!series || !series.length) {
+    if (symbol.endsWith('.TW')) {
+      const alt = symbol.replace(/\.TW$/, '.TWO');
+      series = await fetchSingleYahoo(alt, range);
+    } else if (symbol.endsWith('.TWO')) {
+      const alt = symbol.replace(/\.TWO$/, '.TW');
+      series = await fetchSingleYahoo(alt, range);
+    } else if (/^\d{4}$/.test(symbol)) {
+      series = await fetchSingleYahoo(symbol + '.TW', range);
+      if (!series || !series.length) {
+        series = await fetchSingleYahoo(symbol + '.TWO', range);
+      }
+    }
+  }
+  return series;
+}
+
 module.exports = async function handler(req, res) {
   if (res.setHeader) {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -60,21 +79,35 @@ module.exports = async function handler(req, res) {
 
   try {
     let symbolsStr = '';
-    if (req.query && req.query.symbols) {
-      symbolsStr = req.query.symbols;
-    } else if (req.url && req.url.includes('?')) {
+    let range = '1mo';
+
+    if (req.query) {
+      if (req.query.symbols) symbolsStr = req.query.symbols;
+      if (req.query.range) range = req.query.range;
+    }
+    if ((!symbolsStr || !req.query) && req.url && req.url.includes('?')) {
       const urlObj = new URL(req.url, 'http://localhost');
-      symbolsStr = urlObj.searchParams.get('symbols') || '';
+      if (!symbolsStr) symbolsStr = urlObj.searchParams.get('symbols') || '';
+      if (range === '1mo') range = urlObj.searchParams.get('range') || '1mo';
     }
 
     let symbolList = symbolsStr ? symbolsStr.split(',').map(s => s.trim()).filter(Boolean) : ['0050.TW', 'TWD=X'];
-    symbolList = Array.from(new Set(symbolList)).slice(0, 20);
+    symbolList = Array.from(new Set(symbolList)).slice(0, 30);
 
     const priceMap = {};
     await Promise.all(symbolList.map(async (sym) => {
-      const series = await fetchYahooSymbol(sym);
+      const series = await fetchYahooSymbol(sym, range);
       if (series && series.length) {
         priceMap[sym] = series;
+        // Also map to alternative key if applicable
+        if (sym.endsWith('.TW')) {
+          priceMap[sym.replace(/\.TW$/, '.TWO')] = series;
+        } else if (sym.endsWith('.TWO')) {
+          priceMap[sym.replace(/\.TWO$/, '.TW')] = series;
+        } else if (/^\d{4}$/.test(sym)) {
+          priceMap[sym + '.TW'] = series;
+          priceMap[sym + '.TWO'] = series;
+        }
       }
     }));
 

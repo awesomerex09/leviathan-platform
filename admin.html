@@ -456,16 +456,53 @@
           }
         } catch (apiErr) {
           console.warn('API /api/upload 離線，切換至純前端靜態回測模式:', apiErr.message);
-          showStatus('切換至靜態備援模式：正在瀏覽器端進行靜態量化回測...');
-          const pricesRes = await window.leviathanData.fetchOptionalJson('./prices.json');
-          const etfsRes = await window.leviathanData.fetchOptionalJson('./etfs.json');
+          showStatus('切換至靜態備援模式：正在解析交易紀錄並即時補全股價庫...');
+          const pricesRes = (await window.leviathanData.fetchOptionalJson('./prices.json')) || {};
+          const etfsRes = (await window.leviathanData.fetchOptionalJson('./etfs.json')) || {};
+          const etfsList = (etfsRes && etfsRes.etfs) ? etfsRes.etfs : [];
+
           const trades = window.leviathanData.parseCSV ? window.leviathanData.parseCSV(text) : [];
           if (trades && trades.length) {
-            model = window.leviathanData.calculateBacktest(trades, pricesRes || {}, (etfsRes && etfsRes.etfs) ? etfsRes.etfs : []);
+            // Extract unique trade symbols
+            const tradeSymbols = Array.from(new Set(trades.map(t => {
+              const s = t.symbol || '';
+              if (s.startsWith('TW:')) return s.split(':')[1] + '.TW';
+              if (s.startsWith('NASDAQ:') || s.startsWith('NYSE:') || s.startsWith('AMEX:') || s.startsWith('CBOE:')) return s.split(':')[1];
+              if (/^\d{4}$/.test(s)) return s + '.TW';
+              return s;
+            }).filter(Boolean)));
+
+            const symbolsToFetch = Array.from(new Set(['0050.TW', 'TWD=X', ...tradeSymbols]));
+            
+            try {
+              showStatus(`正在為 ${symbolsToFetch.length} 檔標的抓取最新即時與歷史報價 (補全 8/6 及個股數據)...`);
+              const liveMap = await window.leviathanData.fetchLiveMarketPrices(symbolsToFetch, 'max');
+              if (liveMap) {
+                // Merge all liveMap series into pricesRes
+                for (const [sym, series] of Object.entries(liveMap)) {
+                  if (!pricesRes[sym] || !pricesRes[sym].length) {
+                    pricesRes[sym] = series;
+                  } else {
+                    const existingDates = new Set(pricesRes[sym].map(p => p.d));
+                    for (const p of series) {
+                      if (!existingDates.has(p.d)) {
+                        pricesRes[sym].push(p);
+                      }
+                    }
+                    pricesRes[sym].sort((a, b) => a.d.localeCompare(b.d));
+                  }
+                }
+                window.leviathanData.extendPricesAndEtfsToToday(pricesRes, etfsList, liveMap);
+              }
+            } catch (liveErr) {
+              console.warn('動態抓取即時報價失敗:', liveErr.message);
+            }
+
+            model = window.leviathanData.calculateBacktest(trades, pricesRes, etfsList);
             if (model) {
               model.version = '2026.08.06.v2';
               localStorage.setItem('leviathan_custom_model', JSON.stringify(model));
-              showStatus(`純前端回測成功！\n模型名稱：${model.name}\n已將最新數據儲存至 localStorage 快取！`);
+              showStatus(`純前端回測計算成功！\n模型名稱：${model.name}\n已成功補全 8/6 最新股價與個股數據 (包含 ${tradeSymbols.join(', ')})！`);
             }
           } else {
             throw new Error('CSV 格式解析失敗或無有效交易紀錄');

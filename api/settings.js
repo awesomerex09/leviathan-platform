@@ -17,8 +17,50 @@ const DEFAULT_SETTINGS = {
 let globalSettingsStore = { ...DEFAULT_SETTINGS };
 let isInitialized = false;
 
-function initSettings() {
+// Check Vercel KV REST environment variables
+const KV_URL = process.env.KV_REST_API_URL || process.env.VERCEL_KV_REST_API_URL;
+const KV_TOKEN = process.env.KV_REST_API_TOKEN || process.env.VERCEL_KV_REST_API_TOKEN;
+
+async function fetchKvSettings() {
+  if (!KV_URL || !KV_TOKEN) return null;
+  try {
+    const res = await fetch(`${KV_URL}/get/leviathan_settings`, {
+      headers: { Authorization: `Bearer ${KV_TOKEN}` }
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (data && data.result) {
+      const parsed = typeof data.result === 'string' ? JSON.parse(data.result) : data.result;
+      return parsed;
+    }
+  } catch (e) {
+    console.warn('Vercel KV get error:', e.message);
+  }
+  return null;
+}
+
+async function saveKvSettings(settings) {
+  if (!KV_URL || !KV_TOKEN) return false;
+  try {
+    await fetch(`${KV_URL}/set/leviathan_settings`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${KV_TOKEN}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(settings)
+    });
+    return true;
+  } catch (e) {
+    console.warn('Vercel KV set error:', e.message);
+  }
+  return false;
+}
+
+async function initSettings() {
   if (isInitialized) return;
+  
+  // 1. Try reading local disk
   try {
     const settingsPath = path.join(process.cwd(), 'settings.json');
     if (fs.existsSync(settingsPath)) {
@@ -27,6 +69,7 @@ function initSettings() {
     }
   } catch (e) {}
 
+  // 2. Try reading /tmp
   try {
     const tmpPath = path.join('/tmp', 'settings.json');
     if (fs.existsSync(tmpPath)) {
@@ -34,6 +77,12 @@ function initSettings() {
       globalSettingsStore = Object.assign({}, globalSettingsStore, JSON.parse(content));
     }
   } catch (e) {}
+
+  // 3. Try reading Vercel KV if available
+  const kvSettings = await fetchKvSettings();
+  if (kvSettings) {
+    globalSettingsStore = Object.assign({}, globalSettingsStore, kvSettings);
+  }
 
   isInitialized = true;
 }
@@ -52,9 +101,15 @@ module.exports = async function handler(req, res) {
     return;
   }
 
-  initSettings();
+  await initSettings();
 
   if (req.method === 'GET') {
+    // Re-check Vercel KV on GET to get freshest state across cold starts
+    const kvSettings = await fetchKvSettings();
+    if (kvSettings) {
+      globalSettingsStore = Object.assign({}, globalSettingsStore, kvSettings);
+    }
+
     if (res.status && typeof res.status === 'function') {
       return res.status(200).json({ ok: true, settings: globalSettingsStore });
     } else {
@@ -66,10 +121,13 @@ module.exports = async function handler(req, res) {
   if (req.method === 'POST') {
     let bodyData = '';
     
-    const processUpdate = (parsedBody) => {
+    const processUpdate = async (parsedBody) => {
       const newSettings = parsedBody.settings || parsedBody;
       globalSettingsStore = Object.assign({}, globalSettingsStore, newSettings);
       
+      // Save to Vercel KV if configured
+      await saveKvSettings(globalSettingsStore);
+
       // Try writing to disk if local/writable environment
       try {
         const settingsPath = path.join(process.cwd(), 'settings.json');
@@ -91,18 +149,18 @@ module.exports = async function handler(req, res) {
     };
 
     if (req.body && typeof req.body === 'object') {
-      return processUpdate(req.body);
+      return await processUpdate(req.body);
     } else if (typeof req.body === 'string') {
       try {
-        return processUpdate(JSON.parse(req.body));
+        return await processUpdate(JSON.parse(req.body));
       } catch(e) {}
     }
 
     req.on('data', chunk => { bodyData += chunk; });
-    req.on('end', () => {
+    req.on('end', async () => {
       try {
         const parsed = JSON.parse(bodyData || '{}');
-        processUpdate(parsed);
+        await processUpdate(parsed);
       } catch (e) {
         if (res.status && typeof res.status === 'function') {
           res.status(400).json({ ok: false, error: 'Invalid JSON payload' });

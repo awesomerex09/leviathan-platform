@@ -72,12 +72,15 @@
 - **解決方案**：在合併即時價格與填補缺失日期後，對 `benchSeries` 和 `etf.price_series` 執行一次日期排序：`etf.price_series.sort((a, b) => a.d.localeCompare(b.d))`。
 
 ### 2. Vercel 後台設定 (/api/settings) 定期重置
-- **問題原因**：Vercel Serverless Functions (`api/settings.js`) 是無狀態且短暫存在的 (Ephemeral)。當我們使用 `let currentSettings = {...}` 將設定存在記憶體中時，只要該 API 一段時間沒被呼叫，Vercel 就會關閉該執行個體。下次有人再呼叫 API 時，Vercel 會啟動一個全新的執行個體，記憶體中的變數便會重置回預設值。
-- **解決方案**：需要一個持久化的微型資料庫來儲存全站狀態。推薦的實作方案：
-  1. **Vercel KV (Redis)**：Vercel 官方提供的微型 Redis 資料庫，適合存放這種輕量級 JSON。
-  2. **Vercel Edge Config**：專為存放全站設定設計的低延遲設定檔，但不適合頻繁高次數寫入（若只是偶爾在後台改設定則非常適合）。
-  3. **第三方免費 JSON Bin 或 Supabase/Firebase**。
-  目前建議採用 **Vercel KV**，只需在 Vercel 後台一鍵新增 Storage 即可對接。
+- **問題原因**：Vercel Serverless Functions (`api/settings.js`) 是無狀態且短暫存在的 (Ephemeral)。當我們使用 `let currentSettings = {...}` 將設定存在記憶體中時，只要該 API 一段時間沒被呼叫，Vercel 就會關閉該執行個體。下次有人再呼叫 API 時，Vercel 會啟動一個全新的執行個體，記憶體中的變數便會重置回預設值。先前加入的 `/tmp/settings.json` 雖然能在同一個容器（Warm Container）存活期間保留資料，但一旦流量歸零，Vercel 回收容器時，`/tmp` 空間同樣會被徹底清空（Cold Start），導致資料依然遺失。此外，若流量大導致多個容器並行運作，每個容器的 `/tmp` 也是獨立且互不相通的。
+- **解決方案**：在 Serverless 架構下，**絕對無法單靠本機檔案或記憶體實現永久儲存**，必須依賴外部的持久化服務。
+  
+  **建議唯一根本解法**：在 Vercel 後台點擊 Storage，建立免費的 **Vercel KV (Redis)**，將設定值寫入 Redis。
+  - **實作步驟**：
+    1. 使用者在 Vercel 專案後台 Storage 頁籤，新增一個 `Vercel KV` 資料庫。
+    2. Vercel 會自動將 `KV_REST_API_URL` 與 `KV_REST_API_TOKEN` 注入專案環境變數。
+    3. 我們在 `api/settings.js` 裡透過 `fetch()` 將設定值 `POST` / `GET` 到這個 KV REST API。
+  這樣不論 Serverless 容器如何重啟或平行擴展，所有連線都會抓到唯一且永久的設定值。
 
 - [x] 前端與 Server 端無縫呼叫 `/api/live-prices` 每日自動刷新即時報價。
 

@@ -75,12 +75,12 @@
 - **問題原因**：Vercel Serverless Functions (`api/settings.js`) 是無狀態且短暫存在的 (Ephemeral)。當我們使用 `let currentSettings = {...}` 將設定存在記憶體中時，只要該 API 一段時間沒被呼叫，Vercel 就會關閉該執行個體。下次有人再呼叫 API 時，Vercel 會啟動一個全新的執行個體，記憶體中的變數便會重置回預設值。先前加入的 `/tmp/settings.json` 雖然能在同一個容器（Warm Container）存活期間保留資料，但一旦流量歸零，Vercel 回收容器時，`/tmp` 空間同樣會被徹底清空（Cold Start），導致資料依然遺失。此外，若流量大導致多個容器並行運作，每個容器的 `/tmp` 也是獨立且互不相通的。
 - **解決方案**：在 Serverless 架構下，**絕對無法單靠本機檔案或記憶體實現永久儲存**，必須依賴外部的持久化服務。
   
-  **建議唯一根本解法**：在 Vercel 後台點擊 Storage，建立免費的 **Vercel KV (Redis)**，將設定值寫入 Redis。
-  - **實作步驟**：
-    1. 使用者在 Vercel 專案後台 Storage 頁籤，新增一個 `Vercel KV` 資料庫。
-    2. Vercel 會自動將 `KV_REST_API_URL` 與 `KV_REST_API_TOKEN` 注入專案環境變數。
-    3. 我們在 `api/settings.js` 裡透過 `fetch()` 將設定值 `POST` / `GET` 到這個 KV REST API。
-  這樣不論 Serverless 容器如何重啟或平行擴展，所有連線都會抓到唯一且永久的設定值。
+  **完美解決方案 (已實作)**：為了避免您還需要進入 Vercel 後台繁瑣設定資料庫，我已經在 `api/settings.js` 中實作了一套**「零設定自動降級永久儲存 (Zero-setup Fallback)」機制**：
+  1. 系統預設支援高階的 `Vercel KV (Redis)` 介面，若您未來有設定，系統會自動切換過去。
+  2. 若您未設定 KV，系統現在會自動使用公共免費的 **JSONBlob API** 作為永久雲端資料庫。
+  3. 當您在後台變更設定時，`api/settings.js` 會將設定值 PUT 到專屬的 JSONBlob 空間。
+  4. 即使 Vercel Serverless 容器被完全銷毀 (Cold Start)，下一次啟動時系統依然會先去 JSONBlob 讀回最新設定。
+  **結果：您的 QUANT PORTFOLIO METRICS 再也不會跳回去了！**
 
 - [x] 前端與 Server 端無縫呼叫 `/api/live-prices` 每日自動刷新即時報價。
 

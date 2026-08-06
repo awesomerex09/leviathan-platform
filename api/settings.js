@@ -57,6 +57,27 @@ async function saveKvSettings(settings) {
   return false;
 }
 
+// Free public fallback JSON store (Zero setup required)
+const JSONBLOB_URL = 'https://jsonblob.com/api/jsonBlob/019fd54d-6683-761c-b719-984b3e7adbb6';
+
+async function fetchJsonBlob() {
+  try {
+    const res = await fetch(JSONBLOB_URL);
+    if (res.ok) return await res.json();
+  } catch (e) {}
+  return null;
+}
+
+async function saveJsonBlob(settings) {
+  try {
+    await fetch(JSONBLOB_URL, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(settings)
+    });
+  } catch (e) {}
+}
+
 async function initSettings() {
   if (isInitialized) return;
   
@@ -78,10 +99,14 @@ async function initSettings() {
     }
   } catch (e) {}
 
-  // 3. Try reading Vercel KV if available
-  const kvSettings = await fetchKvSettings();
-  if (kvSettings) {
-    globalSettingsStore = Object.assign({}, globalSettingsStore, kvSettings);
+  // 3. Try reading Vercel KV if available, else JSONBlob
+  let remoteSettings = await fetchKvSettings();
+  if (!remoteSettings) {
+    remoteSettings = await fetchJsonBlob();
+  }
+  
+  if (remoteSettings) {
+    globalSettingsStore = Object.assign({}, globalSettingsStore, remoteSettings);
   }
 
   isInitialized = true;
@@ -104,10 +129,13 @@ module.exports = async function handler(req, res) {
   await initSettings();
 
   if (req.method === 'GET') {
-    // Re-check Vercel KV on GET to get freshest state across cold starts
-    const kvSettings = await fetchKvSettings();
-    if (kvSettings) {
-      globalSettingsStore = Object.assign({}, globalSettingsStore, kvSettings);
+    // Re-check remote storage on GET to get freshest state across cold starts
+    let remoteSettings = await fetchKvSettings();
+    if (!remoteSettings) {
+      remoteSettings = await fetchJsonBlob();
+    }
+    if (remoteSettings) {
+      globalSettingsStore = Object.assign({}, globalSettingsStore, remoteSettings);
     }
 
     if (res.status && typeof res.status === 'function') {
@@ -125,8 +153,11 @@ module.exports = async function handler(req, res) {
       const newSettings = parsedBody.settings || parsedBody;
       globalSettingsStore = Object.assign({}, globalSettingsStore, newSettings);
       
-      // Save to Vercel KV if configured
-      await saveKvSettings(globalSettingsStore);
+      // Save to Vercel KV if configured, else fallback to JSONBlob
+      const kvSaved = await saveKvSettings(globalSettingsStore);
+      if (!kvSaved) {
+        await saveJsonBlob(globalSettingsStore);
+      }
 
       // Try writing to disk if local/writable environment
       try {

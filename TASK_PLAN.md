@@ -63,7 +63,23 @@
 - [x] **建置 `/api/live-prices` Serverless 路由**：
   - 在 Vercel 環境及本地 Node.js 下處理 CORS 與 API 轉向，安全穩定地提供最新市場價格。
 - [x] **設定 Vercel Cron / API 運作**：
-  - 前端與 Server 端無縫呼叫 `/api/live-prices` 每日自動刷新即時報價。
+  - [x] 加入 Vercel 雲端全站同步 `/api/settings.js` 端點
+
+## Debug & Fixes (2026-08-06)
+
+### 1. 基金圖表時間軸錯亂 (7/28 後出現 7/10 數據)
+- **問題原因**：在 `shared-preview-data.js` 的 `extendPricesAndEtfsToToday` 函數中，我們從 `/api/live-prices` (Yahoo Finance) 抓取近 1 個月的歷史報價 (`range=1mo`)。當這些即時數據與原有的 `etfs.json` 數據合併時，如果某個舊日期（例如 7/10）在 `etfs.json` 中不存在，程式會將該筆資料 `.push()` 到陣列**最尾端**。由於合併後沒有對陣列重新按照日期排序，導致 7/28 之後接續了 7/10 的資料，前端圖表在繪製時就會出現「時光倒流」的折線。
+- **解決方案**：在合併即時價格與填補缺失日期後，對 `benchSeries` 和 `etf.price_series` 執行一次日期排序：`etf.price_series.sort((a, b) => a.d.localeCompare(b.d))`。
+
+### 2. Vercel 後台設定 (/api/settings) 定期重置
+- **問題原因**：Vercel Serverless Functions (`api/settings.js`) 是無狀態且短暫存在的 (Ephemeral)。當我們使用 `let currentSettings = {...}` 將設定存在記憶體中時，只要該 API 一段時間沒被呼叫，Vercel 就會關閉該執行個體。下次有人再呼叫 API 時，Vercel 會啟動一個全新的執行個體，記憶體中的變數便會重置回預設值。
+- **解決方案**：需要一個持久化的微型資料庫來儲存全站狀態。推薦的實作方案：
+  1. **Vercel KV (Redis)**：Vercel 官方提供的微型 Redis 資料庫，適合存放這種輕量級 JSON。
+  2. **Vercel Edge Config**：專為存放全站設定設計的低延遲設定檔，但不適合頻繁高次數寫入（若只是偶爾在後台改設定則非常適合）。
+  3. **第三方免費 JSON Bin 或 Supabase/Firebase**。
+  目前建議採用 **Vercel KV**，只需在 Vercel 後台一鍵新增 Storage 即可對接。
+
+- [x] 前端與 Server 端無縫呼叫 `/api/live-prices` 每日自動刷新即時報價。
 
 ---
 

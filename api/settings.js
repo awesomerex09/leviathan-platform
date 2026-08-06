@@ -25,9 +25,16 @@ function initSettings() {
       const content = fs.readFileSync(settingsPath, 'utf8');
       globalSettingsStore = Object.assign({}, DEFAULT_SETTINGS, JSON.parse(content));
     }
-  } catch (e) {
-    console.warn('Failed to read settings.json:', e.message);
-  }
+  } catch (e) {}
+
+  try {
+    const tmpPath = path.join('/tmp', 'settings.json');
+    if (fs.existsSync(tmpPath)) {
+      const content = fs.readFileSync(tmpPath, 'utf8');
+      globalSettingsStore = Object.assign({}, globalSettingsStore, JSON.parse(content));
+    }
+  } catch (e) {}
+
   isInitialized = true;
 }
 
@@ -67,9 +74,13 @@ module.exports = async function handler(req, res) {
       try {
         const settingsPath = path.join(process.cwd(), 'settings.json');
         fs.writeFileSync(settingsPath, JSON.stringify(globalSettingsStore, null, 2), 'utf8');
-      } catch (e) {
-        console.warn('Disk write skipped in read-only environment:', e.message);
-      }
+      } catch (e) {}
+
+      // Write to /tmp/settings.json for serverless container warming persistence
+      try {
+        const tmpPath = path.join('/tmp', 'settings.json');
+        fs.writeFileSync(tmpPath, JSON.stringify(globalSettingsStore, null, 2), 'utf8');
+      } catch (e) {}
 
       if (res.status && typeof res.status === 'function') {
         return res.status(200).json({ ok: true, settings: globalSettingsStore });

@@ -91,6 +91,8 @@ const server = http.createServer((req, res) => {
       res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
       res.end(JSON.stringify({ ok: false, error: e.message }));
     }
+    return;
+  }
   // GET /api/etfs
   if (pathname === '/api/etfs' && req.method === 'GET') {
     try {
@@ -282,7 +284,13 @@ function extendPricesAndEtfsToToday(prices, etfs) {
   
   const benchSeries = prices['0050.TW'];
   if (!benchSeries.length) return;
-  const lastBenchDateStr = benchSeries[benchSeries.length - 1].d;
+
+  benchSeries.sort((a, b) => a.d.localeCompare(b.d));
+  const seenBench = new Set();
+  prices['0050.TW'] = benchSeries.filter(p => seenBench.has(p.d) ? false : seenBench.add(p.d));
+  const activeBench = prices['0050.TW'];
+
+  const lastBenchDateStr = activeBench[activeBench.length - 1].d;
 
   if (lastBenchDateStr < todayStr) {
     const missingDates = [];
@@ -299,9 +307,9 @@ function extendPricesAndEtfsToToday(prices, etfs) {
     }
 
     if (missingDates.length) {
-      const lastPrice = benchSeries[benchSeries.length - 1].c;
+      const lastPrice = activeBench[activeBench.length - 1].c;
       for (const newDate of missingDates) {
-        benchSeries.push({ d: newDate, c: lastPrice });
+        activeBench.push({ d: newDate, c: lastPrice });
       }
     }
   }
@@ -309,14 +317,21 @@ function extendPricesAndEtfsToToday(prices, etfs) {
   if (etfs && etfs.length) {
     for (const etf of etfs) {
       if (!etf.price_series || !etf.price_series.length) continue;
+
+      etf.price_series.sort((a, b) => a.d.localeCompare(b.d));
+      const seenEtf = new Set();
+      etf.price_series = etf.price_series.filter(p => seenEtf.has(p.d) ? false : seenEtf.add(p.d));
+
       const etfLastDate = etf.price_series[etf.price_series.length - 1].d;
       const lastNav = etf.price_series[etf.price_series.length - 1].c;
 
-      const targetDays = benchSeries.filter(p => p.d > etfLastDate);
+      const targetDays = activeBench.filter(p => p.d > etfLastDate);
       for (const pt of targetDays) {
         // Real non-fitted fallback: hold price steady on missing dates without artificial 0050 proportional scaling
         etf.price_series.push({ d: pt.d, c: lastNav });
       }
+      etf.price_series.sort((a, b) => a.d.localeCompare(b.d));
+
       etf.nav = etf.price_series[etf.price_series.length - 1].c;
       etf.close_price = etf.nav;
       if (etf.price_series.length > 22) {

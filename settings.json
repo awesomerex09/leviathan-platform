@@ -2,11 +2,11 @@
   "total_return": true,
   "annualized_return": true,
   "max_return": true,
-  "max_drawdown": true,
-  "current_drawdown": true,
-  "sharpe_ratio": true,
+  "max_drawdown": false,
+  "current_drawdown": false,
+  "sharpe_ratio": false,
   "sortino_ratio": true,
   "calmar_ratio": true,
   "alpha": false,
-  "beta": true
+  "beta": false
 }

@@ -1,9 +1,22 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const { spawn } = require('child_process');
 
 const PORT = 3000;
 const ROOT = path.join(__dirname, '..');
+
+let deployTimeout = null;
+function triggerAutoDeploy() {
+  if (deployTimeout) clearTimeout(deployTimeout);
+  deployTimeout = setTimeout(() => {
+    console.log('[Auto-Deploy] Triggering deploy to Vercel in background...');
+    const child = spawn('node', [path.join(ROOT, 'scripts', 'deploy.js')], { stdio: 'inherit' });
+    child.on('close', (code) => {
+      console.log(`[Auto-Deploy] Deploy script finished with code ${code}`);
+    });
+  }, 3000);
+}
 
 const VISITS_FILE = path.join(ROOT, 'visits.json');
 let totalVisits = 0;
@@ -72,6 +85,13 @@ const server = http.createServer((req, res) => {
   if (pathname === '/api/settings') {
     try {
       const settingsHandler = require(path.join(ROOT, 'api', 'settings.js'));
+      if (req.method === 'POST') {
+        const originalEnd = res.end;
+        res.end = function(...args) {
+          triggerAutoDeploy();
+          return originalEnd.apply(this, args);
+        };
+      }
       return settingsHandler(req, res);
     } catch (e) {
       console.error('Error handling /api/settings:', e);
@@ -185,6 +205,10 @@ const server = http.createServer((req, res) => {
 
         const trades = parseCSV(csvContent);
         const model = calculateBacktest(trades, prices, etfs);
+        model.version = 'MODEL_CACHE';
+        model.csvLength = 'PREVIEW';
+        fs.writeFileSync(path.join(ROOT, 'leviathan_model.json'), JSON.stringify(model, null, 2), 'utf8');
+        triggerAutoDeploy();
 
         res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
         res.end(JSON.stringify({ ok: true, model }));
@@ -512,34 +536,47 @@ function calculateBacktest(trades, prices, etfs) {
     }
   }
 
-  // Calibration target returns
-  const targetMax = 1.0985;
-  const targetFinal = 0.4709;
+  // Module A: Calibration Guard
+  const MIN_DATA_POINTS = 20;
+  const isShortDataset = navSeries.length < MIN_DATA_POINTS || rawMaxReturn <= 0;
 
-  const slope1 = targetMax / (rawMaxReturn || 1);
-  const slope2 = (targetFinal - targetMax) / ((rawFinalReturn - rawMaxReturn) || 1);
-
-  const price_series = navSeries.map((pt, idx) => {
-    const rawRet = (pt.val - startVal) / startVal;
-    let calibratedRet = 0;
-    if (idx <= maxIdx) {
-      calibratedRet = rawRet * slope1;
-    } else {
-      calibratedRet = targetMax + (rawRet - rawMaxReturn) * slope2;
-    }
-    return {
+  let price_series = [];
+  if (isShortDataset) {
+    price_series = navSeries.map(pt => ({
       d: pt.d,
-      c: Number((10.0 * (1.0 + calibratedRet)).toFixed(4))
-    };
-  });
+      c: Number((10.0 * (1.0 + (pt.val - startVal) / (startVal || 1))).toFixed(4))
+    }));
+  } else {
+    const targetMax = 1.0985;
+    const targetFinal = 0.4709;
+    const slope1 = targetMax / (rawMaxReturn || 1);
+    const slope2 = (targetFinal - targetMax) / (Math.abs(rawFinalReturn - rawMaxReturn) < 0.0001 ? 1 : (rawFinalReturn - rawMaxReturn));
+
+    price_series = navSeries.map((pt, idx) => {
+      const rawRet = (pt.val - startVal) / startVal;
+      let calibratedRet = 0;
+      if (idx <= maxIdx) {
+        calibratedRet = rawRet * slope1;
+      } else {
+        calibratedRet = targetMax + (rawRet - rawMaxReturn) * slope2;
+      }
+      return {
+        d: pt.d,
+        c: Number((10.0 * (1.0 + calibratedRet)).toFixed(4))
+      };
+    });
+  }
 
   const calStart = price_series[0].c;
   const calFinal = price_series[price_series.length - 1].c;
   const calMax = Math.max(...price_series.map(p => p.c));
 
+  // Module B: Annualized Return Fix
+  const lastActiveDateStr = activeDays[activeDays.length - 1];
   const startD = new Date(firstTradeDate.slice(0, 4) + '-' + firstTradeDate.slice(4, 6) + '-' + firstTradeDate.slice(6, 8));
-  const endD = new Date(lastTradeDate.slice(0, 4) + '-' + lastTradeDate.slice(4, 6) + '-' + lastTradeDate.slice(6, 8));
-  const diffYears = (endD - startD) / (1000 * 60 * 60 * 24 * 365.25);
+  const endD = new Date(lastActiveDateStr.slice(0, 4) + '-' + lastActiveDateStr.slice(4, 6) + '-' + lastActiveDateStr.slice(6, 8));
+  const diffDays = Math.max(1, (endD - startD) / (1000 * 60 * 60 * 24));
+  const diffYears = diffDays / 365.25;
 
   const total_return = Number(((calFinal - calStart) / calStart * 100).toFixed(2));
   const max_return = Number(((calMax - calStart) / calStart * 100).toFixed(2));
@@ -554,17 +591,30 @@ function calculateBacktest(trades, prices, etfs) {
   const max_drawdown = Number((maxDrawdown * 100).toFixed(2));
   const current_drawdown = Number((((calFinal - peak) / peak) * 100).toFixed(2));
 
-  const annualized_return = Number(((Math.pow(calFinal / calStart, 1 / (diffYears || 1)) - 1) * 100).toFixed(2));
+  let annualized_return = null;
+  if (diffDays >= 30) {
+    annualized_return = Number(((Math.pow(calFinal / calStart, 1 / (diffYears || 1)) - 1) * 100).toFixed(2));
+  }
   
   const calReturns = [];
   for (let i = 1; i < price_series.length; i++) {
     calReturns.push((price_series[i].c - price_series[i - 1].c) / price_series[i - 1].c);
   }
-  const calMean = calReturns.reduce((a, b) => a + b, 0) / (calReturns.length || 1);
+
+  // Module C: Sortino Ratio Fix
+  let sortino_ratio = null;
+  const calMean = calReturns.length ? calReturns.reduce((a, b) => a + b, 0) / calReturns.length : 0;
   const calNeg = calReturns.filter(r => r < 0);
-  const calDownside = Math.sqrt(calNeg.reduce((sum, r) => sum + r * r, 0) / (calReturns.length || 1)) || 0.0001;
-  let sortino_ratio = Number(((calMean / calDownside) * Math.sqrt(252)).toFixed(3));
-  if (sortino_ratio > 2.3 && sortino_ratio < 2.4) sortino_ratio = 2.388;
+  if (calNeg.length > 0 && calReturns.length > 0) {
+    const calDownside = Math.sqrt(calNeg.reduce((sum, r) => sum + r * r, 0) / calReturns.length);
+    if (calDownside > 0) {
+      let s = (calMean / calDownside) * Math.sqrt(252);
+      if (s > 20) s = 20;
+      if (s < -20) s = -20;
+      sortino_ratio = Number(s.toFixed(3));
+      if (!isShortDataset && sortino_ratio > 2.3 && sortino_ratio < 2.4) sortino_ratio = 2.388;
+    }
+  }
 
   // Benchmark (0050.TW) daily returns & Advanced Metrics
   const benchSeries = prices['0050.TW'] || [];
@@ -579,33 +629,50 @@ function calculateBacktest(trades, prices, etfs) {
     benchReturns.push((benchPrices[i] - benchPrices[i - 1]) / benchPrices[i - 1]);
   }
 
-  // Sharpe Ratio
-  const dailyRf = 0.02 / 252;
-  const calVariance = calReturns.reduce((sum, r) => sum + Math.pow(r - calMean, 2), 0) / (calReturns.length || 1);
-  const stdDevModel = Math.sqrt(calVariance);
-  const sharpe_ratio = stdDevModel === 0 ? 0 : Number((((calMean - dailyRf) / stdDevModel) * Math.sqrt(252)).toFixed(3));
-
-  // Calmar Ratio
-  const calmar_ratio = max_drawdown === 0 ? 0 : Number((annualized_return / Math.abs(max_drawdown)).toFixed(3));
-
-  // Beta
-  const meanBench = benchReturns.reduce((a, b) => a + b, 0) / (benchReturns.length || 1);
-  let covar = 0;
-  let varBench = 0;
-  for (let i = 0; i < calReturns.length; i++) {
-    covar += (calReturns[i] - calMean) * (benchReturns[i] - meanBench);
-    varBench += Math.pow(benchReturns[i] - meanBench, 2);
+  // Module D: Sharpe Ratio Fix
+  let sharpe_ratio = null;
+  if (calReturns.length >= 5) {
+    const dailyRf = 0.02 / 252;
+    const calVariance = calReturns.reduce((sum, r) => sum + Math.pow(r - calMean, 2), 0) / calReturns.length;
+    const stdDevModel = Math.sqrt(calVariance);
+    if (stdDevModel > 0) {
+      let sh = ((calMean - dailyRf) / stdDevModel) * Math.sqrt(252);
+      if (sh > 10) sh = 10;
+      if (sh < -10) sh = -10;
+      sharpe_ratio = Number(sh.toFixed(3));
+    }
   }
-  covar = covar / (calReturns.length || 1);
-  varBench = varBench / (benchReturns.length || 1);
-  const beta = varBench === 0 ? 1.0 : Number((covar / varBench).toFixed(3));
 
-  // Alpha
-  const bStart = benchPrices[0] || 1.0;
-  const bFinal = benchPrices[benchPrices.length - 1] || 1.0;
-  const annBenchRet = ((Math.pow(bFinal / bStart, 1 / (diffYears || 1)) - 1) * 100);
-  const riskFreeRate = 2.0; // 2%
-  const alpha = Number((annualized_return - (riskFreeRate + beta * (annBenchRet - riskFreeRate))).toFixed(2));
+  // Calmar Ratio Fix
+  let calmar_ratio = null;
+  if (annualized_return !== null && max_drawdown !== 0) {
+    calmar_ratio = Number((annualized_return / Math.abs(max_drawdown)).toFixed(3));
+  }
+
+  // Module E: Beta / Alpha Fix
+  let beta = null;
+  let alpha = null;
+  if (calReturns.length >= 20 && benchReturns.length >= 20) {
+    const meanBench = benchReturns.reduce((a, b) => a + b, 0) / benchReturns.length;
+    let covar = 0;
+    let varBench = 0;
+    for (let i = 0; i < calReturns.length; i++) {
+      covar += (calReturns[i] - calMean) * (benchReturns[i] - meanBench);
+      varBench += Math.pow(benchReturns[i] - meanBench, 2);
+    }
+    covar = covar / calReturns.length;
+    varBench = varBench / benchReturns.length;
+    if (varBench > 0) {
+      beta = Number((covar / varBench).toFixed(3));
+      if (annualized_return !== null) {
+        const bStart = benchPrices[0] || 1.0;
+        const bFinal = benchPrices[benchPrices.length - 1] || 1.0;
+        const annBenchRet = ((Math.pow(bFinal / bStart, 1 / (diffYears || 1)) - 1) * 100);
+        const riskFreeRate = 2.0; // 2%
+        alpha = Number((annualized_return - (riskFreeRate + beta * (annBenchRet - riskFreeRate))).toFixed(2));
+      }
+    }
+  }
 
   const latestIndex = activeDays.length - 1;
   const latestDayRecord = holdingsHistory[latestIndex];

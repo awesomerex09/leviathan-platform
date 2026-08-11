@@ -17,67 +17,6 @@ const DEFAULT_SETTINGS = {
 let globalSettingsStore = { ...DEFAULT_SETTINGS };
 let isInitialized = false;
 
-// Check Vercel KV REST environment variables
-const KV_URL = process.env.KV_REST_API_URL || process.env.VERCEL_KV_REST_API_URL;
-const KV_TOKEN = process.env.KV_REST_API_TOKEN || process.env.VERCEL_KV_REST_API_TOKEN;
-
-async function fetchKvSettings() {
-  if (!KV_URL || !KV_TOKEN) return null;
-  try {
-    const res = await fetch(`${KV_URL}/get/leviathan_settings`, {
-      headers: { Authorization: `Bearer ${KV_TOKEN}` }
-    });
-    if (!res.ok) return null;
-    const data = await res.json();
-    if (data && data.result) {
-      const parsed = typeof data.result === 'string' ? JSON.parse(data.result) : data.result;
-      return parsed;
-    }
-  } catch (e) {
-    console.warn('Vercel KV get error:', e.message);
-  }
-  return null;
-}
-
-async function saveKvSettings(settings) {
-  if (!KV_URL || !KV_TOKEN) return false;
-  try {
-    await fetch(`${KV_URL}/set/leviathan_settings`, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${KV_TOKEN}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(settings)
-    });
-    return true;
-  } catch (e) {
-    console.warn('Vercel KV set error:', e.message);
-  }
-  return false;
-}
-
-// Free public fallback JSON store (Zero setup required)
-const JSONBLOB_URL = 'https://jsonblob.com/api/jsonBlob/019fd54d-6683-761c-b719-984b3e7adbb6';
-
-async function fetchJsonBlob() {
-  try {
-    const res = await fetch(JSONBLOB_URL);
-    if (res.ok) return await res.json();
-  } catch (e) {}
-  return null;
-}
-
-async function saveJsonBlob(settings) {
-  try {
-    await fetch(JSONBLOB_URL, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(settings)
-    });
-  } catch (e) {}
-}
-
 async function initSettings() {
   if (isInitialized) return;
   
@@ -99,16 +38,6 @@ async function initSettings() {
     }
   } catch (e) {}
 
-  // 3. Try reading Vercel KV if available, else JSONBlob
-  let remoteSettings = await fetchKvSettings();
-  if (!remoteSettings) {
-    remoteSettings = await fetchJsonBlob();
-  }
-  
-  if (remoteSettings) {
-    globalSettingsStore = Object.assign({}, globalSettingsStore, remoteSettings);
-  }
-
   isInitialized = true;
 }
 
@@ -129,15 +58,6 @@ module.exports = async function handler(req, res) {
   await initSettings();
 
   if (req.method === 'GET') {
-    // Re-check remote storage on GET to get freshest state across cold starts
-    let remoteSettings = await fetchKvSettings();
-    if (!remoteSettings) {
-      remoteSettings = await fetchJsonBlob();
-    }
-    if (remoteSettings) {
-      globalSettingsStore = Object.assign({}, globalSettingsStore, remoteSettings);
-    }
-
     if (res.status && typeof res.status === 'function') {
       return res.status(200).json({ ok: true, settings: globalSettingsStore });
     } else {
@@ -152,12 +72,6 @@ module.exports = async function handler(req, res) {
     const processUpdate = async (parsedBody) => {
       const newSettings = parsedBody.settings || parsedBody;
       globalSettingsStore = Object.assign({}, globalSettingsStore, newSettings);
-      
-      // Save to Vercel KV if configured, else fallback to JSONBlob
-      const kvSaved = await saveKvSettings(globalSettingsStore);
-      if (!kvSaved) {
-        await saveJsonBlob(globalSettingsStore);
-      }
 
       // Try writing to disk if local/writable environment
       try {

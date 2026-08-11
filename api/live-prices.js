@@ -61,7 +61,7 @@ async function fetchYahooSymbol(symbol, range = '1mo') {
     } else if (symbol.endsWith('.TWO')) {
       const alt = symbol.replace(/\.TWO$/, '.TW');
       series = await fetchSingleYahoo(alt, range);
-    } else if (/^\d{4}$/.test(symbol)) {
+    } else if (!symbol.includes('.')) {
       series = await fetchSingleYahoo(symbol + '.TW', range);
       if (!series || !series.length) {
         series = await fetchSingleYahoo(symbol + '.TWO', range);
@@ -112,7 +112,7 @@ module.exports = async function handler(req, res) {
           priceMap[sym.replace(/\.TW$/, '.TWO')] = series;
         } else if (sym.endsWith('.TWO')) {
           priceMap[sym.replace(/\.TWO$/, '.TW')] = series;
-        } else if (/^\d{4}$/.test(sym)) {
+        } else if (!sym.includes('.')) {
           priceMap[sym + '.TW'] = series;
           priceMap[sym + '.TWO'] = series;
         }

@@ -210,7 +210,10 @@
       <div id="settings-matrix" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 8px;">
         <!-- Checkboxes loaded by JS -->
       </div>
-      <div id="settings-save-status" style="font-size: 12px; color: var(--dir-mint); display: none; font-family: var(--dir-mono);">✓ 設定已自動儲存</div>
+      <div style="margin-top: 16px; display: flex; align-items: center; gap: 12px;">
+        <button class="btn btn-primary" id="save-settings-btn">儲存設定並發布至 Vercel</button>
+        <div id="settings-save-status" style="font-size: 12px; color: var(--dir-mint); display: none; font-family: var(--dir-mono);">✓ 設定已儲存，正在背景發布至 Vercel...</div>
+      </div>
     </section>
 
     <section class="admin-card">
@@ -322,18 +325,6 @@
         chk.dataset.key = item.key;
         chk.checked = currentSettings[item.key] !== false;
 
-        chk.addEventListener('change', async () => {
-          const updated = {};
-          const inputs = container.querySelectorAll('input[type="checkbox"]');
-          inputs.forEach(input => {
-            updated[input.dataset.key] = input.checked;
-          });
-          await window.leviathanData.saveSettings(updated);
-          const saveMsg = $('settings-save-status');
-          saveMsg.style.display = 'block';
-          setTimeout(() => { saveMsg.style.display = 'none'; }, 2000);
-        });
-
         const span = document.createElement('span');
         span.style.fontSize = '12px';
         span.style.color = '#fff';
@@ -342,6 +333,28 @@
         wrapper.appendChild(chk);
         wrapper.appendChild(span);
         container.appendChild(wrapper);
+      });
+      
+      $('save-settings-btn').addEventListener('click', async () => {
+        const updated = {};
+        const inputs = container.querySelectorAll('input[type="checkbox"]');
+        inputs.forEach(input => {
+          updated[input.dataset.key] = input.checked;
+        });
+        
+        const saveMsg = $('settings-save-status');
+        saveMsg.style.color = 'var(--dir-mint)';
+        saveMsg.textContent = '儲存中...';
+        saveMsg.style.display = 'block';
+        
+        try {
+          await window.leviathanData.saveSettings(updated);
+          saveMsg.textContent = '✓ 設定已儲存，正在背景更新 Vercel...';
+          setTimeout(() => { saveMsg.style.display = 'none'; }, 5000);
+        } catch(e) {
+          saveMsg.style.color = 'var(--dir-red)';
+          saveMsg.textContent = '儲存失敗：' + e.message;
+        }
       });
     }
     initSettingsMatrix();

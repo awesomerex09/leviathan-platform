@@ -1135,18 +1135,18 @@
     }
 
     function calculateEtfMetrics(etf) {
-      if (etf.total_return !== undefined && etf.current_drawdown !== undefined && etf.beta !== undefined) {
+      if (etf.is_custom_quant) {
         return {
-          totalReturn: Number(etf.total_return) || 0,
-          annualizedReturn: Number(etf.annualized_return) || 0,
-          maxReturn: Number(etf.max_return) || 0,
-          sortinoRatio: Number(etf.sortino_ratio) || 0,
-          maxDrawdown: Number(etf.max_drawdown) || 0,
-          currentDrawdown: Number(etf.current_drawdown) || 0,
-          sharpeRatio: Number(etf.sharpe_ratio) || 0,
-          calmarRatio: Number(etf.calmar_ratio) || 0,
-          alpha: Number(etf.alpha) || 0,
-          beta: Number(etf.beta) || 0
+          totalReturn: etf.total_return !== undefined ? etf.total_return : null,
+          annualizedReturn: etf.annualized_return !== undefined ? etf.annualized_return : null,
+          maxReturn: etf.max_return !== undefined ? etf.max_return : null,
+          sortinoRatio: etf.sortino_ratio !== undefined ? etf.sortino_ratio : null,
+          maxDrawdown: etf.max_drawdown !== undefined ? etf.max_drawdown : null,
+          currentDrawdown: etf.current_drawdown !== undefined ? etf.current_drawdown : null,
+          sharpeRatio: etf.sharpe_ratio !== undefined ? etf.sharpe_ratio : null,
+          calmarRatio: etf.calmar_ratio !== undefined ? etf.calmar_ratio : null,
+          alpha: etf.alpha !== undefined ? etf.alpha : null,
+          beta: etf.beta !== undefined ? etf.beta : null
         };
       }
       const series = etf.price_series || [];
@@ -1157,65 +1157,23 @@
           alpha: 0, beta: 0
         };
       }
-      
-      const startVal = series[0].c;
-      const finalVal = series[series.length - 1].c;
-      const peakVal = Math.max(...series.map(pt => pt.c), startVal);
-      
-      const totalReturn = Number((((finalVal - startVal) / (startVal || 1)) * 100).toFixed(2));
-      const maxReturn = Number((((peakVal - startVal) / (startVal || 1)) * 100).toFixed(2));
-      
-      const startD = parseDateKeyUTC(series[0].d);
-      const endD = parseDateKeyUTC(series[series.length - 1].d);
-      const diffYears = (endD - startD) / (1000 * 60 * 60 * 24 * 365.25);
-      const annualizedReturn = Number(((Math.pow((finalVal / (startVal || 1)), (1 / (diffYears || 1))) - 1) * 100).toFixed(2));
-      
-      let peak = startVal;
-      let maxDrawdown = 0;
-      for (const pt of series) {
-        if (pt.c > peak) peak = pt.c;
-        const dd = (pt.c - peak) / (peak || 1);
-        if (dd < maxDrawdown) maxDrawdown = dd;
-      }
-      const maxDrawdownPct = Number((maxDrawdown * 100).toFixed(2));
-      const currentDrawdownPct = Number((((finalVal - peak) / (peak || 1)) * 100).toFixed(2));
-      
-      let sortinoRatio = 0;
-      let calReturns = [];
-      if (series.length > 1) {
-        for (let i = 1; i < series.length; i++) {
-          calReturns.push((series[i].c - series[i-1].c) / (series[i-1].c || 1));
-        }
-        const meanReturn = calReturns.reduce((a, b) => a + b, 0) / calReturns.length;
-        const negativeReturns = calReturns.filter(r => r < 0);
-        const downsideDev = Math.sqrt(negativeReturns.reduce((sum, r) => sum + r * r, 0) / calReturns.length) || 0.0001;
-        sortinoRatio = Number(((meanReturn / downsideDev) * Math.sqrt(252)).toFixed(3));
-        if (etf.is_custom_quant && sortinoRatio > 2.0 && sortinoRatio < 2.3) {
-          sortinoRatio = 2.152;
-        }
-      }
 
-      const calMean = calReturns.reduce((a, b) => a + b, 0) / (calReturns.length || 1);
-      const dailyRf = 0.02 / 252;
-      const calVariance = calReturns.reduce((sum, r) => sum + Math.pow(r - calMean, 2), 0) / (calReturns.length || 1);
-      const stdDevModel = Math.sqrt(calVariance);
-      const sharpeRatio = stdDevModel === 0 ? 0 : Number((((calMean - dailyRf) / stdDevModel) * Math.sqrt(252)).toFixed(3));
-      const calmarRatio = maxDrawdownPct === 0 ? 0 : Number((annualizedReturn / Math.abs(maxDrawdownPct)).toFixed(3));
-
-      let beta = etf.beta !== undefined ? Number(etf.beta) : 1.0;
-      let alpha = etf.alpha !== undefined ? Number(etf.alpha) : 0.0;
+      const benchSeries = (typeof prices !== 'undefined' && prices && prices['0050.TW']) ? prices['0050.TW'] : [];
+      if (window.leviathanData && window.leviathanData.computeAdvancedMetrics) {
+        return window.leviathanData.computeAdvancedMetrics(series, benchSeries);
+      }
 
       return {
-        totalReturn,
-        annualizedReturn,
-        maxReturn,
-        sortinoRatio,
-        maxDrawdown: maxDrawdownPct,
-        currentDrawdown: currentDrawdownPct,
-        sharpeRatio,
-        calmarRatio,
-        alpha,
-        beta
+        totalReturn: etf.total_return || 0,
+        annualizedReturn: etf.annualized_return || 0,
+        maxReturn: etf.max_return || 0,
+        sortinoRatio: etf.sortino_ratio || 0,
+        maxDrawdown: etf.max_drawdown || 0,
+        currentDrawdown: etf.current_drawdown || 0,
+        sharpeRatio: etf.sharpe_ratio || 0,
+        calmarRatio: etf.calmar_ratio || 0,
+        alpha: etf.alpha || 0,
+        beta: etf.beta || 1.0
       };
     }
 
@@ -1229,9 +1187,9 @@
 
         if (etf.is_custom_quant) {
           $('header-card').classList.add('custom-quant');
-          $('etf-code-tag').textContent = i18n[currentLang]['custom-tag'];
-          $('etf-name').innerHTML = `${currentLang === 'zh' ? '自研量化模型 (Leviathan)' : 'Proprietary Quant Model (Leviathan)'} <em>★</em>`;
-          $('etf-issuer').textContent = currentLang === 'zh' ? 'Custom Quant Model · 基於交易明細回測' : 'Custom Quant Model · Backtested from Trade Log';
+          $('etf-code-tag').textContent = 'QUANT';
+          $('etf-name').textContent = etf.name || '自研量化模型 (Leviathan)';
+          $('etf-issuer').textContent = etf.issuer || 'Custom Quant Model';
           if (qTitle) qTitle.textContent = currentLang === 'zh' ? '★ BACKTEST QUANT METRICS / 實盤回測指標' : '★ BACKTEST QUANT METRICS';
           if (qCap) {
             qCap.style.display = 'inline';
@@ -1252,11 +1210,6 @@
         }
 
         const metrics = calculateEtfMetrics(etf);
-        
-        if ($('val-quant-total')) $('val-quant-total').textContent = `${(Number(metrics.totalReturn) || 0).toFixed(2)}%`;
-        if ($('val-quant-annual')) $('val-quant-annual').textContent = `${(Number(metrics.annualizedReturn) || 0).toFixed(2)}%`;
-        if ($('val-quant-max')) $('val-quant-max').textContent = `${(Number(metrics.maxReturn) || 0).toFixed(2)}%`;
-        if ($('val-quant-mdd')) $('val-quant-mdd').textContent = `${(Number(metrics.maxDrawdown) || 0).toFixed(2)}%`;
         if ($('val-quant-cdd')) $('val-quant-cdd').textContent = `${(Number(metrics.currentDrawdown) || 0).toFixed(2)}%`;
         if ($('val-quant-sharpe')) $('val-quant-sharpe').textContent = (Number(metrics.sharpeRatio) || 0).toFixed(3);
         if ($('val-quant-sortino')) $('val-quant-sortino').textContent = (Number(metrics.sortinoRatio) || 0).toFixed(3);

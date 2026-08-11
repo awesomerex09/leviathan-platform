@@ -277,68 +277,8 @@
     
     finalHoldings.sort((a, b) => b.weight - a.weight);
 
-    const maxVal = Math.max(...navSeries.map(pt => pt.c), initialCapital);
-    const maxReturn = parseFloat((((maxVal - initialCapital) / initialCapital) * 100).toFixed(2));
-
-    let peak = initialCapital;
-    let maxDrawdown = 0;
-    for (const pt of navSeries) {
-      if (pt.c > peak) peak = pt.c;
-      const dd = (pt.c - peak) / peak;
-      if (dd < maxDrawdown) maxDrawdown = dd;
-    }
-    const maxDrawdownPct = parseFloat((maxDrawdown * 100).toFixed(2));
-    const currentDrawdownPct = parseFloat((((finalValue - peak) / peak) * 100).toFixed(2));
-
-    const startD = parseDateKeyUTC(firstTradeDate);
-    const endD = parseDateKeyUTC(lastDay);
-    const diffYears = (endD - startD) / (1000 * 60 * 60 * 24 * 365.25);
-    const annualizedReturn = parseFloat(((Math.pow((finalValue / initialCapital), (1 / (diffYears || 1))) - 1) * 100).toFixed(2));
-
-    const calReturns = [];
-    for (let i = 1; i < navSeries.length; i++) {
-      calReturns.push((navSeries[i].c - navSeries[i - 1].c) / navSeries[i - 1].c);
-    }
-    const calMean = calReturns.reduce((a, b) => a + b, 0) / (calReturns.length || 1);
-    const calNeg = calReturns.filter(r => r < 0);
-    const calDownside = Math.sqrt(calNeg.reduce((sum, r) => sum + r * r, 0) / (calReturns.length || 1)) || 0.0001;
-    let sortinoRatio = parseFloat(((calMean / calDownside) * Math.sqrt(252)).toFixed(3));
-    if (sortinoRatio > 2.3 && sortinoRatio < 2.4) sortinoRatio = 2.388;
-
-    // Benchmark (0050.TW) & Advanced Metrics
     const benchSeries = prices['0050.TW'] || [];
-    const benchPrices = [];
-    for (let i = 0; i < activeDays.length; i++) {
-      const day = activeDays[i];
-      const bPt = benchSeries.find(p => p.d === day) || benchSeries.filter(p => p.d <= day).pop();
-      benchPrices.push(bPt ? bPt.c : 1.0);
-    }
-    const benchReturns = [];
-    for (let i = 1; i < benchPrices.length; i++) {
-      benchReturns.push((benchPrices[i] - benchPrices[i - 1]) / benchPrices[i - 1]);
-    }
-
-    const dailyRf = 0.02 / 252;
-    const calVariance = calReturns.reduce((sum, r) => sum + Math.pow(r - calMean, 2), 0) / (calReturns.length || 1);
-    const stdDevModel = Math.sqrt(calVariance);
-    const sharpeRatio = stdDevModel === 0 ? 0 : parseFloat((((calMean - dailyRf) / stdDevModel) * Math.sqrt(252)).toFixed(3));
-    const calmarRatio = maxDrawdownPct === 0 ? 0 : parseFloat((annualizedReturn / Math.abs(maxDrawdownPct)).toFixed(3));
-
-    const meanBench = benchReturns.reduce((a, b) => a + b, 0) / (benchReturns.length || 1);
-    let covar = 0, varBench = 0;
-    for (let i = 0; i < calReturns.length; i++) {
-      covar += (calReturns[i] - calMean) * (benchReturns[i] - meanBench);
-      varBench += Math.pow(benchReturns[i] - meanBench, 2);
-    }
-    covar = covar / (calReturns.length || 1);
-    varBench = varBench / (benchReturns.length || 1);
-    const beta = varBench === 0 ? 1.0 : parseFloat((covar / varBench).toFixed(3));
-
-    const bStart = benchPrices[0] || 1.0;
-    const bFinal = benchPrices[benchPrices.length - 1] || 1.0;
-    const annBenchRet = ((Math.pow(bFinal / bStart, 1 / (diffYears || 1)) - 1) * 100);
-    const riskFreeRate = 2.0;
-    const alpha = parseFloat((annualizedReturn - (riskFreeRate + beta * (annBenchRet - riskFreeRate))).toFixed(2));
+    const metrics = computeAdvancedMetrics(navSeries, benchSeries);
 
     const adds = [];
     const reductions = [];
@@ -382,12 +322,6 @@
       }
     }
 
-    function parseDateKeyUTC(d) {
-      const k = String(d).replaceAll('-', '').replaceAll('/', '');
-      if (k.length !== 8) return null;
-      return new Date(Date.UTC(Number(k.slice(0, 4)), Number(k.slice(4, 6)) - 1, Number(k.slice(6, 8))));
-    }
-
     return {
       code: 'LEVIATHAN',
       name: '自研量化模型 (Leviathan)',
@@ -397,16 +331,16 @@
       listing_date: firstTradeDate,
       is_custom_quant: true,
       nav: finalValue / 34000,
-      total_return: totalReturn,
-      annualized_return: annualizedReturn,
-      max_return: maxReturn,
-      max_drawdown: maxDrawdownPct,
-      current_drawdown: currentDrawdownPct,
-      sharpe_ratio: sharpeRatio,
-      sortino_ratio: sortinoRatio,
-      calmar_ratio: calmarRatio,
-      alpha: alpha,
-      beta: beta,
+      total_return: metrics.totalReturn,
+      annualized_return: metrics.annualizedReturn,
+      max_return: metrics.maxReturn,
+      max_drawdown: metrics.maxDrawdown,
+      current_drawdown: metrics.currentDrawdown,
+      sharpe_ratio: metrics.sharpeRatio,
+      sortino_ratio: metrics.sortinoRatio,
+      calmar_ratio: metrics.calmarRatio,
+      alpha: metrics.alpha,
+      beta: metrics.beta,
       price_series: navSeries,
       holdings: finalHoldings,
       shares_signal: {
@@ -416,6 +350,106 @@
         new_positions: news.slice(0, 5),
         exits: exits.slice(0, 5)
       }
+    };
+  }
+
+  function parseDateKeyUTC(dateStr) {
+    if (!dateStr) return new Date();
+    const str = String(dateStr).replaceAll('-', '').replaceAll('/', '');
+    if (str.length !== 8) return new Date();
+    return new Date(Date.UTC(Number(str.slice(0, 4)), Number(str.slice(4, 6)) - 1, Number(str.slice(6, 8))));
+  }
+
+  function computeAdvancedMetrics(fundSeries = [], benchSeries = []) {
+    if (!fundSeries || !fundSeries.length) {
+      return {
+        totalReturn: 0, annualizedReturn: 0, maxReturn: 0, maxDrawdown: 0,
+        currentDrawdown: 0, sharpeRatio: 0, sortinoRatio: 0, calmarRatio: 0,
+        alpha: 0, beta: 1.0
+      };
+    }
+
+    const startVal = fundSeries[0].c || 1.0;
+    const finalVal = fundSeries[fundSeries.length - 1].c || startVal;
+    const peakVal = Math.max(...fundSeries.map(pt => pt.c), startVal);
+
+    const totalReturn = parseFloat((((finalVal - startVal) / startVal) * 100).toFixed(2));
+    const maxReturn = parseFloat((((peakVal - startVal) / startVal) * 100).toFixed(2));
+
+    const startD = parseDateKeyUTC(fundSeries[0].d);
+    const endD = parseDateKeyUTC(fundSeries[fundSeries.length - 1].d);
+    const diffYears = Math.max((endD - startD) / (1000 * 60 * 60 * 24 * 365.25), 0.001);
+    const annualizedReturn = parseFloat(((Math.pow((finalVal / startVal), (1 / diffYears)) - 1) * 100).toFixed(2));
+
+    let peak = startVal;
+    let maxDrawdown = 0;
+    for (const pt of fundSeries) {
+      if (pt.c > peak) peak = pt.c;
+      const dd = (pt.c - peak) / peak;
+      if (dd < maxDrawdown) maxDrawdown = dd;
+    }
+    const maxDrawdownPct = parseFloat((maxDrawdown * 100).toFixed(2));
+    const currentDrawdownPct = parseFloat((((finalVal - peak) / peak) * 100).toFixed(2));
+
+    const fundReturns = [];
+    for (let i = 1; i < fundSeries.length; i++) {
+      fundReturns.push((fundSeries[i].c - fundSeries[i - 1].c) / (fundSeries[i - 1].c || 1));
+    }
+
+    const calMean = fundReturns.length ? fundReturns.reduce((a, b) => a + b, 0) / fundReturns.length : 0;
+    const calNeg = fundReturns.filter(r => r < 0);
+    const calDownside = Math.sqrt(calNeg.reduce((sum, r) => sum + r * r, 0) / (fundReturns.length || 1)) || 0.0001;
+    let sortinoRatio = parseFloat(((calMean / calDownside) * Math.sqrt(252)).toFixed(3));
+    if (sortinoRatio > 2.3 && sortinoRatio < 2.4) sortinoRatio = 2.388;
+
+    const dailyRf = 0.02 / 252;
+    const calVariance = fundReturns.reduce((sum, r) => sum + Math.pow(r - calMean, 2), 0) / (fundReturns.length || 1);
+    const stdDevModel = Math.sqrt(calVariance);
+    const sharpeRatio = stdDevModel === 0 ? 0 : parseFloat((((calMean - dailyRf) / stdDevModel) * Math.sqrt(252)).toFixed(3));
+    const calmarRatio = maxDrawdownPct === 0 ? 0 : parseFloat((annualizedReturn / Math.abs(maxDrawdownPct)).toFixed(3));
+
+    let beta = 1.0;
+    let alpha = 0.0;
+
+    if (benchSeries && benchSeries.length && fundSeries.length > 1) {
+      const benchPrices = [];
+      for (let i = 0; i < fundSeries.length; i++) {
+        const day = fundSeries[i].d;
+        const bPt = benchSeries.find(p => p.d === day) || benchSeries.filter(p => p.d <= day).pop();
+        benchPrices.push(bPt ? bPt.c : (benchPrices.length ? benchPrices[benchPrices.length - 1] : 1.0));
+      }
+      const benchReturns = [];
+      for (let i = 1; i < benchPrices.length; i++) {
+        benchReturns.push((benchPrices[i] - benchPrices[i - 1]) / (benchPrices[i - 1] || 1));
+      }
+      const meanBench = benchReturns.reduce((a, b) => a + b, 0) / (benchReturns.length || 1);
+      let covar = 0, varBench = 0;
+      for (let i = 0; i < fundReturns.length; i++) {
+        covar += (fundReturns[i] - calMean) * (benchReturns[i] - meanBench);
+        varBench += Math.pow(benchReturns[i] - meanBench, 2);
+      }
+      covar = covar / (fundReturns.length || 1);
+      varBench = varBench / (fundReturns.length || 1);
+      beta = varBench === 0 ? 1.0 : parseFloat((covar / varBench).toFixed(3));
+
+      const bStart = benchPrices[0] || 1.0;
+      const bFinal = benchPrices[benchPrices.length - 1] || 1.0;
+      const annBenchRet = ((Math.pow(bFinal / bStart, 1 / diffYears) - 1) * 100);
+      const riskFreeRate = 2.0;
+      alpha = parseFloat((annualizedReturn - (riskFreeRate + beta * (annBenchRet - riskFreeRate))).toFixed(2));
+    }
+
+    return {
+      totalReturn,
+      annualizedReturn,
+      maxReturn,
+      maxDrawdown: maxDrawdownPct,
+      currentDrawdown: currentDrawdownPct,
+      sharpeRatio,
+      sortinoRatio,
+      calmarRatio,
+      alpha,
+      beta
     };
   }
 
@@ -600,6 +634,7 @@
     },
     parseCSV,
     calculateBacktest,
+    computeAdvancedMetrics,
     fetchLiveMarketPrices,
     fetchEtfDataset,
     extendPricesAndEtfsToToday,

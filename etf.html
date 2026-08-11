@@ -988,21 +988,19 @@
         // Background hydration from /api/live-prices to override mock 0050 wave
         (async () => {
           try {
-            if (window.leviathanData && window.leviathanData.fetchLiveMarketPrices) {
-              const liveMap = await window.leviathanData.fetchLiveMarketPrices([code], 'max');
+            if (window.leviathanData && window.leviathanData.fetchLiveMarketPrices && window.leviathanData.extendPricesAndEtfsToToday) {
+              const liveMap = await window.leviathanData.fetchLiveMarketPrices([code, '0050.TW'], 'max');
               if (liveMap) {
-                const realSeries = liveMap[code] || liveMap[`${code}.TW`] || liveMap[`${code}.TWO`] || liveMap[code.replace(/\.(TW|TWO)$/, '')];
-                if (realSeries && realSeries.length > 30) {
-                  realSeries.sort((a, b) => a.d.localeCompare(b.d));
-                  etf.price_series = realSeries;
-                  etf.nav = realSeries[realSeries.length - 1].c;
-                  etf.close_price = etf.nav;
-                  try {
-                    localStorage.setItem(cacheKey, JSON.stringify({ date: todayStr, series: realSeries }));
-                  } catch (e) {}
-                  renderHeader();
-                  renderChart();
-                }
+                // Safely update prices object and etf.price_series with missing date fillings
+                window.leviathanData.extendPricesAndEtfsToToday(prices, [etf], liveMap);
+
+                etf.nav = etf.price_series[etf.price_series.length - 1].c;
+                etf.close_price = etf.nav;
+                try {
+                  localStorage.setItem(cacheKey, JSON.stringify({ date: todayStr, series: etf.price_series }));
+                } catch (e) {}
+                renderHeader();
+                renderChart();
               }
             }
           } catch (err) {
@@ -1210,6 +1208,11 @@
         }
 
         const metrics = calculateEtfMetrics(etf);
+        
+        if ($('val-quant-total')) $('val-quant-total').textContent = `${(Number(metrics.totalReturn) || 0).toFixed(2)}%`;
+        if ($('val-quant-annual')) $('val-quant-annual').textContent = `${(Number(metrics.annualizedReturn) || 0).toFixed(2)}%`;
+        if ($('val-quant-max')) $('val-quant-max').textContent = `${(Number(metrics.maxReturn) || 0).toFixed(2)}%`;
+        if ($('val-quant-mdd')) $('val-quant-mdd').textContent = `${(Number(metrics.maxDrawdown) || 0).toFixed(2)}%`;
         if ($('val-quant-cdd')) $('val-quant-cdd').textContent = `${(Number(metrics.currentDrawdown) || 0).toFixed(2)}%`;
         if ($('val-quant-sharpe')) $('val-quant-sharpe').textContent = (Number(metrics.sharpeRatio) || 0).toFixed(3);
         if ($('val-quant-sortino')) $('val-quant-sortino').textContent = (Number(metrics.sortinoRatio) || 0).toFixed(3);

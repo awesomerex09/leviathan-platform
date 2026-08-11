@@ -176,7 +176,7 @@ const server = http.createServer((req, res) => {
   if (pathname === '/api/upload' && req.method === 'POST') {
     let body = '';
     req.on('data', chunk => { body += chunk; });
-    req.on('end', () => {
+    req.on('end', async () => {
       try {
         let csvContent = body;
         try {
@@ -201,9 +201,32 @@ const server = http.createServer((req, res) => {
         const etfsPath = path.join(ROOT, 'etfs.json');
         const prices = JSON.parse(fs.readFileSync(pricesPath, 'utf8'));
         const etfs = JSON.parse(fs.readFileSync(etfsPath, 'utf8')).etfs || [];
-        extendPricesAndEtfsToToday(prices, etfs);
 
         const trades = parseCSV(csvContent);
+
+        // Extract trade symbols to fetch live/historical stock prices
+        const tradeSymbols = Array.from(new Set(trades.map(t => {
+          const s = t.symbol || '';
+          if (s.startsWith('TWSE:') || s.startsWith('TPEX:')) return s.split(':')[1] + '.TW';
+          if (s.startsWith('NASDAQ:') || s.startsWith('NYSE:') || s.startsWith('AMEX:') || s.startsWith('CBOE:')) return s.split(':')[1];
+          if (!s.includes(':') && !s.includes('.')) return s + '.TW';
+          return s;
+        }).filter(Boolean)));
+
+        const symbolsToFetch = Array.from(new Set(['0050.TW', 'TWD=X', ...tradeSymbols]));
+        try {
+          console.log(`[Upload] Fetching live price data for ${symbolsToFetch.length} tickers...`);
+          const liveFetched = await fetchPricesForSymbols(symbolsToFetch);
+          for (const [sym, series] of Object.entries(liveFetched)) {
+            prices[sym] = series;
+          }
+          fs.writeFileSync(pricesPath, JSON.stringify(prices, null, 2), 'utf8');
+        } catch (fErr) {
+          console.warn('[Upload] Live price fetch failed, using local prices.json:', fErr.message);
+        }
+
+        extendPricesAndEtfsToToday(prices, etfs);
+
         const model = calculateBacktest(trades, prices, etfs);
         model.version = 'MODEL_CACHE';
         model.csvLength = 'PREVIEW';
@@ -346,15 +369,24 @@ function extendPricesAndEtfsToToday(prices, etfs) {
       const seenEtf = new Set();
       etf.price_series = etf.price_series.filter(p => seenEtf.has(p.d) ? false : seenEtf.add(p.d));
 
-      const etfLastDate = etf.price_series[etf.price_series.length - 1].d;
-      const lastNav = etf.price_series[etf.price_series.length - 1].c;
-
-      const targetDays = activeBench.filter(p => p.d > etfLastDate);
-      for (const pt of targetDays) {
-        // Real non-fitted fallback: hold price steady on missing dates without artificial 0050 proportional scaling
-        etf.price_series.push({ d: pt.d, c: lastNav });
+      const priceMapByDate = new Map();
+      for (const pt of etf.price_series) {
+        priceMapByDate.set(pt.d, pt.c);
       }
-      etf.price_series.sort((a, b) => a.d.localeCompare(b.d));
+
+      const etfStartDate = etf.price_series[0]?.d || activeBench[0]?.d;
+      let currentNav = etf.price_series[0]?.c || 1.0;
+      const alignedSeries = [];
+
+      for (const bPt of activeBench) {
+        if (bPt.d < etfStartDate) continue;
+        if (priceMapByDate.has(bPt.d)) {
+          currentNav = priceMapByDate.get(bPt.d);
+        }
+        alignedSeries.push({ d: bPt.d, c: currentNav });
+      }
+
+      etf.price_series = alignedSeries;
 
       etf.nav = etf.price_series[etf.price_series.length - 1].c;
       etf.close_price = etf.nav;

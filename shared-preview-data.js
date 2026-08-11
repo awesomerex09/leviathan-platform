@@ -573,16 +573,25 @@
         const seenEtf = new Set();
         etf.price_series = etf.price_series.filter(p => seenEtf.has(p.d) ? false : seenEtf.add(p.d));
 
-        const etfLastDate = etf.price_series[etf.price_series.length - 1].d;
-        const lastNav = etf.price_series[etf.price_series.length - 1].c;
-
-        const targetDays = activeBench.filter(p => p.d > etfLastDate);
-        for (const pt of targetDays) {
-          // Real non-fitted fallback: hold price steady on missing dates without artificial 0050 proportional scaling
-          etf.price_series.push({ d: pt.d, c: lastNav });
+        // Build a map of existing dates to prices
+        const priceMapByDate = new Map();
+        for (const pt of etf.price_series) {
+          priceMapByDate.set(pt.d, pt.c);
         }
 
-        etf.price_series.sort((a, b) => a.d.localeCompare(b.d));
+        const etfStartDate = etf.price_series[0]?.d || activeBench[0]?.d;
+        let currentNav = etf.price_series[0]?.c || 1.0;
+        const alignedSeries = [];
+
+        for (const bPt of activeBench) {
+          if (bPt.d < etfStartDate) continue;
+          if (priceMapByDate.has(bPt.d)) {
+            currentNav = priceMapByDate.get(bPt.d);
+          }
+          alignedSeries.push({ d: bPt.d, c: currentNav });
+        }
+
+        etf.price_series = alignedSeries;
 
         etf.nav = etf.price_series[etf.price_series.length - 1].c;
         etf.close_price = etf.nav;

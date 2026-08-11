@@ -213,10 +213,12 @@ const server = http.createServer((req, res) => {
           return s;
         }).filter(Boolean)));
 
-        const symbolsToFetch = Array.from(new Set(['0050.TW', 'TWD=X', ...tradeSymbols]));
+        const etfCodes = etfs.map(e => e.code).filter(Boolean);
+        const symbolsToFetch = Array.from(new Set(['0050.TW', 'TWD=X', ...tradeSymbols, ...etfCodes]));
+        let liveFetched = {};
         try {
-          console.log(`[Upload] Fetching live price data for ${symbolsToFetch.length} tickers...`);
-          const liveFetched = await fetchPricesForSymbols(symbolsToFetch);
+          console.log(`[Upload] Fetching live price data for ${symbolsToFetch.length} tickers (including all comparison ETFs)...`);
+          liveFetched = await fetchPricesForSymbols(symbolsToFetch);
           for (const [sym, series] of Object.entries(liveFetched)) {
             prices[sym] = series;
           }
@@ -225,7 +227,18 @@ const server = http.createServer((req, res) => {
           console.warn('[Upload] Live price fetch failed, using local prices.json:', fErr.message);
         }
 
-        extendPricesAndEtfsToToday(prices, etfs);
+        extendPricesAndEtfsToToday(prices, etfs, liveFetched);
+
+        // Save updated etfs.json to disk
+        try {
+          const etfDataRaw = JSON.parse(fs.readFileSync(etfsPath, 'utf8'));
+          etfDataRaw.as_of = formatYYYYMMDD(new Date());
+          etfDataRaw.etfs = etfs;
+          fs.writeFileSync(etfsPath, JSON.stringify(etfDataRaw, null, 2), 'utf8');
+          console.log(`[Upload] Successfully updated etfs.json for ${etfs.length} comparison ETFs!`);
+        } catch (eErr) {
+          console.warn('[Upload] Failed to save updated etfs.json:', eErr.message);
+        }
 
         const model = calculateBacktest(trades, prices, etfs);
         model.version = 'MODEL_CACHE';
@@ -324,7 +337,7 @@ function formatYYYYMMDD(dateObj) {
   return `${y}${m}${d}`;
 }
 
-function extendPricesAndEtfsToToday(prices, etfs) {
+function extendPricesAndEtfsToToday(prices, etfs, livePricesMap) {
   if (!prices || !prices['0050.TW']) return;
   const today = new Date();
   const todayStr = formatYYYYMMDD(today);
@@ -365,6 +378,22 @@ function extendPricesAndEtfsToToday(prices, etfs) {
     for (const etf of etfs) {
       if (!etf.price_series || !etf.price_series.length) continue;
 
+      const liveEtfSeries = livePricesMap ? (livePricesMap[etf.code] || livePricesMap[`${etf.code}.TW`] || livePricesMap[`${etf.code}.TWO`]) : null;
+      if (liveEtfSeries && liveEtfSeries.length) {
+        if (liveEtfSeries.length > 30) {
+          etf.price_series = JSON.parse(JSON.stringify(liveEtfSeries));
+        } else {
+          for (const pt of liveEtfSeries) {
+            const existingIdx = etf.price_series.findIndex(p => p.d === pt.d);
+            if (existingIdx >= 0) {
+              etf.price_series[existingIdx].c = pt.c;
+            } else {
+              etf.price_series.push(pt);
+            }
+          }
+        }
+      }
+
       etf.price_series.sort((a, b) => a.d.localeCompare(b.d));
       const seenEtf = new Set();
       etf.price_series = etf.price_series.filter(p => seenEtf.has(p.d) ? false : seenEtf.add(p.d));
@@ -390,14 +419,7 @@ function extendPricesAndEtfsToToday(prices, etfs) {
 
       etf.nav = etf.price_series[etf.price_series.length - 1].c;
       etf.close_price = etf.nav;
-      if (etf.price_series.length > 22) {
-        const s = etf.price_series;
-        const curN = s[s.length - 1].c;
-        const p1M = s[s.length - 22] ? s[s.length - 22].c : s[0].c;
-        const pInit = s[0].c;
-        etf.m1_return = parseFloat((((curN - p1M) / p1M) * 100).toFixed(2));
-        etf.total_return = parseFloat((((curN - pInit) / pInit) * 100).toFixed(2));
-      }
+      etf.as_of = todayStr;
     }
   }
 }

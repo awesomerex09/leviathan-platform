@@ -595,13 +595,20 @@
 
         etf.nav = etf.price_series[etf.price_series.length - 1].c;
         etf.close_price = etf.nav;
-        if (etf.price_series.length > 22) {
-          const s = etf.price_series;
-          const curN = s[s.length - 1].c;
-          const p1M = s[s.length - 22] ? s[s.length - 22].c : s[0].c;
-          const pInit = s[0].c;
-          etf.m1_return = parseFloat((((curN - p1M) / p1M) * 100).toFixed(2));
-          etf.total_return = parseFloat((((curN - pInit) / pInit) * 100).toFixed(2));
+        etf.as_of = todayStr;
+
+        if (typeof computeAdvancedMetrics === 'function') {
+          const m = computeAdvancedMetrics(etf.price_series, activeBench);
+          etf.total_return = m.totalReturn;
+          etf.annualized_return = m.annualizedReturn;
+          etf.max_return = m.maxReturn;
+          etf.max_drawdown = m.maxDrawdown;
+          etf.current_drawdown = m.currentDrawdown;
+          etf.sharpe_ratio = m.sharpeRatio;
+          etf.sortino_ratio = m.sortinoRatio;
+          etf.calmar_ratio = m.calmarRatio;
+          etf.alpha = m.alpha;
+          etf.beta = m.beta;
         }
       }
     }

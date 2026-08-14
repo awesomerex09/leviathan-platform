@@ -46,6 +46,10 @@ module.exports = async function handler(req, res) {
       if (etf.price_series && etf.price_series.length) {
         etf.nav = etf.price_series[etf.price_series.length - 1].c;
         etf.close_price = etf.nav;
+        const startNav = etf.price_series[0].c;
+        if (startNav > 0) {
+          etf.total_return = Number(((etf.nav - startNav) / startNav * 100).toFixed(2));
+        }
       }
     }
 

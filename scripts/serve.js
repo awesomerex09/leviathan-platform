@@ -858,7 +858,11 @@ function calculateBacktest(trades, prices, etfs) {
   };
 }
 
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
-  console.log(`Press Ctrl+C to stop.`);
-});
+if (require.main === module) {
+  server.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}/`);
+    console.log(`Press Ctrl+C to stop.`);
+  });
+} else {
+  module.exports = { parseCSV, calculateBacktest };
+}

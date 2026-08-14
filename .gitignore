@@ -1,9 +1,30 @@
-node_modules/
-.gemini/
-visits.json
-*.har
-.DS_Store
-Thumbs.db
+# Ignore user data and browser profiles
+user_data/
+*/user_data/
 
-.vercel
-.env*
+# Ignore node modules
+node_modules/
+*/node_modules/
+
+# Ignore python cache and envs
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+
+# Ignore environment variables and secrets
+.env
+*.key
+*.pem
+secrets.json
+
+# Ignore temporary/archive folders
+archive/
+backtest_bad/
+last/
+backtestgreat/
+
+# Mac OS files
+.DS_Store

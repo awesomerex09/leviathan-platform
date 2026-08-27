@@ -154,12 +154,30 @@ async function run() {
           const m1 = sorted[sorted.length - 21].c;
           etf.m1_return = ((etf.close_price - m1) / m1 * 100).toFixed(2) + '%';
         }
+        if (sorted.length > 0) {
+          const firstPrice = sorted[0].c;
+          etf.total_return = Number(((etf.close_price - firstPrice) / firstPrice * 100).toFixed(2));
+        }
       }
     }
   });
 
   fs.writeFileSync(pricesPath, JSON.stringify(prices, null, 2));
   fs.writeFileSync(etfsPath, JSON.stringify(etfData, null, 2));
+
+  try {
+    const { parseCSV, calculateBacktest } = require('./serve');
+    const csvContent = fs.readFileSync(leviathanCsvPath, 'utf8');
+    const trades = parseCSV(csvContent);
+    const model = calculateBacktest(trades, prices, etfData.etfs);
+    model.version = 'MODEL_CACHE';
+    model.csvLength = 'PREVIEW';
+    fs.writeFileSync(path.join(rootDir, 'leviathan_model.json'), JSON.stringify(model, null, 2), 'utf8');
+    console.log('Updated leviathan_model.json');
+  } catch (err) {
+    console.error('Failed to regenerate leviathan_model.json:', err);
+  }
+
   console.log(`Updated ${pricesUpdated} symbols in prices.json and etfs.json`);
   console.log('Update complete!');
 }

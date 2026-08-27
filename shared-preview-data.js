@@ -664,7 +664,18 @@
           return res.settings;
         }
       } catch (e) {
-        console.warn('API /api/settings unavailable, falling back to localStorage:', e.message);
+        console.warn('API /api/settings unavailable:', e.message);
+      }
+      try {
+        const res = await fetchJson('./settings.json');
+        if (res) {
+          // api/settings returns { ok: true, settings: {...} }, but settings.json is just the {...} object directly
+          const actualSettings = res.settings ? res.settings : res; 
+          localStorage.setItem('leviathan_settings', JSON.stringify(actualSettings));
+          return actualSettings;
+        }
+      } catch (e) {
+        console.warn('Static settings.json unavailable, falling back to localStorage:', e.message);
       }
       try {
         const local = localStorage.getItem('leviathan_settings');

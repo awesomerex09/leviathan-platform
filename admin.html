@@ -211,8 +211,8 @@
         <!-- Checkboxes loaded by JS -->
       </div>
       <div style="margin-top: 16px; display: flex; align-items: center; gap: 12px;">
-        <button class="btn btn-primary" id="save-settings-btn">儲存設定並發布至 Vercel</button>
-        <div id="settings-save-status" style="font-size: 12px; color: var(--dir-mint); display: none; font-family: var(--dir-mono);">✓ 設定已儲存，正在背景發布至 Vercel...</div>
+        <button class="btn btn-primary" id="save-settings-btn">儲存設定並發布至 GitHub</button>
+        <div id="settings-save-status" style="font-size: 12px; color: var(--dir-mint); display: none; font-family: var(--dir-mono);">✓ 設定已儲存，正在背景發布至 GitHub...</div>
       </div>
     </section>
 
@@ -349,7 +349,7 @@
         
         try {
           await window.leviathanData.saveSettings(updated);
-          saveMsg.textContent = '✓ 設定已儲存，正在背景更新 Vercel...';
+          saveMsg.textContent = '✓ 設定已儲存，正在背景更新 GitHub...';
           setTimeout(() => { saveMsg.style.display = 'none'; }, 5000);
         } catch(e) {
           saveMsg.style.color = 'var(--dir-red)';

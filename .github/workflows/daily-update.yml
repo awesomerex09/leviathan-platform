@@ -25,5 +25,5 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add prices.json etfs.json
+          git add prices.json etfs.json leviathan_model.json settings.json
           git diff --quiet && git diff --staged --quiet || (git commit -m "chore: automated daily market data update [skip ci]" && git push)

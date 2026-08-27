@@ -7,3 +7,14 @@ Thumbs.db
 
 .vercel
 .env*
+
+# 隱私：交易紀錄明細禁止上傳到 GitHub
+Leviathan.csv
+Leviathan.csv.bak
+Leviathan.csv.default
+
+# 以下資料檔案需要 commit 到 GitHub（GitHub Pages 靜態托管用）
+# leviathan_model.json  — 已計算完成的模型結果
+# etfs.json             — 比較基金資料
+# prices.json           — 歷史股價資料庫
+# settings.json         — 使用者設定

@@ -79,7 +79,9 @@
     '6223': '旺矽',
     '6187': '萬潤',
     '6274': '台燿',
-    '3595': '亞諾法',
+    '3595': '山太士',
+    '3491': '昇達科',
+    '1519': '華城',
     '5536': '聖暉',
     '3661': '世芯-KY',
     '2368': '金像電',
@@ -684,46 +686,62 @@
     },
     async getBacktestModel(prices, etfs) {
       try {
-        const csvRes = await fetch('./Leviathan.csv?_t=' + Date.now(), { cache: 'no-store' });
-        if (!csvRes.ok) throw new Error('Leviathan.csv not found');
-        const csvText = await csvRes.text();
-        const trades = parseCSV(csvText);
-
+        // 1. 嘗試後台 API（本地 serve.js 執行時有效）
         try {
           const res = await fetchJson('./api/backtest');
-          if (res && res.ok) {
-            if (res.model) {
-              try { localStorage.setItem('leviathan_custom_model', JSON.stringify(res.model)); } catch (e) {}
-              return res.model;
-            } else {
-              try { localStorage.removeItem('leviathan_custom_model'); } catch (e) {}
-            }
+          if (res && res.ok && res.model) {
+            try { localStorage.setItem('leviathan_custom_model', JSON.stringify(res.model)); } catch (e) {}
+            return res.model;
           }
         } catch (e) {
-          console.warn('API /api/backtest not available, checking localStorage fallback:', e.message);
+          console.warn('API /api/backtest not available, trying static fallback:', e.message);
         }
+
+        // 2. GitHub Pages 靜態 fallback：直接讀取已計算完成的 leviathan_model.json
+        try {
+          const staticModel = await fetchJson('./leviathan_model.json');
+          if (staticModel && (staticModel.code === 'LEVIATHAN' || staticModel.is_custom_quant)) {
+            console.info('Loaded model from static leviathan_model.json (GitHub Pages mode).');
+            try { localStorage.setItem('leviathan_custom_model', JSON.stringify(staticModel)); } catch (e) {}
+            return staticModel;
+          }
+        } catch (e) {
+          console.warn('Static leviathan_model.json not available:', e.message);
+        }
+
+        // 3. localStorage 快取 fallback
         try {
           const localModel = localStorage.getItem('leviathan_custom_model');
           if (localModel) {
             const parsed = JSON.parse(localModel);
-            // 驗證版本號與 CSV 長度。如果伺服器上的 CSV 被修改 (長度不同)，就自動清除快取，避免前端一直卡在舊資料！
-            if (parsed && parsed.version === MODEL_CACHE_VERSION && (parsed.csvLength === csvText.length || parsed.csvLength === 'PREVIEW')) {
+            if (parsed && parsed.version === MODEL_CACHE_VERSION) {
               return parsed;
             } else {
-              console.warn('Cache invalidated: CSV length changed or version mismatch');
               localStorage.removeItem('leviathan_custom_model');
             }
           }
         } catch (e) {}
 
-        const model = calculateBacktest(trades, prices, etfs);
-        if (model) {
-          model.version = MODEL_CACHE_VERSION;
-          model.csvLength = csvText.length;
+        // 4. 最後手段：嘗試從 CSV 重新計算（本地環境才會走到這裡）
+        try {
+          const csvRes = await fetch('./Leviathan.csv?_t=' + Date.now(), { cache: 'no-store' });
+          if (!csvRes.ok) throw new Error('Leviathan.csv not found');
+          const csvText = await csvRes.text();
+          const trades = parseCSV(csvText);
+          const model = calculateBacktest(trades, prices, etfs);
+          if (model) {
+            model.version = MODEL_CACHE_VERSION;
+            model.csvLength = csvText.length;
+            try { localStorage.setItem('leviathan_custom_model', JSON.stringify(model)); } catch (e) {}
+          }
+          return model;
+        } catch (csvErr) {
+          console.warn('CSV recalculation failed:', csvErr.message);
         }
-        return model;
+
+        return null;
       } catch (err) {
-        console.error('Client-side backtest failed:', err.message);
+        console.error('getBacktestModel failed:', err.message);
         return null;
       }
     }

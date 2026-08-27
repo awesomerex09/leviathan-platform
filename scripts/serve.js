@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { spawn } = require('child_process');
 
-const PORT = 3000;
+const PORT = 3001;
 const ROOT = path.join(__dirname, '..');
 
 let deployTimeout = null;
@@ -317,6 +317,77 @@ const server = http.createServer((req, res) => {
 });
 
 // ── Backtesting Helpers ────────────────────────────────────────────────────────
+const https = require('https');
+
+// 從 Yahoo Finance 拉取一組 symbols 的最新歷史訊價
+function fetchSingleYahooPrice(symbol) {
+  return new Promise((resolve) => {
+    const period2 = Math.floor(Date.now() / 1000);
+    const period1 = Math.floor(new Date('2020-01-01T00:00:00Z').getTime() / 1000);
+    const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?interval=1d&period1=${period1}&period2=${period2}`;
+    const options = {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
+      }
+    };
+    const req = https.get(url, options, (res) => {
+      let body = '';
+      res.on('data', chunk => body += chunk);
+      res.on('end', () => {
+        if (res.statusCode !== 200) return resolve(null);
+        try {
+          const parsed = JSON.parse(body);
+          const result = parsed.chart?.result?.[0];
+          if (!result) return resolve(null);
+          const timestamps = result.timestamp || [];
+          const closes = result.indicators?.adjclose?.[0]?.adjclose || result.indicators?.quote?.[0]?.close || [];
+          const series = [];
+          for (let i = 0; i < timestamps.length; i++) {
+            if (closes[i] !== null && closes[i] !== undefined) {
+              const dObj = new Date(timestamps[i] * 1000);
+              const y = dObj.getUTCFullYear();
+              const m = String(dObj.getUTCMonth() + 1).padStart(2, '0');
+              const d = String(dObj.getUTCDate()).padStart(2, '0');
+              series.push({ d: `${y}${m}${d}`, c: Number(closes[i].toFixed(4)) });
+            }
+          }
+          resolve(series.length ? series : null);
+        } catch (e) {
+          resolve(null);
+        }
+      });
+    });
+    req.on('error', () => resolve(null));
+    req.setTimeout(8000, () => { req.destroy(); resolve(null); });
+  });
+}
+
+async function fetchPricesForSymbols(symbols = []) {
+  const result = {};
+  for (let i = 0; i < symbols.length; i++) {
+    const sym = symbols[i];
+    let series = await fetchSingleYahooPrice(sym);
+    // 若取不到，嘗試替換後綴（.TW 對調 .TWO）
+    if (!series) {
+      if (sym.endsWith('.TW')) {
+        series = await fetchSingleYahooPrice(sym.replace(/\.TW$/, '.TWO'));
+      } else if (sym.endsWith('.TWO')) {
+        series = await fetchSingleYahooPrice(sym.replace(/\.TWO$/, '.TW'));
+      }
+    }
+    if (series && series.length) {
+      result[sym] = series;
+      // 同步對應後綴譜別名
+      if (sym.endsWith('.TW')) result[sym.replace(/\.TW$/, '.TWO')] = series;
+      if (sym.endsWith('.TWO')) result[sym.replace(/\.TWO$/, '.TW')] = series;
+    }
+    console.log(`[Upload] [${i + 1}/${symbols.length}] ${sym}: ${series ? series.length + ' pts' : 'failed'}`);
+    // 避免 429 Too Many Requests
+    if (i < symbols.length - 1) await new Promise(r => setTimeout(r, 350));
+  }
+  return result;
+}
+
 function convertSymbol(symbol) {
   if (!symbol) return null;
   const s = symbol.trim();
@@ -420,8 +491,129 @@ function extendPricesAndEtfsToToday(prices, etfs, livePricesMap) {
       etf.nav = etf.price_series[etf.price_series.length - 1].c;
       etf.close_price = etf.nav;
       etf.as_of = todayStr;
+
+      // 重新計算所有比較基金的 10 大指標，確保與最新 price_series 同步
+      const m = computeAdvancedMetrics(etf.price_series, activeBench);
+      etf.total_return = m.totalReturn;
+      etf.annualized_return = m.annualizedReturn;
+      etf.max_return = m.maxReturn;
+      etf.max_drawdown = m.maxDrawdown;
+      etf.current_drawdown = m.currentDrawdown;
+      etf.sharpe_ratio = m.sharpeRatio;
+      etf.sortino_ratio = m.sortinoRatio;
+      etf.calmar_ratio = m.calmarRatio;
+      etf.alpha = m.alpha;
+      etf.beta = m.beta;
     }
   }
+}
+
+// 計算所有基金（含比較基金）共用的 10 大進階指標
+function computeAdvancedMetrics(fundSeries = [], benchSeries = []) {
+  if (!fundSeries || !fundSeries.length) {
+    return {
+      totalReturn: 0, annualizedReturn: 0, maxReturn: 0, maxDrawdown: 0,
+      currentDrawdown: 0, sharpeRatio: 0, sortinoRatio: 0, calmarRatio: 0,
+      alpha: 0, beta: 1.0
+    };
+  }
+
+  const startVal = fundSeries[0].c || 1.0;
+  const finalVal = fundSeries[fundSeries.length - 1].c || startVal;
+  const peakVal = Math.max(...fundSeries.map(pt => pt.c), startVal);
+
+  const totalReturn = parseFloat((((finalVal - startVal) / startVal) * 100).toFixed(2));
+  const maxReturn = parseFloat((((peakVal - startVal) / startVal) * 100).toFixed(2));
+
+  const parseDateUTC = (dateStr) => {
+    const s = String(dateStr).replaceAll('-', '').replaceAll('/', '');
+    if (s.length !== 8) return new Date();
+    return new Date(Date.UTC(Number(s.slice(0, 4)), Number(s.slice(4, 6)) - 1, Number(s.slice(6, 8))));
+  };
+
+  const startD = parseDateUTC(fundSeries[0].d);
+  const endD = parseDateUTC(fundSeries[fundSeries.length - 1].d);
+  const diffYears = Math.max((endD - startD) / (1000 * 60 * 60 * 24 * 365.25), 0.001);
+  const annualizedReturn = parseFloat(((Math.pow(finalVal / startVal, 1 / diffYears) - 1) * 100).toFixed(2));
+
+  let peak = startVal;
+  let maxDrawdown = 0;
+  for (const pt of fundSeries) {
+    if (pt.c > peak) peak = pt.c;
+    const dd = (pt.c - peak) / peak;
+    if (dd < maxDrawdown) maxDrawdown = dd;
+  }
+  const maxDrawdownPct = parseFloat((maxDrawdown * 100).toFixed(2));
+  const currentDrawdownPct = parseFloat((((finalVal - peak) / peak) * 100).toFixed(2));
+
+  const fundReturns = [];
+  for (let i = 1; i < fundSeries.length; i++) {
+    fundReturns.push((fundSeries[i].c - fundSeries[i - 1].c) / (fundSeries[i - 1].c || 1));
+  }
+
+  const calMean = fundReturns.length ? fundReturns.reduce((a, b) => a + b, 0) / fundReturns.length : 0;
+  const calNeg = fundReturns.filter(r => r < 0);
+  const calDownside = calNeg.length > 0
+    ? Math.sqrt(calNeg.reduce((sum, r) => sum + r * r, 0) / (fundReturns.length || 1))
+    : 0.0001;
+  let sortinoRatio = calDownside > 0
+    ? parseFloat(((calMean / calDownside) * Math.sqrt(252)).toFixed(3))
+    : 0;
+  if (sortinoRatio > 20) sortinoRatio = 20;
+  if (sortinoRatio < -20) sortinoRatio = -20;
+
+  const dailyRf = 0.02 / 252;
+  const calVariance = fundReturns.reduce((sum, r) => sum + Math.pow(r - calMean, 2), 0) / (fundReturns.length || 1);
+  const stdDevModel = Math.sqrt(calVariance);
+  let sharpeRatio = stdDevModel === 0 ? 0 : parseFloat((((calMean - dailyRf) / stdDevModel) * Math.sqrt(252)).toFixed(3));
+  if (sharpeRatio > 10) sharpeRatio = 10;
+  if (sharpeRatio < -10) sharpeRatio = -10;
+
+  const calmarRatio = maxDrawdownPct === 0 ? 0 : parseFloat((annualizedReturn / Math.abs(maxDrawdownPct)).toFixed(3));
+
+  let beta = 1.0;
+  let alpha = 0.0;
+
+  if (benchSeries && benchSeries.length && fundSeries.length > 1) {
+    const benchPrices = [];
+    for (let i = 0; i < fundSeries.length; i++) {
+      const day = fundSeries[i].d;
+      const bPt = benchSeries.find(p => p.d === day) || benchSeries.filter(p => p.d <= day).pop();
+      benchPrices.push(bPt ? bPt.c : (benchPrices.length ? benchPrices[benchPrices.length - 1] : 1.0));
+    }
+    const benchReturns = [];
+    for (let i = 1; i < benchPrices.length; i++) {
+      benchReturns.push((benchPrices[i] - benchPrices[i - 1]) / (benchPrices[i - 1] || 1));
+    }
+    const meanBench = benchReturns.reduce((a, b) => a + b, 0) / (benchReturns.length || 1);
+    let covar = 0, varBench = 0;
+    for (let i = 0; i < fundReturns.length; i++) {
+      covar += (fundReturns[i] - calMean) * (benchReturns[i] - meanBench);
+      varBench += Math.pow(benchReturns[i] - meanBench, 2);
+    }
+    covar = covar / (fundReturns.length || 1);
+    varBench = varBench / (fundReturns.length || 1);
+    beta = varBench === 0 ? 1.0 : parseFloat((covar / varBench).toFixed(3));
+
+    const bStart = benchPrices[0] || 1.0;
+    const bFinal = benchPrices[benchPrices.length - 1] || 1.0;
+    const annBenchRet = ((Math.pow(bFinal / bStart, 1 / diffYears) - 1) * 100);
+    const riskFreeRate = 2.0;
+    alpha = parseFloat((annualizedReturn - (riskFreeRate + beta * (annBenchRet - riskFreeRate))).toFixed(2));
+  }
+
+  return {
+    totalReturn,
+    annualizedReturn,
+    maxReturn,
+    maxDrawdown: maxDrawdownPct,
+    currentDrawdown: currentDrawdownPct,
+    sharpeRatio,
+    sortinoRatio,
+    calmarRatio,
+    alpha,
+    beta
+  };
 }
 
 function parseCSV(text) {
@@ -471,53 +663,16 @@ function calculateBacktest(trades, prices, etfs) {
   }
   const tradingDays = prices['0050.TW'].map(p => p.d).sort();
   const firstTradeDate = trades[0].date;
-  const lastTradeDate = trades[trades.length - 1].date;
 
   const activeDays = tradingDays.filter(d => d >= firstTradeDate);
   if (!activeDays.length) {
     throw new Error('交易紀錄時間與股價資料庫時間範圍不重疊');
   }
 
-  let cash = 0;
-  let holdings = {};
-  let minCash = 0;
-
-  let tradeIdx = 0;
-  for (const day of activeDays) {
-    while (tradeIdx < trades.length && trades[tradeIdx].date <= day) {
-      const trade = trades[tradeIdx];
-      const isUS = trade.symbol.startsWith('NASDAQ:') || trade.symbol.startsWith('NYSE:') || trade.symbol.startsWith('AMEX:') || trade.symbol.startsWith('CBOE:');
-      
-      let rate = 1.0;
-      if (isUS) {
-        const rateSeries = prices['TWD=X'];
-        const ratePoint = rateSeries.find(p => p.d === day) || rateSeries.filter(p => p.d <= day).pop() || { c: 32.5 };
-        rate = ratePoint.c;
-      }
-
-      if (trade.side === 'Buy') {
-        const cost = trade.qty * trade.price * rate + trade.commission;
-        cash -= cost;
-        holdings[trade.symbol] = (holdings[trade.symbol] || 0) + trade.qty;
-      } else if (trade.side === 'Sell') {
-        const proceeds = trade.qty * trade.price * rate - trade.commission;
-        cash += proceeds;
-        holdings[trade.symbol] = (holdings[trade.symbol] || 0) - trade.qty;
-        if (holdings[trade.symbol] <= 0.001) delete holdings[trade.symbol];
-      } else if (trade.side === 'Dividend') {
-        const div = trade.qty * rate;
-        cash += div;
-      }
-      tradeIdx++;
-    }
-    if (cash < minCash) minCash = cash;
-  }
-
   const initialCapital = 500000;
-
-  cash = initialCapital;
-  holdings = {};
-  tradeIdx = 0;
+  let cash = initialCapital;
+  let holdings = {};
+  let tradeIdx = 0;
   const navSeries = [];
   const holdingsHistory = [];
 
@@ -579,47 +734,12 @@ function calculateBacktest(trades, prices, etfs) {
   }
 
   const startVal = navSeries[0].val;
-  const rawReturns = navSeries.map(pt => (pt.val - startVal) / startVal);
-  const rawFinalReturn = rawReturns[rawReturns.length - 1];
-  let rawMaxReturn = 0;
-  let maxIdx = 0;
-  for (let i = 0; i < rawReturns.length; i++) {
-    if (rawReturns[i] > rawMaxReturn) {
-      rawMaxReturn = rawReturns[i];
-      maxIdx = i;
-    }
-  }
 
-  // Module A: Calibration Guard
-  const MIN_DATA_POINTS = 20;
-  const isShortDataset = navSeries.length < MIN_DATA_POINTS || rawMaxReturn <= 0;
-
-  let price_series = [];
-  if (isShortDataset) {
-    price_series = navSeries.map(pt => ({
-      d: pt.d,
-      c: Number((10.0 * (1.0 + (pt.val - startVal) / (startVal || 1))).toFixed(4))
-    }));
-  } else {
-    const targetMax = 1.0985;
-    const targetFinal = 0.4709;
-    const slope1 = targetMax / (rawMaxReturn || 1);
-    const slope2 = (targetFinal - targetMax) / (Math.abs(rawFinalReturn - rawMaxReturn) < 0.0001 ? 1 : (rawFinalReturn - rawMaxReturn));
-
-    price_series = navSeries.map((pt, idx) => {
-      const rawRet = (pt.val - startVal) / startVal;
-      let calibratedRet = 0;
-      if (idx <= maxIdx) {
-        calibratedRet = rawRet * slope1;
-      } else {
-        calibratedRet = targetMax + (rawRet - rawMaxReturn) * slope2;
-      }
-      return {
-        d: pt.d,
-        c: Number((10.0 * (1.0 + calibratedRet)).toFixed(4))
-      };
-    });
-  }
+  // 以初始資本為基準，縮放到 NAV=10 單位，反映真實報酬率
+  const price_series = navSeries.map(pt => ({
+    d: pt.d,
+    c: Number((10.0 * (pt.val / (startVal || 1))).toFixed(4))
+  }));
 
   const calStart = price_series[0].c;
   const calFinal = price_series[price_series.length - 1].c;
@@ -666,7 +786,7 @@ function calculateBacktest(trades, prices, etfs) {
       if (s > 20) s = 20;
       if (s < -20) s = -20;
       sortino_ratio = Number(s.toFixed(3));
-      if (!isShortDataset && sortino_ratio > 2.3 && sortino_ratio < 2.4) sortino_ratio = 2.388;
+
     }
   }
 
@@ -858,7 +978,11 @@ function calculateBacktest(trades, prices, etfs) {
   };
 }
 
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
-  console.log(`Press Ctrl+C to stop.`);
-});
+if (require.main === module) {
+  server.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}/`);
+    console.log(`Press Ctrl+C to stop.`);
+  });
+} else {
+  module.exports = { parseCSV, calculateBacktest };
+}

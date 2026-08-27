@@ -4,20 +4,20 @@
   "issuer": "Custom Quant Model",
   "is_custom_quant": true,
   "is_calibrated": true,
-  "total_return": 43.42,
+  "total_return": 43.34,
   "max_return": 106.92,
   "max_drawdown": -31.9,
-  "current_drawdown": -30.69,
-  "annualized_return": 56.52,
-  "sharpe_ratio": 1.295,
-  "sortino_ratio": 2.062,
-  "calmar_ratio": 1.772,
-  "alpha": -41.29,
+  "current_drawdown": -30.73,
+  "annualized_return": 56.41,
+  "sharpe_ratio": 1.294,
+  "sortino_ratio": 2.059,
+  "calmar_ratio": 1.768,
+  "alpha": -41.05,
   "beta": 1.019,
   "total_av_yi": 0.0071,
   "listing_date": "20251106",
-  "close_price": 14.3421,
-  "nav": 14.3421,
+  "close_price": 14.3341,
+  "nav": 14.3341,
   "price_series": [
     {
       "d": "20251106",
@@ -633,7 +633,7 @@
     },
     {
       "d": "20260629",
-      "c": 18.398
+      "c": 18.3981
     },
     {
       "d": "20260630",
@@ -649,7 +649,7 @@
     },
     {
       "d": "20260703",
-      "c": 18.7631
+      "c": 18.7632
     },
     {
       "d": "20260706",
@@ -801,19 +801,19 @@
     },
     {
       "d": "20260827",
-      "c": 14.3421
+      "c": 14.3341
     }
   ],
   "top3": [
     {
       "code": "2330",
       "name": "台積電",
-      "weight": 8.84
+      "weight": 8.85
     },
     {
       "code": "6442",
       "name": "光聖",
-      "weight": 3.17
+      "weight": 3.13
     },
     {
       "code": "8996",
@@ -826,7 +826,7 @@
       "code": "2330",
       "fullCode": "TWSE:2330",
       "name": "台積電",
-      "weight": 8.84,
+      "weight": 8.85,
       "shares": 26,
       "price": 2425
     },
@@ -834,9 +834,9 @@
       "code": "6442",
       "fullCode": "TWSE:6442",
       "name": "光聖",
-      "weight": 3.17,
+      "weight": 3.13,
       "shares": 14,
-      "price": 1615
+      "price": 1595
     },
     {
       "code": "8996",
@@ -847,14 +847,6 @@
       "price": 1310
     },
     {
-      "code": "2360",
-      "fullCode": "TWSE:2360",
-      "name": "致茂",
-      "weight": 2.8,
-      "shares": 10,
-      "price": 1995
-    },
-    {
       "code": "NVDA",
       "fullCode": "NASDAQ:NVDA",
       "name": "NVIDIA",
@@ -863,12 +855,20 @@
       "price": 209.66
     },
     {
+      "code": "2360",
+      "fullCode": "TWSE:2360",
+      "name": "致茂",
+      "weight": 2.79,
+      "shares": 10,
+      "price": 1985
+    },
+    {
       "code": "3491",
       "fullCode": "TPEX:3491",
       "name": "3491",
-      "weight": 2.62,
+      "weight": 2.61,
       "shares": 13,
-      "price": 1435
+      "price": 1430
     },
     {
       "code": "8299",
@@ -882,9 +882,9 @@
       "code": "2383",
       "fullCode": "TWSE:2383",
       "name": "台光電",
-      "weight": 2.32,
+      "weight": 2.33,
       "shares": 3,
-      "price": 5510
+      "price": 5545
     },
     {
       "code": "6187",
@@ -900,31 +900,31 @@
       "name": "3661",
       "weight": 2.19,
       "shares": 4,
-      "price": 3900
+      "price": 3895
     },
     {
       "code": "6274",
       "fullCode": "TPEX:6274",
       "name": "台燿",
-      "weight": 2.03,
+      "weight": 2.02,
       "shares": 10,
-      "price": 1445
+      "price": 1440
     },
     {
       "code": "1519",
       "fullCode": "TWSE:1519",
       "name": "1519",
-      "weight": 1.9,
+      "weight": 1.92,
       "shares": 18,
-      "price": 752
+      "price": 762
     },
     {
       "code": "3017",
       "fullCode": "TWSE:3017",
       "name": "奇鋐",
-      "weight": 1.87,
+      "weight": 1.86,
       "shares": 4,
-      "price": 3330
+      "price": 3305
     },
     {
       "code": "INSW",
@@ -951,28 +951,28 @@
       "price": 25.47
     },
     {
-      "code": "5289",
-      "fullCode": "TPEX:5289",
-      "name": "5289",
-      "weight": 1.26,
-      "shares": 6,
-      "price": 1500
-    },
-    {
       "code": "2449",
       "fullCode": "TWSE:2449",
       "name": "京元電子",
       "weight": 1.25,
       "shares": 36,
-      "price": 247.5
+      "price": 247
+    },
+    {
+      "code": "5289",
+      "fullCode": "TPEX:5289",
+      "name": "5289",
+      "weight": 1.25,
+      "shares": 6,
+      "price": 1480
     },
     {
       "code": "3711",
       "fullCode": "TWSE:3711",
       "name": "日月光投控",
-      "weight": 1.18,
+      "weight": 1.19,
       "shares": 14,
-      "price": 601
+      "price": 604
     },
     {
       "code": "WULF",
@@ -988,7 +988,7 @@
       "name": "3595",
       "weight": 1.07,
       "shares": 6,
-      "price": 1275
+      "price": 1270
     },
     {
       "code": "FLEX",
@@ -1026,9 +1026,9 @@
       "code": "6139",
       "fullCode": "TWSE:6139",
       "name": "亞翔",
-      "weight": 0.55,
+      "weight": 0.56,
       "shares": 5,
-      "price": 788
+      "price": 793
     },
     {
       "code": "AAOI",
@@ -1060,7 +1060,7 @@
       "name": "7610",
       "weight": 0.45,
       "shares": 2,
-      "price": 1620
+      "price": 1610
     }
   ],
   "shares_signal": {
@@ -1106,13 +1106,13 @@
         "code": "6274",
         "name": "台燿",
         "pct": 2,
-        "weight": 2.03
+        "weight": 2.02
       },
       {
         "code": "3491",
         "name": "3491",
         "pct": 2.6,
-        "weight": 2.62
+        "weight": 2.61
       },
       {
         "code": "3595",
@@ -1124,13 +1124,13 @@
         "code": "3711",
         "name": "日月光投控",
         "pct": 1.2,
-        "weight": 1.18
+        "weight": 1.19
       },
       {
         "code": "6139",
         "name": "亞翔",
         "pct": 0.6,
-        "weight": 0.55
+        "weight": 0.56
       },
       {
         "code": "6187",
@@ -1142,7 +1142,7 @@
         "code": "2383",
         "name": "台光電",
         "pct": 2.3,
-        "weight": 2.32
+        "weight": 2.33
       },
       {
         "code": "VISN",
@@ -1154,20 +1154,20 @@
         "code": "5289",
         "name": "5289",
         "pct": 1.3,
-        "weight": 1.26
+        "weight": 1.25
       }
     ],
     "new_positions": [
       {
         "code": "6442",
         "name": "光聖",
-        "weight": 3.17,
+        "weight": 3.13,
         "shares": 14
       },
       {
         "code": "2360",
         "name": "致茂",
-        "weight": 2.8,
+        "weight": 2.79,
         "shares": 10
       },
       {
@@ -1185,7 +1185,7 @@
       {
         "code": "1519",
         "name": "1519",
-        "weight": 1.9,
+        "weight": 1.92,
         "shares": 18
       },
       {
@@ -1227,7 +1227,7 @@
       {
         "code": "3017",
         "name": "奇鋐",
-        "weight": 1.87,
+        "weight": 1.86,
         "shares": 4
       },
       {

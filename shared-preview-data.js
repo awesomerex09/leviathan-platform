@@ -667,7 +667,7 @@
         console.warn('API /api/settings unavailable:', e.message);
       }
       try {
-        const res = await fetchJson('./settings.json');
+        const res = await fetchJson(`./settings.json?t=${Date.now()}`);
         if (res) {
           // api/settings returns { ok: true, settings: {...} }, but settings.json is just the {...} object directly
           const actualSettings = res.settings ? res.settings : res; 

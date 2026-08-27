@@ -10,7 +10,7 @@ let deployTimeout = null;
 function triggerAutoDeploy() {
   if (deployTimeout) clearTimeout(deployTimeout);
   deployTimeout = setTimeout(() => {
-    console.log('[Auto-Deploy] Triggering deploy to Vercel in background...');
+    console.log('[Auto-Deploy] Triggering deploy to GitHub in background...');
     const child = spawn('node', [path.join(ROOT, 'scripts', 'deploy.js')], { stdio: 'inherit' });
     child.on('close', (code) => {
       console.log(`[Auto-Deploy] Deploy script finished with code ${code}`);

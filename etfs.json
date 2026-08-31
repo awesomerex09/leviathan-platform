@@ -1,12 +1,12 @@
 {
-  "as_of": "20260828",
+  "as_of": "20260831",
   "n_etfs": 38,
   "etfs": [
     {
       "code": "00981A",
       "name": "主動統一台股增長",
       "issuer": "統一投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20250526",
       "n_days": 287,
       "n_current": 51,
@@ -1300,7 +1300,11 @@
           "c": 30.37
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 30.37
+        },
+        {
+          "d": "20260831",
           "c": 30.37
         }
       ],
@@ -1466,21 +1470,21 @@
       },
       "m1_return": "4.91%",
       "total_return": 216.3,
-      "annualized_return": 145.17,
+      "annualized_return": 143.78,
       "max_return": 235.99,
       "max_drawdown": -26.35,
       "current_drawdown": -5.86,
-      "sharpe_ratio": 2.717,
-      "sortino_ratio": 4.326,
-      "calmar_ratio": 5.509,
-      "alpha": 36.6,
-      "beta": 1.11
+      "sharpe_ratio": 2.713,
+      "sortino_ratio": 4.32,
+      "calmar_ratio": 5.457,
+      "alpha": 38.44,
+      "beta": 1.111
     },
     {
       "code": "00403A",
       "name": "主動統一升級50",
       "issuer": "統一投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20260511",
       "n_days": 55,
       "n_current": 50,
@@ -1854,7 +1858,11 @@
           "c": 10.37
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 10.37
+        },
+        {
+          "d": "20260831",
           "c": 10.37
         }
       ],
@@ -2022,21 +2030,21 @@
       },
       "m1_return": "0.88%",
       "total_return": 3.7,
-      "annualized_return": 11.49,
+      "annualized_return": 11.2,
       "max_return": 13.8,
       "max_drawdown": -25.66,
       "current_drawdown": -8.88,
-      "sharpe_ratio": 0.419,
-      "sortino_ratio": 0.658,
-      "calmar_ratio": 0.448,
-      "alpha": -47.62,
-      "beta": 0.98
+      "sharpe_ratio": 0.416,
+      "sortino_ratio": 0.654,
+      "calmar_ratio": 0.436,
+      "alpha": -39.97,
+      "beta": 0.982
     },
     {
       "code": "00991A",
       "name": "主動復華未來50",
       "issuer": "復華投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20251210",
       "n_days": 150,
       "n_current": 50,
@@ -2762,7 +2770,11 @@
           "c": 18.36
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 18.36
+        },
+        {
+          "d": "20260831",
           "c": 18.36
         }
       ],
@@ -2936,21 +2948,21 @@
       },
       "m1_return": "3.93%",
       "total_return": 92.59,
-      "annualized_return": 149.34,
+      "annualized_return": 146.78,
       "max_return": 113.3,
       "max_drawdown": -31.1,
       "current_drawdown": -9.71,
-      "sharpe_ratio": 2.282,
-      "sortino_ratio": 3.551,
-      "calmar_ratio": 4.802,
-      "alpha": 14.16,
-      "beta": 1.205
+      "sharpe_ratio": 2.275,
+      "sortino_ratio": 3.541,
+      "calmar_ratio": 4.72,
+      "alpha": 18.56,
+      "beta": 1.206
     },
     {
       "code": "00988A",
       "name": "主動統一全球創新",
       "issuer": "統一投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20251103",
       "n_days": 176,
       "n_current": 42,
@@ -3812,7 +3824,11 @@
           "c": 17.49
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 17.49
+        },
+        {
+          "d": "20260831",
           "c": 17.49
         }
       ],
@@ -4004,21 +4020,21 @@
       },
       "m1_return": "-3.95%",
       "total_return": 74.9,
-      "annualized_return": 92.82,
+      "annualized_return": 91.61,
       "max_return": 137.3,
       "max_drawdown": -40.33,
       "current_drawdown": -26.3,
-      "sharpe_ratio": 1.537,
-      "sortino_ratio": 2.466,
-      "calmar_ratio": 2.302,
-      "alpha": -32.46,
-      "beta": 1.399
+      "sharpe_ratio": 1.533,
+      "sortino_ratio": 2.46,
+      "calmar_ratio": 2.272,
+      "alpha": -27.83,
+      "beta": 1.4
     },
     {
       "code": "00982A",
       "name": "主動群益台灣強棒",
       "issuer": "群益投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20250521",
       "n_days": 290,
       "n_current": 55,
@@ -5320,7 +5336,11 @@
           "c": 23.39
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 23.39
+        },
+        {
+          "d": "20260831",
           "c": 23.39
         }
       ],
@@ -5499,21 +5519,21 @@
       },
       "m1_return": "-0.76%",
       "total_return": 157,
-      "annualized_return": 107.92,
+      "annualized_return": 106.96,
       "max_return": 180.3,
       "max_drawdown": -27.32,
       "current_drawdown": -8.31,
-      "sharpe_ratio": 2.359,
-      "sortino_ratio": 3.593,
-      "calmar_ratio": 3.95,
-      "alpha": 6.29,
-      "beta": 1.043
+      "sharpe_ratio": 2.355,
+      "sortino_ratio": 3.587,
+      "calmar_ratio": 3.915,
+      "alpha": 8.34,
+      "beta": 1.044
     },
     {
       "code": "00990A",
       "name": "主動元大AI新經濟",
       "issuer": "元大投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20251218",
       "n_days": 142,
       "n_current": 48,
@@ -6259,7 +6279,11 @@
           "c": 16.54
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 16.54
+        },
+        {
+          "d": "20260831",
           "c": 16.54
         }
       ],
@@ -6465,21 +6489,21 @@
       },
       "m1_return": "-3.78%",
       "total_return": 65.4,
-      "annualized_return": 98.03,
+      "annualized_return": 96.54,
       "max_return": 117.3,
       "max_drawdown": -37.18,
       "current_drawdown": -23.88,
-      "sharpe_ratio": 1.631,
-      "sortino_ratio": 2.563,
-      "calmar_ratio": 2.637,
-      "alpha": -55.4,
-      "beta": 1.315
+      "sharpe_ratio": 1.626,
+      "sortino_ratio": 2.556,
+      "calmar_ratio": 2.597,
+      "alpha": -49.25,
+      "beta": 1.316
     },
     {
       "code": "00992A",
       "name": "主動群益科技創新",
       "issuer": "群益投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20251229",
       "n_days": 138,
       "n_current": 38,
@@ -7185,7 +7209,11 @@
           "c": 18.05
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 18.05
+        },
+        {
+          "d": "20260831",
           "c": 18.05
         }
       ],
@@ -7347,21 +7375,21 @@
       },
       "m1_return": "7.76%",
       "total_return": 85.48,
-      "annualized_return": 142.28,
+      "annualized_return": 139.8,
       "max_return": 94.2,
       "max_drawdown": -28.67,
       "current_drawdown": -4.49,
-      "sharpe_ratio": 2.256,
-      "sortino_ratio": 3.469,
-      "calmar_ratio": 4.963,
-      "alpha": 8.2,
-      "beta": 1.085
+      "sharpe_ratio": 2.249,
+      "sortino_ratio": 3.459,
+      "calmar_ratio": 4.876,
+      "alpha": 12.62,
+      "beta": 1.086
     },
     {
       "code": "00407A",
       "name": "主動凱基台灣",
       "issuer": "凱基投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20260623",
       "n_days": 25,
       "n_current": 50,
@@ -7603,7 +7631,11 @@
           "c": 9.97
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 9.97
+        },
+        {
+          "d": "20260831",
           "c": 9.97
         }
       ],
@@ -7691,21 +7723,21 @@
       },
       "m1_return": "8.13%",
       "total_return": -0.3,
-      "annualized_return": -1.47,
+      "annualized_return": -1.42,
       "max_return": 0.4,
       "max_drawdown": -22.41,
       "current_drawdown": -0.7,
-      "sharpe_ratio": 0.145,
-      "sortino_ratio": 0.267,
-      "calmar_ratio": -0.066,
-      "alpha": -13.43,
-      "beta": 0.992
+      "sharpe_ratio": 0.143,
+      "sortino_ratio": 0.264,
+      "calmar_ratio": -0.063,
+      "alpha": -5.73,
+      "beta": 0.995
     },
     {
       "code": "00400A",
       "name": "主動國泰動能高息",
       "issuer": "國泰投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20260402",
       "n_days": 79,
       "n_current": 49,
@@ -8155,7 +8187,11 @@
           "c": 14.87
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 14.87
+        },
+        {
+          "d": "20260831",
           "c": 14.87
         }
       ],
@@ -8347,21 +8383,21 @@
       },
       "m1_return": "7.24%",
       "total_return": 51.3,
-      "annualized_return": 172.27,
+      "annualized_return": 167,
       "max_return": 55.7,
       "max_drawdown": -23.38,
       "current_drawdown": -2.83,
-      "sharpe_ratio": 2.546,
-      "sortino_ratio": 4.034,
-      "calmar_ratio": 7.368,
-      "alpha": 22.54,
-      "beta": 1.007
+      "sharpe_ratio": 2.533,
+      "sortino_ratio": 4.015,
+      "calmar_ratio": 7.143,
+      "alpha": 29.64,
+      "beta": 1.008
     },
     {
       "code": "00405A",
       "name": "主動富邦台灣龍耀",
       "issuer": "富邦投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20260605",
       "n_days": 36,
       "n_current": 48,
@@ -8663,7 +8699,11 @@
           "c": 8.72
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 8.72
+        },
+        {
+          "d": "20260831",
           "c": 8.72
         }
       ],
@@ -8837,21 +8877,21 @@
       },
       "m1_return": "3.32%",
       "total_return": -12.8,
-      "annualized_return": -40.94,
+      "annualized_return": -39.98,
       "max_return": 0.2,
       "max_drawdown": -33.33,
       "current_drawdown": -12.97,
-      "sharpe_ratio": -0.824,
-      "sortino_ratio": -1.045,
-      "calmar_ratio": -1.228,
-      "alpha": -70.72,
-      "beta": 1.029
+      "sharpe_ratio": -0.819,
+      "sortino_ratio": -1.037,
+      "calmar_ratio": -1.2,
+      "alpha": -62,
+      "beta": 1.03
     },
     {
       "code": "00980A",
       "name": "主動野村臺灣優選",
       "issuer": "野村投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20250502",
       "n_days": 303,
       "n_current": 51,
@@ -10213,7 +10253,11 @@
           "c": 25.38
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 25.38
+        },
+        {
+          "d": "20260831",
           "c": 25.38
         }
       ],
@@ -10417,21 +10461,21 @@
       },
       "m1_return": "9.87%",
       "total_return": 170.77,
-      "annualized_return": 109.17,
+      "annualized_return": 108.24,
       "max_return": 174.29,
       "max_drawdown": -23.92,
       "current_drawdown": -1.28,
-      "sharpe_ratio": 2.682,
-      "sortino_ratio": 4.227,
-      "calmar_ratio": 4.564,
-      "alpha": 1.27,
+      "sharpe_ratio": 2.678,
+      "sortino_ratio": 4.221,
+      "calmar_ratio": 4.525,
+      "alpha": 3.33,
       "beta": 0.932
     },
     {
       "code": "00997A",
       "name": "主動群益美國增長",
       "issuer": "群益投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20260410",
       "n_days": 74,
       "n_current": 52,
@@ -10881,7 +10925,11 @@
           "c": 11.75
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 11.75
+        },
+        {
+          "d": "20260831",
           "c": 11.75
         }
       ],
@@ -11073,21 +11121,21 @@
       },
       "m1_return": "-1.18%",
       "total_return": 20.78,
-      "annualized_return": 57.88,
+      "annualized_return": 56.48,
       "max_return": 47.4,
       "max_drawdown": -28.59,
       "current_drawdown": -18.06,
-      "sharpe_ratio": 1.239,
-      "sortino_ratio": 1.951,
-      "calmar_ratio": 2.024,
-      "alpha": -81.14,
+      "sharpe_ratio": 1.233,
+      "sortino_ratio": 1.941,
+      "calmar_ratio": 1.976,
+      "alpha": -70.94,
       "beta": 0.934
     },
     {
       "code": "00406A",
       "name": "主動中信台灣收益",
       "issuer": "中信投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20260610",
       "n_days": 34,
       "n_current": 58,
@@ -11365,7 +11413,11 @@
           "c": 9.81
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 9.81
+        },
+        {
+          "d": "20260831",
           "c": 9.81
         }
       ],
@@ -11537,21 +11589,21 @@
       },
       "m1_return": "3.41%",
       "total_return": -0.32,
-      "annualized_return": -1.32,
+      "annualized_return": -1.28,
       "max_return": 6,
       "max_drawdown": -24.25,
       "current_drawdown": -5.96,
-      "sharpe_ratio": 0.137,
-      "sortino_ratio": 0.249,
-      "calmar_ratio": -0.054,
-      "alpha": -9.48,
-      "beta": 0.994
+      "sharpe_ratio": 0.135,
+      "sortino_ratio": 0.247,
+      "calmar_ratio": -0.053,
+      "alpha": -3.18,
+      "beta": 0.997
     },
     {
       "code": "00999A",
       "name": "主動野村臺灣高息",
       "issuer": "野村投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20260504",
       "n_days": 60,
       "n_current": 65,
@@ -11945,7 +11997,11 @@
           "c": 11.33
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 11.33
+        },
+        {
+          "d": "20260831",
           "c": 11.33
         }
       ],
@@ -12137,21 +12193,21 @@
       },
       "m1_return": "7.50%",
       "total_return": 13.3,
-      "annualized_return": 42.41,
+      "annualized_return": 41.27,
       "max_return": 14.3,
       "max_drawdown": -17.76,
       "current_drawdown": -0.87,
-      "sharpe_ratio": 1.241,
-      "sortino_ratio": 1.965,
-      "calmar_ratio": 2.388,
-      "alpha": -21.08,
-      "beta": 0.706
+      "sharpe_ratio": 1.234,
+      "sortino_ratio": 1.954,
+      "calmar_ratio": 2.324,
+      "alpha": -15.34,
+      "beta": 0.707
     },
     {
       "code": "00985A",
       "name": "主動野村台灣50",
       "issuer": "野村投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20250718",
       "n_days": 249,
       "n_current": 50,
@@ -13301,7 +13357,11 @@
           "c": 22.73
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 22.73
+        },
+        {
+          "d": "20260831",
           "c": 22.73
         }
       ],
@@ -13473,21 +13533,21 @@
       },
       "m1_return": "5.23%",
       "total_return": 127.3,
-      "annualized_return": 105.63,
+      "annualized_return": 104.58,
       "max_return": 129.7,
       "max_drawdown": -20.2,
       "current_drawdown": -1.04,
-      "sharpe_ratio": 2.769,
-      "sortino_ratio": 4.427,
-      "calmar_ratio": 5.229,
-      "alpha": 11.37,
+      "sharpe_ratio": 2.764,
+      "sortino_ratio": 4.419,
+      "calmar_ratio": 5.177,
+      "alpha": 13.48,
       "beta": 0.889
     },
     {
       "code": "00984A",
       "name": "主動安聯台灣高息",
       "issuer": "安聯投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20250711",
       "n_days": 254,
       "n_current": 121,
@@ -14641,7 +14701,11 @@
           "c": 15.44
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 15.44
+        },
+        {
+          "d": "20260831",
           "c": 15.44
         }
       ],
@@ -14861,21 +14925,21 @@
       },
       "m1_return": "-1.15%",
       "total_return": 67.26,
-      "annualized_return": 56.92,
+      "annualized_return": 56.41,
       "max_return": 82.85,
       "max_drawdown": -21.38,
       "current_drawdown": -8.53,
-      "sharpe_ratio": 2.08,
-      "sortino_ratio": 3.166,
-      "calmar_ratio": 2.662,
-      "alpha": -12.5,
-      "beta": 0.657
+      "sharpe_ratio": 2.076,
+      "sortino_ratio": 3.16,
+      "calmar_ratio": 2.638,
+      "alpha": -10.79,
+      "beta": 0.658
     },
     {
       "code": "00993A",
       "name": "主動安聯台灣",
       "issuer": "安聯投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20260202",
       "n_days": 114,
       "n_current": 51,
@@ -15481,7 +15545,11 @@
           "c": 13.75
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 13.75
+        },
+        {
+          "d": "20260831",
           "c": 13.75
         }
       ],
@@ -15673,21 +15741,21 @@
       },
       "m1_return": "5.77%",
       "total_return": 37.5,
-      "annualized_return": 70.5,
+      "annualized_return": 69.27,
       "max_return": 46.4,
       "max_drawdown": -26.98,
       "current_drawdown": -6.08,
-      "sharpe_ratio": 1.503,
-      "sortino_ratio": 2.273,
-      "calmar_ratio": 2.613,
-      "alpha": -29.14,
-      "beta": 1.025
+      "sharpe_ratio": 1.498,
+      "sortino_ratio": 2.265,
+      "calmar_ratio": 2.567,
+      "alpha": -23.99,
+      "beta": 1.026
     },
     {
       "code": "00402A",
       "name": "主動安聯美國科技",
       "issuer": "安聯投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20260605",
       "n_days": 36,
       "n_current": 52,
@@ -15969,7 +16037,11 @@
           "c": 9.93
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 9.93
+        },
+        {
+          "d": "20260831",
           "c": 9.93
         }
       ],
@@ -16127,21 +16199,21 @@
       },
       "m1_return": "0.61%",
       "total_return": -1.59,
-      "annualized_return": -6.42,
+      "annualized_return": -6.21,
       "max_return": 0.59,
       "max_drawdown": -12.32,
       "current_drawdown": -2.17,
       "sharpe_ratio": -0.118,
-      "sortino_ratio": -0.076,
-      "calmar_ratio": -0.521,
-      "alpha": -13.06,
-      "beta": 0.668
+      "sortino_ratio": -0.075,
+      "calmar_ratio": -0.504,
+      "alpha": -8.65,
+      "beta": 0.67
     },
     {
       "code": "00984D",
       "name": "主動聯博全球非投",
       "issuer": "聯博證券投資信託股份有限公司",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20260202",
       "n_days": 111,
       "n_current": 337,
@@ -16743,7 +16815,11 @@
           "c": 10.13
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 10.13
+        },
+        {
+          "d": "20260831",
           "c": 10.13
         }
       ],
@@ -16929,21 +17005,21 @@
       },
       "m1_return": "0.15%",
       "total_return": 4.66,
-      "annualized_return": 7.97,
+      "annualized_return": 7.86,
       "max_return": 5.12,
       "max_drawdown": -1.4,
       "current_drawdown": -0.44,
-      "sharpe_ratio": 1.796,
-      "sortino_ratio": 3.902,
-      "calmar_ratio": 5.693,
-      "alpha": 4.66,
+      "sharpe_ratio": 1.786,
+      "sortino_ratio": 3.889,
+      "calmar_ratio": 5.614,
+      "alpha": 4.63,
       "beta": 0.014
     },
     {
       "code": "00981D",
       "name": "主動中信非投等債",
       "issuer": "中信投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20250908",
       "n_days": 213,
       "n_current": 88,
@@ -17905,7 +17981,11 @@
           "c": 10.48
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 10.48
+        },
+        {
+          "d": "20260831",
           "c": 10.48
         }
       ],
@@ -18043,21 +18123,21 @@
       },
       "m1_return": "0.10%",
       "total_return": 11.59,
-      "annualized_return": 12.09,
+      "annualized_return": 11.98,
       "max_return": 11.91,
       "max_drawdown": -1.41,
       "current_drawdown": -0.29,
-      "sharpe_ratio": 2.726,
-      "sortino_ratio": 5.705,
-      "calmar_ratio": 8.574,
-      "alpha": 10.39,
+      "sharpe_ratio": 2.718,
+      "sortino_ratio": 5.693,
+      "calmar_ratio": 8.496,
+      "alpha": 10.27,
       "beta": -0.003
     },
     {
       "code": "00995A",
       "name": "主動中信台灣卓越",
       "issuer": "中信投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20260121",
       "n_days": 123,
       "n_current": 56,
@@ -18691,7 +18771,11 @@
           "c": 17.67
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 17.67
+        },
+        {
+          "d": "20260831",
           "c": 17.67
         }
       ],
@@ -18855,21 +18939,21 @@
       },
       "m1_return": "5.37%",
       "total_return": 76.7,
-      "annualized_return": 149.93,
+      "annualized_return": 146.96,
       "max_return": 87.7,
       "max_drawdown": -26.8,
       "current_drawdown": -5.86,
-      "sharpe_ratio": 2.306,
-      "sortino_ratio": 3.608,
-      "calmar_ratio": 5.594,
-      "alpha": 33.99,
-      "beta": 1.147
+      "sharpe_ratio": 2.298,
+      "sortino_ratio": 3.596,
+      "calmar_ratio": 5.484,
+      "alpha": 38.09,
+      "beta": 1.148
     },
     {
       "code": "00994A",
       "name": "主動第一金台股優",
       "issuer": "第一金投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20260106",
       "n_days": 132,
       "n_current": 35,
@@ -19543,7 +19627,11 @@
           "c": 17.65
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 17.65
+        },
+        {
+          "d": "20260831",
           "c": 17.65
         }
       ],
@@ -19707,21 +19795,21 @@
       },
       "m1_return": "6.45%",
       "total_return": 81.07,
-      "annualized_return": 145,
+      "annualized_return": 142.33,
       "max_return": 90,
       "max_drawdown": -27.05,
       "current_drawdown": -4.7,
-      "sharpe_ratio": 2.315,
-      "sortino_ratio": 3.623,
-      "calmar_ratio": 5.36,
-      "alpha": 13.64,
+      "sharpe_ratio": 2.307,
+      "sortino_ratio": 3.612,
+      "calmar_ratio": 5.262,
+      "alpha": 18.29,
       "beta": 1.119
     },
     {
       "code": "00996A",
       "name": "主動兆豐台灣豐收",
       "issuer": "兆豐投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20260324",
       "n_days": 86,
       "n_current": 51,
@@ -20211,7 +20299,11 @@
           "c": 14.41
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 14.41
+        },
+        {
+          "d": "20260831",
           "c": 14.41
         }
       ],
@@ -20516,21 +20608,21 @@
       },
       "m1_return": "-0.07%",
       "total_return": 44.1,
-      "annualized_return": 124.5,
+      "annualized_return": 121.29,
       "max_return": 63.2,
       "max_drawdown": -32.78,
       "current_drawdown": -11.7,
-      "sharpe_ratio": 1.897,
-      "sortino_ratio": 2.909,
-      "calmar_ratio": 3.798,
-      "alpha": -1.99,
-      "beta": 1.065
+      "sharpe_ratio": 1.888,
+      "sortino_ratio": 2.897,
+      "calmar_ratio": 3.7,
+      "alpha": 4.87,
+      "beta": 1.066
     },
     {
       "code": "00998A",
       "name": "主動復華金融股息",
       "issuer": "復華投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20260407",
       "n_days": 77,
       "n_current": 40,
@@ -20976,7 +21068,11 @@
           "c": 18.23
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 18.23
+        },
+        {
+          "d": "20260831",
           "c": 18.23
         }
       ],
@@ -21168,21 +21264,21 @@
       },
       "m1_return": "5.74%",
       "total_return": 24.36,
-      "annualized_return": 70.05,
+      "annualized_return": 68.29,
       "max_return": 24.36,
       "max_drawdown": -4.77,
       "current_drawdown": 0,
-      "sharpe_ratio": 3.313,
-      "sortino_ratio": 6.807,
-      "calmar_ratio": 14.686,
-      "alpha": 36.56,
+      "sharpe_ratio": 3.295,
+      "sortino_ratio": 6.774,
+      "calmar_ratio": 14.317,
+      "alpha": 37.44,
       "beta": 0.195
     },
     {
       "code": "00404A",
       "name": "主動聯博動能50",
       "issuer": "聯博證券投資信託股份有限公司",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20260608",
       "n_days": 35,
       "n_current": 51,
@@ -21472,7 +21568,11 @@
           "c": 9.72
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 9.72
+        },
+        {
+          "d": "20260831",
           "c": 9.72
         }
       ],
@@ -21664,21 +21764,21 @@
       },
       "m1_return": "-0.72%",
       "total_return": -2.8,
-      "annualized_return": -10.66,
+      "annualized_return": -10.34,
       "max_return": 5.2,
       "max_drawdown": -19.39,
       "current_drawdown": -7.6,
-      "sharpe_ratio": -0.199,
-      "sortino_ratio": -0.204,
-      "calmar_ratio": -0.55,
-      "alpha": -38.31,
-      "beta": 0.866
+      "sharpe_ratio": -0.198,
+      "sortino_ratio": -0.202,
+      "calmar_ratio": -0.533,
+      "alpha": -31.06,
+      "beta": 0.867
     },
     {
       "code": "00401A",
       "name": "主動摩根台灣鑫收",
       "issuer": "摩根投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20260407",
       "n_days": 81,
       "n_current": 65,
@@ -22124,7 +22224,11 @@
           "c": 13.77
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 13.77
+        },
+        {
+          "d": "20260831",
           "c": 13.77
         }
       ],
@@ -22298,21 +22402,21 @@
       },
       "m1_return": "3.38%",
       "total_return": 37.7,
-      "annualized_return": 117.92,
+      "annualized_return": 114.62,
       "max_return": 42.2,
       "max_drawdown": -18.57,
       "current_drawdown": -3.16,
-      "sharpe_ratio": 2.467,
-      "sortino_ratio": 3.932,
-      "calmar_ratio": 6.35,
-      "alpha": -11.64,
-      "beta": 0.79
+      "sharpe_ratio": 2.454,
+      "sortino_ratio": 3.913,
+      "calmar_ratio": 6.172,
+      "alpha": -4.41,
+      "beta": 0.791
     },
     {
       "code": "00987A",
       "name": "主動台新優勢成長",
       "issuer": "台新投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20251224",
       "n_days": 142,
       "n_current": 25,
@@ -23018,7 +23122,11 @@
           "c": 16.37
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 16.37
+        },
+        {
+          "d": "20260831",
           "c": 16.37
         }
       ],
@@ -23180,21 +23288,21 @@
       },
       "m1_return": "7.41%",
       "total_return": 63.7,
-      "annualized_return": 102.58,
+      "annualized_return": 100.92,
       "max_return": 81.6,
       "max_drawdown": -32.49,
       "current_drawdown": -9.86,
-      "sharpe_ratio": 1.828,
-      "sortino_ratio": 2.801,
-      "calmar_ratio": 3.157,
-      "alpha": -35.03,
-      "beta": 1.114
+      "sharpe_ratio": 1.822,
+      "sortino_ratio": 2.793,
+      "calmar_ratio": 3.106,
+      "alpha": -29.6,
+      "beta": 1.115
     },
     {
       "code": "00986D",
       "name": "主動復華金融債息",
       "issuer": "復華投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20260407",
       "n_days": 77,
       "n_current": 29,
@@ -23640,7 +23748,11 @@
           "c": 14.63
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 14.63
+        },
+        {
+          "d": "20260831",
           "c": 14.63
         }
       ],
@@ -23832,21 +23944,21 @@
       },
       "m1_return": "-0.82%",
       "total_return": -1.21,
-      "annualized_return": -2.92,
+      "annualized_return": -2.86,
       "max_return": 0.41,
       "max_drawdown": -2.33,
       "current_drawdown": -1.61,
-      "sharpe_ratio": -1.323,
-      "sortino_ratio": -1.103,
-      "calmar_ratio": -1.253,
-      "alpha": -6.37,
+      "sharpe_ratio": -1.321,
+      "sortino_ratio": -1.098,
+      "calmar_ratio": -1.227,
+      "alpha": -6.19,
       "beta": 0.009
     },
     {
       "code": "00980D",
       "name": "主動聯博投等入息",
       "issuer": "聯博證券投資信託股份有限公司",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20250731",
       "n_days": 237,
       "n_current": 215,
@@ -24944,7 +25056,11 @@
           "c": 20.4
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 20.4
+        },
+        {
+          "d": "20260831",
           "c": 20.4
         }
       ],
@@ -25061,21 +25177,21 @@
       },
       "m1_return": "-0.54%",
       "total_return": 7.79,
-      "annualized_return": 7.11,
+      "annualized_return": 7.06,
       "max_return": 8.46,
       "max_drawdown": -2.12,
       "current_drawdown": -0.61,
-      "sharpe_ratio": 1.393,
-      "sortino_ratio": 2.952,
-      "calmar_ratio": 3.354,
-      "alpha": 4.61,
+      "sharpe_ratio": 1.388,
+      "sortino_ratio": 2.947,
+      "calmar_ratio": 3.33,
+      "alpha": 4.58,
       "beta": 0.005
     },
     {
       "code": "00989A",
       "name": "主動摩根美國科技",
       "issuer": "摩根投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20251016",
       "n_days": 188,
       "n_current": 61,
@@ -25957,7 +26073,11 @@
           "c": 17.77
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 17.77
+        },
+        {
+          "d": "20260831",
           "c": 17.77
         }
       ],
@@ -26123,21 +26243,21 @@
       },
       "m1_return": "0.40%",
       "total_return": 18.47,
-      "annualized_return": 21.49,
+      "annualized_return": 21.27,
       "max_return": 25.87,
       "max_drawdown": -17.84,
       "current_drawdown": -5.88,
-      "sharpe_ratio": 0.784,
-      "sortino_ratio": 1.242,
-      "calmar_ratio": 1.205,
-      "alpha": -45.42,
+      "sharpe_ratio": 0.782,
+      "sortino_ratio": 1.239,
+      "calmar_ratio": 1.192,
+      "alpha": -42.65,
       "beta": 0.688
     },
     {
       "code": "00983A",
       "name": "主動中信ARK創新",
       "issuer": "中信投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20250613",
       "n_days": 275,
       "n_current": 42,
@@ -27367,7 +27487,11 @@
           "c": 12.2
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 12.2
+        },
+        {
+          "d": "20260831",
           "c": 12.2
         }
       ],
@@ -27547,21 +27671,21 @@
       },
       "m1_return": "0.16%",
       "total_return": 22,
-      "annualized_return": 17.77,
+      "annualized_return": 17.64,
       "max_return": 34,
       "max_drawdown": -25.97,
       "current_drawdown": -8.96,
-      "sharpe_ratio": 0.657,
-      "sortino_ratio": 1.09,
-      "calmar_ratio": 0.684,
-      "alpha": -50.65,
+      "sharpe_ratio": 0.656,
+      "sortino_ratio": 1.088,
+      "calmar_ratio": 0.679,
+      "alpha": -48.61,
       "beta": 0.673
     },
     {
       "code": "00983D",
       "name": "主動富邦複合收益",
       "issuer": "富邦投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20251009",
       "n_days": 189,
       "n_current": 83,
@@ -28475,7 +28599,11 @@
           "c": 10.07
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 10.07
+        },
+        {
+          "d": "20260831",
           "c": 10.07
         }
       ],
@@ -28670,21 +28798,21 @@
       },
       "m1_return": "-0.59%",
       "total_return": 4.92,
-      "annualized_return": 5.43,
+      "annualized_return": 5.38,
       "max_return": 6.06,
       "max_drawdown": -1.75,
       "current_drawdown": -1.08,
-      "sharpe_ratio": 0.812,
-      "sortino_ratio": 1.915,
-      "calmar_ratio": 3.103,
-      "alpha": 3.83,
+      "sharpe_ratio": 0.809,
+      "sortino_ratio": 1.911,
+      "calmar_ratio": 3.074,
+      "alpha": 3.76,
       "beta": -0.004
     },
     {
       "code": "00985D",
       "name": "主動貝萊德優投等",
       "issuer": "貝萊德證券投資信託股份有限公司",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20260327",
       "n_days": 83,
       "n_current": 134,
@@ -29154,7 +29282,11 @@
           "c": 9.98
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 9.98
+        },
+        {
+          "d": "20260831",
           "c": 9.98
         }
       ],
@@ -29255,21 +29387,21 @@
       },
       "m1_return": "-2.06%",
       "total_return": 0.98,
-      "annualized_return": 2.28,
+      "annualized_return": 2.24,
       "max_return": 4.3,
       "max_drawdown": -3.18,
       "current_drawdown": -3.18,
-      "sharpe_ratio": 0.073,
-      "sortino_ratio": 0.587,
-      "calmar_ratio": 0.717,
-      "alpha": -1.47,
+      "sharpe_ratio": 0.07,
+      "sortino_ratio": 0.584,
+      "calmar_ratio": 0.704,
+      "alpha": -1.36,
       "beta": 0.013
     },
     {
       "code": "00982D",
       "name": "主動富邦動態入息",
       "issuer": "富邦投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20251009",
       "n_days": 189,
       "n_current": 62,
@@ -30183,7 +30315,11 @@
           "c": 9.84
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 9.84
+        },
+        {
+          "d": "20260831",
           "c": 9.84
         }
       ],
@@ -30299,21 +30435,21 @@
       },
       "m1_return": "-0.81%",
       "total_return": 2.02,
-      "annualized_return": 2.22,
+      "annualized_return": 2.2,
       "max_return": 3.75,
       "max_drawdown": -2.59,
       "current_drawdown": -1.67,
-      "sharpe_ratio": 0.085,
-      "sortino_ratio": 0.752,
-      "calmar_ratio": 0.857,
-      "alpha": -1.67,
+      "sharpe_ratio": 0.083,
+      "sortino_ratio": 0.75,
+      "calmar_ratio": 0.849,
+      "alpha": -1.61,
       "beta": 0.019
     },
     {
       "code": "00986A",
       "name": "主動台新龍頭成長",
       "issuer": "台新投信",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20250825",
       "n_days": 225,
       "n_current": 31,
@@ -31347,7 +31483,11 @@
           "c": 15.04
         },
         {
-          "d": "20260828",
+          "d": "20260827",
+          "c": 15.04
+        },
+        {
+          "d": "20260831",
           "c": 15.04
         }
       ],
@@ -31503,21 +31643,21 @@
       },
       "m1_return": "0.53%",
       "total_return": 50.4,
-      "annualized_return": 48.81,
+      "annualized_return": 48.34,
       "max_return": 58,
       "max_drawdown": -15.32,
       "current_drawdown": -4.81,
-      "sharpe_ratio": 1.684,
-      "sortino_ratio": 2.697,
-      "calmar_ratio": 3.186,
-      "alpha": -20.4,
-      "beta": 0.678
+      "sharpe_ratio": 1.68,
+      "sortino_ratio": 2.691,
+      "calmar_ratio": 3.155,
+      "alpha": -18.38,
+      "beta": 0.679
     },
     {
       "code": "SPY",
       "name": "SPDR S&P 500 ETF Trust (標普500指數基金)",
       "issuer": "State Street Global Advisors",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20251103",
       "n_days": 176,
       "n_current": 500,
@@ -31545,8 +31685,8 @@
       "benefit": 2450000,
       "listing_date": "19930122",
       "pre_listing_snapshot": false,
-      "close_price": 766.08,
-      "nav": 766.08,
+      "close_price": 771.1,
+      "nav": 771.1,
       "nav_date": "20260728",
       "premium_pct": 0.02,
       "price_series": [
@@ -31556,7 +31696,7 @@
         },
         {
           "d": "20200103",
-          "c": 293.8829
+          "c": 293.883
         },
         {
           "d": "20200106",
@@ -31564,7 +31704,7 @@
         },
         {
           "d": "20200107",
-          "c": 294.1746
+          "c": 294.1747
         },
         {
           "d": "20200108",
@@ -31572,11 +31712,11 @@
         },
         {
           "d": "20200109",
-          "c": 297.7478
+          "c": 297.7479
         },
         {
           "d": "20200110",
-          "c": 296.891
+          "c": 296.8909
         },
         {
           "d": "20200113",
@@ -31596,27 +31736,27 @@
         },
         {
           "d": "20200117",
-          "c": 302.5789
+          "c": 302.5788
         },
         {
           "d": "20200120",
-          "c": 302.5789
+          "c": 302.5788
         },
         {
           "d": "20200130",
-          "c": 298.6866
+          "c": 298.6867
         },
         {
           "d": "20200131",
-          "c": 293.2631
+          "c": 293.2632
         },
         {
           "d": "20200203",
-          "c": 295.4417
+          "c": 295.4416
         },
         {
           "d": "20200204",
-          "c": 299.9447
+          "c": 299.9446
         },
         {
           "d": "20200205",
@@ -31632,11 +31772,11 @@
         },
         {
           "d": "20200210",
-          "c": 305.0674
+          "c": 305.0672
         },
         {
           "d": "20200211",
-          "c": 305.596
+          "c": 305.5959
         },
         {
           "d": "20200212",
@@ -31664,7 +31804,7 @@
         },
         {
           "d": "20200220",
-          "c": 307.1364
+          "c": 307.1365
         },
         {
           "d": "20200221",
@@ -31676,7 +31816,7 @@
         },
         {
           "d": "20200225",
-          "c": 284.9865
+          "c": 284.9866
         },
         {
           "d": "20200226",
@@ -31684,7 +31824,7 @@
         },
         {
           "d": "20200227",
-          "c": 271.1861
+          "c": 271.1862
         },
         {
           "d": "20200302",
@@ -31692,7 +31832,7 @@
         },
         {
           "d": "20200303",
-          "c": 273.6745
+          "c": 273.6746
         },
         {
           "d": "20200304",
@@ -31704,7 +31844,7 @@
         },
         {
           "d": "20200306",
-          "c": 271.1405
+          "c": 271.1406
         },
         {
           "d": "20200309",
@@ -31772,11 +31912,11 @@
         },
         {
           "d": "20200331",
-          "c": 236.3257
+          "c": 236.3256
         },
         {
           "d": "20200401",
-          "c": 225.6899
+          "c": 225.6898
         },
         {
           "d": "20200406",
@@ -31788,7 +31928,7 @@
         },
         {
           "d": "20200408",
-          "c": 251.2524
+          "c": 251.2525
         },
         {
           "d": "20200409",
@@ -31804,7 +31944,7 @@
         },
         {
           "d": "20200414",
-          "c": 260.2013
+          "c": 260.2012
         },
         {
           "d": "20200415",
@@ -31820,7 +31960,7 @@
         },
         {
           "d": "20200420",
-          "c": 258.184
+          "c": 258.1841
         },
         {
           "d": "20200421",
@@ -31852,7 +31992,7 @@
         },
         {
           "d": "20200430",
-          "c": 266.3351
+          "c": 266.3352
         },
         {
           "d": "20200504",
@@ -31876,7 +32016,7 @@
         },
         {
           "d": "20200511",
-          "c": 268.1872
+          "c": 268.1873
         },
         {
           "d": "20200512",
@@ -31888,7 +32028,7 @@
         },
         {
           "d": "20200514",
-          "c": 261.2832
+          "c": 261.283
         },
         {
           "d": "20200515",
@@ -31904,7 +32044,7 @@
         },
         {
           "d": "20200520",
-          "c": 272.2491
+          "c": 272.249
         },
         {
           "d": "20200521",
@@ -31920,7 +32060,7 @@
         },
         {
           "d": "20200526",
-          "c": 274.2202
+          "c": 274.2203
         },
         {
           "d": "20200527",
@@ -31928,11 +32068,11 @@
         },
         {
           "d": "20200528",
-          "c": 277.787
+          "c": 277.7869
         },
         {
           "d": "20200529",
-          "c": 279.0248
+          "c": 279.0247
         },
         {
           "d": "20200601",
@@ -31944,7 +32084,7 @@
         },
         {
           "d": "20200603",
-          "c": 286.2313
+          "c": 286.2314
         },
         {
           "d": "20200604",
@@ -31952,15 +32092,15 @@
         },
         {
           "d": "20200605",
-          "c": 292.7962
+          "c": 292.7963
         },
         {
           "d": "20200608",
-          "c": 296.3354
+          "c": 296.3353
         },
         {
           "d": "20200609",
-          "c": 294.1257
+          "c": 294.1258
         },
         {
           "d": "20200610",
@@ -31976,11 +32116,11 @@
         },
         {
           "d": "20200615",
-          "c": 281.5278
+          "c": 281.5277
         },
         {
           "d": "20200616",
-          "c": 286.9466
+          "c": 286.9465
         },
         {
           "d": "20200617",
@@ -32000,7 +32140,7 @@
         },
         {
           "d": "20200623",
-          "c": 287.3712
+          "c": 287.3713
         },
         {
           "d": "20200624",
@@ -32008,11 +32148,11 @@
         },
         {
           "d": "20200629",
-          "c": 280.3815
+          "c": 280.3816
         },
         {
           "d": "20200630",
-          "c": 283.973
+          "c": 283.9731
         },
         {
           "d": "20200701",
@@ -32020,19 +32160,19 @@
         },
         {
           "d": "20200702",
-          "c": 287.537
+          "c": 287.5372
         },
         {
           "d": "20200703",
-          "c": 287.537
+          "c": 287.5372
         },
         {
           "d": "20200706",
-          "c": 291.9757
+          "c": 291.9759
         },
         {
           "d": "20200707",
-          "c": 288.9645
+          "c": 288.9644
         },
         {
           "d": "20200708",
@@ -32040,11 +32180,11 @@
         },
         {
           "d": "20200709",
-          "c": 289.517
+          "c": 289.5171
         },
         {
           "d": "20200710",
-          "c": 292.4732
+          "c": 292.4731
         },
         {
           "d": "20200713",
@@ -32052,7 +32192,7 @@
         },
         {
           "d": "20200714",
-          "c": 293.6979
+          "c": 293.698
         },
         {
           "d": "20200715",
@@ -32068,7 +32208,7 @@
         },
         {
           "d": "20200720",
-          "c": 298.6709
+          "c": 298.6708
         },
         {
           "d": "20200721",
@@ -32080,7 +32220,7 @@
         },
         {
           "d": "20200723",
-          "c": 297.4184
+          "c": 297.4185
         },
         {
           "d": "20200724",
@@ -32092,11 +32232,11 @@
         },
         {
           "d": "20200728",
-          "c": 295.77
+          "c": 295.7701
         },
         {
           "d": "20200729",
-          "c": 299.4076
+          "c": 299.4077
         },
         {
           "d": "20200730",
@@ -32104,11 +32244,11 @@
         },
         {
           "d": "20200731",
-          "c": 300.6969
+          "c": 300.6968
         },
         {
           "d": "20200803",
-          "c": 302.7874
+          "c": 302.7873
         },
         {
           "d": "20200804",
@@ -32120,7 +32260,7 @@
         },
         {
           "d": "20200806",
-          "c": 307.8893
+          "c": 307.8892
         },
         {
           "d": "20200807",
@@ -32128,7 +32268,7 @@
         },
         {
           "d": "20200810",
-          "c": 309.0313
+          "c": 309.0312
         },
         {
           "d": "20200811",
@@ -32140,7 +32280,7 @@
         },
         {
           "d": "20200813",
-          "c": 310.1916
+          "c": 310.1914
         },
         {
           "d": "20200814",
@@ -32168,23 +32308,23 @@
         },
         {
           "d": "20200824",
-          "c": 315.7999
+          "c": 315.8
         },
         {
           "d": "20200825",
-          "c": 316.905
+          "c": 316.9049
         },
         {
           "d": "20200826",
-          "c": 320.0822
+          "c": 320.0821
         },
         {
           "d": "20200827",
-          "c": 320.782
+          "c": 320.7821
         },
         {
           "d": "20200828",
-          "c": 322.854
+          "c": 322.8541
         },
         {
           "d": "20200831",
@@ -32204,11 +32344,11 @@
         },
         {
           "d": "20200904",
-          "c": 315.4776
+          "c": 315.4775
         },
         {
           "d": "20200907",
-          "c": 315.4776
+          "c": 315.4775
         },
         {
           "d": "20200908",
@@ -32216,11 +32356,11 @@
         },
         {
           "d": "20200909",
-          "c": 312.9174
+          "c": 312.9175
         },
         {
           "d": "20200910",
-          "c": 307.484
+          "c": 307.4841
         },
         {
           "d": "20200911",
@@ -32232,7 +32372,7 @@
         },
         {
           "d": "20200915",
-          "c": 313.2674
+          "c": 313.2673
         },
         {
           "d": "20200916",
@@ -32260,7 +32400,7 @@
         },
         {
           "d": "20200924",
-          "c": 299.1082
+          "c": 299.1083
         },
         {
           "d": "20200925",
@@ -32276,7 +32416,7 @@
         },
         {
           "d": "20200930",
-          "c": 309.6395
+          "c": 309.6394
         },
         {
           "d": "20201005",
@@ -32284,7 +32424,7 @@
         },
         {
           "d": "20201006",
-          "c": 309.6764
+          "c": 309.6765
         },
         {
           "d": "20201007",
@@ -32304,7 +32444,7 @@
         },
         {
           "d": "20201014",
-          "c": 321.6964
+          "c": 321.6962
         },
         {
           "d": "20201015",
@@ -32324,15 +32464,15 @@
         },
         {
           "d": "20201021",
-          "c": 316.8883
+          "c": 316.8884
         },
         {
           "d": "20201022",
-          "c": 318.6267
+          "c": 318.6266
         },
         {
           "d": "20201023",
-          "c": 319.7083
+          "c": 319.7084
         },
         {
           "d": "20201026",
@@ -32340,7 +32480,7 @@
         },
         {
           "d": "20201027",
-          "c": 312.7183
+          "c": 312.7184
         },
         {
           "d": "20201028",
@@ -32348,7 +32488,7 @@
         },
         {
           "d": "20201029",
-          "c": 305.0996
+          "c": 305.0997
         },
         {
           "d": "20201030",
@@ -32368,7 +32508,7 @@
         },
         {
           "d": "20201105",
-          "c": 323.8321
+          "c": 323.8322
         },
         {
           "d": "20201106",
@@ -32388,11 +32528,11 @@
         },
         {
           "d": "20201112",
-          "c": 326.5782
+          "c": 326.5781
         },
         {
           "d": "20201113",
-          "c": 331.0995
+          "c": 331.0994
         },
         {
           "d": "20201116",
@@ -32436,7 +32576,7 @@
         },
         {
           "d": "20201130",
-          "c": 334.7608
+          "c": 334.7609
         },
         {
           "d": "20201201",
@@ -32444,7 +32584,7 @@
         },
         {
           "d": "20201202",
-          "c": 339.1343
+          "c": 339.1342
         },
         {
           "d": "20201203",
@@ -32456,7 +32596,7 @@
         },
         {
           "d": "20201207",
-          "c": 341.2608
+          "c": 341.2609
         },
         {
           "d": "20201208",
@@ -32468,7 +32608,7 @@
         },
         {
           "d": "20201210",
-          "c": 339.0788
+          "c": 339.0787
         },
         {
           "d": "20201211",
@@ -32488,11 +32628,11 @@
         },
         {
           "d": "20201217",
-          "c": 344.1733
+          "c": 344.1732
         },
         {
           "d": "20201218",
-          "c": 342.799
+          "c": 342.7991
         },
         {
           "d": "20201221",
@@ -32504,23 +32644,23 @@
         },
         {
           "d": "20201223",
-          "c": 341.3041
+          "c": 341.3042
         },
         {
           "d": "20201224",
-          "c": 342.632
+          "c": 342.6319
         },
         {
           "d": "20201225",
-          "c": 342.632
+          "c": 342.6319
         },
         {
           "d": "20201228",
-          "c": 345.5753
+          "c": 345.5754
         },
         {
           "d": "20201229",
-          "c": 344.9162
+          "c": 344.9161
         },
         {
           "d": "20201230",
@@ -32536,19 +32676,19 @@
         },
         {
           "d": "20210105",
-          "c": 344.7953
+          "c": 344.7954
         },
         {
           "d": "20210106",
-          "c": 346.8568
+          "c": 346.8567
         },
         {
           "d": "20210107",
-          "c": 352.0102
+          "c": 352.0101
         },
         {
           "d": "20210108",
-          "c": 354.0158
+          "c": 354.0159
         },
         {
           "d": "20210111",
@@ -32556,7 +32696,7 @@
         },
         {
           "d": "20210112",
-          "c": 351.7037
+          "c": 351.7038
         },
         {
           "d": "20210113",
@@ -32564,15 +32704,15 @@
         },
         {
           "d": "20210114",
-          "c": 351.4159
+          "c": 351.416
         },
         {
           "d": "20210115",
-          "c": 348.8531
+          "c": 348.8532
         },
         {
           "d": "20210118",
-          "c": 348.8531
+          "c": 348.8532
         },
         {
           "d": "20210119",
@@ -32580,7 +32720,7 @@
         },
         {
           "d": "20210120",
-          "c": 356.4579
+          "c": 356.458
         },
         {
           "d": "20210121",
@@ -32600,11 +32740,11 @@
         },
         {
           "d": "20210127",
-          "c": 347.6553
+          "c": 347.6554
         },
         {
           "d": "20210128",
-          "c": 350.6452
+          "c": 350.6453
         },
         {
           "d": "20210129",
@@ -32612,7 +32752,7 @@
         },
         {
           "d": "20210201",
-          "c": 349.3452
+          "c": 349.3453
         },
         {
           "d": "20210202",
@@ -32632,7 +32772,7 @@
         },
         {
           "d": "20210217",
-          "c": 364.3506
+          "c": 364.3505
         },
         {
           "d": "20210218",
@@ -32648,7 +32788,7 @@
         },
         {
           "d": "20210223",
-          "c": 359.8099
+          "c": 359.81
         },
         {
           "d": "20210224",
@@ -32660,7 +32800,7 @@
         },
         {
           "d": "20210226",
-          "c": 353.1801
+          "c": 353.1802
         },
         {
           "d": "20210302",
@@ -32668,15 +32808,15 @@
         },
         {
           "d": "20210303",
-          "c": 354.1645
+          "c": 354.1644
         },
         {
           "d": "20210304",
-          "c": 349.7818
+          "c": 349.7817
         },
         {
           "d": "20210305",
-          "c": 356.2166
+          "c": 356.2165
         },
         {
           "d": "20210308",
@@ -32684,7 +32824,7 @@
         },
         {
           "d": "20210309",
-          "c": 359.5035
+          "c": 359.5036
         },
         {
           "d": "20210310",
@@ -32696,19 +32836,19 @@
         },
         {
           "d": "20210312",
-          "c": 365.9012
+          "c": 365.9011
         },
         {
           "d": "20210315",
-          "c": 368.0833
+          "c": 368.0832
         },
         {
           "d": "20210316",
-          "c": 367.619
+          "c": 367.6191
         },
         {
           "d": "20210317",
-          "c": 368.8726
+          "c": 368.8725
         },
         {
           "d": "20210318",
@@ -32716,7 +32856,7 @@
         },
         {
           "d": "20210319",
-          "c": 362.8329
+          "c": 362.833
         },
         {
           "d": "20210322",
@@ -32724,11 +32864,11 @@
         },
         {
           "d": "20210323",
-          "c": 362.8516
+          "c": 362.8515
         },
         {
           "d": "20210324",
-          "c": 361.0071
+          "c": 361.007
         },
         {
           "d": "20210325",
@@ -32736,7 +32876,7 @@
         },
         {
           "d": "20210326",
-          "c": 368.8882
+          "c": 368.8883
         },
         {
           "d": "20210329",
@@ -32744,15 +32884,15 @@
         },
         {
           "d": "20210330",
-          "c": 367.7238
+          "c": 367.7237
         },
         {
           "d": "20210331",
-          "c": 369.2143
+          "c": 369.2142
         },
         {
           "d": "20210401",
-          "c": 373.2014
+          "c": 373.2015
         },
         {
           "d": "20210407",
@@ -32764,11 +32904,11 @@
         },
         {
           "d": "20210409",
-          "c": 383.3371
+          "c": 383.337
         },
         {
           "d": "20210412",
-          "c": 383.4768
+          "c": 383.4769
         },
         {
           "d": "20210413",
@@ -32776,7 +32916,7 @@
         },
         {
           "d": "20210414",
-          "c": 383.2999
+          "c": 383.2998
         },
         {
           "d": "20210415",
@@ -32792,23 +32932,23 @@
         },
         {
           "d": "20210420",
-          "c": 383.9706
+          "c": 383.9705
         },
         {
           "d": "20210421",
-          "c": 387.6038
+          "c": 387.6037
         },
         {
           "d": "20210422",
-          "c": 384.0637
+          "c": 384.0638
         },
         {
           "d": "20210423",
-          "c": 388.2278
+          "c": 388.2279
         },
         {
           "d": "20210426",
-          "c": 389.0385
+          "c": 389.0383
         },
         {
           "d": "20210427",
@@ -32816,11 +32956,11 @@
         },
         {
           "d": "20210428",
-          "c": 388.8427
+          "c": 388.8428
         },
         {
           "d": "20210429",
-          "c": 391.3206
+          "c": 391.3207
         },
         {
           "d": "20210503",
@@ -32828,19 +32968,19 @@
         },
         {
           "d": "20210504",
-          "c": 387.1846
+          "c": 387.1845
         },
         {
           "d": "20210505",
-          "c": 387.3056
+          "c": 387.3057
         },
         {
           "d": "20210506",
-          "c": 390.3985
+          "c": 390.3986
         },
         {
           "d": "20210507",
-          "c": 393.2398
+          "c": 393.2399
         },
         {
           "d": "20210510",
@@ -32864,11 +33004,11 @@
         },
         {
           "d": "20210517",
-          "c": 387.0913
+          "c": 387.0914
         },
         {
           "d": "20210518",
-          "c": 383.7562
+          "c": 383.7563
         },
         {
           "d": "20210519",
@@ -32876,7 +33016,7 @@
         },
         {
           "d": "20210520",
-          "c": 386.8677
+          "c": 386.8678
         },
         {
           "d": "20210521",
@@ -32888,11 +33028,11 @@
         },
         {
           "d": "20210525",
-          "c": 389.6253
+          "c": 389.6252
         },
         {
           "d": "20210526",
-          "c": 390.3985
+          "c": 390.3986
         },
         {
           "d": "20210527",
@@ -32900,19 +33040,19 @@
         },
         {
           "d": "20210528",
-          "c": 391.3021
+          "c": 391.3022
         },
         {
           "d": "20210531",
-          "c": 391.3021
+          "c": 391.3022
         },
         {
           "d": "20210601",
-          "c": 390.9574
+          "c": 390.9575
         },
         {
           "d": "20210602",
-          "c": 391.5722
+          "c": 391.5723
         },
         {
           "d": "20210603",
@@ -32928,7 +33068,7 @@
         },
         {
           "d": "20210608",
-          "c": 393.3889
+          "c": 393.3888
         },
         {
           "d": "20210609",
@@ -32968,7 +33108,7 @@
         },
         {
           "d": "20210623",
-          "c": 394.975
+          "c": 394.9749
         },
         {
           "d": "20210624",
@@ -32976,7 +33116,7 @@
         },
         {
           "d": "20210625",
-          "c": 398.7229
+          "c": 398.7228
         },
         {
           "d": "20210628",
@@ -32984,7 +33124,7 @@
         },
         {
           "d": "20210629",
-          "c": 399.7416
+          "c": 399.7415
         },
         {
           "d": "20210630",
@@ -33008,15 +33148,15 @@
         },
         {
           "d": "20210707",
-          "c": 406.0597
+          "c": 406.0596
         },
         {
           "d": "20210708",
-          "c": 402.7511
+          "c": 402.751
         },
         {
           "d": "20210709",
-          "c": 407.0503
+          "c": 407.0504
         },
         {
           "d": "20210712",
@@ -33028,7 +33168,7 @@
         },
         {
           "d": "20210714",
-          "c": 407.7234
+          "c": 407.7233
         },
         {
           "d": "20210715",
@@ -33040,7 +33180,7 @@
         },
         {
           "d": "20210719",
-          "c": 397.19
+          "c": 397.1901
         },
         {
           "d": "20210720",
@@ -33052,7 +33192,7 @@
         },
         {
           "d": "20210722",
-          "c": 406.9944
+          "c": 406.9943
         },
         {
           "d": "20210723",
@@ -33060,7 +33200,7 @@
         },
         {
           "d": "20210726",
-          "c": 412.1909
+          "c": 412.1908
         },
         {
           "d": "20210727",
@@ -33080,7 +33220,7 @@
         },
         {
           "d": "20210802",
-          "c": 408.9851
+          "c": 408.985
         },
         {
           "d": "20210803",
@@ -33096,7 +33236,7 @@
         },
         {
           "d": "20210806",
-          "c": 413.5647
+          "c": 413.5648
         },
         {
           "d": "20210809",
@@ -33108,7 +33248,7 @@
         },
         {
           "d": "20210811",
-          "c": 414.7704
+          "c": 414.7705
         },
         {
           "d": "20210812",
@@ -33124,11 +33264,11 @@
         },
         {
           "d": "20210817",
-          "c": 415.0135
+          "c": 415.0134
         },
         {
           "d": "20210818",
-          "c": 410.4712
+          "c": 410.4711
         },
         {
           "d": "20210819",
@@ -33140,7 +33280,7 @@
         },
         {
           "d": "20210823",
-          "c": 418.023
+          "c": 418.0229
         },
         {
           "d": "20210824",
@@ -33148,7 +33288,7 @@
         },
         {
           "d": "20210825",
-          "c": 419.5651
+          "c": 419.565
         },
         {
           "d": "20210826",
@@ -33156,23 +33296,23 @@
         },
         {
           "d": "20210827",
-          "c": 420.8175
+          "c": 420.8174
         },
         {
           "d": "20210830",
-          "c": 422.668
+          "c": 422.6681
         },
         {
           "d": "20210831",
-          "c": 422.0419
+          "c": 422.0418
         },
         {
           "d": "20210901",
-          "c": 422.2661
+          "c": 422.2662
         },
         {
           "d": "20210902",
-          "c": 423.5653
+          "c": 423.5654
         },
         {
           "d": "20210903",
@@ -33188,7 +33328,7 @@
         },
         {
           "d": "20210908",
-          "c": 421.4343
+          "c": 421.4344
         },
         {
           "d": "20210909",
@@ -33200,7 +33340,7 @@
         },
         {
           "d": "20210913",
-          "c": 417.3874
+          "c": 417.3875
         },
         {
           "d": "20210914",
@@ -33216,7 +33356,7 @@
         },
         {
           "d": "20210917",
-          "c": 413.8676
+          "c": 413.8677
         },
         {
           "d": "20210922",
@@ -33232,7 +33372,7 @@
         },
         {
           "d": "20210927",
-          "c": 415.0303
+          "c": 415.0304
         },
         {
           "d": "20210928",
@@ -33240,7 +33380,7 @@
         },
         {
           "d": "20210929",
-          "c": 407.3513
+          "c": 407.3512
         },
         {
           "d": "20210930",
@@ -33260,7 +33400,7 @@
         },
         {
           "d": "20211006",
-          "c": 407.7732
+          "c": 407.773
         },
         {
           "d": "20211007",
@@ -33272,15 +33412,15 @@
         },
         {
           "d": "20211012",
-          "c": 406.573
+          "c": 406.5729
         },
         {
           "d": "20211013",
-          "c": 408.0356
+          "c": 408.0357
         },
         {
           "d": "20211014",
-          "c": 414.8991
+          "c": 414.899
         },
         {
           "d": "20211015",
@@ -33292,7 +33432,7 @@
         },
         {
           "d": "20211019",
-          "c": 422.5313
+          "c": 422.5314
         },
         {
           "d": "20211020",
@@ -33308,7 +33448,7 @@
         },
         {
           "d": "20211025",
-          "c": 427.1351
+          "c": 427.135
         },
         {
           "d": "20211026",
@@ -33324,7 +33464,7 @@
         },
         {
           "d": "20211029",
-          "c": 430.6043
+          "c": 430.6042
         },
         {
           "d": "20211101",
@@ -33332,7 +33472,7 @@
         },
         {
           "d": "20211102",
-          "c": 433.089
+          "c": 433.0889
         },
         {
           "d": "20211103",
@@ -33340,7 +33480,7 @@
         },
         {
           "d": "20211104",
-          "c": 437.7865
+          "c": 437.7864
         },
         {
           "d": "20211105",
@@ -33348,11 +33488,11 @@
         },
         {
           "d": "20211108",
-          "c": 439.6805
+          "c": 439.6804
         },
         {
           "d": "20211109",
-          "c": 438.2271
+          "c": 438.2272
         },
         {
           "d": "20211110",
@@ -33368,19 +33508,19 @@
         },
         {
           "d": "20211115",
-          "c": 438.274
+          "c": 438.2741
         },
         {
           "d": "20211116",
-          "c": 440.0086
+          "c": 440.0087
         },
         {
           "d": "20211117",
-          "c": 438.9397
+          "c": 438.9398
         },
         {
           "d": "20211118",
-          "c": 440.4305
+          "c": 440.4306
         },
         {
           "d": "20211119",
@@ -33388,11 +33528,11 @@
         },
         {
           "d": "20211122",
-          "c": 438.4053
+          "c": 438.4052
         },
         {
           "d": "20211123",
-          "c": 438.9867
+          "c": 438.9866
         },
         {
           "d": "20211124",
@@ -33404,7 +33544,7 @@
         },
         {
           "d": "20211126",
-          "c": 430.3418
+          "c": 430.3417
         },
         {
           "d": "20211129",
@@ -33428,7 +33568,7 @@
         },
         {
           "d": "20211206",
-          "c": 430.1729
+          "c": 430.173
         },
         {
           "d": "20211207",
@@ -33440,15 +33580,15 @@
         },
         {
           "d": "20211209",
-          "c": 437.2615
+          "c": 437.2613
         },
         {
           "d": "20211210",
-          "c": 441.3776
+          "c": 441.3775
         },
         {
           "d": "20211213",
-          "c": 437.4677
+          "c": 437.4678
         },
         {
           "d": "20211214",
@@ -33460,7 +33600,7 @@
         },
         {
           "d": "20211216",
-          "c": 437.3552
+          "c": 437.3553
         },
         {
           "d": "20211217",
@@ -33472,7 +33612,7 @@
         },
         {
           "d": "20211221",
-          "c": 435.702
+          "c": 435.7019
         },
         {
           "d": "20211222",
@@ -33480,19 +33620,19 @@
         },
         {
           "d": "20211223",
-          "c": 442.7965
+          "c": 442.7966
         },
         {
           "d": "20211224",
-          "c": 442.7965
+          "c": 442.7966
         },
         {
           "d": "20211227",
-          "c": 449.063
+          "c": 449.0631
         },
         {
           "d": "20211228",
-          "c": 448.6961
+          "c": 448.696
         },
         {
           "d": "20211229",
@@ -33504,7 +33644,7 @@
         },
         {
           "d": "20220103",
-          "c": 449.4864
+          "c": 449.4865
         },
         {
           "d": "20220104",
@@ -33560,11 +33700,11 @@
         },
         {
           "d": "20220121",
-          "c": 412.1037
+          "c": 412.1038
         },
         {
           "d": "20220124",
-          "c": 413.8539
+          "c": 413.8538
         },
         {
           "d": "20220125",
@@ -33576,11 +33716,11 @@
         },
         {
           "d": "20220207",
-          "c": 420.8354
+          "c": 420.8355
         },
         {
           "d": "20220208",
-          "c": 424.2981
+          "c": 424.298
         },
         {
           "d": "20220209",
@@ -33592,7 +33732,7 @@
         },
         {
           "d": "20220211",
-          "c": 414.4371
+          "c": 414.4372
         },
         {
           "d": "20220214",
@@ -33604,7 +33744,7 @@
         },
         {
           "d": "20220216",
-          "c": 420.2145
+          "c": 420.2144
         },
         {
           "d": "20220217",
@@ -33612,11 +33752,11 @@
         },
         {
           "d": "20220218",
-          "c": 408.5753
+          "c": 408.5752
         },
         {
           "d": "20220221",
-          "c": 408.5753
+          "c": 408.5752
         },
         {
           "d": "20220222",
@@ -33628,7 +33768,7 @@
         },
         {
           "d": "20220224",
-          "c": 402.9957
+          "c": 402.9956
         },
         {
           "d": "20220225",
@@ -33644,7 +33784,7 @@
         },
         {
           "d": "20220303",
-          "c": 409.9677
+          "c": 409.9678
         },
         {
           "d": "20220304",
@@ -33652,15 +33792,15 @@
         },
         {
           "d": "20220307",
-          "c": 394.6497
+          "c": 394.6496
         },
         {
           "d": "20220308",
-          "c": 391.6575
+          "c": 391.6576
         },
         {
           "d": "20220309",
-          "c": 402.1582
+          "c": 402.1583
         },
         {
           "d": "20220310",
@@ -33684,7 +33824,7 @@
         },
         {
           "d": "20220317",
-          "c": 415.0111
+          "c": 415.0112
         },
         {
           "d": "20220318",
@@ -33692,7 +33832,7 @@
         },
         {
           "d": "20220321",
-          "c": 419.434
+          "c": 419.4341
         },
         {
           "d": "20220322",
@@ -33704,7 +33844,7 @@
         },
         {
           "d": "20220324",
-          "c": 425.1914
+          "c": 425.1915
         },
         {
           "d": "20220325",
@@ -33712,7 +33852,7 @@
         },
         {
           "d": "20220328",
-          "c": 430.3072
+          "c": 430.3071
         },
         {
           "d": "20220329",
@@ -33732,7 +33872,7 @@
         },
         {
           "d": "20220406",
-          "c": 421.4444
+          "c": 421.4445
         },
         {
           "d": "20220407",
@@ -33764,7 +33904,7 @@
         },
         {
           "d": "20220418",
-          "c": 413.3745
+          "c": 413.3746
         },
         {
           "d": "20220419",
@@ -33788,11 +33928,11 @@
         },
         {
           "d": "20220426",
-          "c": 392.7327
+          "c": 392.7328
         },
         {
           "d": "20220427",
-          "c": 393.837
+          "c": 393.8371
         },
         {
           "d": "20220428",
@@ -33800,7 +33940,7 @@
         },
         {
           "d": "20220429",
-          "c": 388.8629
+          "c": 388.863
         },
         {
           "d": "20220503",
@@ -33808,31 +33948,31 @@
         },
         {
           "d": "20220504",
-          "c": 404.9649
+          "c": 404.9648
         },
         {
           "d": "20220505",
-          "c": 390.5714
+          "c": 390.5713
         },
         {
           "d": "20220506",
-          "c": 388.24
+          "c": 388.2401
         },
         {
           "d": "20220509",
-          "c": 375.8097
+          "c": 375.8096
         },
         {
           "d": "20220510",
-          "c": 376.678
+          "c": 376.6779
         },
         {
           "d": "20220511",
-          "c": 370.6941
+          "c": 370.694
         },
         {
           "d": "20220512",
-          "c": 370.307
+          "c": 370.3069
         },
         {
           "d": "20220513",
@@ -33852,11 +33992,11 @@
         },
         {
           "d": "20220519",
-          "c": 367.5888
+          "c": 367.5887
         },
         {
           "d": "20220520",
-          "c": 367.7493
+          "c": 367.7492
         },
         {
           "d": "20220523",
@@ -33864,7 +34004,7 @@
         },
         {
           "d": "20220524",
-          "c": 371.7699
+          "c": 371.77
         },
         {
           "d": "20220525",
@@ -33872,7 +34012,7 @@
         },
         {
           "d": "20220526",
-          "c": 382.5487
+          "c": 382.5486
         },
         {
           "d": "20220527",
@@ -33892,7 +34032,7 @@
         },
         {
           "d": "20220602",
-          "c": 393.9502
+          "c": 393.9503
         },
         {
           "d": "20220606",
@@ -33912,7 +34052,7 @@
         },
         {
           "d": "20220610",
-          "c": 367.9097
+          "c": 367.9096
         },
         {
           "d": "20220613",
@@ -33952,7 +34092,7 @@
         },
         {
           "d": "20220624",
-          "c": 369.7644
+          "c": 369.7643
         },
         {
           "d": "20220627",
@@ -33968,19 +34108,19 @@
         },
         {
           "d": "20220630",
-          "c": 357.6026
+          "c": 357.6025
         },
         {
           "d": "20220701",
-          "c": 361.3848
+          "c": 361.3847
         },
         {
           "d": "20220704",
-          "c": 361.3848
+          "c": 361.3847
         },
         {
           "d": "20220705",
-          "c": 362.0673
+          "c": 362.0672
         },
         {
           "d": "20220706",
@@ -33992,11 +34132,11 @@
         },
         {
           "d": "20220708",
-          "c": 368.4278
+          "c": 368.4279
         },
         {
           "d": "20220711",
-          "c": 364.2191
+          "c": 364.219
         },
         {
           "d": "20220712",
@@ -34008,19 +34148,19 @@
         },
         {
           "d": "20220714",
-          "c": 358.2282
+          "c": 358.2281
         },
         {
           "d": "20220715",
-          "c": 365.0722
+          "c": 365.0721
         },
         {
           "d": "20220718",
-          "c": 362.0578
+          "c": 362.0579
         },
         {
           "d": "20220719",
-          "c": 371.8402
+          "c": 371.8403
         },
         {
           "d": "20220720",
@@ -34052,19 +34192,19 @@
         },
         {
           "d": "20220729",
-          "c": 390.5332
+          "c": 390.5333
         },
         {
           "d": "20220801",
-          "c": 389.3768
+          "c": 389.3767
         },
         {
           "d": "20220802",
-          "c": 386.8079
+          "c": 386.808
         },
         {
           "d": "20220803",
-          "c": 392.8651
+          "c": 392.8652
         },
         {
           "d": "20220804",
@@ -34080,7 +34220,7 @@
         },
         {
           "d": "20220809",
-          "c": 389.9265
+          "c": 389.9266
         },
         {
           "d": "20220810",
@@ -34100,11 +34240,11 @@
         },
         {
           "d": "20220816",
-          "c": 407.321
+          "c": 407.3209
         },
         {
           "d": "20220817",
-          "c": 404.4298
+          "c": 404.4297
         },
         {
           "d": "20220818",
@@ -34116,7 +34256,7 @@
         },
         {
           "d": "20220822",
-          "c": 391.8225
+          "c": 391.8224
         },
         {
           "d": "20220823",
@@ -34128,7 +34268,7 @@
         },
         {
           "d": "20220825",
-          "c": 397.6616
+          "c": 397.6617
         },
         {
           "d": "20220826",
@@ -34136,7 +34276,7 @@
         },
         {
           "d": "20220829",
-          "c": 381.6608
+          "c": 381.6607
         },
         {
           "d": "20220830",
@@ -34148,7 +34288,7 @@
         },
         {
           "d": "20220901",
-          "c": 375.7742
+          "c": 375.7741
         },
         {
           "d": "20220902",
@@ -34164,11 +34304,11 @@
         },
         {
           "d": "20220907",
-          "c": 377.0633
+          "c": 377.0634
         },
         {
           "d": "20220908",
-          "c": 379.528
+          "c": 379.5279
         },
         {
           "d": "20220912",
@@ -34176,7 +34316,7 @@
         },
         {
           "d": "20220913",
-          "c": 372.627
+          "c": 372.6271
         },
         {
           "d": "20220914",
@@ -34184,11 +34324,11 @@
         },
         {
           "d": "20220915",
-          "c": 369.8023
+          "c": 369.8022
         },
         {
           "d": "20220916",
-          "c": 366.9811
+          "c": 366.981
         },
         {
           "d": "20220919",
@@ -34204,7 +34344,7 @@
         },
         {
           "d": "20220922",
-          "c": 356.1875
+          "c": 356.1876
         },
         {
           "d": "20220923",
@@ -34212,7 +34352,7 @@
         },
         {
           "d": "20220926",
-          "c": 346.755
+          "c": 346.7551
         },
         {
           "d": "20220927",
@@ -34220,7 +34360,7 @@
         },
         {
           "d": "20220928",
-          "c": 352.6753
+          "c": 352.6754
         },
         {
           "d": "20220929",
@@ -34232,11 +34372,11 @@
         },
         {
           "d": "20221003",
-          "c": 348.9443
+          "c": 348.9442
         },
         {
           "d": "20221004",
-          "c": 359.7568
+          "c": 359.7569
         },
         {
           "d": "20221005",
@@ -34256,7 +34396,7 @@
         },
         {
           "d": "20221012",
-          "c": 339.3785
+          "c": 339.3784
         },
         {
           "d": "20221013",
@@ -34268,15 +34408,15 @@
         },
         {
           "d": "20221017",
-          "c": 349.1442
+          "c": 349.1441
         },
         {
           "d": "20221018",
-          "c": 353.2464
+          "c": 353.2465
         },
         {
           "d": "20221019",
-          "c": 350.7431
+          "c": 350.7432
         },
         {
           "d": "20221020",
@@ -34292,7 +34432,7 @@
         },
         {
           "d": "20221025",
-          "c": 366.372
+          "c": 366.3719
         },
         {
           "d": "20221026",
@@ -34304,15 +34444,15 @@
         },
         {
           "d": "20221028",
-          "c": 370.2744
+          "c": 370.2743
         },
         {
           "d": "20221031",
-          "c": 367.5998
+          "c": 367.5997
         },
         {
           "d": "20221101",
-          "c": 365.9912
+          "c": 365.9911
         },
         {
           "d": "20221102",
@@ -34324,7 +34464,7 @@
         },
         {
           "d": "20221104",
-          "c": 358.2148
+          "c": 358.2149
         },
         {
           "d": "20221107",
@@ -34332,7 +34472,7 @@
         },
         {
           "d": "20221108",
-          "c": 363.5926
+          "c": 363.5927
         },
         {
           "d": "20221109",
@@ -34348,7 +34488,7 @@
         },
         {
           "d": "20221114",
-          "c": 376.0805
+          "c": 376.0804
         },
         {
           "d": "20221115",
@@ -34356,7 +34496,7 @@
         },
         {
           "d": "20221116",
-          "c": 376.3945
+          "c": 376.3946
         },
         {
           "d": "20221117",
@@ -34368,7 +34508,7 @@
         },
         {
           "d": "20221121",
-          "c": 375.576
+          "c": 375.5759
         },
         {
           "d": "20221122",
@@ -34396,11 +34536,11 @@
         },
         {
           "d": "20221130",
-          "c": 388.0352
+          "c": 388.0351
         },
         {
           "d": "20221201",
-          "c": 387.7496
+          "c": 387.7497
         },
         {
           "d": "20221202",
@@ -34412,15 +34552,15 @@
         },
         {
           "d": "20221206",
-          "c": 374.8525
+          "c": 374.8526
         },
         {
           "d": "20221207",
-          "c": 374.2149
+          "c": 374.2148
         },
         {
           "d": "20221208",
-          "c": 377.1465
+          "c": 377.1464
         },
         {
           "d": "20221209",
@@ -34432,7 +34572,7 @@
         },
         {
           "d": "20221213",
-          "c": 382.6003
+          "c": 382.6004
         },
         {
           "d": "20221214",
@@ -34440,11 +34580,11 @@
         },
         {
           "d": "20221215",
-          "c": 370.855
+          "c": 370.8549
         },
         {
           "d": "20221216",
-          "c": 366.4766
+          "c": 366.4767
         },
         {
           "d": "20221219",
@@ -34460,7 +34600,7 @@
         },
         {
           "d": "20221222",
-          "c": 364.0384
+          "c": 364.0383
         },
         {
           "d": "20221223",
@@ -34484,15 +34624,15 @@
         },
         {
           "d": "20221230",
-          "c": 365.6735
+          "c": 365.6734
         },
         {
           "d": "20230103",
-          "c": 364.134
+          "c": 364.1339
         },
         {
           "d": "20230104",
-          "c": 366.9451
+          "c": 366.9452
         },
         {
           "d": "20230105",
@@ -34500,7 +34640,7 @@
         },
         {
           "d": "20230106",
-          "c": 371.0759
+          "c": 371.0758
         },
         {
           "d": "20230109",
@@ -34520,11 +34660,11 @@
         },
         {
           "d": "20230113",
-          "c": 381.0392
+          "c": 381.0393
         },
         {
           "d": "20230116",
-          "c": 381.0392
+          "c": 381.0393
         },
         {
           "d": "20230117",
@@ -34544,11 +34684,11 @@
         },
         {
           "d": "20230202",
-          "c": 398.5184
+          "c": 398.5183
         },
         {
           "d": "20230203",
-          "c": 394.2825
+          "c": 394.2824
         },
         {
           "d": "20230206",
@@ -34576,7 +34716,7 @@
         },
         {
           "d": "20230214",
-          "c": 394.5598
+          "c": 394.5597
         },
         {
           "d": "20230215",
@@ -34596,7 +34736,7 @@
         },
         {
           "d": "20230221",
-          "c": 381.6035
+          "c": 381.6034
         },
         {
           "d": "20230222",
@@ -34620,7 +34760,7 @@
         },
         {
           "d": "20230303",
-          "c": 386.4799
+          "c": 386.48
         },
         {
           "d": "20230306",
@@ -34628,7 +34768,7 @@
         },
         {
           "d": "20230307",
-          "c": 380.8193
+          "c": 380.8194
         },
         {
           "d": "20230308",
@@ -34648,7 +34788,7 @@
         },
         {
           "d": "20230314",
-          "c": 374.5659
+          "c": 374.566
         },
         {
           "d": "20230315",
@@ -34668,11 +34808,11 @@
         },
         {
           "d": "20230321",
-          "c": 382.8871
+          "c": 382.887
         },
         {
           "d": "20230322",
-          "c": 376.3601
+          "c": 376.3602
         },
         {
           "d": "20230323",
@@ -34700,7 +34840,7 @@
         },
         {
           "d": "20230331",
-          "c": 392.9461
+          "c": 392.9462
         },
         {
           "d": "20230406",
@@ -34716,7 +34856,7 @@
         },
         {
           "d": "20230411",
-          "c": 393.2628
+          "c": 393.2629
         },
         {
           "d": "20230412",
@@ -34724,7 +34864,7 @@
         },
         {
           "d": "20230413",
-          "c": 396.8622
+          "c": 396.8623
         },
         {
           "d": "20230414",
@@ -34732,7 +34872,7 @@
         },
         {
           "d": "20230417",
-          "c": 397.3134
+          "c": 397.3133
         },
         {
           "d": "20230418",
@@ -34776,7 +34916,7 @@
         },
         {
           "d": "20230503",
-          "c": 391.6311
+          "c": 391.6312
         },
         {
           "d": "20230504",
@@ -34788,23 +34928,23 @@
         },
         {
           "d": "20230508",
-          "c": 396.1615
+          "c": 396.1616
         },
         {
           "d": "20230509",
-          "c": 394.4243
+          "c": 394.4242
         },
         {
           "d": "20230510",
-          "c": 396.2672
+          "c": 396.2671
         },
         {
           "d": "20230511",
-          "c": 395.576
+          "c": 395.5761
         },
         {
           "d": "20230512",
-          "c": 395.0578
+          "c": 395.0577
         },
         {
           "d": "20230515",
@@ -34812,7 +34952,7 @@
         },
         {
           "d": "20230516",
-          "c": 393.7716
+          "c": 393.7715
         },
         {
           "d": "20230517",
@@ -34828,7 +34968,7 @@
         },
         {
           "d": "20230522",
-          "c": 401.9685
+          "c": 401.9686
         },
         {
           "d": "20230523",
@@ -34840,7 +34980,7 @@
         },
         {
           "d": "20230525",
-          "c": 397.9949
+          "c": 397.9948
         },
         {
           "d": "20230526",
@@ -34860,7 +35000,7 @@
         },
         {
           "d": "20230601",
-          "c": 404.8769
+          "c": 404.8768
         },
         {
           "d": "20230602",
@@ -34892,7 +35032,7 @@
         },
         {
           "d": "20230613",
-          "c": 419.1207
+          "c": 419.1208
         },
         {
           "d": "20230614",
@@ -34900,15 +35040,15 @@
         },
         {
           "d": "20230615",
-          "c": 424.8222
+          "c": 424.8221
         },
         {
           "d": "20230616",
-          "c": 423.3751
+          "c": 423.3752
         },
         {
           "d": "20230619",
-          "c": 423.3751
+          "c": 423.3752
         },
         {
           "d": "20230620",
@@ -34928,7 +35068,7 @@
         },
         {
           "d": "20230628",
-          "c": 420.4175
+          "c": 420.4176
         },
         {
           "d": "20230629",
@@ -34936,19 +35076,19 @@
         },
         {
           "d": "20230630",
-          "c": 427.0553
+          "c": 427.0554
         },
         {
           "d": "20230703",
-          "c": 427.5466
+          "c": 427.5467
         },
         {
           "d": "20230704",
-          "c": 427.5466
+          "c": 427.5467
         },
         {
           "d": "20230705",
-          "c": 426.9109
+          "c": 426.9108
         },
         {
           "d": "20230706",
@@ -34956,7 +35096,7 @@
         },
         {
           "d": "20230707",
-          "c": 422.4985
+          "c": 422.4984
         },
         {
           "d": "20230710",
@@ -34964,19 +35104,19 @@
         },
         {
           "d": "20230711",
-          "c": 426.2653
+          "c": 426.2654
         },
         {
           "d": "20230712",
-          "c": 429.695
+          "c": 429.6951
         },
         {
           "d": "20230713",
-          "c": 433.1055
+          "c": 433.1054
         },
         {
           "d": "20230714",
-          "c": 432.8358
+          "c": 432.8357
         },
         {
           "d": "20230717",
@@ -34988,23 +35128,23 @@
         },
         {
           "d": "20230719",
-          "c": 438.539
+          "c": 438.5391
         },
         {
           "d": "20230720",
-          "c": 435.6296
+          "c": 435.6295
         },
         {
           "d": "20230721",
-          "c": 435.6296
+          "c": 435.6295
         },
         {
           "d": "20230724",
-          "c": 437.5756
+          "c": 437.5757
         },
         {
           "d": "20230725",
-          "c": 438.7703
+          "c": 438.7702
         },
         {
           "d": "20230726",
@@ -35032,7 +35172,7 @@
         },
         {
           "d": "20230804",
-          "c": 430.4561
+          "c": 430.4562
         },
         {
           "d": "20230807",
@@ -35040,7 +35180,7 @@
         },
         {
           "d": "20230808",
-          "c": 432.3251
+          "c": 432.3252
         },
         {
           "d": "20230809",
@@ -35056,11 +35196,11 @@
         },
         {
           "d": "20230814",
-          "c": 431.7085
+          "c": 431.7086
         },
         {
           "d": "20230815",
-          "c": 426.6796
+          "c": 426.6797
         },
         {
           "d": "20230816",
@@ -35080,7 +35220,7 @@
         },
         {
           "d": "20230822",
-          "c": 422.1131
+          "c": 422.113
         },
         {
           "d": "20230823",
@@ -35104,7 +35244,7 @@
         },
         {
           "d": "20230830",
-          "c": 434.5025
+          "c": 434.5024
         },
         {
           "d": "20230831",
@@ -35120,7 +35260,7 @@
         },
         {
           "d": "20230905",
-          "c": 432.7971
+          "c": 432.7972
         },
         {
           "d": "20230906",
@@ -35140,7 +35280,7 @@
         },
         {
           "d": "20230912",
-          "c": 429.6662
+          "c": 429.6661
         },
         {
           "d": "20230913",
@@ -35148,7 +35288,7 @@
         },
         {
           "d": "20230914",
-          "c": 433.8761
+          "c": 433.8762
         },
         {
           "d": "20230915",
@@ -35160,11 +35300,11 @@
         },
         {
           "d": "20230919",
-          "c": 428.0107
+          "c": 428.0106
         },
         {
           "d": "20230920",
-          "c": 424.0758
+          "c": 424.0757
         },
         {
           "d": "20230921",
@@ -35224,7 +35364,7 @@
         },
         {
           "d": "20231016",
-          "c": 421.5621
+          "c": 421.5622
         },
         {
           "d": "20231017",
@@ -35232,15 +35372,15 @@
         },
         {
           "d": "20231018",
-          "c": 415.9256
+          "c": 415.9257
         },
         {
           "d": "20231019",
-          "c": 412.2712
+          "c": 412.2711
         },
         {
           "d": "20231020",
-          "c": 407.2051
+          "c": 407.2052
         },
         {
           "d": "20231023",
@@ -35248,7 +35388,7 @@
         },
         {
           "d": "20231024",
-          "c": 409.5642
+          "c": 409.5641
         },
         {
           "d": "20231025",
@@ -35268,7 +35408,7 @@
         },
         {
           "d": "20231031",
-          "c": 404.3145
+          "c": 404.3144
         },
         {
           "d": "20231101",
@@ -35276,11 +35416,11 @@
         },
         {
           "d": "20231102",
-          "c": 416.4574
+          "c": 416.4575
         },
         {
           "d": "20231103",
-          "c": 420.2569
+          "c": 420.257
         },
         {
           "d": "20231106",
@@ -35300,7 +35440,7 @@
         },
         {
           "d": "20231110",
-          "c": 425.9803
+          "c": 425.9804
         },
         {
           "d": "20231113",
@@ -35308,7 +35448,7 @@
         },
         {
           "d": "20231114",
-          "c": 433.8307
+          "c": 433.8308
         },
         {
           "d": "20231115",
@@ -35320,11 +35460,11 @@
         },
         {
           "d": "20231117",
-          "c": 435.8223
+          "c": 435.8224
         },
         {
           "d": "20231120",
-          "c": 439.1772
+          "c": 439.1771
         },
         {
           "d": "20231121",
@@ -35332,11 +35472,11 @@
         },
         {
           "d": "20231122",
-          "c": 439.9119
+          "c": 439.9118
         },
         {
           "d": "20231123",
-          "c": 439.9119
+          "c": 439.9118
         },
         {
           "d": "20231124",
@@ -35380,11 +35520,11 @@
         },
         {
           "d": "20231208",
-          "c": 444.92
+          "c": 444.9199
         },
         {
           "d": "20231211",
-          "c": 446.6504
+          "c": 446.6505
         },
         {
           "d": "20231212",
@@ -35404,7 +35544,7 @@
         },
         {
           "d": "20231218",
-          "c": 458.1491
+          "c": 458.1492
         },
         {
           "d": "20231219",
@@ -35448,7 +35588,7 @@
         },
         {
           "d": "20240103",
-          "c": 455.0622
+          "c": 455.0623
         },
         {
           "d": "20240104",
@@ -35488,7 +35628,7 @@
         },
         {
           "d": "20240117",
-          "c": 458.4598
+          "c": 458.4597
         },
         {
           "d": "20240118",
@@ -35496,7 +35636,7 @@
         },
         {
           "d": "20240119",
-          "c": 468.3028
+          "c": 468.3029
         },
         {
           "d": "20240122",
@@ -35508,15 +35648,15 @@
         },
         {
           "d": "20240124",
-          "c": 471.1761
+          "c": 471.1762
         },
         {
           "d": "20240125",
-          "c": 473.7388
+          "c": 473.7389
         },
         {
           "d": "20240126",
-          "c": 473.137
+          "c": 473.1371
         },
         {
           "d": "20240129",
@@ -35540,7 +35680,7 @@
         },
         {
           "d": "20240205",
-          "c": 478.1265
+          "c": 478.1264
         },
         {
           "d": "20240215",
@@ -35556,7 +35696,7 @@
         },
         {
           "d": "20240220",
-          "c": 482.2132
+          "c": 482.2133
         },
         {
           "d": "20240221",
@@ -35568,7 +35708,7 @@
         },
         {
           "d": "20240223",
-          "c": 492.9784
+          "c": 492.9785
         },
         {
           "d": "20240226",
@@ -35588,7 +35728,7 @@
         },
         {
           "d": "20240304",
-          "c": 497.2981
+          "c": 497.2982
         },
         {
           "d": "20240305",
@@ -35624,7 +35764,7 @@
         },
         {
           "d": "20240315",
-          "c": 496.4381
+          "c": 496.4382
         },
         {
           "d": "20240318",
@@ -35636,7 +35776,7 @@
         },
         {
           "d": "20240320",
-          "c": 506.8084
+          "c": 506.8083
         },
         {
           "d": "20240321",
@@ -35648,7 +35788,7 @@
         },
         {
           "d": "20240325",
-          "c": 506.1171
+          "c": 506.117
         },
         {
           "d": "20240326",
@@ -35660,15 +35800,15 @@
         },
         {
           "d": "20240328",
-          "c": 509.3304
+          "c": 509.3303
         },
         {
           "d": "20240329",
-          "c": 509.3304
+          "c": 509.3303
         },
         {
           "d": "20240401",
-          "c": 508.4442
+          "c": 508.4443
         },
         {
           "d": "20240402",
@@ -35680,7 +35820,7 @@
         },
         {
           "d": "20240408",
-          "c": 505.0945
+          "c": 505.0947
         },
         {
           "d": "20240409",
@@ -35716,7 +35856,7 @@
         },
         {
           "d": "20240419",
-          "c": 482.1535
+          "c": 482.1534
         },
         {
           "d": "20240422",
@@ -35724,7 +35864,7 @@
         },
         {
           "d": "20240423",
-          "c": 492.368
+          "c": 492.3679
         },
         {
           "d": "20240424",
@@ -35732,7 +35872,7 @@
         },
         {
           "d": "20240425",
-          "c": 490.2646
+          "c": 490.2647
         },
         {
           "d": "20240426",
@@ -35740,11 +35880,11 @@
         },
         {
           "d": "20240429",
-          "c": 496.662
+          "c": 496.6621
         },
         {
           "d": "20240430",
-          "c": 488.7943
+          "c": 488.7944
         },
         {
           "d": "20240502",
@@ -35760,7 +35900,7 @@
         },
         {
           "d": "20240507",
-          "c": 503.5562
+          "c": 503.5561
         },
         {
           "d": "20240508",
@@ -35768,15 +35908,15 @@
         },
         {
           "d": "20240509",
-          "c": 506.5064
+          "c": 506.5065
         },
         {
           "d": "20240510",
-          "c": 507.159
+          "c": 507.1589
         },
         {
           "d": "20240513",
-          "c": 507.227
+          "c": 507.2271
         },
         {
           "d": "20240514",
@@ -35788,23 +35928,23 @@
         },
         {
           "d": "20240516",
-          "c": 514.8027
+          "c": 514.8028
         },
         {
           "d": "20240517",
-          "c": 515.5428
+          "c": 515.5427
         },
         {
           "d": "20240520",
-          "c": 516.1368
+          "c": 516.1367
         },
         {
           "d": "20240521",
-          "c": 517.4026
+          "c": 517.4025
         },
         {
           "d": "20240522",
-          "c": 515.9127
+          "c": 515.9128
         },
         {
           "d": "20240523",
@@ -35820,11 +35960,11 @@
         },
         {
           "d": "20240528",
-          "c": 515.8932
+          "c": 515.8933
         },
         {
           "d": "20240529",
-          "c": 512.2808
+          "c": 512.2807
         },
         {
           "d": "20240530",
@@ -35832,7 +35972,7 @@
         },
         {
           "d": "20240531",
-          "c": 513.5174
+          "c": 513.5173
         },
         {
           "d": "20240603",
@@ -35844,11 +35984,11 @@
         },
         {
           "d": "20240605",
-          "c": 520.6257
+          "c": 520.6256
         },
         {
           "d": "20240606",
-          "c": 520.6159
+          "c": 520.616
         },
         {
           "d": "20240607",
@@ -35860,11 +36000,11 @@
         },
         {
           "d": "20240612",
-          "c": 527.14
+          "c": 527.1399
         },
         {
           "d": "20240613",
-          "c": 528.2012
+          "c": 528.2013
         },
         {
           "d": "20240614",
@@ -35876,15 +36016,15 @@
         },
         {
           "d": "20240618",
-          "c": 534.0827
+          "c": 534.0826
         },
         {
           "d": "20240619",
-          "c": 534.0827
+          "c": 534.0826
         },
         {
           "d": "20240620",
-          "c": 532.6318
+          "c": 532.6317
         },
         {
           "d": "20240621",
@@ -35896,15 +36036,15 @@
         },
         {
           "d": "20240625",
-          "c": 532.2302
+          "c": 532.2303
         },
         {
           "d": "20240626",
-          "c": 532.8947
+          "c": 532.8945
         },
         {
           "d": "20240627",
-          "c": 533.7346
+          "c": 533.7347
         },
         {
           "d": "20240628",
@@ -35920,15 +36060,15 @@
         },
         {
           "d": "20240703",
-          "c": 538.7068
+          "c": 538.707
         },
         {
           "d": "20240704",
-          "c": 538.7068
+          "c": 538.707
         },
         {
           "d": "20240705",
-          "c": 541.8134
+          "c": 541.8135
         },
         {
           "d": "20240708",
@@ -35940,7 +36080,7 @@
         },
         {
           "d": "20240710",
-          "c": 548.3391
+          "c": 548.3389
         },
         {
           "d": "20240711",
@@ -35952,7 +36092,7 @@
         },
         {
           "d": "20240715",
-          "c": 548.544
+          "c": 548.5441
         },
         {
           "d": "20240716",
@@ -35968,11 +36108,11 @@
         },
         {
           "d": "20240719",
-          "c": 536.294
+          "c": 536.2941
         },
         {
           "d": "20240722",
-          "c": 541.8233
+          "c": 541.8232
         },
         {
           "d": "20240723",
@@ -35988,7 +36128,7 @@
         },
         {
           "d": "20240730",
-          "c": 529.4658
+          "c": 529.4656
         },
         {
           "d": "20240731",
@@ -36008,7 +36148,7 @@
         },
         {
           "d": "20240806",
-          "c": 510.0748
+          "c": 510.0747
         },
         {
           "d": "20240807",
@@ -36020,7 +36160,7 @@
         },
         {
           "d": "20240809",
-          "c": 520.6641
+          "c": 520.6642
         },
         {
           "d": "20240812",
@@ -36028,11 +36168,11 @@
         },
         {
           "d": "20240813",
-          "c": 529.5048
+          "c": 529.5049
         },
         {
           "d": "20240814",
-          "c": 531.1752
+          "c": 531.1753
         },
         {
           "d": "20240815",
@@ -36048,11 +36188,11 @@
         },
         {
           "d": "20240820",
-          "c": 545.7796
+          "c": 545.7795
         },
         {
           "d": "20240821",
-          "c": 547.655
+          "c": 547.6552
         },
         {
           "d": "20240822",
@@ -36064,7 +36204,7 @@
         },
         {
           "d": "20240826",
-          "c": 547.8212
+          "c": 547.8211
         },
         {
           "d": "20240827",
@@ -36072,7 +36212,7 @@
         },
         {
           "d": "20240828",
-          "c": 545.3889
+          "c": 545.3887
         },
         {
           "d": "20240829",
@@ -36080,11 +36220,11 @@
         },
         {
           "d": "20240830",
-          "c": 550.6443
+          "c": 550.6444
         },
         {
           "d": "20240902",
-          "c": 550.6443
+          "c": 550.6444
         },
         {
           "d": "20240903",
@@ -36092,15 +36232,15 @@
         },
         {
           "d": "20240904",
-          "c": 538.2087
+          "c": 538.2088
         },
         {
           "d": "20240905",
-          "c": 536.8997
+          "c": 536.8998
         },
         {
           "d": "20240906",
-          "c": 527.8637
+          "c": 527.8636
         },
         {
           "d": "20240909",
@@ -36112,7 +36252,7 @@
         },
         {
           "d": "20240911",
-          "c": 541.5984
+          "c": 541.5986
         },
         {
           "d": "20240912",
@@ -36120,7 +36260,7 @@
         },
         {
           "d": "20240913",
-          "c": 549.0129
+          "c": 549.0131
         },
         {
           "d": "20240916",
@@ -36132,11 +36272,11 @@
         },
         {
           "d": "20240919",
-          "c": 557.7756
+          "c": 557.7755
         },
         {
           "d": "20240920",
-          "c": 556.8113
+          "c": 556.8114
         },
         {
           "d": "20240923",
@@ -36144,11 +36284,11 @@
         },
         {
           "d": "20240924",
-          "c": 559.8
+          "c": 559.7999
         },
         {
           "d": "20240925",
-          "c": 558.5652
+          "c": 558.5653
         },
         {
           "d": "20240926",
@@ -36172,7 +36312,7 @@
         },
         {
           "d": "20241007",
-          "c": 556.3704
+          "c": 556.3703
         },
         {
           "d": "20241008",
@@ -36188,7 +36328,7 @@
         },
         {
           "d": "20241014",
-          "c": 572.5579
+          "c": 572.5578
         },
         {
           "d": "20241015",
@@ -36212,7 +36352,7 @@
         },
         {
           "d": "20241022",
-          "c": 571.578
+          "c": 571.5779
         },
         {
           "d": "20241023",
@@ -36224,7 +36364,7 @@
         },
         {
           "d": "20241025",
-          "c": 567.3841
+          "c": 567.3842
         },
         {
           "d": "20241028",
@@ -36236,7 +36376,7 @@
         },
         {
           "d": "20241030",
-          "c": 568.3346
+          "c": 568.3345
         },
         {
           "d": "20241101",
@@ -36248,7 +36388,7 @@
         },
         {
           "d": "20241105",
-          "c": 565.0912
+          "c": 565.0913
         },
         {
           "d": "20241106",
@@ -36280,7 +36420,7 @@
         },
         {
           "d": "20241115",
-          "c": 573.9592
+          "c": 573.9591
         },
         {
           "d": "20241118",
@@ -36292,7 +36432,7 @@
         },
         {
           "d": "20241120",
-          "c": 578.6134
+          "c": 578.6135
         },
         {
           "d": "20241121",
@@ -36300,15 +36440,15 @@
         },
         {
           "d": "20241122",
-          "c": 583.5227
+          "c": 583.5226
         },
         {
           "d": "20241125",
-          "c": 585.5019
+          "c": 585.5021
         },
         {
           "d": "20241126",
-          "c": 588.5591
+          "c": 588.5592
         },
         {
           "d": "20241127",
@@ -36324,7 +36464,7 @@
         },
         {
           "d": "20241202",
-          "c": 591.4791
+          "c": 591.4792
         },
         {
           "d": "20241203",
@@ -36332,7 +36472,7 @@
         },
         {
           "d": "20241204",
-          "c": 595.4279
+          "c": 595.428
         },
         {
           "d": "20241205",
@@ -36340,7 +36480,7 @@
         },
         {
           "d": "20241206",
-          "c": 595.5751
+          "c": 595.575
         },
         {
           "d": "20241209",
@@ -36348,15 +36488,15 @@
         },
         {
           "d": "20241210",
-          "c": 590.6659
+          "c": 590.6658
         },
         {
           "d": "20241211",
-          "c": 595.232
+          "c": 595.2321
         },
         {
           "d": "20241212",
-          "c": 592.1651
+          "c": 592.165
         },
         {
           "d": "20241213",
@@ -36368,15 +36508,15 @@
         },
         {
           "d": "20241217",
-          "c": 592.1259
+          "c": 592.1258
         },
         {
           "d": "20241218",
-          "c": 574.4785
+          "c": 574.4784
         },
         {
           "d": "20241219",
-          "c": 574.302
+          "c": 574.3019
         },
         {
           "d": "20241220",
@@ -36400,11 +36540,11 @@
         },
         {
           "d": "20241227",
-          "c": 584.995
+          "c": 584.9949
         },
         {
           "d": "20241230",
-          "c": 578.3193
+          "c": 578.3192
         },
         {
           "d": "20241231",
@@ -36420,7 +36560,7 @@
         },
         {
           "d": "20250106",
-          "c": 585.3391
+          "c": 585.339
         },
         {
           "d": "20250107",
@@ -36436,7 +36576,7 @@
         },
         {
           "d": "20250110",
-          "c": 570.7194
+          "c": 570.7193
         },
         {
           "d": "20250113",
@@ -36452,7 +36592,7 @@
         },
         {
           "d": "20250116",
-          "c": 581.6817
+          "c": 581.6818
         },
         {
           "d": "20250117",
@@ -36464,11 +36604,11 @@
         },
         {
           "d": "20250121",
-          "c": 592.8997
+          "c": 592.8996
         },
         {
           "d": "20250122",
-          "c": 596.2326
+          "c": 596.2327
         },
         {
           "d": "20250203",
@@ -36488,11 +36628,11 @@
         },
         {
           "d": "20250207",
-          "c": 590.6581
+          "c": 590.658
         },
         {
           "d": "20250210",
-          "c": 594.6694
+          "c": 594.6693
         },
         {
           "d": "20250211",
@@ -36500,7 +36640,7 @@
         },
         {
           "d": "20250212",
-          "c": 593.2045
+          "c": 593.2043
         },
         {
           "d": "20250213",
@@ -36540,7 +36680,7 @@
         },
         {
           "d": "20250226",
-          "c": 584.5329
+          "c": 584.5328
         },
         {
           "d": "20250227",
@@ -36556,11 +36696,11 @@
         },
         {
           "d": "20250305",
-          "c": 573.246
+          "c": 573.2462
         },
         {
           "d": "20250306",
-          "c": 563.0703
+          "c": 563.0704
         },
         {
           "d": "20250307",
@@ -36576,15 +36716,15 @@
         },
         {
           "d": "20250312",
-          "c": 549.4633
+          "c": 549.4632
         },
         {
           "d": "20250313",
-          "c": 542.1386
+          "c": 542.1387
         },
         {
           "d": "20250314",
-          "c": 553.337
+          "c": 553.3369
         },
         {
           "d": "20250317",
@@ -36596,11 +36736,11 @@
         },
         {
           "d": "20250319",
-          "c": 557.5843
+          "c": 557.5842
         },
         {
           "d": "20250320",
-          "c": 555.9718
+          "c": 555.9719
         },
         {
           "d": "20250321",
@@ -36616,7 +36756,7 @@
         },
         {
           "d": "20250326",
-          "c": 560.7014
+          "c": 560.7013
         },
         {
           "d": "20250327",
@@ -36624,11 +36764,11 @@
         },
         {
           "d": "20250328",
-          "c": 547.9507
+          "c": 547.9506
         },
         {
           "d": "20250331",
-          "c": 551.629
+          "c": 551.6288
         },
         {
           "d": "20250401",
@@ -36636,7 +36776,7 @@
         },
         {
           "d": "20250402",
-          "c": 556.6878
+          "c": 556.6877
         },
         {
           "d": "20250407",
@@ -36680,7 +36820,7 @@
         },
         {
           "d": "20250421",
-          "c": 506.7504
+          "c": 506.7503
         },
         {
           "d": "20250422",
@@ -36704,7 +36844,7 @@
         },
         {
           "d": "20250429",
-          "c": 546.6294
+          "c": 546.6293
         },
         {
           "d": "20250430",
@@ -36720,7 +36860,7 @@
         },
         {
           "d": "20250506",
-          "c": 551.0472
+          "c": 551.0471
         },
         {
           "d": "20250507",
@@ -36740,7 +36880,7 @@
         },
         {
           "d": "20250513",
-          "c": 578.6981
+          "c": 578.6982
         },
         {
           "d": "20250514",
@@ -36748,11 +36888,11 @@
         },
         {
           "d": "20250515",
-          "c": 582.2679
+          "c": 582.2678
         },
         {
           "d": "20250516",
-          "c": 585.956
+          "c": 585.9559
         },
         {
           "d": "20250519",
@@ -36800,11 +36940,11 @@
         },
         {
           "d": "20250604",
-          "c": 587.662
+          "c": 587.6619
         },
         {
           "d": "20250605",
-          "c": 584.822
+          "c": 584.8219
         },
         {
           "d": "20250606",
@@ -36812,7 +36952,7 @@
         },
         {
           "d": "20250609",
-          "c": 591.3599
+          "c": 591.36
         },
         {
           "d": "20250610",
@@ -36828,23 +36968,23 @@
         },
         {
           "d": "20250613",
-          "c": 588.7171
+          "c": 588.7172
         },
         {
           "d": "20250616",
-          "c": 594.3184
+          "c": 594.3183
         },
         {
           "d": "20250617",
-          "c": 589.2398
+          "c": 589.2399
         },
         {
           "d": "20250618",
-          "c": 589.1511
+          "c": 589.1509
         },
         {
           "d": "20250619",
-          "c": 589.1511
+          "c": 589.1509
         },
         {
           "d": "20250620",
@@ -36852,7 +36992,7 @@
         },
         {
           "d": "20250623",
-          "c": 593.573
+          "c": 593.5731
         },
         {
           "d": "20250624",
@@ -36860,7 +37000,7 @@
         },
         {
           "d": "20250625",
-          "c": 600.4667
+          "c": 600.4666
         },
         {
           "d": "20250626",
@@ -36868,7 +37008,7 @@
         },
         {
           "d": "20250627",
-          "c": 608.1713
+          "c": 608.1712
         },
         {
           "d": "20250630",
@@ -36892,7 +37032,7 @@
         },
         {
           "d": "20250707",
-          "c": 613.8781
+          "c": 613.878
         },
         {
           "d": "20250708",
@@ -36920,11 +37060,11 @@
         },
         {
           "d": "20250716",
-          "c": 617.3793
+          "c": 617.3792
         },
         {
           "d": "20250717",
-          "c": 621.1574
+          "c": 621.1573
         },
         {
           "d": "20250718",
@@ -36940,7 +37080,7 @@
         },
         {
           "d": "20250723",
-          "c": 627.2599
+          "c": 627.2598
         },
         {
           "d": "20250724",
@@ -36948,11 +37088,11 @@
         },
         {
           "d": "20250725",
-          "c": 630.1182
+          "c": 630.1181
         },
         {
           "d": "20250728",
-          "c": 629.9598
+          "c": 629.9599
         },
         {
           "d": "20250729",
@@ -36960,11 +37100,11 @@
         },
         {
           "d": "20250730",
-          "c": 627.507
+          "c": 627.5071
         },
         {
           "d": "20250731",
-          "c": 625.1531
+          "c": 625.1532
         },
         {
           "d": "20250801",
@@ -36984,7 +37124,7 @@
         },
         {
           "d": "20250807",
-          "c": 625.3213
+          "c": 625.3212
         },
         {
           "d": "20250808",
@@ -37008,7 +37148,7 @@
         },
         {
           "d": "20250815",
-          "c": 636.3886
+          "c": 636.3887
         },
         {
           "d": "20250818",
@@ -37028,7 +37168,7 @@
         },
         {
           "d": "20250822",
-          "c": 638.2381
+          "c": 638.2382
         },
         {
           "d": "20250825",
@@ -37040,11 +37180,11 @@
         },
         {
           "d": "20250827",
-          "c": 639.5437
+          "c": 639.5436
         },
         {
           "d": "20250828",
-          "c": 641.8086
+          "c": 641.8085
         },
         {
           "d": "20250829",
@@ -37068,11 +37208,11 @@
         },
         {
           "d": "20250905",
-          "c": 640.1469
+          "c": 640.147
         },
         {
           "d": "20250908",
-          "c": 641.7196
+          "c": 641.7195
         },
         {
           "d": "20250909",
@@ -37080,19 +37220,19 @@
         },
         {
           "d": "20250910",
-          "c": 645.0625
+          "c": 645.0626
         },
         {
           "d": "20250911",
-          "c": 650.4232
+          "c": 650.4231
         },
         {
           "d": "20250912",
-          "c": 650.2054
+          "c": 650.2056
         },
         {
           "d": "20250915",
-          "c": 653.6671
+          "c": 653.6672
         },
         {
           "d": "20250916",
@@ -37112,7 +37252,7 @@
         },
         {
           "d": "20250922",
-          "c": 661.3608
+          "c": 661.3607
         },
         {
           "d": "20250923",
@@ -37172,7 +37312,7 @@
         },
         {
           "d": "20251016",
-          "c": 655.2116
+          "c": 655.2117
         },
         {
           "d": "20251017",
@@ -37200,7 +37340,7 @@
         },
         {
           "d": "20251028",
-          "c": 681.4146
+          "c": 681.4145
         },
         {
           "d": "20251029",
@@ -37236,7 +37376,7 @@
         },
         {
           "d": "20251110",
-          "c": 675.8407
+          "c": 675.8408
         },
         {
           "d": "20251111",
@@ -37260,7 +37400,7 @@
         },
         {
           "d": "20251118",
-          "c": 654.6563
+          "c": 654.6562
         },
         {
           "d": "20251119",
@@ -37276,11 +37416,11 @@
         },
         {
           "d": "20251124",
-          "c": 663.2351
+          "c": 663.2352
         },
         {
           "d": "20251125",
-          "c": 669.4735
+          "c": 669.4734
         },
         {
           "d": "20251126",
@@ -37328,7 +37468,7 @@
         },
         {
           "d": "20251211",
-          "c": 683.5072
+          "c": 683.5073
         },
         {
           "d": "20251212",
@@ -37356,7 +37496,7 @@
         },
         {
           "d": "20251222",
-          "c": 681.2099
+          "c": 681.2098
         },
         {
           "d": "20251223",
@@ -37376,7 +37516,7 @@
         },
         {
           "d": "20251230",
-          "c": 683.3784
+          "c": 683.3783
         },
         {
           "d": "20251231",
@@ -37388,7 +37528,7 @@
         },
         {
           "d": "20260105",
-          "c": 684.0845
+          "c": 684.0846
         },
         {
           "d": "20260106",
@@ -37488,7 +37628,7 @@
         },
         {
           "d": "20260209",
-          "c": 690.2817
+          "c": 690.2816
         },
         {
           "d": "20260210",
@@ -37516,7 +37656,7 @@
         },
         {
           "d": "20260302",
-          "c": 682.7517
+          "c": 682.7516
         },
         {
           "d": "20260303",
@@ -37524,19 +37664,19 @@
         },
         {
           "d": "20260304",
-          "c": 681.5082
+          "c": 681.5083
         },
         {
           "d": "20260305",
-          "c": 677.7085
+          "c": 677.7084
         },
         {
           "d": "20260306",
-          "c": 668.8257
+          "c": 668.8256
         },
         {
           "d": "20260309",
-          "c": 674.6846
+          "c": 674.6845
         },
         {
           "d": "20260310",
@@ -37568,7 +37708,7 @@
         },
         {
           "d": "20260319",
-          "c": 656.3122
+          "c": 656.3121
         },
         {
           "d": "20260320",
@@ -38011,8 +38151,12 @@
           "c": 766.08
         },
         {
-          "d": "20260828",
-          "c": 766.08
+          "d": "20260827",
+          "c": 771.1
+        },
+        {
+          "d": "20260831",
+          "c": 771.1
         }
       ],
       "mgmt_fee_raw": "0.09%",
@@ -38098,22 +38242,22 @@
         ]
       },
       "m1_return": "3.62%",
-      "total_return": 158.7,
-      "annualized_return": 15.36,
+      "total_return": 160.4,
+      "annualized_return": 15.45,
       "max_return": 162.69,
       "max_drawdown": -33.72,
-      "current_drawdown": -1.52,
-      "sharpe_ratio": 0.729,
-      "sortino_ratio": 1.166,
-      "calmar_ratio": 0.456,
-      "alpha": 8.82,
+      "current_drawdown": -0.87,
+      "sharpe_ratio": 0.734,
+      "sortino_ratio": 1.173,
+      "calmar_ratio": 0.458,
+      "alpha": 8.96,
       "beta": 0.169
     },
     {
       "code": "QQQ",
       "name": "Invesco QQQ Trust (納斯達克100基金)",
       "issuer": "Invesco",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20251103",
       "n_days": 176,
       "n_current": 101,
@@ -38141,8 +38285,8 @@
       "benefit": 1580000,
       "listing_date": "19990310",
       "pre_listing_snapshot": false,
-      "close_price": 711.37,
-      "nav": 711.37,
+      "close_price": 721.11,
+      "nav": 721.11,
       "nav_date": "20260728",
       "premium_pct": -0.01,
       "price_series": [
@@ -38156,7 +38300,7 @@
         },
         {
           "d": "20200106",
-          "c": 207.5113
+          "c": 207.5112
         },
         {
           "d": "20200107",
@@ -38176,7 +38320,7 @@
         },
         {
           "d": "20200113",
-          "c": 212.7
+          "c": 212.7001
         },
         {
           "d": "20200114",
@@ -38216,7 +38360,7 @@
         },
         {
           "d": "20200205",
-          "c": 219.6985
+          "c": 219.6986
         },
         {
           "d": "20200206",
@@ -38224,15 +38368,15 @@
         },
         {
           "d": "20200207",
-          "c": 220.642
+          "c": 220.6419
         },
         {
           "d": "20200210",
-          "c": 223.3085
+          "c": 223.3086
         },
         {
           "d": "20200211",
-          "c": 223.347
+          "c": 223.3471
         },
         {
           "d": "20200212",
@@ -38244,11 +38388,11 @@
         },
         {
           "d": "20200214",
-          "c": 225.8789
+          "c": 225.8788
         },
         {
           "d": "20200217",
-          "c": 225.8789
+          "c": 225.8788
         },
         {
           "d": "20200218",
@@ -38264,7 +38408,7 @@
         },
         {
           "d": "20200221",
-          "c": 221.672
+          "c": 221.6721
         },
         {
           "d": "20200224",
@@ -38272,7 +38416,7 @@
         },
         {
           "d": "20200225",
-          "c": 207.3284
+          "c": 207.3283
         },
         {
           "d": "20200226",
@@ -38292,7 +38436,7 @@
         },
         {
           "d": "20200304",
-          "c": 210.0719
+          "c": 210.072
         },
         {
           "d": "20200305",
@@ -38300,11 +38444,11 @@
         },
         {
           "d": "20200306",
-          "c": 200.2529
+          "c": 200.2528
         },
         {
           "d": "20200309",
-          "c": 186.3423
+          "c": 186.3424
         },
         {
           "d": "20200310",
@@ -38320,7 +38464,7 @@
         },
         {
           "d": "20200313",
-          "c": 185.1582
+          "c": 185.1583
         },
         {
           "d": "20200316",
@@ -38328,7 +38472,7 @@
         },
         {
           "d": "20200317",
-          "c": 175.3391
+          "c": 175.3392
         },
         {
           "d": "20200318",
@@ -38348,7 +38492,7 @@
         },
         {
           "d": "20200324",
-          "c": 177.1792
+          "c": 177.1791
         },
         {
           "d": "20200325",
@@ -38364,7 +38508,7 @@
         },
         {
           "d": "20200330",
-          "c": 185.2635
+          "c": 185.2634
         },
         {
           "d": "20200331",
@@ -38380,11 +38524,11 @@
         },
         {
           "d": "20200407",
-          "c": 189.4696
+          "c": 189.4695
         },
         {
           "d": "20200408",
-          "c": 193.4925
+          "c": 193.4924
         },
         {
           "d": "20200409",
@@ -38424,7 +38568,7 @@
         },
         {
           "d": "20200422",
-          "c": 203.5255
+          "c": 203.5254
         },
         {
           "d": "20200423",
@@ -38496,7 +38640,7 @@
         },
         {
           "d": "20200519",
-          "c": 218.8547
+          "c": 218.8548
         },
         {
           "d": "20200520",
@@ -38504,7 +38648,7 @@
         },
         {
           "d": "20200521",
-          "c": 220.7938
+          "c": 220.7939
         },
         {
           "d": "20200522",
@@ -38540,11 +38684,11 @@
         },
         {
           "d": "20200603",
-          "c": 228.3379
+          "c": 228.3378
         },
         {
           "d": "20200604",
-          "c": 226.7364
+          "c": 226.7365
         },
         {
           "d": "20200605",
@@ -38552,7 +38696,7 @@
         },
         {
           "d": "20200608",
-          "c": 233.0263
+          "c": 233.0264
         },
         {
           "d": "20200609",
@@ -38568,7 +38712,7 @@
         },
         {
           "d": "20200612",
-          "c": 227.5564
+          "c": 227.5565
         },
         {
           "d": "20200615",
@@ -38632,11 +38776,11 @@
         },
         {
           "d": "20200708",
-          "c": 251.2518
+          "c": 251.2519
         },
         {
           "d": "20200709",
-          "c": 253.3683
+          "c": 253.3682
         },
         {
           "d": "20200710",
@@ -38664,7 +38808,7 @@
         },
         {
           "d": "20200720",
-          "c": 257.8137
+          "c": 257.8136
         },
         {
           "d": "20200721",
@@ -38680,15 +38824,15 @@
         },
         {
           "d": "20200724",
-          "c": 246.9708
+          "c": 246.9707
         },
         {
           "d": "20200727",
-          "c": 251.3775
+          "c": 251.3774
         },
         {
           "d": "20200728",
-          "c": 248.1787
+          "c": 248.1788
         },
         {
           "d": "20200729",
@@ -38700,11 +38844,11 @@
         },
         {
           "d": "20200731",
-          "c": 256.857
+          "c": 256.8569
         },
         {
           "d": "20200803",
-          "c": 260.3263
+          "c": 260.3262
         },
         {
           "d": "20200804",
@@ -38712,7 +38856,7 @@
         },
         {
           "d": "20200805",
-          "c": 261.9401
+          "c": 261.9402
         },
         {
           "d": "20200806",
@@ -38720,7 +38864,7 @@
         },
         {
           "d": "20200807",
-          "c": 262.3461
+          "c": 262.346
         },
         {
           "d": "20200810",
@@ -38728,7 +38872,7 @@
         },
         {
           "d": "20200811",
-          "c": 256.2771
+          "c": 256.277
         },
         {
           "d": "20200812",
@@ -38748,19 +38892,19 @@
         },
         {
           "d": "20200818",
-          "c": 268.6274
+          "c": 268.6275
         },
         {
           "d": "20200819",
-          "c": 266.8204
+          "c": 266.8203
         },
         {
           "d": "20200820",
-          "c": 270.5217
+          "c": 270.5216
         },
         {
           "d": "20200821",
-          "c": 272.3965
+          "c": 272.3964
         },
         {
           "d": "20200824",
@@ -38768,11 +38912,11 @@
         },
         {
           "d": "20200825",
-          "c": 276.2523
+          "c": 276.2524
         },
         {
           "d": "20200826",
-          "c": 282.1474
+          "c": 282.1473
         },
         {
           "d": "20200827",
@@ -38780,11 +38924,11 @@
         },
         {
           "d": "20200828",
-          "c": 282.6981
+          "c": 282.6982
         },
         {
           "d": "20200831",
-          "c": 284.9692
+          "c": 284.9693
         },
         {
           "d": "20200901",
@@ -38792,7 +38936,7 @@
         },
         {
           "d": "20200902",
-          "c": 292.5843
+          "c": 292.5844
         },
         {
           "d": "20200903",
@@ -38820,23 +38964,23 @@
         },
         {
           "d": "20200911",
-          "c": 261.3603
+          "c": 261.3602
         },
         {
           "d": "20200914",
-          "c": 265.9119
+          "c": 265.912
         },
         {
           "d": "20200915",
-          "c": 269.6809
+          "c": 269.681
         },
         {
           "d": "20200916",
-          "c": 265.3805
+          "c": 265.3804
         },
         {
           "d": "20200917",
-          "c": 261.2346
+          "c": 261.2347
         },
         {
           "d": "20200918",
@@ -38856,7 +39000,7 @@
         },
         {
           "d": "20200924",
-          "c": 256.4704
+          "c": 256.4703
         },
         {
           "d": "20200925",
@@ -38864,11 +39008,11 @@
         },
         {
           "d": "20200928",
-          "c": 267.8835
+          "c": 267.8834
         },
         {
           "d": "20200929",
-          "c": 266.6754
+          "c": 266.6755
         },
         {
           "d": "20200930",
@@ -38880,15 +39024,15 @@
         },
         {
           "d": "20201006",
-          "c": 265.9119
+          "c": 265.912
         },
         {
           "d": "20201007",
-          "c": 270.512
+          "c": 270.5121
         },
         {
           "d": "20201008",
-          "c": 271.9519
+          "c": 271.9518
         },
         {
           "d": "20201012",
@@ -38900,7 +39044,7 @@
         },
         {
           "d": "20201014",
-          "c": 282.244
+          "c": 282.2439
         },
         {
           "d": "20201015",
@@ -38932,15 +39076,15 @@
         },
         {
           "d": "20201026",
-          "c": 271.0435
+          "c": 271.0436
         },
         {
           "d": "20201027",
-          "c": 273.1598
+          "c": 273.1599
         },
         {
           "d": "20201028",
-          "c": 262.5104
+          "c": 262.5103
         },
         {
           "d": "20201029",
@@ -38948,11 +39092,11 @@
         },
         {
           "d": "20201030",
-          "c": 260.3263
+          "c": 260.3262
         },
         {
           "d": "20201102",
-          "c": 260.9061
+          "c": 260.906
         },
         {
           "d": "20201103",
@@ -38960,19 +39104,19 @@
         },
         {
           "d": "20201104",
-          "c": 277.2671
+          "c": 277.267
         },
         {
           "d": "20201105",
-          "c": 284.4957
+          "c": 284.4956
         },
         {
           "d": "20201106",
-          "c": 284.7083
+          "c": 284.7082
         },
         {
           "d": "20201109",
-          "c": 278.8906
+          "c": 278.8905
         },
         {
           "d": "20201110",
@@ -38984,11 +39128,11 @@
         },
         {
           "d": "20201112",
-          "c": 278.7069
+          "c": 278.707
         },
         {
           "d": "20201113",
-          "c": 281.152
+          "c": 281.1519
         },
         {
           "d": "20201116",
@@ -38996,7 +39140,7 @@
         },
         {
           "d": "20201117",
-          "c": 282.4469
+          "c": 282.447
         },
         {
           "d": "20201118",
@@ -39004,19 +39148,19 @@
         },
         {
           "d": "20201119",
-          "c": 282.5532
+          "c": 282.5533
         },
         {
           "d": "20201120",
-          "c": 280.6204
+          "c": 280.6205
         },
         {
           "d": "20201123",
-          "c": 280.6302
+          "c": 280.6301
         },
         {
           "d": "20201124",
-          "c": 284.5729
+          "c": 284.573
         },
         {
           "d": "20201125",
@@ -39028,7 +39172,7 @@
         },
         {
           "d": "20201127",
-          "c": 288.9605
+          "c": 288.9604
         },
         {
           "d": "20201130",
@@ -39036,7 +39180,7 @@
         },
         {
           "d": "20201201",
-          "c": 293.2608
+          "c": 293.2609
         },
         {
           "d": "20201202",
@@ -39052,7 +39196,7 @@
         },
         {
           "d": "20201207",
-          "c": 296.9234
+          "c": 296.9235
         },
         {
           "d": "20201208",
@@ -39060,7 +39204,7 @@
         },
         {
           "d": "20201209",
-          "c": 291.1832
+          "c": 291.1831
         },
         {
           "d": "20201210",
@@ -39084,31 +39228,31 @@
         },
         {
           "d": "20201217",
-          "c": 300.5474
+          "c": 300.5475
         },
         {
           "d": "20201218",
-          "c": 299.639
+          "c": 299.6391
         },
         {
           "d": "20201221",
-          "c": 299.0784
+          "c": 299.0785
         },
         {
           "d": "20201222",
-          "c": 299.8918
+          "c": 299.8917
         },
         {
           "d": "20201223",
-          "c": 298.3813
+          "c": 298.3814
         },
         {
           "d": "20201224",
-          "c": 299.698
+          "c": 299.6981
         },
         {
           "d": "20201225",
-          "c": 299.698
+          "c": 299.6981
         },
         {
           "d": "20201228",
@@ -39120,7 +39264,7 @@
         },
         {
           "d": "20201230",
-          "c": 302.9995
+          "c": 302.9994
         },
         {
           "d": "20201231",
@@ -39128,11 +39272,11 @@
         },
         {
           "d": "20210104",
-          "c": 299.456
+          "c": 299.4561
         },
         {
           "d": "20210105",
-          "c": 301.9247
+          "c": 301.9248
         },
         {
           "d": "20210106",
@@ -39140,11 +39284,11 @@
         },
         {
           "d": "20210107",
-          "c": 304.9455
+          "c": 304.9454
         },
         {
           "d": "20210108",
-          "c": 308.8663
+          "c": 308.8664
         },
         {
           "d": "20210111",
@@ -39152,7 +39296,7 @@
         },
         {
           "d": "20210112",
-          "c": 303.9192
+          "c": 303.9191
         },
         {
           "d": "20210113",
@@ -39160,15 +39304,15 @@
         },
         {
           "d": "20210114",
-          "c": 304.3354
+          "c": 304.3355
         },
         {
           "d": "20210115",
-          "c": 301.9247
+          "c": 301.9248
         },
         {
           "d": "20210118",
-          "c": 301.9247
+          "c": 301.9248
         },
         {
           "d": "20210119",
@@ -39188,11 +39332,11 @@
         },
         {
           "d": "20210125",
-          "c": 317.657
+          "c": 317.6571
         },
         {
           "d": "20210126",
-          "c": 318.1218
+          "c": 318.1219
         },
         {
           "d": "20210127",
@@ -39200,11 +39344,11 @@
         },
         {
           "d": "20210128",
-          "c": 311.0834
+          "c": 311.0835
         },
         {
           "d": "20210129",
-          "c": 304.5388
+          "c": 304.5387
         },
         {
           "d": "20210201",
@@ -39212,7 +39356,7 @@
         },
         {
           "d": "20210202",
-          "c": 317.2408
+          "c": 317.2409
         },
         {
           "d": "20210203",
@@ -39220,11 +39364,11 @@
         },
         {
           "d": "20210204",
-          "c": 319.7192
+          "c": 319.7193
         },
         {
           "d": "20210205",
-          "c": 320.8036
+          "c": 320.8035
         },
         {
           "d": "20210217",
@@ -39248,7 +39392,7 @@
         },
         {
           "d": "20210224",
-          "c": 313.804
+          "c": 313.8039
         },
         {
           "d": "20210225",
@@ -39260,11 +39404,11 @@
         },
         {
           "d": "20210302",
-          "c": 308.2564
+          "c": 308.2565
         },
         {
           "d": "20210303",
-          "c": 299.3108
+          "c": 299.3107
         },
         {
           "d": "20210304",
@@ -39272,7 +39416,7 @@
         },
         {
           "d": "20210305",
-          "c": 298.8461
+          "c": 298.8462
         },
         {
           "d": "20210308",
@@ -39280,7 +39424,7 @@
         },
         {
           "d": "20210309",
-          "c": 301.8376
+          "c": 301.8377
         },
         {
           "d": "20210310",
@@ -39292,7 +39436,7 @@
         },
         {
           "d": "20210312",
-          "c": 305.4102
+          "c": 305.4101
         },
         {
           "d": "20210315",
@@ -39316,7 +39460,7 @@
         },
         {
           "d": "20210322",
-          "c": 308.8494
+          "c": 308.8493
         },
         {
           "d": "20210323",
@@ -39324,11 +39468,11 @@
         },
         {
           "d": "20210324",
-          "c": 302.3157
+          "c": 302.3158
         },
         {
           "d": "20210325",
-          "c": 301.7923
+          "c": 301.7924
         },
         {
           "d": "20210326",
@@ -39344,7 +39488,7 @@
         },
         {
           "d": "20210331",
-          "c": 309.3535
+          "c": 309.3533
         },
         {
           "d": "20210401",
@@ -39352,7 +39496,7 @@
         },
         {
           "d": "20210407",
-          "c": 321.4608
+          "c": 321.4607
         },
         {
           "d": "20210408",
@@ -39372,7 +39516,7 @@
         },
         {
           "d": "20210414",
-          "c": 326.2009
+          "c": 326.201
         },
         {
           "d": "20210415",
@@ -39380,7 +39524,7 @@
         },
         {
           "d": "20210416",
-          "c": 331.5324
+          "c": 331.5325
         },
         {
           "d": "20210419",
@@ -39388,7 +39532,7 @@
         },
         {
           "d": "20210420",
-          "c": 326.1041
+          "c": 326.104
         },
         {
           "d": "20210421",
@@ -39400,19 +39544,19 @@
         },
         {
           "d": "20210423",
-          "c": 329.0218
+          "c": 329.0219
         },
         {
           "d": "20210426",
-          "c": 331.164
+          "c": 331.1641
         },
         {
           "d": "20210427",
-          "c": 329.7294
+          "c": 329.7295
         },
         {
           "d": "20210428",
-          "c": 328.6146
+          "c": 328.6147
         },
         {
           "d": "20210429",
@@ -39420,7 +39564,7 @@
         },
         {
           "d": "20210503",
-          "c": 325.8907
+          "c": 325.8908
         },
         {
           "d": "20210504",
@@ -39428,11 +39572,11 @@
         },
         {
           "d": "20210505",
-          "c": 318.9501
+          "c": 318.9502
         },
         {
           "d": "20210506",
-          "c": 321.3541
+          "c": 321.3542
         },
         {
           "d": "20210507",
@@ -39444,15 +39588,15 @@
         },
         {
           "d": "20210511",
-          "c": 315.344
+          "c": 315.3441
         },
         {
           "d": "20210512",
-          "c": 307.1821
+          "c": 307.182
         },
         {
           "d": "20210513",
-          "c": 309.5569
+          "c": 309.557
         },
         {
           "d": "20210514",
@@ -39468,7 +39612,7 @@
         },
         {
           "d": "20210519",
-          "c": 312.7075
+          "c": 312.7074
         },
         {
           "d": "20210520",
@@ -39504,11 +39648,11 @@
         },
         {
           "d": "20210601",
-          "c": 322.624
+          "c": 322.6241
         },
         {
           "d": "20210602",
-          "c": 323.2542
+          "c": 323.2541
         },
         {
           "d": "20210603",
@@ -39516,7 +39660,7 @@
         },
         {
           "d": "20210604",
-          "c": 325.3189
+          "c": 325.3188
         },
         {
           "d": "20210607",
@@ -39540,11 +39684,11 @@
         },
         {
           "d": "20210615",
-          "c": 331.7748
+          "c": 331.7749
         },
         {
           "d": "20210616",
-          "c": 330.5631
+          "c": 330.5632
         },
         {
           "d": "20210617",
@@ -39564,11 +39708,11 @@
         },
         {
           "d": "20210623",
-          "c": 337.4779
+          "c": 337.478
         },
         {
           "d": "20210624",
-          "c": 339.5646
+          "c": 339.5645
         },
         {
           "d": "20210625",
@@ -39584,7 +39728,7 @@
         },
         {
           "d": "20210630",
-          "c": 343.9705
+          "c": 343.9706
         },
         {
           "d": "20210701",
@@ -39592,23 +39736,23 @@
         },
         {
           "d": "20210702",
-          "c": 348.0564
+          "c": 348.0562
         },
         {
           "d": "20210705",
-          "c": 348.0564
+          "c": 348.0562
         },
         {
           "d": "20210706",
-          "c": 349.5606
+          "c": 349.5605
         },
         {
           "d": "20210707",
-          "c": 350.2982
+          "c": 350.2981
         },
         {
           "d": "20210708",
-          "c": 348.1824
+          "c": 348.1825
         },
         {
           "d": "20210709",
@@ -39616,11 +39760,11 @@
         },
         {
           "d": "20210712",
-          "c": 351.7247
+          "c": 351.7248
         },
         {
           "d": "20210713",
-          "c": 351.7247
+          "c": 351.7248
         },
         {
           "d": "20210714",
@@ -39628,7 +39772,7 @@
         },
         {
           "d": "20210715",
-          "c": 349.8807
+          "c": 349.8808
         },
         {
           "d": "20210716",
@@ -39636,11 +39780,11 @@
         },
         {
           "d": "20210719",
-          "c": 344.2034
+          "c": 344.2035
         },
         {
           "d": "20210720",
-          "c": 348.2019
+          "c": 348.2018
         },
         {
           "d": "20210721",
@@ -39648,7 +39792,7 @@
         },
         {
           "d": "20210722",
-          "c": 353.2097
+          "c": 353.2096
         },
         {
           "d": "20210723",
@@ -39672,7 +39816,7 @@
         },
         {
           "d": "20210730",
-          "c": 353.8113
+          "c": 353.8112
         },
         {
           "d": "20210802",
@@ -39688,11 +39832,11 @@
         },
         {
           "d": "20210805",
-          "c": 358.7608
+          "c": 358.7607
         },
         {
           "d": "20210806",
-          "c": 357.1885
+          "c": 357.1886
         },
         {
           "d": "20210809",
@@ -39708,7 +39852,7 @@
         },
         {
           "d": "20210812",
-          "c": 356.6839
+          "c": 356.684
         },
         {
           "d": "20210813",
@@ -39720,19 +39864,19 @@
         },
         {
           "d": "20210817",
-          "c": 354.937
+          "c": 354.9371
         },
         {
           "d": "20210818",
-          "c": 351.5209
+          "c": 351.521
         },
         {
           "d": "20210819",
-          "c": 353.2192
+          "c": 353.2194
         },
         {
           "d": "20210820",
-          "c": 356.878
+          "c": 356.8781
         },
         {
           "d": "20210823",
@@ -39744,23 +39888,23 @@
         },
         {
           "d": "20210825",
-          "c": 363.7393
+          "c": 363.7394
         },
         {
           "d": "20210826",
-          "c": 361.4297
+          "c": 361.4296
         },
         {
           "d": "20210827",
-          "c": 364.9428
+          "c": 364.9429
         },
         {
           "d": "20210830",
-          "c": 369.0382
+          "c": 369.0383
         },
         {
           "d": "20210831",
-          "c": 368.7375
+          "c": 368.7374
         },
         {
           "d": "20210901",
@@ -39768,15 +39912,15 @@
         },
         {
           "d": "20210902",
-          "c": 369.1742
+          "c": 369.1741
         },
         {
           "d": "20210903",
-          "c": 370.3096
+          "c": 370.3097
         },
         {
           "d": "20210906",
-          "c": 370.3096
+          "c": 370.3097
         },
         {
           "d": "20210907",
@@ -39784,11 +39928,11 @@
         },
         {
           "d": "20210908",
-          "c": 369.5429
+          "c": 369.543
         },
         {
           "d": "20210909",
-          "c": 368.2715
+          "c": 368.2716
         },
         {
           "d": "20210910",
@@ -39800,7 +39944,7 @@
         },
         {
           "d": "20210914",
-          "c": 364.1859
+          "c": 364.1858
         },
         {
           "d": "20210915",
@@ -39812,7 +39956,7 @@
         },
         {
           "d": "20210917",
-          "c": 362.798
+          "c": 362.7979
         },
         {
           "d": "20210922",
@@ -39820,11 +39964,11 @@
         },
         {
           "d": "20210923",
-          "c": 362.3745
+          "c": 362.3744
         },
         {
           "d": "20210924",
-          "c": 362.7145
+          "c": 362.7144
         },
         {
           "d": "20210927",
@@ -39836,7 +39980,7 @@
         },
         {
           "d": "20210929",
-          "c": 349.064
+          "c": 349.0639
         },
         {
           "d": "20210930",
@@ -39844,7 +39988,7 @@
         },
         {
           "d": "20211001",
-          "c": 349.9383
+          "c": 349.9384
         },
         {
           "d": "20211004",
@@ -39864,7 +40008,7 @@
         },
         {
           "d": "20211008",
-          "c": 350.8905
+          "c": 350.8904
         },
         {
           "d": "20211012",
@@ -39876,7 +40020,7 @@
         },
         {
           "d": "20211014",
-          "c": 356.205
+          "c": 356.2049
         },
         {
           "d": "20211015",
@@ -39884,7 +40028,7 @@
         },
         {
           "d": "20211018",
-          "c": 362.0538
+          "c": 362.0539
         },
         {
           "d": "20211019",
@@ -39892,7 +40036,7 @@
         },
         {
           "d": "20211020",
-          "c": 364.3175
+          "c": 364.3176
         },
         {
           "d": "20211021",
@@ -39900,19 +40044,19 @@
         },
         {
           "d": "20211022",
-          "c": 363.4626
+          "c": 363.4625
         },
         {
           "d": "20211025",
-          "c": 367.1836
+          "c": 367.1837
         },
         {
           "d": "20211026",
-          "c": 368.3398
+          "c": 368.3399
         },
         {
           "d": "20211027",
-          "c": 369.1948
+          "c": 369.1947
         },
         {
           "d": "20211028",
@@ -39928,7 +40072,7 @@
         },
         {
           "d": "20211102",
-          "c": 377.9875
+          "c": 377.9874
         },
         {
           "d": "20211103",
@@ -39936,11 +40080,11 @@
         },
         {
           "d": "20211104",
-          "c": 386.8967
+          "c": 386.8968
         },
         {
           "d": "20211105",
-          "c": 387.2658
+          "c": 387.2659
         },
         {
           "d": "20211108",
@@ -39964,7 +40108,7 @@
         },
         {
           "d": "20211115",
-          "c": 383.3894
+          "c": 383.3893
         },
         {
           "d": "20211116",
@@ -39976,11 +40120,11 @@
         },
         {
           "d": "20211118",
-          "c": 390.3264
+          "c": 390.3263
         },
         {
           "d": "20211119",
-          "c": 392.5027
+          "c": 392.5026
         },
         {
           "d": "20211122",
@@ -39988,15 +40132,15 @@
         },
         {
           "d": "20211123",
-          "c": 386.1778
+          "c": 386.1777
         },
         {
           "d": "20211124",
-          "c": 387.4214
+          "c": 387.4213
         },
         {
           "d": "20211125",
-          "c": 387.4214
+          "c": 387.4213
         },
         {
           "d": "20211126",
@@ -40004,27 +40148,27 @@
         },
         {
           "d": "20211129",
-          "c": 388.325
+          "c": 388.3249
         },
         {
           "d": "20211130",
-          "c": 382.6218
+          "c": 382.6219
         },
         {
           "d": "20211201",
-          "c": 376.1123
+          "c": 376.1124
         },
         {
           "d": "20211202",
-          "c": 378.823
+          "c": 378.8231
         },
         {
           "d": "20211203",
-          "c": 372.2358
+          "c": 372.2359
         },
         {
           "d": "20211206",
-          "c": 375.2186
+          "c": 375.2185
         },
         {
           "d": "20211207",
@@ -40032,19 +40176,19 @@
         },
         {
           "d": "20211208",
-          "c": 388.2471
+          "c": 388.2472
         },
         {
           "d": "20211209",
-          "c": 382.5345
+          "c": 382.5344
         },
         {
           "d": "20211210",
-          "c": 386.6927
+          "c": 386.6928
         },
         {
           "d": "20211213",
-          "c": 381.1062
+          "c": 381.1061
         },
         {
           "d": "20211214",
@@ -40068,7 +40212,7 @@
         },
         {
           "d": "20211221",
-          "c": 378.6258
+          "c": 378.6259
         },
         {
           "d": "20211222",
@@ -40076,11 +40220,11 @@
         },
         {
           "d": "20211223",
-          "c": 386.1262
+          "c": 386.1263
         },
         {
           "d": "20211224",
-          "c": 386.1262
+          "c": 386.1263
         },
         {
           "d": "20211227",
@@ -40092,15 +40236,15 @@
         },
         {
           "d": "20211229",
-          "c": 390.6303
+          "c": 390.6304
         },
         {
           "d": "20211230",
-          "c": 389.4629
+          "c": 389.463
         },
         {
           "d": "20220103",
-          "c": 390.7569
+          "c": 390.7567
         },
         {
           "d": "20220104",
@@ -40156,7 +40300,7 @@
         },
         {
           "d": "20220121",
-          "c": 342.1263
+          "c": 342.1262
         },
         {
           "d": "20220124",
@@ -40164,11 +40308,11 @@
         },
         {
           "d": "20220125",
-          "c": 335.7251
+          "c": 335.7252
         },
         {
           "d": "20220126",
-          "c": 335.1999
+          "c": 335.1998
         },
         {
           "d": "20220207",
@@ -40176,7 +40320,7 @@
         },
         {
           "d": "20220208",
-          "c": 349.3542
+          "c": 349.3541
         },
         {
           "d": "20220209",
@@ -40184,7 +40328,7 @@
         },
         {
           "d": "20220210",
-          "c": 348.6829
+          "c": 348.6828
         },
         {
           "d": "20220211",
@@ -40192,7 +40336,7 @@
         },
         {
           "d": "20220214",
-          "c": 338.0404
+          "c": 338.0403
         },
         {
           "d": "20220215",
@@ -40208,23 +40352,23 @@
         },
         {
           "d": "20220218",
-          "c": 332.223
+          "c": 332.2231
         },
         {
           "d": "20220221",
-          "c": 332.223
+          "c": 332.2231
         },
         {
           "d": "20220222",
-          "c": 328.8863
+          "c": 328.8864
         },
         {
           "d": "20220223",
-          "c": 320.4619
+          "c": 320.4618
         },
         {
           "d": "20220224",
-          "c": 331.2307
+          "c": 331.2308
         },
         {
           "d": "20220225",
@@ -40236,7 +40380,7 @@
         },
         {
           "d": "20220302",
-          "c": 337.7778
+          "c": 337.7777
         },
         {
           "d": "20220303",
@@ -40248,7 +40392,7 @@
         },
         {
           "d": "20220307",
-          "c": 316.0258
+          "c": 316.0257
         },
         {
           "d": "20220308",
@@ -40260,7 +40404,7 @@
         },
         {
           "d": "20220310",
-          "c": 322.2616
+          "c": 322.2614
         },
         {
           "d": "20220311",
@@ -40280,7 +40424,7 @@
         },
         {
           "d": "20220317",
-          "c": 335.0735
+          "c": 335.0734
         },
         {
           "d": "20220318",
@@ -40292,27 +40436,27 @@
         },
         {
           "d": "20220322",
-          "c": 347.6822
+          "c": 347.6821
         },
         {
           "d": "20220323",
-          "c": 342.6855
+          "c": 342.6856
         },
         {
           "d": "20220324",
-          "c": 350.3023
+          "c": 350.3022
         },
         {
           "d": "20220325",
-          "c": 350.0102
+          "c": 350.01
         },
         {
           "d": "20220328",
-          "c": 355.4255
+          "c": 355.4256
         },
         {
           "d": "20220329",
-          "c": 361.5423
+          "c": 361.5424
         },
         {
           "d": "20220330",
@@ -40328,7 +40472,7 @@
         },
         {
           "d": "20220406",
-          "c": 344.0784
+          "c": 344.0785
         },
         {
           "d": "20220407",
@@ -40336,7 +40480,7 @@
         },
         {
           "d": "20220408",
-          "c": 340.0753
+          "c": 340.0752
         },
         {
           "d": "20220411",
@@ -40360,11 +40504,11 @@
         },
         {
           "d": "20220418",
-          "c": 329.8871
+          "c": 329.887
         },
         {
           "d": "20220419",
-          "c": 337.2603
+          "c": 337.2604
         },
         {
           "d": "20220420",
@@ -40396,7 +40540,7 @@
         },
         {
           "d": "20220429",
-          "c": 305.1083
+          "c": 305.1082
         },
         {
           "d": "20220503",
@@ -40424,7 +40568,7 @@
         },
         {
           "d": "20220511",
-          "c": 284.2547
+          "c": 284.2548
         },
         {
           "d": "20220512",
@@ -40440,7 +40584,7 @@
         },
         {
           "d": "20220517",
-          "c": 298.2124
+          "c": 298.2123
         },
         {
           "d": "20220518",
@@ -40448,15 +40592,15 @@
         },
         {
           "d": "20220519",
-          "c": 282.0535
+          "c": 282.0534
         },
         {
           "d": "20220520",
-          "c": 281.1769
+          "c": 281.1768
         },
         {
           "d": "20220523",
-          "c": 285.8521
+          "c": 285.8522
         },
         {
           "d": "20220524",
@@ -40472,11 +40616,11 @@
         },
         {
           "d": "20220527",
-          "c": 301.0661
+          "c": 301.0662
         },
         {
           "d": "20220530",
-          "c": 301.0661
+          "c": 301.0662
         },
         {
           "d": "20220531",
@@ -40492,11 +40636,11 @@
         },
         {
           "d": "20220606",
-          "c": 299.2351
+          "c": 299.235
         },
         {
           "d": "20220607",
-          "c": 301.8161
+          "c": 301.8162
         },
         {
           "d": "20220608",
@@ -40504,7 +40648,7 @@
         },
         {
           "d": "20220609",
-          "c": 291.6182
+          "c": 291.6183
         },
         {
           "d": "20220610",
@@ -40516,7 +40660,7 @@
         },
         {
           "d": "20220614",
-          "c": 268.7387
+          "c": 268.7389
         },
         {
           "d": "20220615",
@@ -40524,15 +40668,15 @@
         },
         {
           "d": "20220616",
-          "c": 264.3362
+          "c": 264.3363
         },
         {
           "d": "20220617",
-          "c": 267.5505
+          "c": 267.5504
         },
         {
           "d": "20220620",
-          "c": 267.5505
+          "c": 267.5504
         },
         {
           "d": "20220621",
@@ -40560,19 +40704,19 @@
         },
         {
           "d": "20220629",
-          "c": 276.955
+          "c": 276.9551
         },
         {
           "d": "20220630",
-          "c": 273.5199
+          "c": 273.52
         },
         {
           "d": "20220701",
-          "c": 275.3254
+          "c": 275.3253
         },
         {
           "d": "20220704",
-          "c": 275.3254
+          "c": 275.3253
         },
         {
           "d": "20220705",
@@ -40588,7 +40732,7 @@
         },
         {
           "d": "20220708",
-          "c": 288.2265
+          "c": 288.2266
         },
         {
           "d": "20220711",
@@ -40600,7 +40744,7 @@
         },
         {
           "d": "20220713",
-          "c": 278.7605
+          "c": 278.7604
         },
         {
           "d": "20220714",
@@ -40616,7 +40760,7 @@
         },
         {
           "d": "20220719",
-          "c": 291.1054
+          "c": 291.1053
         },
         {
           "d": "20220720",
@@ -40628,7 +40772,7 @@
         },
         {
           "d": "20220722",
-          "c": 294.7063
+          "c": 294.7064
         },
         {
           "d": "20220725",
@@ -40640,11 +40784,11 @@
         },
         {
           "d": "20220727",
-          "c": 299.41
+          "c": 299.4101
         },
         {
           "d": "20220728",
-          "c": 302.3377
+          "c": 302.3378
         },
         {
           "d": "20220729",
@@ -40652,7 +40796,7 @@
         },
         {
           "d": "20220801",
-          "c": 307.6661
+          "c": 307.666
         },
         {
           "d": "20220802",
@@ -40668,7 +40812,7 @@
         },
         {
           "d": "20220805",
-          "c": 313.9897
+          "c": 313.9898
         },
         {
           "d": "20220808",
@@ -40676,7 +40820,7 @@
         },
         {
           "d": "20220809",
-          "c": 309.4324
+          "c": 309.4323
         },
         {
           "d": "20220810",
@@ -40684,15 +40828,15 @@
         },
         {
           "d": "20220811",
-          "c": 316.2635
+          "c": 316.2636
         },
         {
           "d": "20220812",
-          "c": 322.4213
+          "c": 322.4214
         },
         {
           "d": "20220815",
-          "c": 325.0269
+          "c": 325.027
         },
         {
           "d": "20220816",
@@ -40700,11 +40844,11 @@
         },
         {
           "d": "20220817",
-          "c": 320.5671
+          "c": 320.5672
         },
         {
           "d": "20220818",
-          "c": 321.3381
+          "c": 321.3382
         },
         {
           "d": "20220819",
@@ -40724,7 +40868,7 @@
         },
         {
           "d": "20220825",
-          "c": 312.848
+          "c": 312.8479
         },
         {
           "d": "20220826",
@@ -40740,19 +40884,19 @@
         },
         {
           "d": "20220831",
-          "c": 292.0518
+          "c": 292.0519
         },
         {
           "d": "20220901",
-          "c": 292.1789
+          "c": 292.1788
         },
         {
           "d": "20220902",
-          "c": 288.0509
+          "c": 288.0508
         },
         {
           "d": "20220905",
-          "c": 288.0509
+          "c": 288.0508
         },
         {
           "d": "20220906",
@@ -40776,7 +40920,7 @@
         },
         {
           "d": "20220914",
-          "c": 288.89
+          "c": 288.8901
         },
         {
           "d": "20220915",
@@ -40792,7 +40936,7 @@
         },
         {
           "d": "20220920",
-          "c": 282.2725
+          "c": 282.2726
         },
         {
           "d": "20220921",
@@ -40812,7 +40956,7 @@
         },
         {
           "d": "20220927",
-          "c": 268.3413
+          "c": 268.3412
         },
         {
           "d": "20220928",
@@ -40820,7 +40964,7 @@
         },
         {
           "d": "20220929",
-          "c": 265.7897
+          "c": 265.7896
         },
         {
           "d": "20220930",
@@ -40828,15 +40972,15 @@
         },
         {
           "d": "20221003",
-          "c": 267.4125
+          "c": 267.4124
         },
         {
           "d": "20221004",
-          "c": 275.8202
+          "c": 275.8201
         },
         {
           "d": "20221005",
-          "c": 275.6736
+          "c": 275.6735
         },
         {
           "d": "20221006",
@@ -40868,7 +41012,7 @@
         },
         {
           "d": "20221018",
-          "c": 265.4084
+          "c": 265.4083
         },
         {
           "d": "20221019",
@@ -40880,7 +41024,7 @@
         },
         {
           "d": "20221021",
-          "c": 269.2603
+          "c": 269.2602
         },
         {
           "d": "20221024",
@@ -40908,7 +41052,7 @@
         },
         {
           "d": "20221101",
-          "c": 268.9572
+          "c": 268.9571
         },
         {
           "d": "20221102",
@@ -40920,7 +41064,7 @@
         },
         {
           "d": "20221104",
-          "c": 258.7603
+          "c": 258.7604
         },
         {
           "d": "20221107",
@@ -40936,23 +41080,23 @@
         },
         {
           "d": "20221110",
-          "c": 276.4263
+          "c": 276.4262
         },
         {
           "d": "20221111",
-          "c": 281.5198
+          "c": 281.5197
         },
         {
           "d": "20221114",
-          "c": 279.0562
+          "c": 279.0561
         },
         {
           "d": "20221115",
-          "c": 282.9177
+          "c": 282.9178
         },
         {
           "d": "20221116",
-          "c": 279.0562
+          "c": 279.0561
         },
         {
           "d": "20221117",
@@ -40964,7 +41108,7 @@
         },
         {
           "d": "20221121",
-          "c": 275.5855
+          "c": 275.5854
         },
         {
           "d": "20221122",
@@ -40980,7 +41124,7 @@
         },
         {
           "d": "20221125",
-          "c": 280.5031
+          "c": 280.503
         },
         {
           "d": "20221128",
@@ -40988,11 +41132,11 @@
         },
         {
           "d": "20221129",
-          "c": 274.295
+          "c": 274.2951
         },
         {
           "d": "20221130",
-          "c": 286.7989
+          "c": 286.799
         },
         {
           "d": "20221201",
@@ -41028,7 +41172,7 @@
         },
         {
           "d": "20221213",
-          "c": 282.1942
+          "c": 282.1943
         },
         {
           "d": "20221214",
@@ -41036,11 +41180,11 @@
         },
         {
           "d": "20221215",
-          "c": 270.6974
+          "c": 270.6973
         },
         {
           "d": "20221216",
-          "c": 268.1165
+          "c": 268.1164
         },
         {
           "d": "20221219",
@@ -41056,19 +41200,19 @@
         },
         {
           "d": "20221222",
-          "c": 261.4182
+          "c": 261.4183
         },
         {
           "d": "20221223",
-          "c": 262.0063
+          "c": 262.0062
         },
         {
           "d": "20221226",
-          "c": 262.0063
+          "c": 262.0062
         },
         {
           "d": "20221227",
-          "c": 258.3019
+          "c": 258.302
         },
         {
           "d": "20221228",
@@ -41080,7 +41224,7 @@
         },
         {
           "d": "20221230",
-          "c": 260.9478
+          "c": 260.9479
         },
         {
           "d": "20230103",
@@ -41092,11 +41236,11 @@
         },
         {
           "d": "20230105",
-          "c": 256.342
+          "c": 256.3419
         },
         {
           "d": "20230106",
-          "c": 263.4174
+          "c": 263.4173
         },
         {
           "d": "20230109",
@@ -41116,11 +41260,11 @@
         },
         {
           "d": "20230113",
-          "c": 275.3438
+          "c": 275.3437
         },
         {
           "d": "20230116",
-          "c": 275.3438
+          "c": 275.3437
         },
         {
           "d": "20230117",
@@ -41132,7 +41276,7 @@
         },
         {
           "d": "20230131",
-          "c": 288.7204
+          "c": 288.7203
         },
         {
           "d": "20230201",
@@ -41140,7 +41284,7 @@
         },
         {
           "d": "20230202",
-          "c": 305.4778
+          "c": 305.4779
         },
         {
           "d": "20230203",
@@ -41152,7 +41296,7 @@
         },
         {
           "d": "20230207",
-          "c": 303.6748
+          "c": 303.6747
         },
         {
           "d": "20230208",
@@ -41160,7 +41304,7 @@
         },
         {
           "d": "20230209",
-          "c": 295.6389
+          "c": 295.639
         },
         {
           "d": "20230210",
@@ -41168,11 +41312,11 @@
         },
         {
           "d": "20230213",
-          "c": 298.4026
+          "c": 298.4025
         },
         {
           "d": "20230214",
-          "c": 300.6074
+          "c": 300.6075
         },
         {
           "d": "20230215",
@@ -41192,11 +41336,11 @@
         },
         {
           "d": "20230221",
-          "c": 288.1421
+          "c": 288.1422
         },
         {
           "d": "20230222",
-          "c": 288.3578
+          "c": 288.3577
         },
         {
           "d": "20230223",
@@ -41204,11 +41348,11 @@
         },
         {
           "d": "20230224",
-          "c": 286.0058
+          "c": 286.0059
         },
         {
           "d": "20230301",
-          "c": 285.3689
+          "c": 285.3688
         },
         {
           "d": "20230302",
@@ -41240,7 +41384,7 @@
         },
         {
           "d": "20230313",
-          "c": 284.8691
+          "c": 284.869
         },
         {
           "d": "20230314",
@@ -41272,7 +41416,7 @@
         },
         {
           "d": "20230323",
-          "c": 304.0172
+          "c": 304.0173
         },
         {
           "d": "20230324",
@@ -41280,7 +41424,7 @@
         },
         {
           "d": "20230327",
-          "c": 303.0457
+          "c": 303.0456
         },
         {
           "d": "20230328",
@@ -41332,7 +41476,7 @@
         },
         {
           "d": "20230418",
-          "c": 312.9587
+          "c": 312.9586
         },
         {
           "d": "20230419",
@@ -41364,7 +41508,7 @@
         },
         {
           "d": "20230428",
-          "c": 316.5902
+          "c": 316.5903
         },
         {
           "d": "20230502",
@@ -41388,7 +41532,7 @@
         },
         {
           "d": "20230509",
-          "c": 315.6872
+          "c": 315.6873
         },
         {
           "d": "20230510",
@@ -41396,7 +41540,7 @@
         },
         {
           "d": "20230511",
-          "c": 320.1629
+          "c": 320.1628
         },
         {
           "d": "20230512",
@@ -41404,7 +41548,7 @@
         },
         {
           "d": "20230515",
-          "c": 320.742
+          "c": 320.7419
         },
         {
           "d": "20230516",
@@ -41428,11 +41572,11 @@
         },
         {
           "d": "20230523",
-          "c": 327.1903
+          "c": 327.1904
         },
         {
           "d": "20230524",
-          "c": 325.512
+          "c": 325.5121
         },
         {
           "d": "20230525",
@@ -41464,7 +41608,7 @@
         },
         {
           "d": "20230605",
-          "c": 348.3316
+          "c": 348.3317
         },
         {
           "d": "20230606",
@@ -41496,15 +41640,15 @@
         },
         {
           "d": "20230615",
-          "c": 363.4075
+          "c": 363.4074
         },
         {
           "d": "20230616",
-          "c": 361.1206
+          "c": 361.1205
         },
         {
           "d": "20230619",
-          "c": 361.1206
+          "c": 361.1205
         },
         {
           "d": "20230620",
@@ -41520,7 +41664,7 @@
         },
         {
           "d": "20230627",
-          "c": 357.5863
+          "c": 357.5862
         },
         {
           "d": "20230628",
@@ -41532,7 +41676,7 @@
         },
         {
           "d": "20230630",
-          "c": 363.0804
+          "c": 363.0803
         },
         {
           "d": "20230703",
@@ -41548,11 +41692,11 @@
         },
         {
           "d": "20230706",
-          "c": 361.154
+          "c": 361.1539
         },
         {
           "d": "20230707",
-          "c": 359.9549
+          "c": 359.955
         },
         {
           "d": "20230710",
@@ -41568,19 +41712,19 @@
         },
         {
           "d": "20230713",
-          "c": 372.6433
+          "c": 372.6434
         },
         {
           "d": "20230714",
-          "c": 372.5648
+          "c": 372.5647
         },
         {
           "d": "20230717",
-          "c": 376.0439
+          "c": 376.044
         },
         {
           "d": "20230718",
-          "c": 379.1202
+          "c": 379.1203
         },
         {
           "d": "20230719",
@@ -41588,7 +41732,7 @@
         },
         {
           "d": "20230720",
-          "c": 370.2944
+          "c": 370.2943
         },
         {
           "d": "20230721",
@@ -41604,7 +41748,7 @@
         },
         {
           "d": "20230726",
-          "c": 371.0413
+          "c": 371.0414
         },
         {
           "d": "20230727",
@@ -41624,7 +41768,7 @@
         },
         {
           "d": "20230802",
-          "c": 367.965
+          "c": 367.9651
         },
         {
           "d": "20230804",
@@ -41636,7 +41780,7 @@
         },
         {
           "d": "20230808",
-          "c": 365.6161
+          "c": 365.616
         },
         {
           "d": "20230809",
@@ -41648,11 +41792,11 @@
         },
         {
           "d": "20230811",
-          "c": 359.9549
+          "c": 359.955
         },
         {
           "d": "20230814",
-          "c": 363.9944
+          "c": 363.9943
         },
         {
           "d": "20230815",
@@ -41660,11 +41804,11 @@
         },
         {
           "d": "20230816",
-          "c": 356.3185
+          "c": 356.3184
         },
         {
           "d": "20230817",
-          "c": 352.4263
+          "c": 352.4264
         },
         {
           "d": "20230818",
@@ -41672,7 +41816,7 @@
         },
         {
           "d": "20230821",
-          "c": 357.655
+          "c": 357.6551
         },
         {
           "d": "20230822",
@@ -41680,7 +41824,7 @@
         },
         {
           "d": "20230823",
-          "c": 362.7757
+          "c": 362.7756
         },
         {
           "d": "20230824",
@@ -41700,7 +41844,7 @@
         },
         {
           "d": "20230830",
-          "c": 370.3927
+          "c": 370.3926
         },
         {
           "d": "20230831",
@@ -41716,15 +41860,15 @@
         },
         {
           "d": "20230905",
-          "c": 371.5819
+          "c": 371.5818
         },
         {
           "d": "20230906",
-          "c": 368.309
+          "c": 368.3091
         },
         {
           "d": "20230907",
-          "c": 365.675
+          "c": 365.6751
         },
         {
           "d": "20230908",
@@ -41748,7 +41892,7 @@
         },
         {
           "d": "20230915",
-          "c": 364.4465
+          "c": 364.4464
         },
         {
           "d": "20230918",
@@ -41788,7 +41932,7 @@
         },
         {
           "d": "20231002",
-          "c": 355.5743
+          "c": 355.5744
         },
         {
           "d": "20231003",
@@ -41804,7 +41948,7 @@
         },
         {
           "d": "20231006",
-          "c": 358.9603
+          "c": 358.9602
         },
         {
           "d": "20231011",
@@ -41812,7 +41956,7 @@
         },
         {
           "d": "20231012",
-          "c": 364.1079
+          "c": 364.1078
         },
         {
           "d": "20231013",
@@ -41824,7 +41968,7 @@
         },
         {
           "d": "20231017",
-          "c": 362.4051
+          "c": 362.4052
         },
         {
           "d": "20231018",
@@ -41832,11 +41976,11 @@
         },
         {
           "d": "20231019",
-          "c": 354.3046
+          "c": 354.3047
         },
         {
           "d": "20231020",
-          "c": 349.0191
+          "c": 349.0192
         },
         {
           "d": "20231023",
@@ -41844,7 +41988,7 @@
         },
         {
           "d": "20231024",
-          "c": 353.4779
+          "c": 353.4778
         },
         {
           "d": "20231025",
@@ -41852,7 +41996,7 @@
         },
         {
           "d": "20231026",
-          "c": 338.2514
+          "c": 338.2513
         },
         {
           "d": "20231027",
@@ -41860,7 +42004,7 @@
         },
         {
           "d": "20231030",
-          "c": 343.7041
+          "c": 343.7042
         },
         {
           "d": "20231031",
@@ -41876,11 +42020,11 @@
         },
         {
           "d": "20231103",
-          "c": 361.9229
+          "c": 361.9228
         },
         {
           "d": "20231106",
-          "c": 363.3992
+          "c": 363.3991
         },
         {
           "d": "20231107",
@@ -41896,7 +42040,7 @@
         },
         {
           "d": "20231110",
-          "c": 372.4347
+          "c": 372.4348
         },
         {
           "d": "20231113",
@@ -41908,7 +42052,7 @@
         },
         {
           "d": "20231115",
-          "c": 379.5509
+          "c": 379.551
         },
         {
           "d": "20231116",
@@ -41916,15 +42060,15 @@
         },
         {
           "d": "20231117",
-          "c": 379.9643
+          "c": 379.9644
         },
         {
           "d": "20231120",
-          "c": 384.5903
+          "c": 384.5904
         },
         {
           "d": "20231121",
-          "c": 382.356
+          "c": 382.3561
         },
         {
           "d": "20231122",
@@ -41936,7 +42080,7 @@
         },
         {
           "d": "20231124",
-          "c": 383.3798
+          "c": 383.3797
         },
         {
           "d": "20231127",
@@ -41960,7 +42104,7 @@
         },
         {
           "d": "20231204",
-          "c": 380.24
+          "c": 380.2399
         },
         {
           "d": "20231205",
@@ -41984,7 +42128,7 @@
         },
         {
           "d": "20231212",
-          "c": 392.3956
+          "c": 392.3955
         },
         {
           "d": "20231213",
@@ -41992,7 +42136,7 @@
         },
         {
           "d": "20231214",
-          "c": 397.0412
+          "c": 397.0414
         },
         {
           "d": "20231215",
@@ -42004,7 +42148,7 @@
         },
         {
           "d": "20231219",
-          "c": 403.5249
+          "c": 403.5248
         },
         {
           "d": "20231220",
@@ -42024,7 +42168,7 @@
         },
         {
           "d": "20231226",
-          "c": 405.2211
+          "c": 405.2212
         },
         {
           "d": "20231227",
@@ -42044,7 +42188,7 @@
         },
         {
           "d": "20240103",
-          "c": 393.0506
+          "c": 393.0507
         },
         {
           "d": "20240104",
@@ -42052,7 +42196,7 @@
         },
         {
           "d": "20240105",
-          "c": 391.4916
+          "c": 391.4915
         },
         {
           "d": "20240108",
@@ -42064,7 +42208,7 @@
         },
         {
           "d": "20240110",
-          "c": 403.0858
+          "c": 403.0859
         },
         {
           "d": "20240111",
@@ -42084,11 +42228,11 @@
         },
         {
           "d": "20240117",
-          "c": 401.813
+          "c": 401.8129
         },
         {
           "d": "20240118",
-          "c": 407.5163
+          "c": 407.5164
         },
         {
           "d": "20240119",
@@ -42096,11 +42240,11 @@
         },
         {
           "d": "20240122",
-          "c": 416.1406
+          "c": 416.1405
         },
         {
           "d": "20240123",
-          "c": 417.8673
+          "c": 417.8674
         },
         {
           "d": "20240124",
@@ -42108,7 +42252,7 @@
         },
         {
           "d": "20240125",
-          "c": 420.6993
+          "c": 420.6992
         },
         {
           "d": "20240126",
@@ -42144,11 +42288,11 @@
         },
         {
           "d": "20240216",
-          "c": 424.8634
+          "c": 424.8633
         },
         {
           "d": "20240219",
-          "c": 424.8634
+          "c": 424.8633
         },
         {
           "d": "20240220",
@@ -42160,7 +42304,7 @@
         },
         {
           "d": "20240222",
-          "c": 432.2639
+          "c": 432.264
         },
         {
           "d": "20240223",
@@ -42168,7 +42312,7 @@
         },
         {
           "d": "20240226",
-          "c": 430.7641
+          "c": 430.764
         },
         {
           "d": "20240227",
@@ -42188,7 +42332,7 @@
         },
         {
           "d": "20240305",
-          "c": 430.2708
+          "c": 430.2707
         },
         {
           "d": "20240306",
@@ -42196,11 +42340,11 @@
         },
         {
           "d": "20240307",
-          "c": 439.5462
+          "c": 439.5461
         },
         {
           "d": "20240308",
-          "c": 433.2014
+          "c": 433.2013
         },
         {
           "d": "20240311",
@@ -42212,11 +42356,11 @@
         },
         {
           "d": "20240313",
-          "c": 434.415
+          "c": 434.4151
         },
         {
           "d": "20240314",
-          "c": 433.3198
+          "c": 433.3199
         },
         {
           "d": "20240315",
@@ -42236,7 +42380,7 @@
         },
         {
           "d": "20240321",
-          "c": 440.5423
+          "c": 440.5424
         },
         {
           "d": "20240322",
@@ -42248,27 +42392,27 @@
         },
         {
           "d": "20240326",
-          "c": 438.0228
+          "c": 438.0229
         },
         {
           "d": "20240327",
-          "c": 439.5147
+          "c": 439.5148
         },
         {
           "d": "20240328",
-          "c": 438.7045
+          "c": 438.7046
         },
         {
           "d": "20240329",
-          "c": 438.7045
+          "c": 438.7046
         },
         {
           "d": "20240401",
-          "c": 439.6334
+          "c": 439.6333
         },
         {
           "d": "20240402",
-          "c": 435.8392
+          "c": 435.8391
         },
         {
           "d": "20240403",
@@ -42284,7 +42428,7 @@
         },
         {
           "d": "20240410",
-          "c": 433.1319
+          "c": 433.132
         },
         {
           "d": "20240411",
@@ -42352,11 +42496,11 @@
         },
         {
           "d": "20240506",
-          "c": 434.9894
+          "c": 434.9895
         },
         {
           "d": "20240507",
-          "c": 435.0586
+          "c": 435.0587
         },
         {
           "d": "20240508",
@@ -42364,15 +42508,15 @@
         },
         {
           "d": "20240509",
-          "c": 435.7502
+          "c": 435.7503
         },
         {
           "d": "20240510",
-          "c": 436.7778
+          "c": 436.7779
         },
         {
           "d": "20240513",
-          "c": 437.7856
+          "c": 437.7857
         },
         {
           "d": "20240514",
@@ -42388,15 +42532,15 @@
         },
         {
           "d": "20240517",
-          "c": 446.3619
+          "c": 446.362
         },
         {
           "d": "20240520",
-          "c": 449.4743
+          "c": 449.4744
         },
         {
           "d": "20240521",
-          "c": 450.3537
+          "c": 450.3536
         },
         {
           "d": "20240522",
@@ -42404,15 +42548,15 @@
         },
         {
           "d": "20240523",
-          "c": 448.2393
+          "c": 448.2392
         },
         {
           "d": "20240524",
-          "c": 452.4779
+          "c": 452.478
         },
         {
           "d": "20240527",
-          "c": 452.4779
+          "c": 452.478
         },
         {
           "d": "20240528",
@@ -42420,7 +42564,7 @@
         },
         {
           "d": "20240529",
-          "c": 450.986
+          "c": 450.9861
         },
         {
           "d": "20240530",
@@ -42432,11 +42576,11 @@
         },
         {
           "d": "20240603",
-          "c": 447.7155
+          "c": 447.7156
         },
         {
           "d": "20240604",
-          "c": 448.9408
+          "c": 448.9407
         },
         {
           "d": "20240605",
@@ -42452,7 +42596,7 @@
         },
         {
           "d": "20240611",
-          "c": 462.4276
+          "c": 462.4277
         },
         {
           "d": "20240612",
@@ -42492,11 +42636,11 @@
         },
         {
           "d": "20240625",
-          "c": 474.4048
+          "c": 474.4047
         },
         {
           "d": "20240626",
-          "c": 475.3844
+          "c": 475.3845
         },
         {
           "d": "20240627",
@@ -42552,11 +42696,11 @@
         },
         {
           "d": "20240716",
-          "c": 491.1887
+          "c": 491.1888
         },
         {
           "d": "20240717",
-          "c": 476.7699
+          "c": 476.77
         },
         {
           "d": "20240718",
@@ -42568,7 +42712,7 @@
         },
         {
           "d": "20240722",
-          "c": 477.3142
+          "c": 477.3143
         },
         {
           "d": "20240723",
@@ -42620,7 +42764,7 @@
         },
         {
           "d": "20240812",
-          "c": 446.6953
+          "c": 446.6954
         },
         {
           "d": "20240813",
@@ -42632,7 +42776,7 @@
         },
         {
           "d": "20240815",
-          "c": 469.4962
+          "c": 469.4963
         },
         {
           "d": "20240816",
@@ -42672,7 +42816,7 @@
         },
         {
           "d": "20240829",
-          "c": 465.7752
+          "c": 465.7753
         },
         {
           "d": "20240830",
@@ -42688,7 +42832,7 @@
         },
         {
           "d": "20240904",
-          "c": 455.8295
+          "c": 455.8296
         },
         {
           "d": "20240905",
@@ -42724,7 +42868,7 @@
         },
         {
           "d": "20240918",
-          "c": 466.5471
+          "c": 466.5472
         },
         {
           "d": "20240919",
@@ -42740,11 +42884,11 @@
         },
         {
           "d": "20240924",
-          "c": 481.0075
+          "c": 481.0076
         },
         {
           "d": "20240925",
-          "c": 481.4535
+          "c": 481.4536
         },
         {
           "d": "20240926",
@@ -42756,7 +42900,7 @@
         },
         {
           "d": "20240930",
-          "c": 483.6834
+          "c": 483.6833
         },
         {
           "d": "20241001",
@@ -42764,7 +42908,7 @@
         },
         {
           "d": "20241004",
-          "c": 482.94
+          "c": 482.9401
         },
         {
           "d": "20241007",
@@ -42788,11 +42932,11 @@
         },
         {
           "d": "20241015",
-          "c": 486.4384
+          "c": 486.4383
         },
         {
           "d": "20241016",
-          "c": 486.4977
+          "c": 486.4978
         },
         {
           "d": "20241017",
@@ -42808,7 +42952,7 @@
         },
         {
           "d": "20241022",
-          "c": 491.5024
+          "c": 491.5023
         },
         {
           "d": "20241023",
@@ -42820,7 +42964,7 @@
         },
         {
           "d": "20241025",
-          "c": 490.8681
+          "c": 490.8682
         },
         {
           "d": "20241028",
@@ -42828,7 +42972,7 @@
         },
         {
           "d": "20241029",
-          "c": 495.6647
+          "c": 495.6646
         },
         {
           "d": "20241030",
@@ -42884,7 +43028,7 @@
         },
         {
           "d": "20241119",
-          "c": 498.935
+          "c": 498.9349
         },
         {
           "d": "20241120",
@@ -42896,7 +43040,7 @@
         },
         {
           "d": "20241122",
-          "c": 501.2441
+          "c": 501.244
         },
         {
           "d": "20241125",
@@ -42932,11 +43076,11 @@
         },
         {
           "d": "20241205",
-          "c": 517.1201
+          "c": 517.12
         },
         {
           "d": "20241206",
-          "c": 521.7482
+          "c": 521.7481
         },
         {
           "d": "20241209",
@@ -42956,7 +43100,7 @@
         },
         {
           "d": "20241213",
-          "c": 525.7618
+          "c": 525.7617
         },
         {
           "d": "20241216",
@@ -42968,7 +43112,7 @@
         },
         {
           "d": "20241218",
-          "c": 511.8281
+          "c": 511.828
         },
         {
           "d": "20241219",
@@ -42980,15 +43124,15 @@
         },
         {
           "d": "20241223",
-          "c": 519.006
+          "c": 519.0061
         },
         {
           "d": "20241224",
-          "c": 526.0438
+          "c": 526.0437
         },
         {
           "d": "20241225",
-          "c": 526.0438
+          "c": 526.0437
         },
         {
           "d": "20241226",
@@ -43000,7 +43144,7 @@
         },
         {
           "d": "20241230",
-          "c": 511.7997
+          "c": 511.7998
         },
         {
           "d": "20241231",
@@ -43012,7 +43156,7 @@
         },
         {
           "d": "20250103",
-          "c": 514.7478
+          "c": 514.7477
         },
         {
           "d": "20250106",
@@ -43040,7 +43184,7 @@
         },
         {
           "d": "20250114",
-          "c": 501.3475
+          "c": 501.3476
         },
         {
           "d": "20250115",
@@ -43048,7 +43192,7 @@
         },
         {
           "d": "20250116",
-          "c": 509.2885
+          "c": 509.2884
         },
         {
           "d": "20250117",
@@ -43060,19 +43204,19 @@
         },
         {
           "d": "20250121",
-          "c": 520.9219
+          "c": 520.9218
         },
         {
           "d": "20250122",
-          "c": 527.5822
+          "c": 527.5823
         },
         {
           "d": "20250203",
-          "c": 514.2812
+          "c": 514.2813
         },
         {
           "d": "20250204",
-          "c": 520.5943
+          "c": 520.5942
         },
         {
           "d": "20250205",
@@ -43092,11 +43236,11 @@
         },
         {
           "d": "20250211",
-          "c": 524.0882
+          "c": 524.0883
         },
         {
           "d": "20250212",
-          "c": 524.396
+          "c": 524.3959
         },
         {
           "d": "20250213",
@@ -43120,11 +43264,11 @@
         },
         {
           "d": "20250220",
-          "c": 533.2599
+          "c": 533.26
         },
         {
           "d": "20250221",
-          "c": 522.1924
+          "c": 522.1923
         },
         {
           "d": "20250224",
@@ -43136,7 +43280,7 @@
         },
         {
           "d": "20250226",
-          "c": 510.7575
+          "c": 510.7574
         },
         {
           "d": "20250227",
@@ -43152,7 +43296,7 @@
         },
         {
           "d": "20250305",
-          "c": 498.3002
+          "c": 498.3003
         },
         {
           "d": "20250306",
@@ -43160,7 +43304,7 @@
         },
         {
           "d": "20250307",
-          "c": 488.1557
+          "c": 488.1558
         },
         {
           "d": "20250310",
@@ -43192,7 +43336,7 @@
         },
         {
           "d": "20250319",
-          "c": 477.3364
+          "c": 477.3363
         },
         {
           "d": "20250320",
@@ -43248,7 +43392,7 @@
         },
         {
           "d": "20250410",
-          "c": 443.5432
+          "c": 443.5433
         },
         {
           "d": "20250411",
@@ -43348,15 +43492,15 @@
         },
         {
           "d": "20250516",
-          "c": 518.4282
+          "c": 518.4281
         },
         {
           "d": "20250519",
-          "c": 518.9252
+          "c": 518.9251
         },
         {
           "d": "20250520",
-          "c": 517.1955
+          "c": 517.1954
         },
         {
           "d": "20250521",
@@ -43396,7 +43540,7 @@
         },
         {
           "d": "20250604",
-          "c": 525.6452
+          "c": 525.6453
         },
         {
           "d": "20250605",
@@ -43404,7 +43548,7 @@
         },
         {
           "d": "20250606",
-          "c": 526.7883
+          "c": 526.7884
         },
         {
           "d": "20250609",
@@ -43416,11 +43560,11 @@
         },
         {
           "d": "20250611",
-          "c": 529.2637
+          "c": 529.2636
         },
         {
           "d": "20250612",
-          "c": 530.5062
+          "c": 530.5063
         },
         {
           "d": "20250613",
@@ -43432,7 +43576,7 @@
         },
         {
           "d": "20250617",
-          "c": 525.9534
+          "c": 525.9533
         },
         {
           "d": "20250618",
@@ -43452,7 +43596,7 @@
         },
         {
           "d": "20250624",
-          "c": 537.1927
+          "c": 537.1928
         },
         {
           "d": "20250625",
@@ -43464,11 +43608,11 @@
         },
         {
           "d": "20250627",
-          "c": 545.463
+          "c": 545.4629
         },
         {
           "d": "20250630",
-          "c": 548.9959
+          "c": 548.996
         },
         {
           "d": "20250701",
@@ -43476,19 +43620,19 @@
         },
         {
           "d": "20250702",
-          "c": 548.1599
+          "c": 548.16
         },
         {
           "d": "20250703",
-          "c": 553.554
+          "c": 553.5539
         },
         {
           "d": "20250704",
-          "c": 553.554
+          "c": 553.5539
         },
         {
           "d": "20250707",
-          "c": 549.384
+          "c": 549.3841
         },
         {
           "d": "20250708",
@@ -43496,7 +43640,7 @@
         },
         {
           "d": "20250709",
-          "c": 553.5838
+          "c": 553.5839
         },
         {
           "d": "20250710",
@@ -43504,11 +43648,11 @@
         },
         {
           "d": "20250711",
-          "c": 551.5436
+          "c": 551.5437
         },
         {
           "d": "20250714",
-          "c": 553.544
+          "c": 553.5439
         },
         {
           "d": "20250715",
@@ -43524,7 +43668,7 @@
         },
         {
           "d": "20250718",
-          "c": 558.5698
+          "c": 558.5699
         },
         {
           "d": "20250721",
@@ -43536,19 +43680,19 @@
         },
         {
           "d": "20250723",
-          "c": 561.1077
+          "c": 561.1076
         },
         {
           "d": "20250724",
-          "c": 562.3018
+          "c": 562.3019
         },
         {
           "d": "20250725",
-          "c": 563.6553
+          "c": 563.6554
         },
         {
           "d": "20250728",
-          "c": 565.4169
+          "c": 565.4168
         },
         {
           "d": "20250729",
@@ -43556,11 +43700,11 @@
         },
         {
           "d": "20250730",
-          "c": 565.2974
+          "c": 565.2975
         },
         {
           "d": "20250731",
-          "c": 562.3018
+          "c": 562.3019
         },
         {
           "d": "20250801",
@@ -43568,7 +43712,7 @@
         },
         {
           "d": "20250804",
-          "c": 561.3962
+          "c": 561.3961
         },
         {
           "d": "20250805",
@@ -43592,7 +43736,7 @@
         },
         {
           "d": "20250812",
-          "c": 577.2697
+          "c": 577.2698
         },
         {
           "d": "20250813",
@@ -43600,7 +43744,7 @@
         },
         {
           "d": "20250814",
-          "c": 577.1106
+          "c": 577.1105
         },
         {
           "d": "20250815",
@@ -43612,7 +43756,7 @@
         },
         {
           "d": "20250819",
-          "c": 566.5513
+          "c": 566.5514
         },
         {
           "d": "20250820",
@@ -43620,7 +43764,7 @@
         },
         {
           "d": "20250821",
-          "c": 560.5802
+          "c": 560.5801
         },
         {
           "d": "20250822",
@@ -43660,19 +43804,19 @@
         },
         {
           "d": "20250904",
-          "c": 572.4729
+          "c": 572.4728
         },
         {
           "d": "20250905",
-          "c": 573.2989
+          "c": 573.2988
         },
         {
           "d": "20250908",
-          "c": 576.0954
+          "c": 576.0955
         },
         {
           "d": "20250909",
-          "c": 577.7276
+          "c": 577.7275
         },
         {
           "d": "20250910",
@@ -43680,7 +43824,7 @@
         },
         {
           "d": "20250911",
-          "c": 581.2805
+          "c": 581.2804
         },
         {
           "d": "20250912",
@@ -43688,7 +43832,7 @@
         },
         {
           "d": "20250915",
-          "c": 588.844
+          "c": 588.8439
         },
         {
           "d": "20250916",
@@ -43804,15 +43948,15 @@
         },
         {
           "d": "20251030",
-          "c": 623.7716
+          "c": 623.7715
         },
         {
           "d": "20251031",
-          "c": 626.7806
+          "c": 626.7805
         },
         {
           "d": "20251103",
-          "c": 629.7795
+          "c": 629.7796
         },
         {
           "d": "20251104",
@@ -43840,7 +43984,7 @@
         },
         {
           "d": "20251112",
-          "c": 618.8196
+          "c": 618.8197
         },
         {
           "d": "20251113",
@@ -43848,7 +43992,7 @@
         },
         {
           "d": "20251114",
-          "c": 606.6441
+          "c": 606.644
         },
         {
           "d": "20251117",
@@ -43912,11 +44056,11 @@
         },
         {
           "d": "20251208",
-          "c": 622.0081
+          "c": 622.008
         },
         {
           "d": "20251209",
-          "c": 622.7752
+          "c": 622.7751
         },
         {
           "d": "20251210",
@@ -44607,8 +44751,12 @@
           "c": 711.37
         },
         {
-          "d": "20260828",
-          "c": 711.37
+          "d": "20260827",
+          "c": 721.11
+        },
+        {
+          "d": "20260831",
+          "c": 721.11
         }
       ],
       "mgmt_fee_raw": "0.20%",
@@ -44678,22 +44826,22 @@
         ]
       },
       "m1_return": "3.70%",
-      "total_return": 241.86,
-      "annualized_return": 20.29,
+      "total_return": 246.54,
+      "annualized_return": 20.51,
       "max_return": 258.18,
       "max_drawdown": -35.12,
-      "current_drawdown": -4.56,
-      "sharpe_ratio": 0.81,
-      "sortino_ratio": 1.272,
-      "calmar_ratio": 0.578,
-      "alpha": 12.89,
+      "current_drawdown": -3.25,
+      "sharpe_ratio": 0.818,
+      "sortino_ratio": 1.284,
+      "calmar_ratio": 0.584,
+      "alpha": 13.18,
       "beta": 0.201
     },
     {
       "code": "ARKK",
       "name": "ARK Innovation ETF (方舟旗艦創新基金)",
       "issuer": "ARK Invest",
-      "as_of": "20260828",
+      "as_of": "20260831",
       "first_date": "20251103",
       "n_days": 176,
       "n_current": 38,
@@ -44721,8 +44869,8 @@
       "benefit": 240000,
       "listing_date": "20141031",
       "pre_listing_snapshot": false,
-      "close_price": 85.78,
-      "nav": 85.78,
+      "close_price": 87.38,
+      "nav": 87.38,
       "nav_date": "20260728",
       "premium_pct": 0.05,
       "price_series": [
@@ -51187,8 +51335,12 @@
           "c": 85.78
         },
         {
-          "d": "20260828",
-          "c": 85.78
+          "d": "20260827",
+          "c": 87.38
+        },
+        {
+          "d": "20260831",
+          "c": 87.38
         }
       ],
       "mgmt_fee_raw": "0.75%",
@@ -51251,15 +51403,15 @@
       },
       "dividend": null,
       "m1_return": "7.72%",
-      "total_return": 75.45,
-      "annualized_return": 8.82,
+      "total_return": 78.73,
+      "annualized_return": 9.11,
       "max_return": 207.03,
       "max_drawdown": -80.42,
-      "current_drawdown": -42.85,
-      "sharpe_ratio": 0.378,
-      "sortino_ratio": 0.609,
-      "calmar_ratio": 0.11,
-      "alpha": -2.04,
+      "current_drawdown": -41.79,
+      "sharpe_ratio": 0.384,
+      "sortino_ratio": 0.617,
+      "calmar_ratio": 0.113,
+      "alpha": -1.65,
       "beta": 0.33
     }
   ]

@@ -320,46 +320,57 @@ const server = http.createServer((req, res) => {
 const https = require('https');
 
 // 從 Yahoo Finance 拉取一組 symbols 的最新歷史訊價
-function fetchSingleYahooPrice(symbol) {
-  return new Promise((resolve) => {
-    const period2 = Math.floor(Date.now() / 1000);
-    const period1 = Math.floor(new Date('2020-01-01T00:00:00Z').getTime() / 1000);
-    const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?interval=1d&period1=${period1}&period2=${period2}`;
-    const options = {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
-      }
-    };
-    const req = https.get(url, options, (res) => {
-      let body = '';
-      res.on('data', chunk => body += chunk);
-      res.on('end', () => {
-        if (res.statusCode !== 200) return resolve(null);
-        try {
-          const parsed = JSON.parse(body);
-          const result = parsed.chart?.result?.[0];
-          if (!result) return resolve(null);
-          const timestamps = result.timestamp || [];
-          const closes = result.indicators?.adjclose?.[0]?.adjclose || result.indicators?.quote?.[0]?.close || [];
-          const series = [];
-          for (let i = 0; i < timestamps.length; i++) {
-            if (closes[i] !== null && closes[i] !== undefined) {
-              const dObj = new Date(timestamps[i] * 1000);
-              const y = dObj.getUTCFullYear();
-              const m = String(dObj.getUTCMonth() + 1).padStart(2, '0');
-              const d = String(dObj.getUTCDate()).padStart(2, '0');
-              series.push({ d: `${y}${m}${d}`, c: Number(closes[i].toFixed(4)) });
-            }
-          }
-          resolve(series.length ? series : null);
-        } catch (e) {
-          resolve(null);
+async function fetchSingleYahooPrice(symbol, retries = 3) {
+  for (let r = 0; r < retries; r++) {
+    const res = await new Promise((resolve) => {
+      const period2 = Math.floor(Date.now() / 1000);
+      const period1 = Math.floor(new Date('2020-01-01T00:00:00Z').getTime() / 1000);
+      const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?interval=1d&period1=${period1}&period2=${period2}`;
+      const options = {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
         }
+      };
+      const req = https.get(url, options, (res) => {
+        let body = '';
+        res.on('data', chunk => body += chunk);
+        res.on('end', () => {
+          if (res.statusCode === 429) return resolve({ status: 429, data: null });
+          if (res.statusCode !== 200) return resolve({ status: res.statusCode, data: null });
+          try {
+            const parsed = JSON.parse(body);
+            const result = parsed.chart?.result?.[0];
+            if (!result) return resolve({ status: 200, data: null });
+            const timestamps = result.timestamp || [];
+            const closes = result.indicators?.adjclose?.[0]?.adjclose || result.indicators?.quote?.[0]?.close || [];
+            const series = [];
+            for (let i = 0; i < timestamps.length; i++) {
+              if (closes[i] !== null && closes[i] !== undefined) {
+                const dObj = new Date(timestamps[i] * 1000);
+                const y = dObj.getUTCFullYear();
+                const m = String(dObj.getUTCMonth() + 1).padStart(2, '0');
+                const d = String(dObj.getUTCDate()).padStart(2, '0');
+                series.push({ d: `${y}${m}${d}`, c: Number(closes[i].toFixed(4)) });
+              }
+            }
+            resolve({ status: 200, data: series.length ? series : null });
+          } catch (e) {
+            resolve({ status: 200, data: null });
+          }
+        });
       });
+      req.on('error', () => resolve({ status: 500, data: null }));
+      req.setTimeout(8000, () => { req.destroy(); resolve({ status: 408, data: null }); });
     });
-    req.on('error', () => resolve(null));
-    req.setTimeout(8000, () => { req.destroy(); resolve(null); });
-  });
+
+    if (res.status === 429) {
+      console.warn(`[Upload] 429 Rate limit hit for ${symbol}, retrying in ${2000 * (r + 1)}ms...`);
+      await new Promise(resolve => setTimeout(resolve, 2000 * (r + 1)));
+      continue;
+    }
+    return res.data;
+  }
+  return null;
 }
 
 async function fetchPricesForSymbols(symbols = []) {
@@ -383,7 +394,7 @@ async function fetchPricesForSymbols(symbols = []) {
     }
     console.log(`[Upload] [${i + 1}/${symbols.length}] ${sym}: ${series ? series.length + ' pts' : 'failed'}`);
     // 避免 429 Too Many Requests
-    if (i < symbols.length - 1) await new Promise(r => setTimeout(r, 350));
+    if (i < symbols.length - 1) await new Promise(r => setTimeout(r, 600));
   }
   return result;
 }

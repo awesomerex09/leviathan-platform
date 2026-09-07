@@ -4,20 +4,20 @@
   "issuer": "Custom Quant Model",
   "is_custom_quant": true,
   "is_calibrated": true,
-  "total_return": 44.66,
+  "total_return": 44.52,
   "max_return": 106.84,
   "max_drawdown": -32.04,
-  "current_drawdown": -30.06,
-  "annualized_return": 55.61,
-  "sharpe_ratio": 1.292,
-  "sortino_ratio": 2.054,
-  "calmar_ratio": 1.736,
-  "alpha": -42.85,
+  "current_drawdown": -30.13,
+  "annualized_return": 55.42,
+  "sharpe_ratio": 1.289,
+  "sortino_ratio": 2.049,
+  "calmar_ratio": 1.73,
+  "alpha": -43.26,
   "beta": 1.006,
   "total_av_yi": 0.0072,
   "listing_date": "20251106",
-  "close_price": 14.4662,
-  "nav": 14.4662,
+  "close_price": 14.4517,
+  "nav": 14.4517,
   "price_series": [
     {
       "d": "20251106",
@@ -833,19 +833,19 @@
     },
     {
       "d": "20260907",
-      "c": 14.4662
+      "c": 14.4517
     }
   ],
   "top3": [
     {
       "code": "2330",
       "name": "台積電",
-      "weight": 8.84
+      "weight": 8.89
     },
     {
       "code": "6442",
       "name": "光聖",
-      "weight": 3.42
+      "weight": 3.35
     },
     {
       "code": "2360",
@@ -858,17 +858,17 @@
       "code": "2330",
       "fullCode": "TWSE:2330",
       "name": "台積電",
-      "weight": 8.84,
+      "weight": 8.89,
       "shares": 26,
-      "price": 2445
+      "price": 2455
     },
     {
       "code": "6442",
       "fullCode": "TWSE:6442",
       "name": "光聖",
-      "weight": 3.42,
+      "weight": 3.35,
       "shares": 14,
-      "price": 1755
+      "price": 1720
     },
     {
       "code": "2360",
@@ -890,41 +890,41 @@
       "code": "3017",
       "fullCode": "TWSE:3017",
       "name": "奇鋐",
-      "weight": 2.91,
+      "weight": 2.87,
       "shares": 6,
-      "price": 3490
-    },
-    {
-      "code": "8996",
-      "fullCode": "TWSE:8996",
-      "name": "高力熱處",
-      "weight": 2.7,
-      "shares": 16,
-      "price": 1215
+      "price": 3435
     },
     {
       "code": "3491",
       "fullCode": "TPEX:3491",
       "name": "3491",
-      "weight": 2.7,
+      "weight": 2.76,
       "shares": 13,
-      "price": 1495
+      "price": 1525
+    },
+    {
+      "code": "8996",
+      "fullCode": "TWSE:8996",
+      "name": "高力熱處",
+      "weight": 2.71,
+      "shares": 16,
+      "price": 1215
     },
     {
       "code": "6187",
       "fullCode": "TPEX:6187",
       "name": "萬  潤",
-      "weight": 2.66,
+      "weight": 2.64,
       "shares": 14,
-      "price": 1365
+      "price": 1355
     },
     {
       "code": "1519",
       "fullCode": "TWSE:1519",
       "name": "1519",
-      "weight": 2.64,
+      "weight": 2.6,
       "shares": 25,
-      "price": 759
+      "price": 748
     },
     {
       "code": "8299",
@@ -932,39 +932,39 @@
       "name": "群聯電子",
       "weight": 2.31,
       "shares": 8,
-      "price": 2080
-    },
-    {
-      "code": "3661",
-      "fullCode": "TWSE:3661",
-      "name": "3661",
-      "weight": 2.3,
-      "shares": 4,
-      "price": 4140
+      "price": 2070
     },
     {
       "code": "2383",
       "fullCode": "TWSE:2383",
       "name": "台光電",
-      "weight": 2.28,
+      "weight": 2.3,
       "shares": 3,
-      "price": 5465
+      "price": 5505
+    },
+    {
+      "code": "3661",
+      "fullCode": "TWSE:3661",
+      "name": "3661",
+      "weight": 2.26,
+      "shares": 4,
+      "price": 4060
     },
     {
       "code": "2449",
       "fullCode": "TWSE:2449",
       "name": "京元電子",
-      "weight": 2.18,
+      "weight": 2.17,
       "shares": 57,
-      "price": 274.5
+      "price": 273.5
     },
     {
       "code": "6274",
       "fullCode": "TPEX:6274",
       "name": "台燿",
-      "weight": 1.89,
+      "weight": 1.92,
       "shares": 10,
-      "price": 1360
+      "price": 1380
     },
     {
       "code": "INSW",
@@ -986,9 +986,9 @@
       "code": "3595",
       "fullCode": "TPEX:3595",
       "name": "3595",
-      "weight": 1.39,
+      "weight": 1.38,
       "shares": 6,
-      "price": 1670
+      "price": 1655
     },
     {
       "code": "TNGX",
@@ -1010,9 +1010,9 @@
       "code": "3711",
       "fullCode": "TWSE:3711",
       "name": "日月光投控",
-      "weight": 1.2,
+      "weight": 1.21,
       "shares": 14,
-      "price": 614
+      "price": 620
     },
     {
       "code": "WULF",
@@ -1042,7 +1042,7 @@
       "code": "DRAM",
       "fullCode": "CBOE:DRAM",
       "name": "Diodes Inc",
-      "weight": 0.52,
+      "weight": 0.53,
       "shares": 2,
       "price": 59.69
     },
@@ -1067,25 +1067,25 @@
         "code": "2449",
         "name": "京元電子",
         "pct": 2.2,
-        "weight": 2.18
+        "weight": 2.17
       },
       {
         "code": "8996",
         "name": "高力熱處",
         "pct": 2.7,
-        "weight": 2.7
+        "weight": 2.71
       },
       {
         "code": "6274",
         "name": "台燿",
         "pct": 1.9,
-        "weight": 1.89
+        "weight": 1.92
       },
       {
         "code": "3491",
         "name": "3491",
-        "pct": 2.7,
-        "weight": 2.7
+        "pct": 2.8,
+        "weight": 2.76
       },
       {
         "code": "NVDA",
@@ -1112,25 +1112,25 @@
       {
         "code": "1519",
         "name": "1519",
-        "weight": 2.64,
+        "weight": 2.6,
         "shares": 25
       },
       {
         "code": "3595",
         "name": "3595",
-        "weight": 1.39,
+        "weight": 1.38,
         "shares": 6
       },
       {
         "code": "3711",
         "name": "日月光投控",
-        "weight": 1.2,
+        "weight": 1.21,
         "shares": 14
       },
       {
         "code": "6187",
         "name": "萬  潤",
-        "weight": 2.66,
+        "weight": 2.64,
         "shares": 14
       },
       {
@@ -1142,19 +1142,19 @@
       {
         "code": "DRAM",
         "name": "Diodes Inc",
-        "weight": 0.52,
+        "weight": 0.53,
         "shares": 2
       },
       {
         "code": "3017",
         "name": "奇鋐",
-        "weight": 2.91,
+        "weight": 2.87,
         "shares": 6
       },
       {
         "code": "2383",
         "name": "台光電",
-        "weight": 2.28,
+        "weight": 2.3,
         "shares": 3
       },
       {

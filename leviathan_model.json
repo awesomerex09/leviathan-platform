@@ -4,20 +4,20 @@
   "issuer": "Custom Quant Model",
   "is_custom_quant": true,
   "is_calibrated": true,
-  "total_return": 44.52,
+  "total_return": 44.5,
   "max_return": 106.84,
   "max_drawdown": -32.04,
-  "current_drawdown": -30.13,
-  "annualized_return": 55.42,
+  "current_drawdown": -30.14,
+  "annualized_return": 55.39,
   "sharpe_ratio": 1.289,
-  "sortino_ratio": 2.049,
-  "calmar_ratio": 1.73,
-  "alpha": -43.26,
+  "sortino_ratio": 2.048,
+  "calmar_ratio": 1.729,
+  "alpha": -43.51,
   "beta": 1.006,
   "total_av_yi": 0.0072,
   "listing_date": "20251106",
-  "close_price": 14.4517,
-  "nav": 14.4517,
+  "close_price": 14.4496,
+  "nav": 14.4496,
   "price_series": [
     {
       "d": "20251106",
@@ -833,19 +833,19 @@
     },
     {
       "d": "20260907",
-      "c": 14.4517
+      "c": 14.4496
     }
   ],
   "top3": [
     {
       "code": "2330",
       "name": "台積電",
-      "weight": 8.89
+      "weight": 8.87
     },
     {
       "code": "6442",
       "name": "光聖",
-      "weight": 3.35
+      "weight": 3.36
     },
     {
       "code": "2360",
@@ -858,17 +858,17 @@
       "code": "2330",
       "fullCode": "TWSE:2330",
       "name": "台積電",
-      "weight": 8.89,
+      "weight": 8.87,
       "shares": 26,
-      "price": 2455
+      "price": 2450
     },
     {
       "code": "6442",
       "fullCode": "TWSE:6442",
       "name": "光聖",
-      "weight": 3.35,
+      "weight": 3.36,
       "shares": 14,
-      "price": 1720
+      "price": 1725
     },
     {
       "code": "2360",
@@ -914,9 +914,9 @@
       "code": "6187",
       "fullCode": "TPEX:6187",
       "name": "萬  潤",
-      "weight": 2.64,
+      "weight": 2.65,
       "shares": 14,
-      "price": 1355
+      "price": 1360
     },
     {
       "code": "1519",
@@ -924,7 +924,7 @@
       "name": "1519",
       "weight": 2.6,
       "shares": 25,
-      "price": 748
+      "price": 747
     },
     {
       "code": "8299",
@@ -940,7 +940,7 @@
       "name": "台光電",
       "weight": 2.3,
       "shares": 3,
-      "price": 5505
+      "price": 5500
     },
     {
       "code": "3661",
@@ -948,7 +948,7 @@
       "name": "3661",
       "weight": 2.26,
       "shares": 4,
-      "price": 4060
+      "price": 4055
     },
     {
       "code": "2449",
@@ -956,15 +956,15 @@
       "name": "京元電子",
       "weight": 2.17,
       "shares": 57,
-      "price": 273.5
+      "price": 273
     },
     {
       "code": "6274",
       "fullCode": "TPEX:6274",
       "name": "台燿",
-      "weight": 1.92,
+      "weight": 1.91,
       "shares": 10,
-      "price": 1380
+      "price": 1375
     },
     {
       "code": "INSW",
@@ -986,9 +986,9 @@
       "code": "3595",
       "fullCode": "TPEX:3595",
       "name": "3595",
-      "weight": 1.38,
+      "weight": 1.39,
       "shares": 6,
-      "price": 1655
+      "price": 1660
     },
     {
       "code": "TNGX",
@@ -1079,7 +1079,7 @@
         "code": "6274",
         "name": "台燿",
         "pct": 1.9,
-        "weight": 1.92
+        "weight": 1.91
       },
       {
         "code": "3491",
@@ -1118,7 +1118,7 @@
       {
         "code": "3595",
         "name": "3595",
-        "weight": 1.38,
+        "weight": 1.39,
         "shares": 6
       },
       {
@@ -1130,7 +1130,7 @@
       {
         "code": "6187",
         "name": "萬  潤",
-        "weight": 2.64,
+        "weight": 2.65,
         "shares": 14
       },
       {

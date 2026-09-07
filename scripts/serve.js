@@ -213,7 +213,13 @@ const server = http.createServer((req, res) => {
           return s;
         }).filter(Boolean)));
 
-        const etfCodes = etfs.map(e => e.code).filter(Boolean);
+        const etfCodes = etfs.map(e => {
+          if (!e.code) return null;
+          const c = e.code.trim();
+          // If code has no exchange suffix (e.g. '00981A'), add .TW for Taiwan-listed funds
+          if (!c.includes('.') && !c.includes(':')) return c + '.TW';
+          return c;
+        }).filter(Boolean);
         const symbolsToFetch = Array.from(new Set(['0050.TW', 'TWD=X', ...tradeSymbols, ...etfCodes]));
         let liveFetched = {};
         try {

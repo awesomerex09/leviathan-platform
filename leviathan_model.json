@@ -4,20 +4,20 @@
   "issuer": "Custom Quant Model",
   "is_custom_quant": true,
   "is_calibrated": true,
-  "total_return": 43.49,
+  "total_return": 44.66,
   "max_return": 106.84,
   "max_drawdown": -32.04,
-  "current_drawdown": -30.63,
-  "annualized_return": 54.99,
-  "sharpe_ratio": 1.274,
-  "sortino_ratio": 2.025,
-  "calmar_ratio": 1.716,
-  "alpha": -43.37,
-  "beta": 1.015,
-  "total_av_yi": 0.0071,
+  "current_drawdown": -30.06,
+  "annualized_return": 55.61,
+  "sharpe_ratio": 1.292,
+  "sortino_ratio": 2.054,
+  "calmar_ratio": 1.736,
+  "alpha": -42.85,
+  "beta": 1.006,
+  "total_av_yi": 0.0072,
   "listing_date": "20251106",
-  "close_price": 14.3494,
-  "nav": 14.3494,
+  "close_price": 14.4662,
+  "nav": 14.4662,
   "price_series": [
     {
       "d": "20251106",
@@ -813,36 +813,44 @@
     },
     {
       "d": "20260831",
-      "c": 14.2675
+      "c": 14.263
     },
     {
       "d": "20260901",
-      "c": 14.492
+      "c": 14.3433
     },
     {
       "d": "20260902",
-      "c": 14.4606
+      "c": 14.3119
     },
     {
       "d": "20260903",
-      "c": 14.3494
+      "c": 14.1999
+    },
+    {
+      "d": "20260904",
+      "c": 14.381
+    },
+    {
+      "d": "20260907",
+      "c": 14.4662
     }
   ],
   "top3": [
     {
       "code": "2330",
       "name": "台積電",
-      "weight": 8.71
+      "weight": 8.84
     },
     {
       "code": "6442",
       "name": "光聖",
-      "weight": 3.47
+      "weight": 3.42
     },
     {
-      "code": "NVDA",
-      "name": "NVIDIA",
-      "weight": 3.05
+      "code": "2360",
+      "name": "致茂",
+      "weight": 3.1
     }
   ],
   "holdings": [
@@ -850,105 +858,105 @@
       "code": "2330",
       "fullCode": "TWSE:2330",
       "name": "台積電",
-      "weight": 8.71,
+      "weight": 8.84,
       "shares": 26,
-      "price": 2390
+      "price": 2445
     },
     {
       "code": "6442",
       "fullCode": "TWSE:6442",
       "name": "光聖",
-      "weight": 3.47,
+      "weight": 3.42,
       "shares": 14,
-      "price": 1770
-    },
-    {
-      "code": "NVDA",
-      "fullCode": "NASDAQ:NVDA",
-      "name": "NVIDIA",
-      "weight": 3.05,
-      "shares": 3,
-      "price": 228.45
+      "price": 1755
     },
     {
       "code": "2360",
       "fullCode": "TWSE:2360",
       "name": "致茂",
-      "weight": 2.82,
+      "weight": 3.1,
       "shares": 10,
-      "price": 2015
+      "price": 2230
+    },
+    {
+      "code": "NVDA",
+      "fullCode": "NASDAQ:NVDA",
+      "name": "NVIDIA",
+      "weight": 3.04,
+      "shares": 3,
+      "price": 230.36
     },
     {
       "code": "3017",
       "fullCode": "TWSE:3017",
       "name": "奇鋐",
-      "weight": 2.78,
+      "weight": 2.91,
       "shares": 6,
-      "price": 3300
+      "price": 3490
     },
     {
       "code": "8996",
       "fullCode": "TWSE:8996",
       "name": "高力熱處",
-      "weight": 2.66,
+      "weight": 2.7,
       "shares": 16,
-      "price": 1185
+      "price": 1215
     },
     {
       "code": "3491",
       "fullCode": "TPEX:3491",
       "name": "3491",
-      "weight": 2.56,
+      "weight": 2.7,
       "shares": 13,
-      "price": 1405
-    },
-    {
-      "code": "1519",
-      "fullCode": "TWSE:1519",
-      "name": "1519",
-      "weight": 2.53,
-      "shares": 25,
-      "price": 722
-    },
-    {
-      "code": "3661",
-      "fullCode": "TWSE:3661",
-      "name": "3661",
-      "weight": 2.27,
-      "shares": 4,
-      "price": 4050
-    },
-    {
-      "code": "8299",
-      "fullCode": "TPEX:8299",
-      "name": "群聯電子",
-      "weight": 2.24,
-      "shares": 8,
-      "price": 2000
-    },
-    {
-      "code": "2383",
-      "fullCode": "TWSE:2383",
-      "name": "台光電",
-      "weight": 2.22,
-      "shares": 3,
-      "price": 5290
-    },
-    {
-      "code": "2449",
-      "fullCode": "TWSE:2449",
-      "name": "京元電子",
-      "weight": 2.09,
-      "shares": 57,
-      "price": 261
+      "price": 1495
     },
     {
       "code": "6187",
       "fullCode": "TPEX:6187",
       "name": "萬  潤",
-      "weight": 2,
-      "shares": 11,
-      "price": 1300
+      "weight": 2.66,
+      "shares": 14,
+      "price": 1365
+    },
+    {
+      "code": "1519",
+      "fullCode": "TWSE:1519",
+      "name": "1519",
+      "weight": 2.64,
+      "shares": 25,
+      "price": 759
+    },
+    {
+      "code": "8299",
+      "fullCode": "TPEX:8299",
+      "name": "群聯電子",
+      "weight": 2.31,
+      "shares": 8,
+      "price": 2080
+    },
+    {
+      "code": "3661",
+      "fullCode": "TWSE:3661",
+      "name": "3661",
+      "weight": 2.3,
+      "shares": 4,
+      "price": 4140
+    },
+    {
+      "code": "2383",
+      "fullCode": "TWSE:2383",
+      "name": "台光電",
+      "weight": 2.28,
+      "shares": 3,
+      "price": 5465
+    },
+    {
+      "code": "2449",
+      "fullCode": "TWSE:2449",
+      "name": "京元電子",
+      "weight": 2.18,
+      "shares": 57,
+      "price": 274.5
     },
     {
       "code": "6274",
@@ -956,71 +964,63 @@
       "name": "台燿",
       "weight": 1.89,
       "shares": 10,
-      "price": 1345
+      "price": 1360
     },
     {
       "code": "INSW",
       "fullCode": "NYSE:INSW",
       "name": "International Seaways",
-      "weight": 1.82,
+      "weight": 1.84,
       "shares": 4,
-      "price": 102.24
+      "price": 104.5
     },
     {
       "code": "LQDA",
       "fullCode": "NASDAQ:LQDA",
       "name": "Liquidia Corp",
-      "weight": 1.53,
+      "weight": 1.51,
       "shares": 5,
-      "price": 68.63
+      "price": 68.66
     },
     {
       "code": "3595",
       "fullCode": "TPEX:3595",
       "name": "3595",
-      "weight": 1.46,
+      "weight": 1.39,
       "shares": 6,
-      "price": 1730
+      "price": 1670
     },
     {
       "code": "TNGX",
       "fullCode": "NASDAQ:TNGX",
       "name": "Tango Therapeutics",
-      "weight": 1.32,
+      "weight": 1.29,
       "shares": 13,
-      "price": 22.76
-    },
-    {
-      "code": "3711",
-      "fullCode": "TWSE:3711",
-      "name": "日月光投控",
-      "weight": 1.16,
-      "shares": 14,
-      "price": 589
-    },
-    {
-      "code": "WULF",
-      "fullCode": "NASDAQ:WULF",
-      "name": "TeraWulf",
-      "weight": 1.15,
-      "shares": 16,
-      "price": 16.23
-    },
-    {
-      "code": "5289",
-      "fullCode": "TPEX:5289",
-      "name": "5289",
-      "weight": 1.13,
-      "shares": 6,
-      "price": 1345
+      "price": 22.52
     },
     {
       "code": "3026",
       "fullCode": "TWSE:3026",
       "name": "禾伸堂企",
-      "weight": 1.07,
+      "weight": 1.29,
       "shares": 12,
-      "price": 638
+      "price": 771
+    },
+    {
+      "code": "3711",
+      "fullCode": "TWSE:3711",
+      "name": "日月光投控",
+      "weight": 1.2,
+      "shares": 14,
+      "price": 614
+    },
+    {
+      "code": "WULF",
+      "fullCode": "NASDAQ:WULF",
+      "name": "TeraWulf",
+      "weight": 1.16,
+      "shares": 16,
+      "price": 16.51
     },
     {
       "code": "FLEX",
@@ -1028,7 +1028,7 @@
       "name": "Flex Ltd",
       "weight": 0.96,
       "shares": 2,
-      "price": 107.89
+      "price": 109.51
     },
     {
       "code": "VISN",
@@ -1036,31 +1036,23 @@
       "name": "VISN",
       "weight": 0.79,
       "shares": 28,
-      "price": 6.37
-    },
-    {
-      "code": "6139",
-      "fullCode": "TWSE:6139",
-      "name": "亞翔",
-      "weight": 0.5,
-      "shares": 5,
-      "price": 712
+      "price": 6.4
     },
     {
       "code": "DRAM",
       "fullCode": "CBOE:DRAM",
       "name": "Diodes Inc",
-      "weight": 0.5,
+      "weight": 0.52,
       "shares": 2,
-      "price": 55.99
+      "price": 59.69
     },
     {
       "code": "AAOI",
       "fullCode": "NASDAQ:AAOI",
       "name": "AAOI",
-      "weight": 0.45,
+      "weight": 0.46,
       "shares": 1,
-      "price": 100.38
+      "price": 105.53
     }
   ],
   "shares_signal": {
@@ -1068,20 +1060,38 @@
       {
         "code": "2360",
         "name": "致茂",
-        "pct": 2.8,
-        "weight": 2.82
+        "pct": 3.1,
+        "weight": 3.1
       },
       {
-        "code": "3661",
-        "name": "3661",
-        "pct": 2.3,
-        "weight": 2.27
-      },
-      {
-        "code": "8299",
-        "name": "群聯電子",
+        "code": "2449",
+        "name": "京元電子",
         "pct": 2.2,
-        "weight": 2.24
+        "weight": 2.18
+      },
+      {
+        "code": "8996",
+        "name": "高力熱處",
+        "pct": 2.7,
+        "weight": 2.7
+      },
+      {
+        "code": "6274",
+        "name": "台燿",
+        "pct": 1.9,
+        "weight": 1.89
+      },
+      {
+        "code": "3491",
+        "name": "3491",
+        "pct": 2.7,
+        "weight": 2.7
+      },
+      {
+        "code": "NVDA",
+        "name": "NVIDIA",
+        "pct": 3,
+        "weight": 3.04
       }
     ],
     "top_reductions": [
@@ -1089,105 +1099,69 @@
         "code": "LQDA",
         "name": "Liquidia Corp",
         "pct": 1.5,
-        "weight": 1.53
+        "weight": 1.51
       },
       {
         "code": "INSW",
         "name": "International Seaways",
         "pct": 1.8,
-        "weight": 1.82
-      },
-      {
-        "code": "VISN",
-        "name": "VISN",
-        "pct": 0.8,
-        "weight": 0.79
+        "weight": 1.84
       }
     ],
     "new_positions": [
       {
-        "code": "2449",
-        "name": "京元電子",
-        "weight": 2.09,
-        "shares": 57
-      },
-      {
-        "code": "8996",
-        "name": "高力熱處",
-        "weight": 2.66,
-        "shares": 16
-      },
-      {
-        "code": "6274",
-        "name": "台燿",
-        "weight": 1.89,
-        "shares": 10
-      },
-      {
-        "code": "3491",
-        "name": "3491",
-        "weight": 2.56,
-        "shares": 13
-      },
-      {
-        "code": "NVDA",
-        "name": "NVIDIA",
-        "weight": 3.05,
-        "shares": 3
-      },
-      {
         "code": "1519",
         "name": "1519",
-        "weight": 2.53,
+        "weight": 2.64,
         "shares": 25
       },
       {
         "code": "3595",
         "name": "3595",
-        "weight": 1.46,
+        "weight": 1.39,
         "shares": 6
       },
       {
         "code": "3711",
         "name": "日月光投控",
-        "weight": 1.16,
+        "weight": 1.2,
         "shares": 14
-      },
-      {
-        "code": "6139",
-        "name": "亞翔",
-        "weight": 0.5,
-        "shares": 5
       },
       {
         "code": "6187",
         "name": "萬  潤",
-        "weight": 2,
-        "shares": 11
+        "weight": 2.66,
+        "shares": 14
       },
       {
         "code": "AAOI",
         "name": "AAOI",
-        "weight": 0.45,
+        "weight": 0.46,
         "shares": 1
       },
       {
         "code": "DRAM",
         "name": "Diodes Inc",
-        "weight": 0.5,
+        "weight": 0.52,
         "shares": 2
       },
       {
         "code": "3017",
         "name": "奇鋐",
-        "weight": 2.78,
+        "weight": 2.91,
         "shares": 6
       },
       {
         "code": "2383",
         "name": "台光電",
-        "weight": 2.22,
+        "weight": 2.28,
         "shares": 3
+      },
+      {
+        "code": "VISN",
+        "name": "VISN",
+        "weight": 0.79,
+        "shares": 28
       },
       {
         "code": "FLEX",
@@ -1196,28 +1170,22 @@
         "shares": 2
       },
       {
-        "code": "5289",
-        "name": "5289",
-        "weight": 1.13,
-        "shares": 6
-      },
-      {
         "code": "3026",
         "name": "禾伸堂企",
-        "weight": 1.07,
+        "weight": 1.29,
         "shares": 12
       },
       {
         "code": "WULF",
         "name": "TeraWulf",
-        "weight": 1.15,
+        "weight": 1.16,
         "shares": 16
       }
     ],
     "exits": [
       {
-        "code": "HUT",
-        "name": "Hut 8 Corp"
+        "code": "BELFA",
+        "name": "Bel Fuse"
       }
     ]
   },

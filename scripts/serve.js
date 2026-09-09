@@ -216,9 +216,12 @@ const server = http.createServer((req, res) => {
         const etfCodes = etfs.map(e => {
           if (!e.code) return null;
           const c = e.code.trim();
-          // If code has no exchange suffix (e.g. '00981A'), add .TW for Taiwan-listed funds
-          if (!c.includes('.') && !c.includes(':')) return c + '.TW';
-          return c;
+          // If code already has an exchange suffix, keep as-is
+          if (c.includes('.') || c.includes(':')) return c;
+          // Pure alphabetic codes = US-listed ETF (e.g. SPY, QQQ, ARKK) — do NOT add .TW
+          if (/^[A-Za-z]+$/.test(c)) return c;
+          // Otherwise (e.g. '00981A', '0050') = Taiwan-listed fund — add .TW
+          return c + '.TW';
         }).filter(Boolean);
         const symbolsToFetch = Array.from(new Set(['0050.TW', 'TWD=X', ...tradeSymbols, ...etfCodes]));
         let liveFetched = {};
@@ -466,7 +469,15 @@ function extendPricesAndEtfsToToday(prices, etfs, livePricesMap) {
     for (const etf of etfs) {
       if (!etf.price_series || !etf.price_series.length) continue;
 
-      const liveEtfSeries = livePricesMap ? (livePricesMap[etf.code] || livePricesMap[`${etf.code}.TW`] || livePricesMap[`${etf.code}.TWO`]) : null;
+      // For US ETFs (pure alpha codes like SPY/QQQ/ARKK), livePricesMap key is the bare symbol.
+      // For TW funds, the key has .TW/.TWO suffix. Also check the bare code as fallback.
+      const liveEtfSeries = livePricesMap ? (
+        livePricesMap[etf.code] ||
+        livePricesMap[`${etf.code}.TW`] ||
+        livePricesMap[`${etf.code}.TWO`] ||
+        // If fetched with suffix (shouldn't happen for US ETFs after fix, but guard anyway)
+        livePricesMap[etf.code.replace(/\.TW$/, '').replace(/\.TWO$/, '')]
+      ) : null;
       if (liveEtfSeries && liveEtfSeries.length) {
         if (liveEtfSeries.length > 30) {
           etf.price_series = JSON.parse(JSON.stringify(liveEtfSeries));

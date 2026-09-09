@@ -1304,7 +1304,7 @@
     function getStockSector(code) {
       const codeStr = String(code).trim().replace(' TW', '').replace('.TW', '').replace(' US', '');
       // Semiconductor codes
-      if (['2330', '2454', '2303', '3711', '2449', '5274', '3529', '6488', '5347', '6515', '3583', '6510', '2458', '2379', '3034', '4961', '3035', '2408', '8299', '5289', '6223', '6187', '3661', 'NVDA', 'TSM', 'AVGO', 'AMD', 'AEHR'].includes(codeStr)) {
+      if (['2330', '2454', '2303', '3711', '2449', '5274', '3529', '6488', '5347', '6515', '3583', '6510', '2458', '2379', '3034', '4961', '3035', '2408', '8299', '5289', '6223', '6187', '3661', '3595', 'NVDA', 'TSM', 'AVGO', 'AMD', 'AEHR'].includes(codeStr)) {
         return currentLang === 'zh' ? '半導體產業' : 'Semiconductors';
       }
       // Hardware & Components
@@ -1316,7 +1316,7 @@
         return currentLang === 'zh' ? '光電與通信網路' : 'Optoelectronics & Telecom';
       }
       // Biotech & Healthcare
-      if (['3595', 'TNGX', 'LQDA'].includes(codeStr)) {
+      if (['TNGX', 'LQDA'].includes(codeStr)) {
         return currentLang === 'zh' ? '生化生技醫療' : 'Biotech & Healthcare';
       }
       // Software & Cloud Services

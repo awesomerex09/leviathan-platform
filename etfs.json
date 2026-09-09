@@ -34,8 +34,8 @@
       "benefit": 996982,
       "listing_date": "20250527",
       "pre_listing_snapshot": false,
-      "close_price": 30.1,
-      "nav": 30.1,
+      "close_price": 30.11,
+      "nav": 30.11,
       "nav_date": "20260514",
       "premium_pct": -0.41,
       "price_series": [
@@ -1333,7 +1333,7 @@
         },
         {
           "d": "20260909",
-          "c": 30.1
+          "c": 30.11
         }
       ],
       "mgmt_fee_raw": "按基金淨資產價值每年依下列費率逐日累計計算：淨資產價值200億元（含）以下之部分：1.2%、淨資產價值逾200億元之部份：1.0%",
@@ -1497,15 +1497,15 @@
         ]
       },
       "m1_return": "4.91%",
-      "total_return": 213.49,
-      "annualized_return": 138.13,
+      "total_return": 213.59,
+      "annualized_return": 138.19,
       "max_return": 235.99,
       "max_drawdown": -26.35,
-      "current_drawdown": -6.7,
-      "sharpe_ratio": 2.626,
-      "sortino_ratio": 4.162,
-      "calmar_ratio": 5.242,
-      "alpha": 26.05,
+      "current_drawdown": -6.66,
+      "sharpe_ratio": 2.627,
+      "sortino_ratio": 4.163,
+      "calmar_ratio": 5.244,
+      "alpha": 26.11,
       "beta": 1.134
     },
     {
@@ -1540,8 +1540,8 @@
       "benefit": 1022567,
       "listing_date": "20260512",
       "pre_listing_snapshot": false,
-      "close_price": 10.39,
-      "nav": 10.39,
+      "close_price": 10.4,
+      "nav": 10.4,
       "nav_date": "20260514",
       "premium_pct": 0.29,
       "price_series": [
@@ -1919,7 +1919,7 @@
         },
         {
           "d": "20260909",
-          "c": 10.39
+          "c": 10.4
         }
       ],
       "mgmt_fee_raw": "按基金淨資產價值每年依下列費率逐日累計計算：淨資產價值200億元（含）以下之部分：1.2%、淨資產價值逾200億元之部份：1.0%",
@@ -2085,15 +2085,15 @@
         "history": []
       },
       "m1_return": "0.88%",
-      "total_return": 3.9,
-      "annualized_return": 10.99,
+      "total_return": 4,
+      "annualized_return": 11.28,
       "max_return": 13.8,
       "max_drawdown": -25.66,
-      "current_drawdown": -8.7,
-      "sharpe_ratio": 0.41,
-      "sortino_ratio": 0.643,
-      "calmar_ratio": 0.428,
-      "alpha": -56.86,
+      "current_drawdown": -8.61,
+      "sharpe_ratio": 0.416,
+      "sortino_ratio": 0.652,
+      "calmar_ratio": 0.44,
+      "alpha": -56.57,
       "beta": 1.021
     },
     {
@@ -3074,8 +3074,8 @@
       "benefit": 240460,
       "listing_date": "20251105",
       "pre_listing_snapshot": false,
-      "close_price": 16.37,
-      "nav": 16.37,
+      "close_price": 16.36,
+      "nav": 16.36,
       "nav_date": "20260513",
       "premium_pct": 1.12,
       "price_series": [
@@ -3941,7 +3941,7 @@
         },
         {
           "d": "20260909",
-          "c": 16.37
+          "c": 16.36
         }
       ],
       "mgmt_fee_raw": "按基金淨資產價值每年依下列費率逐日累計計算：淨資產價值100億元（含）以下：1.4%、淨資產價值逾100億元之部份：1.2%",
@@ -4131,15 +4131,15 @@
         "history": []
       },
       "m1_return": "-3.95%",
-      "total_return": 63.7,
-      "annualized_return": 74.6,
+      "total_return": 63.6,
+      "annualized_return": 74.48,
       "max_return": 137.3,
       "max_drawdown": -40.33,
-      "current_drawdown": -31.02,
-      "sharpe_ratio": 1.338,
-      "sortino_ratio": 2.136,
-      "calmar_ratio": 1.85,
-      "alpha": -55.99,
+      "current_drawdown": -31.06,
+      "sharpe_ratio": 1.336,
+      "sortino_ratio": 2.134,
+      "calmar_ratio": 1.847,
+      "alpha": -56.11,
       "beta": 1.43
     },
     {
@@ -4174,8 +4174,8 @@
       "benefit": 180221,
       "listing_date": "20250522",
       "pre_listing_snapshot": false,
-      "close_price": 23.01,
-      "nav": 23.01,
+      "close_price": 23.04,
+      "nav": 23.04,
       "nav_date": "20260513",
       "premium_pct": 0.65,
       "price_series": [
@@ -5481,7 +5481,7 @@
         },
         {
           "d": "20260909",
-          "c": 23.01
+          "c": 23.04
         }
       ],
       "mgmt_fee_raw": "0.8%",
@@ -5658,15 +5658,15 @@
         ]
       },
       "m1_return": "-0.76%",
-      "total_return": 159.92,
-      "annualized_return": 105.92,
+      "total_return": 160.26,
+      "annualized_return": 106.13,
       "max_return": 180.3,
       "max_drawdown": -27.32,
-      "current_drawdown": -7.27,
-      "sharpe_ratio": 2.314,
-      "sortino_ratio": 3.524,
-      "calmar_ratio": 3.877,
-      "alpha": 0.96,
+      "current_drawdown": -7.15,
+      "sharpe_ratio": 2.317,
+      "sortino_ratio": 3.529,
+      "calmar_ratio": 3.885,
+      "alpha": 1.17,
       "beta": 1.066
     },
     {
@@ -6699,8 +6699,8 @@
       "benefit": 192566,
       "listing_date": "20251230",
       "pre_listing_snapshot": false,
-      "close_price": 18.3,
-      "nav": 18.3,
+      "close_price": 18.35,
+      "nav": 18.35,
       "nav_date": "20260513",
       "premium_pct": 0.39,
       "price_series": [
@@ -7410,7 +7410,7 @@
         },
         {
           "d": "20260909",
-          "c": 18.3
+          "c": 18.35
         }
       ],
       "mgmt_fee_raw": "新臺幣200億元（含）以下：1.2％；新臺幣200億元以上：1.0％",
@@ -7570,15 +7570,15 @@
         "history": []
       },
       "m1_return": "7.76%",
-      "total_return": 88.05,
-      "annualized_return": 137.25,
+      "total_return": 88.57,
+      "annualized_return": 138.14,
       "max_return": 94.2,
       "max_drawdown": -28.67,
-      "current_drawdown": -3.16,
-      "sharpe_ratio": 2.219,
-      "sortino_ratio": 3.401,
-      "calmar_ratio": 4.787,
-      "alpha": -0.53,
+      "current_drawdown": -2.9,
+      "sharpe_ratio": 2.228,
+      "sortino_ratio": 3.415,
+      "calmar_ratio": 4.818,
+      "alpha": 0.36,
       "beta": 1.107
     },
     {
@@ -7613,8 +7613,8 @@
       "benefit": 162266,
       "listing_date": "20260624",
       "pre_listing_snapshot": false,
-      "close_price": 9.8,
-      "nav": 9.8,
+      "close_price": 9.79,
+      "nav": 9.79,
       "nav_date": null,
       "premium_pct": null,
       "price_series": [
@@ -7860,7 +7860,7 @@
         },
         {
           "d": "20260909",
-          "c": 9.8
+          "c": 9.79
         }
       ],
       "mgmt_fee_raw": "",
@@ -7946,15 +7946,15 @@
         "history": []
       },
       "m1_return": "8.13%",
-      "total_return": -2,
-      "annualized_return": -8.22,
+      "total_return": -2.1,
+      "annualized_return": -8.62,
       "max_return": 0.4,
       "max_drawdown": -22.41,
-      "current_drawdown": -2.39,
-      "sharpe_ratio": -0.028,
-      "sortino_ratio": 0.026,
-      "calmar_ratio": -0.367,
-      "alpha": -34.34,
+      "current_drawdown": -2.49,
+      "sharpe_ratio": -0.038,
+      "sortino_ratio": 0.012,
+      "calmar_ratio": -0.385,
+      "alpha": -34.74,
       "beta": 1.05
     },
     {
@@ -7989,8 +7989,8 @@
       "benefit": 137162,
       "listing_date": "20260409",
       "pre_listing_snapshot": false,
-      "close_price": 15.12,
-      "nav": 15.12,
+      "close_price": 15.14,
+      "nav": 15.14,
       "nav_date": "20260513",
       "premium_pct": 0.36,
       "price_series": [
@@ -8444,7 +8444,7 @@
         },
         {
           "d": "20260909",
-          "c": 15.12
+          "c": 15.14
         }
       ],
       "mgmt_fee_raw": "0.9%",
@@ -8634,15 +8634,15 @@
         "history": []
       },
       "m1_return": "7.24%",
-      "total_return": 55.07,
-      "annualized_return": 167.25,
+      "total_return": 55.27,
+      "annualized_return": 168.04,
       "max_return": 56.38,
       "max_drawdown": -23.38,
-      "current_drawdown": -0.84,
-      "sharpe_ratio": 2.54,
-      "sortino_ratio": 4.014,
-      "calmar_ratio": 7.154,
-      "alpha": 13.25,
+      "current_drawdown": -0.71,
+      "sharpe_ratio": 2.547,
+      "sortino_ratio": 4.026,
+      "calmar_ratio": 7.187,
+      "alpha": 14.04,
       "beta": 1.038
     },
     {
@@ -8677,8 +8677,8 @@
       "benefit": 161463,
       "listing_date": "20260609",
       "pre_listing_snapshot": false,
-      "close_price": 8.82,
-      "nav": 8.82,
+      "close_price": 8.83,
+      "nav": 8.83,
       "nav_date": "20260612",
       "premium_pct": -0.22,
       "price_series": [
@@ -8984,7 +8984,7 @@
         },
         {
           "d": "20260909",
-          "c": 8.82
+          "c": 8.83
         }
       ],
       "mgmt_fee_raw": "淨資產價值於新臺幣200億元(含)以下:1.2%、淨資產價值於超過新臺幣200億元:1.0%",
@@ -9156,15 +9156,15 @@
         "history": []
       },
       "m1_return": "3.32%",
-      "total_return": -11.8,
-      "annualized_return": -34.86,
+      "total_return": -11.7,
+      "annualized_return": -34.61,
       "max_return": 0.2,
       "max_drawdown": -33.33,
-      "current_drawdown": -11.98,
-      "sharpe_ratio": -0.659,
-      "sortino_ratio": -0.826,
-      "calmar_ratio": -1.046,
-      "alpha": -76.38,
+      "current_drawdown": -11.88,
+      "sharpe_ratio": -0.652,
+      "sortino_ratio": -0.815,
+      "calmar_ratio": -1.038,
+      "alpha": -76.13,
       "beta": 1.079
     },
     {
@@ -9199,8 +9199,8 @@
       "benefit": 70412,
       "listing_date": "20250505",
       "pre_listing_snapshot": false,
-      "close_price": 25,
-      "nav": 25,
+      "close_price": 25.01,
+      "nav": 25.01,
       "nav_date": "20260514",
       "premium_pct": 0.33,
       "price_series": [
@@ -9370,7 +9370,7 @@
         },
         {
           "d": "20250620",
-          "c": 10.0081
+          "c": 10.0082
         },
         {
           "d": "20250623",
@@ -10566,7 +10566,7 @@
         },
         {
           "d": "20260909",
-          "c": 25
+          "c": 25.01
         }
       ],
       "mgmt_fee_raw": "按本基金淨資產價值每年0.75%之比率計算",
@@ -10768,15 +10768,15 @@
         ]
       },
       "m1_return": "9.87%",
-      "total_return": 173.53,
-      "annualized_return": 107.05,
+      "total_return": 173.64,
+      "annualized_return": 107.11,
       "max_return": 175.06,
       "max_drawdown": -23.92,
-      "current_drawdown": -0.56,
-      "sharpe_ratio": 2.635,
-      "sortino_ratio": 4.14,
-      "calmar_ratio": 4.475,
-      "alpha": -3.64,
+      "current_drawdown": -0.52,
+      "sharpe_ratio": 2.636,
+      "sortino_ratio": 4.142,
+      "calmar_ratio": 4.478,
+      "alpha": -3.58,
       "beta": 0.951
     },
     {
@@ -11499,8 +11499,8 @@
       "benefit": 55126,
       "listing_date": "20260611",
       "pre_listing_snapshot": false,
-      "close_price": 9.7,
-      "nav": 9.7,
+      "close_price": 9.71,
+      "nav": 9.71,
       "nav_date": "20260612",
       "premium_pct": 0.1,
       "price_series": [
@@ -11782,7 +11782,7 @@
         },
         {
           "d": "20260909",
-          "c": 9.7
+          "c": 9.71
         }
       ],
       "mgmt_fee_raw": "按基金淨資產價值每年0.75%之比率，逐日累計計算。",
@@ -11952,15 +11952,15 @@
         "history": []
       },
       "m1_return": "3.41%",
-      "total_return": -0.05,
-      "annualized_return": -0.18,
+      "total_return": 0.05,
+      "annualized_return": 0.2,
       "max_return": 6,
       "max_drawdown": -24.24,
-      "current_drawdown": -5.71,
-      "sharpe_ratio": 0.157,
-      "sortino_ratio": 0.279,
-      "calmar_ratio": -0.007,
-      "alpha": -20.38,
+      "current_drawdown": -5.61,
+      "sharpe_ratio": 0.166,
+      "sortino_ratio": 0.291,
+      "calmar_ratio": 0.008,
+      "alpha": -20,
       "beta": 1.042
     },
     {
@@ -11995,8 +11995,8 @@
       "benefit": 100418,
       "listing_date": "20260505",
       "pre_listing_snapshot": false,
-      "close_price": 11.58,
-      "nav": 11.58,
+      "close_price": 11.59,
+      "nav": 11.59,
       "nav_date": "20260514",
       "premium_pct": -0.19,
       "price_series": [
@@ -12394,7 +12394,7 @@
         },
         {
           "d": "20260909",
-          "c": 11.58
+          "c": 11.59
         }
       ],
       "mgmt_fee_raw": "按本基金淨資產價值每年0.70%之比率計算",
@@ -12584,15 +12584,15 @@
         "history": []
       },
       "m1_return": "7.50%",
-      "total_return": 15.8,
-      "annualized_return": 46.23,
+      "total_return": 15.9,
+      "annualized_return": 46.56,
       "max_return": 16.3,
       "max_drawdown": -17.76,
-      "current_drawdown": -0.43,
-      "sharpe_ratio": 1.35,
-      "sortino_ratio": 2.136,
-      "calmar_ratio": 2.603,
-      "alpha": -22.16,
+      "current_drawdown": -0.34,
+      "sharpe_ratio": 1.358,
+      "sortino_ratio": 2.148,
+      "calmar_ratio": 2.622,
+      "alpha": -21.83,
       "beta": 0.727
     },
     {
@@ -12627,8 +12627,8 @@
       "benefit": 48267,
       "listing_date": "20250721",
       "pre_listing_snapshot": false,
-      "close_price": 23.26,
-      "nav": 23.26,
+      "close_price": 23.28,
+      "nav": 23.28,
       "nav_date": "20260514",
       "premium_pct": -0.23,
       "price_series": [
@@ -13782,7 +13782,7 @@
         },
         {
           "d": "20260909",
-          "c": 23.26
+          "c": 23.28
         }
       ],
       "mgmt_fee_raw": "按本基金淨資產價值每年0.45%之比率計算",
@@ -13952,15 +13952,15 @@
         "history": []
       },
       "m1_return": "5.23%",
-      "total_return": 132.6,
-      "annualized_return": 105.52,
+      "total_return": 132.8,
+      "annualized_return": 105.67,
       "max_return": 135,
       "max_drawdown": -20.2,
-      "current_drawdown": -1.02,
-      "sharpe_ratio": 2.764,
-      "sortino_ratio": 4.424,
-      "calmar_ratio": 5.224,
-      "alpha": 8.89,
+      "current_drawdown": -0.94,
+      "sharpe_ratio": 2.766,
+      "sortino_ratio": 4.429,
+      "calmar_ratio": 5.231,
+      "alpha": 9.04,
       "beta": 0.903
     },
     {
@@ -13995,8 +13995,8 @@
       "benefit": 64973,
       "listing_date": "20250714",
       "pre_listing_snapshot": false,
-      "close_price": 15.65,
-      "nav": 15.65,
+      "close_price": 15.68,
+      "nav": 15.68,
       "nav_date": "20260513",
       "premium_pct": 0.4,
       "price_series": [
@@ -15154,7 +15154,7 @@
         },
         {
           "d": "20260909",
-          "c": 15.65
+          "c": 15.68
         }
       ],
       "mgmt_fee_raw": "0.7%",
@@ -15372,15 +15372,15 @@
         ]
       },
       "m1_return": "-1.15%",
-      "total_return": 69.54,
-      "annualized_return": 56.75,
+      "total_return": 69.86,
+      "annualized_return": 57,
       "max_return": 82.85,
       "max_drawdown": -21.38,
-      "current_drawdown": -7.28,
-      "sharpe_ratio": 2.078,
-      "sortino_ratio": 3.167,
-      "calmar_ratio": 2.654,
-      "alpha": -14.38,
+      "current_drawdown": -7.1,
+      "sharpe_ratio": 2.085,
+      "sortino_ratio": 3.179,
+      "calmar_ratio": 2.666,
+      "alpha": -14.13,
       "beta": 0.667
     },
     {
@@ -16745,8 +16745,8 @@
       "benefit": 9215,
       "listing_date": "20260204",
       "pre_listing_snapshot": false,
-      "close_price": 9.83,
-      "nav": 9.83,
+      "close_price": 9.84,
+      "nav": 9.84,
       "nav_date": "20260611",
       "premium_pct": -0.07,
       "price_series": [
@@ -17352,7 +17352,7 @@
         },
         {
           "d": "20260909",
-          "c": 9.83
+          "c": 9.84
         }
       ],
       "mgmt_fee_raw": "本基金淨資產價值低於新臺幣參佰億元（含）時，按每年百分之零點捌（0.80％）之比率計算。、本基金淨資產價值超過新臺幣參佰億元時，按每年百分之零點柒伍（0.75％）之比率計算。",
@@ -17536,15 +17536,15 @@
         "history": []
       },
       "m1_return": "0.15%",
-      "total_return": 2.43,
-      "annualized_return": 3.91,
+      "total_return": 2.54,
+      "annualized_return": 4.08,
       "max_return": 5.12,
-      "max_drawdown": -2.56,
-      "current_drawdown": -2.56,
-      "sharpe_ratio": 0.58,
-      "sortino_ratio": 1.715,
-      "calmar_ratio": 1.527,
-      "alpha": 0.56,
+      "max_drawdown": -2.46,
+      "current_drawdown": -2.46,
+      "sharpe_ratio": 0.63,
+      "sortino_ratio": 1.81,
+      "calmar_ratio": 1.659,
+      "alpha": 0.73,
       "beta": 0.014
     },
     {
@@ -17794,7 +17794,7 @@
         },
         {
           "d": "20251128",
-          "c": 9.8285
+          "c": 9.8286
         },
         {
           "d": "20251201",
@@ -18725,8 +18725,8 @@
       "benefit": 26767,
       "listing_date": "20260122",
       "pre_listing_snapshot": false,
-      "close_price": 17.57,
-      "nav": 17.57,
+      "close_price": 17.58,
+      "nav": 17.58,
       "nav_date": "20260514",
       "premium_pct": -0.35,
       "price_series": [
@@ -19364,7 +19364,7 @@
         },
         {
           "d": "20260909",
-          "c": 17.57
+          "c": 17.58
         }
       ],
       "mgmt_fee_raw": "按基金淨資產價值每年0.75%之比率，逐日累計計算。",
@@ -19526,15 +19526,15 @@
         "history": []
       },
       "m1_return": "5.37%",
-      "total_return": 75.7,
-      "annualized_return": 136.63,
+      "total_return": 75.8,
+      "annualized_return": 136.84,
       "max_return": 87.7,
       "max_drawdown": -26.8,
-      "current_drawdown": -6.39,
-      "sharpe_ratio": 2.186,
-      "sortino_ratio": 3.406,
-      "calmar_ratio": 5.098,
-      "alpha": 15.25,
+      "current_drawdown": -6.34,
+      "sharpe_ratio": 2.188,
+      "sortino_ratio": 3.409,
+      "calmar_ratio": 5.106,
+      "alpha": 15.46,
       "beta": 1.178
     },
     {
@@ -19569,8 +19569,8 @@
       "benefit": 31916,
       "listing_date": "20260107",
       "pre_listing_snapshot": false,
-      "close_price": 17.03,
-      "nav": 17.03,
+      "close_price": 17.04,
+      "nav": 17.04,
       "nav_date": "20260513",
       "premium_pct": 0.23,
       "price_series": [
@@ -20248,7 +20248,7 @@
         },
         {
           "d": "20260909",
-          "c": 17.03
+          "c": 17.04
         }
       ],
       "mgmt_fee_raw": "按本基金淨資產價值每年百分之零點柒(0.7%)之比率計算",
@@ -20410,15 +20410,15 @@
         "history": []
       },
       "m1_return": "6.45%",
-      "total_return": 74.71,
-      "annualized_return": 123.08,
+      "total_return": 74.81,
+      "annualized_return": 123.27,
       "max_return": 90,
       "max_drawdown": -27.05,
-      "current_drawdown": -8.05,
-      "sharpe_ratio": 2.103,
-      "sortino_ratio": 3.269,
-      "calmar_ratio": 4.55,
-      "alpha": -12.34,
+      "current_drawdown": -7.99,
+      "sharpe_ratio": 2.105,
+      "sortino_ratio": 3.273,
+      "calmar_ratio": 4.557,
+      "alpha": -12.15,
       "beta": 1.142
     },
     {
@@ -20453,8 +20453,8 @@
       "benefit": 25428,
       "listing_date": "20260325",
       "pre_listing_snapshot": false,
-      "close_price": 14.11,
-      "nav": 14.11,
+      "close_price": 14.13,
+      "nav": 14.13,
       "nav_date": "20260514",
       "premium_pct": -0.35,
       "price_series": [
@@ -20948,7 +20948,7 @@
         },
         {
           "d": "20260909",
-          "c": 14.11
+          "c": 14.13
         }
       ],
       "mgmt_fee_raw": "0.8%",
@@ -21251,15 +21251,15 @@
         ]
       },
       "m1_return": "-0.07%",
-      "total_return": 41.1,
-      "annualized_return": 103.5,
+      "total_return": 41.3,
+      "annualized_return": 104.09,
       "max_return": 63.2,
       "max_drawdown": -32.78,
-      "current_drawdown": -13.54,
-      "sharpe_ratio": 1.701,
-      "sortino_ratio": 2.59,
-      "calmar_ratio": 3.157,
-      "alpha": -30.12,
+      "current_drawdown": -13.42,
+      "sharpe_ratio": 1.708,
+      "sortino_ratio": 2.6,
+      "calmar_ratio": 3.175,
+      "alpha": -29.53,
       "beta": 1.11
     },
     {
@@ -22506,8 +22506,8 @@
       "benefit": 17296,
       "listing_date": "20260410",
       "pre_listing_snapshot": false,
-      "close_price": 14.38,
-      "nav": 14.38,
+      "close_price": 14.39,
+      "nav": 14.39,
       "nav_date": "20260513",
       "premium_pct": 0.08,
       "price_series": [
@@ -22957,7 +22957,7 @@
         },
         {
           "d": "20260909",
-          "c": 14.38
+          "c": 14.39
         }
       ],
       "mgmt_fee_raw": "0.60%",
@@ -23129,15 +23129,15 @@
         "history": []
       },
       "m1_return": "3.38%",
-      "total_return": 45.07,
-      "annualized_return": 131.37,
-      "max_return": 45.07,
+      "total_return": 45.17,
+      "annualized_return": 131.73,
+      "max_return": 45.17,
       "max_drawdown": -18.57,
       "current_drawdown": 0,
-      "sharpe_ratio": 2.676,
-      "sortino_ratio": 4.295,
-      "calmar_ratio": 7.074,
-      "alpha": -1.56,
+      "sharpe_ratio": 2.68,
+      "sortino_ratio": 4.303,
+      "calmar_ratio": 7.094,
+      "alpha": -1.2,
       "beta": 0.818
     },
     {
@@ -23172,8 +23172,8 @@
       "benefit": 18916,
       "listing_date": "20251230",
       "pre_listing_snapshot": false,
-      "close_price": 16.6,
-      "nav": 16.6,
+      "close_price": 16.63,
+      "nav": 16.63,
       "nav_date": "20260514",
       "premium_pct": -0.46,
       "price_series": [
@@ -23883,7 +23883,7 @@
         },
         {
           "d": "20260909",
-          "c": 16.6
+          "c": 16.63
         }
       ],
       "mgmt_fee_raw": "0.75%",
@@ -24043,15 +24043,15 @@
         "history": []
       },
       "m1_return": "7.41%",
-      "total_return": 66,
-      "annualized_return": 100.03,
+      "total_return": 66.3,
+      "annualized_return": 100.53,
       "max_return": 81.6,
       "max_drawdown": -32.49,
-      "current_drawdown": -8.59,
-      "sharpe_ratio": 1.801,
-      "sortino_ratio": 2.75,
-      "calmar_ratio": 3.079,
-      "alpha": -41.67,
+      "current_drawdown": -8.43,
+      "sharpe_ratio": 1.807,
+      "sortino_ratio": 2.758,
+      "calmar_ratio": 3.094,
+      "alpha": -41.17,
       "beta": 1.139
     },
     {
@@ -24770,8 +24770,8 @@
       "benefit": 3385,
       "listing_date": "20250804",
       "pre_listing_snapshot": false,
-      "close_price": 19.92,
-      "nav": 19.92,
+      "close_price": 19.93,
+      "nav": 19.93,
       "nav_date": "20260611",
       "premium_pct": -0.58,
       "price_series": [
@@ -25497,7 +25497,7 @@
         },
         {
           "d": "20260427",
-          "c": 19.9183
+          "c": 19.9184
         },
         {
           "d": "20260428",
@@ -25517,7 +25517,7 @@
         },
         {
           "d": "20260505",
-          "c": 19.9183
+          "c": 19.9184
         },
         {
           "d": "20260506",
@@ -25529,11 +25529,11 @@
         },
         {
           "d": "20260508",
-          "c": 19.9183
+          "c": 19.9184
         },
         {
           "d": "20260511",
-          "c": 19.9183
+          "c": 19.9184
         },
         {
           "d": "20260512",
@@ -25545,7 +25545,7 @@
         },
         {
           "d": "20260514",
-          "c": 19.9183
+          "c": 19.9184
         },
         {
           "d": "20260515",
@@ -25873,7 +25873,7 @@
         },
         {
           "d": "20260909",
-          "c": 19.92
+          "c": 19.93
         }
       ],
       "mgmt_fee_raw": "新台幣300億元(含)以下 :0.65%/年;新台幣300億(不含)以上：0.60%/年",
@@ -25988,15 +25988,15 @@
         ]
       },
       "m1_return": "-0.54%",
-      "total_return": 5.85,
-      "annualized_return": 5.18,
+      "total_return": 5.91,
+      "annualized_return": 5.23,
       "max_return": 8.46,
-      "max_drawdown": -2.4,
-      "current_drawdown": -2.4,
-      "sharpe_ratio": 0.864,
-      "sortino_ratio": 2.064,
-      "calmar_ratio": 2.158,
-      "alpha": 2.58,
+      "max_drawdown": -2.35,
+      "current_drawdown": -2.35,
+      "sharpe_ratio": 0.877,
+      "sortino_ratio": 2.086,
+      "calmar_ratio": 2.226,
+      "alpha": 2.63,
       "beta": 0.006
     },
     {
@@ -28964,7 +28964,7 @@
         },
         {
           "d": "20260225",
-          "c": 9.9013
+          "c": 9.9014
         },
         {
           "d": "20260226",
@@ -29004,7 +29004,7 @@
         },
         {
           "d": "20260312",
-          "c": 9.9013
+          "c": 9.9014
         },
         {
           "d": "20260313",
@@ -29736,8 +29736,8 @@
       "benefit": 1786,
       "listing_date": "20260330",
       "pre_listing_snapshot": false,
-      "close_price": 9.73,
-      "nav": 9.73,
+      "close_price": 9.74,
+      "nav": 9.74,
       "nav_date": "20260611",
       "premium_pct": -0.75,
       "price_series": [
@@ -30211,7 +30211,7 @@
         },
         {
           "d": "20260909",
-          "c": 9.73
+          "c": 9.74
         }
       ],
       "mgmt_fee_raw": "- 淨資產價值於新臺幣100億元(含)以下: 0.55%;- 淨資產價值於100億元~200億元(含) : 0.50%;- 淨資產價值於超過新臺幣200億元 : 0.45%",
@@ -30310,15 +30310,15 @@
         "history": []
       },
       "m1_return": "-2.06%",
-      "total_return": -0.94,
-      "annualized_return": -2,
+      "total_return": -0.84,
+      "annualized_return": -1.79,
       "max_return": 4.3,
-      "max_drawdown": -5.02,
-      "current_drawdown": -5.02,
-      "sharpe_ratio": -0.573,
-      "sortino_ratio": -0.376,
-      "calmar_ratio": -0.398,
-      "alpha": -5.48,
+      "max_drawdown": -4.93,
+      "current_drawdown": -4.93,
+      "sharpe_ratio": -0.54,
+      "sortino_ratio": -0.331,
+      "calmar_ratio": -0.363,
+      "alpha": -5.27,
       "beta": 0.011
     },
     {
@@ -30353,8 +30353,8 @@
       "benefit": 2792,
       "listing_date": "20251014",
       "pre_listing_snapshot": false,
-      "close_price": 9.59,
-      "nav": 9.59,
+      "close_price": 9.6,
+      "nav": 9.6,
       "nav_date": "20260611",
       "premium_pct": -0.74,
       "price_series": [
@@ -31272,7 +31272,7 @@
         },
         {
           "d": "20260909",
-          "c": 9.59
+          "c": 9.6
         }
       ],
       "mgmt_fee_raw": "淨資產價值於新臺幣100億元(含)以下:0.55%、淨資產價值於100億元~200億元(含):0.50%、淨資產價值於超過新臺幣200億元:0.45%",
@@ -31386,15 +31386,15 @@
         ]
       },
       "m1_return": "-0.81%",
-      "total_return": -0.04,
-      "annualized_return": -0.04,
+      "total_return": 0.06,
+      "annualized_return": 0.07,
       "max_return": 3.76,
-      "max_drawdown": -3.66,
-      "current_drawdown": -3.66,
-      "sharpe_ratio": -0.39,
-      "sortino_ratio": 0.022,
-      "calmar_ratio": -0.011,
-      "alpha": -3.95,
+      "max_drawdown": -3.56,
+      "current_drawdown": -3.56,
+      "sharpe_ratio": -0.368,
+      "sortino_ratio": 0.056,
+      "calmar_ratio": 0.02,
+      "alpha": -3.84,
       "beta": 0.019
     },
     {
@@ -32672,11 +32672,11 @@
       "price_series": [
         {
           "d": "20200102",
-          "c": 296.1254
+          "c": 296.1253
         },
         {
           "d": "20200103",
-          "c": 293.883
+          "c": 293.8829
         },
         {
           "d": "20200106",
@@ -32688,7 +32688,7 @@
         },
         {
           "d": "20200108",
-          "c": 295.7424
+          "c": 295.7425
         },
         {
           "d": "20200109",
@@ -32696,7 +32696,7 @@
         },
         {
           "d": "20200110",
-          "c": 296.891
+          "c": 296.8909
         },
         {
           "d": "20200113",
@@ -32724,7 +32724,7 @@
         },
         {
           "d": "20200130",
-          "c": 298.6866
+          "c": 298.6867
         },
         {
           "d": "20200131",
@@ -32740,15 +32740,15 @@
         },
         {
           "d": "20200205",
-          "c": 303.4084
+          "c": 303.4083
         },
         {
           "d": "20200206",
-          "c": 304.4293
+          "c": 304.4292
         },
         {
           "d": "20200207",
-          "c": 302.8068
+          "c": 302.8067
         },
         {
           "d": "20200210",
@@ -32760,11 +32760,11 @@
         },
         {
           "d": "20200212",
-          "c": 307.5649
+          "c": 307.5648
         },
         {
           "d": "20200213",
-          "c": 307.2367
+          "c": 307.2368
         },
         {
           "d": "20200214",
@@ -32780,7 +32780,7 @@
         },
         {
           "d": "20200219",
-          "c": 308.4034
+          "c": 308.4035
         },
         {
           "d": "20200220",
@@ -32788,11 +32788,11 @@
         },
         {
           "d": "20200221",
-          "c": 303.9735
+          "c": 303.9734
         },
         {
           "d": "20200224",
-          "c": 293.8921
+          "c": 293.892
         },
         {
           "d": "20200225",
@@ -32808,7 +32808,7 @@
         },
         {
           "d": "20200302",
-          "c": 281.7415
+          "c": 281.7416
         },
         {
           "d": "20200303",
@@ -32816,11 +32816,11 @@
         },
         {
           "d": "20200304",
-          "c": 285.178
+          "c": 285.1779
         },
         {
           "d": "20200305",
-          "c": 275.6981
+          "c": 275.6982
         },
         {
           "d": "20200306",
@@ -32832,11 +32832,11 @@
         },
         {
           "d": "20200310",
-          "c": 262.9005
+          "c": 262.9004
         },
         {
           "d": "20200311",
-          "c": 250.0844
+          "c": 250.0845
         },
         {
           "d": "20200312",
@@ -32844,7 +32844,7 @@
         },
         {
           "d": "20200313",
-          "c": 245.4904
+          "c": 245.4905
         },
         {
           "d": "20200316",
@@ -32876,7 +32876,7 @@
         },
         {
           "d": "20200325",
-          "c": 226.2767
+          "c": 226.2766
         },
         {
           "d": "20200326",
@@ -32884,7 +32884,7 @@
         },
         {
           "d": "20200327",
-          "c": 232.3556
+          "c": 232.3555
         },
         {
           "d": "20200330",
@@ -32892,11 +32892,11 @@
         },
         {
           "d": "20200331",
-          "c": 236.3256
+          "c": 236.3257
         },
         {
           "d": "20200401",
-          "c": 225.6898
+          "c": 225.6899
         },
         {
           "d": "20200406",
@@ -32912,11 +32912,11 @@
         },
         {
           "d": "20200409",
-          "c": 255.0759
+          "c": 255.0757
         },
         {
           "d": "20200410",
-          "c": 255.0759
+          "c": 255.0757
         },
         {
           "d": "20200413",
@@ -32924,19 +32924,19 @@
         },
         {
           "d": "20200414",
-          "c": 260.2013
+          "c": 260.2012
         },
         {
           "d": "20200415",
-          "c": 254.6724
+          "c": 254.6725
         },
         {
           "d": "20200416",
-          "c": 255.901
+          "c": 255.9011
         },
         {
           "d": "20200417",
-          "c": 262.8143
+          "c": 262.8144
         },
         {
           "d": "20200420",
@@ -32948,15 +32948,15 @@
         },
         {
           "d": "20200422",
-          "c": 255.901
+          "c": 255.9011
         },
         {
           "d": "20200423",
-          "c": 255.8826
+          "c": 255.8827
         },
         {
           "d": "20200424",
-          "c": 259.4494
+          "c": 259.4493
         },
         {
           "d": "20200427",
@@ -32972,15 +32972,15 @@
         },
         {
           "d": "20200430",
-          "c": 266.3351
+          "c": 266.3352
         },
         {
           "d": "20200504",
-          "c": 259.9995
+          "c": 259.9994
         },
         {
           "d": "20200505",
-          "c": 262.4017
+          "c": 262.4016
         },
         {
           "d": "20200506",
@@ -32992,7 +32992,7 @@
         },
         {
           "d": "20200508",
-          "c": 268.1322
+          "c": 268.1321
         },
         {
           "d": "20200511",
@@ -33008,7 +33008,7 @@
         },
         {
           "d": "20200514",
-          "c": 261.2831
+          "c": 261.2832
         },
         {
           "d": "20200515",
@@ -33032,19 +33032,19 @@
         },
         {
           "d": "20200522",
-          "c": 270.8829
+          "c": 270.8828
         },
         {
           "d": "20200525",
-          "c": 270.8829
+          "c": 270.8828
         },
         {
           "d": "20200526",
-          "c": 274.2202
+          "c": 274.2203
         },
         {
           "d": "20200527",
-          "c": 278.3003
+          "c": 278.3004
         },
         {
           "d": "20200528",
@@ -33060,7 +33060,7 @@
         },
         {
           "d": "20200602",
-          "c": 282.4721
+          "c": 282.4722
         },
         {
           "d": "20200603",
@@ -33068,7 +33068,7 @@
         },
         {
           "d": "20200604",
-          "c": 285.4795
+          "c": 285.4794
         },
         {
           "d": "20200605",
@@ -33084,15 +33084,15 @@
         },
         {
           "d": "20200610",
-          "c": 292.4846
+          "c": 292.4845
         },
         {
           "d": "20200611",
-          "c": 275.6231
+          "c": 275.623
         },
         {
           "d": "20200612",
-          "c": 278.9239
+          "c": 278.9238
         },
         {
           "d": "20200615",
@@ -33100,7 +33100,7 @@
         },
         {
           "d": "20200616",
-          "c": 286.9465
+          "c": 286.9466
         },
         {
           "d": "20200617",
@@ -33112,15 +33112,15 @@
         },
         {
           "d": "20200619",
-          "c": 284.2309
+          "c": 284.231
         },
         {
           "d": "20200622",
-          "c": 286.0544
+          "c": 286.0543
         },
         {
           "d": "20200623",
-          "c": 287.3713
+          "c": 287.3712
         },
         {
           "d": "20200624",
@@ -33128,7 +33128,7 @@
         },
         {
           "d": "20200629",
-          "c": 280.3816
+          "c": 280.3815
         },
         {
           "d": "20200630",
@@ -33152,11 +33152,11 @@
         },
         {
           "d": "20200707",
-          "c": 288.9644
+          "c": 288.9645
         },
         {
           "d": "20200708",
-          "c": 291.1746
+          "c": 291.1747
         },
         {
           "d": "20200709",
@@ -33172,7 +33172,7 @@
         },
         {
           "d": "20200714",
-          "c": 293.6979
+          "c": 293.698
         },
         {
           "d": "20200715",
@@ -33188,7 +33188,7 @@
         },
         {
           "d": "20200720",
-          "c": 298.671
+          "c": 298.6709
         },
         {
           "d": "20200721",
@@ -33204,15 +33204,15 @@
         },
         {
           "d": "20200724",
-          "c": 295.5029
+          "c": 295.503
         },
         {
           "d": "20200727",
-          "c": 297.6578
+          "c": 297.6579
         },
         {
           "d": "20200728",
-          "c": 295.7701
+          "c": 295.77
         },
         {
           "d": "20200729",
@@ -33224,7 +33224,7 @@
         },
         {
           "d": "20200731",
-          "c": 300.6968
+          "c": 300.6969
         },
         {
           "d": "20200803",
@@ -33244,11 +33244,11 @@
         },
         {
           "d": "20200807",
-          "c": 308.1103
+          "c": 308.1102
         },
         {
           "d": "20200810",
-          "c": 309.0311
+          "c": 309.0313
         },
         {
           "d": "20200811",
@@ -33256,15 +33256,15 @@
         },
         {
           "d": "20200812",
-          "c": 310.7533
+          "c": 310.7532
         },
         {
           "d": "20200813",
-          "c": 310.1914
+          "c": 310.1915
         },
         {
           "d": "20200814",
-          "c": 310.2007
+          "c": 310.2008
         },
         {
           "d": "20200817",
@@ -33284,7 +33284,7 @@
         },
         {
           "d": "20200821",
-          "c": 312.6319
+          "c": 312.632
         },
         {
           "d": "20200824",
@@ -33296,7 +33296,7 @@
         },
         {
           "d": "20200826",
-          "c": 320.0821
+          "c": 320.0822
         },
         {
           "d": "20200827",
@@ -33304,15 +33304,15 @@
         },
         {
           "d": "20200828",
-          "c": 322.8541
+          "c": 322.854
         },
         {
           "d": "20200831",
-          "c": 321.6845
+          "c": 321.6846
         },
         {
           "d": "20200901",
-          "c": 324.7143
+          "c": 324.7144
         },
         {
           "d": "20200902",
@@ -33320,15 +33320,15 @@
         },
         {
           "d": "20200903",
-          "c": 318.0746
+          "c": 318.0745
         },
         {
           "d": "20200904",
-          "c": 315.4775
+          "c": 315.4776
         },
         {
           "d": "20200907",
-          "c": 315.4775
+          "c": 315.4776
         },
         {
           "d": "20200908",
@@ -33340,7 +33340,7 @@
         },
         {
           "d": "20200910",
-          "c": 307.484
+          "c": 307.4841
         },
         {
           "d": "20200911",
@@ -33352,15 +33352,15 @@
         },
         {
           "d": "20200915",
-          "c": 313.2673
+          "c": 313.2674
         },
         {
           "d": "20200916",
-          "c": 312.0242
+          "c": 312.0241
         },
         {
           "d": "20200917",
-          "c": 309.2797
+          "c": 309.2798
         },
         {
           "d": "20200918",
@@ -33368,7 +33368,7 @@
         },
         {
           "d": "20200921",
-          "c": 302.3167
+          "c": 302.3166
         },
         {
           "d": "20200922",
@@ -33376,7 +33376,7 @@
         },
         {
           "d": "20200923",
-          "c": 298.3132
+          "c": 298.3131
         },
         {
           "d": "20200924",
@@ -33388,19 +33388,19 @@
         },
         {
           "d": "20200928",
-          "c": 308.9922
+          "c": 308.9923
         },
         {
           "d": "20200929",
-          "c": 307.3095
+          "c": 307.3094
         },
         {
           "d": "20200930",
-          "c": 309.6394
+          "c": 309.6395
         },
         {
           "d": "20201005",
-          "c": 314.1424
+          "c": 314.1423
         },
         {
           "d": "20201006",
@@ -33408,7 +33408,7 @@
         },
         {
           "d": "20201007",
-          "c": 315.0669
+          "c": 315.067
         },
         {
           "d": "20201008",
@@ -33420,7 +33420,7 @@
         },
         {
           "d": "20201013",
-          "c": 323.7303
+          "c": 323.7304
         },
         {
           "d": "20201014",
@@ -33436,15 +33436,15 @@
         },
         {
           "d": "20201019",
-          "c": 316.2225
+          "c": 316.2227
         },
         {
           "d": "20201020",
-          "c": 317.4894
+          "c": 317.4893
         },
         {
           "d": "20201021",
-          "c": 316.8884
+          "c": 316.8883
         },
         {
           "d": "20201022",
@@ -33456,7 +33456,7 @@
         },
         {
           "d": "20201026",
-          "c": 313.8001
+          "c": 313.8002
         },
         {
           "d": "20201027",
@@ -33472,11 +33472,11 @@
         },
         {
           "d": "20201030",
-          "c": 301.9191
+          "c": 301.9192
         },
         {
           "d": "20201102",
-          "c": 305.3031
+          "c": 305.303
         },
         {
           "d": "20201103",
@@ -33484,7 +33484,7 @@
         },
         {
           "d": "20201104",
-          "c": 317.6374
+          "c": 317.6372
         },
         {
           "d": "20201105",
@@ -33496,7 +33496,7 @@
         },
         {
           "d": "20201109",
-          "c": 327.8264
+          "c": 327.8263
         },
         {
           "d": "20201110",
@@ -33508,11 +33508,11 @@
         },
         {
           "d": "20201112",
-          "c": 326.5781
+          "c": 326.5782
         },
         {
           "d": "20201113",
-          "c": 331.0994
+          "c": 331.0995
         },
         {
           "d": "20201116",
@@ -33524,7 +33524,7 @@
         },
         {
           "d": "20201118",
-          "c": 329.4166
+          "c": 329.4167
         },
         {
           "d": "20201119",
@@ -33532,7 +33532,7 @@
         },
         {
           "d": "20201120",
-          "c": 328.5382
+          "c": 328.5384
         },
         {
           "d": "20201123",
@@ -33560,7 +33560,7 @@
         },
         {
           "d": "20201201",
-          "c": 338.4222
+          "c": 338.4223
         },
         {
           "d": "20201202",
@@ -33580,7 +33580,7 @@
         },
         {
           "d": "20201208",
-          "c": 342.2594
+          "c": 342.2593
         },
         {
           "d": "20201209",
@@ -33592,11 +33592,11 @@
         },
         {
           "d": "20201211",
-          "c": 338.6811
+          "c": 338.6812
         },
         {
           "d": "20201214",
-          "c": 337.1648
+          "c": 337.1649
         },
         {
           "d": "20201215",
@@ -33604,7 +33604,7 @@
         },
         {
           "d": "20201216",
-          "c": 342.2594
+          "c": 342.2593
         },
         {
           "d": "20201217",
@@ -33616,7 +33616,7 @@
         },
         {
           "d": "20201221",
-          "c": 341.5734
+          "c": 341.5733
         },
         {
           "d": "20201222",
@@ -33668,7 +33668,7 @@
         },
         {
           "d": "20210108",
-          "c": 354.0159
+          "c": 354.0158
         },
         {
           "d": "20210111",
@@ -33676,11 +33676,11 @@
         },
         {
           "d": "20210112",
-          "c": 351.7037
+          "c": 351.7038
         },
         {
           "d": "20210113",
-          "c": 352.6508
+          "c": 352.6509
         },
         {
           "d": "20210114",
@@ -33712,19 +33712,19 @@
         },
         {
           "d": "20210125",
-          "c": 356.9221
+          "c": 356.9222
         },
         {
           "d": "20210126",
-          "c": 356.365
+          "c": 356.3651
         },
         {
           "d": "20210127",
-          "c": 347.6554
+          "c": 347.6553
         },
         {
           "d": "20210128",
-          "c": 350.6452
+          "c": 350.6453
         },
         {
           "d": "20210129",
@@ -33740,7 +33740,7 @@
         },
         {
           "d": "20210203",
-          "c": 354.5636
+          "c": 354.5637
         },
         {
           "d": "20210204",
@@ -33756,15 +33756,15 @@
         },
         {
           "d": "20210218",
-          "c": 362.7999
+          "c": 362.7998
         },
         {
           "d": "20210219",
-          "c": 362.1592
+          "c": 362.1591
         },
         {
           "d": "20210222",
-          "c": 359.3735
+          "c": 359.3736
         },
         {
           "d": "20210223",
@@ -33776,11 +33776,11 @@
         },
         {
           "d": "20210225",
-          "c": 355.0093
+          "c": 355.0094
         },
         {
           "d": "20210226",
-          "c": 353.1802
+          "c": 353.1801
         },
         {
           "d": "20210302",
@@ -33788,7 +33788,7 @@
         },
         {
           "d": "20210303",
-          "c": 354.1645
+          "c": 354.1644
         },
         {
           "d": "20210304",
@@ -33832,11 +33832,11 @@
         },
         {
           "d": "20210318",
-          "c": 363.5056
+          "c": 363.5055
         },
         {
           "d": "20210319",
-          "c": 362.8329
+          "c": 362.833
         },
         {
           "d": "20210322",
@@ -33844,7 +33844,7 @@
         },
         {
           "d": "20210323",
-          "c": 362.8515
+          "c": 362.8516
         },
         {
           "d": "20210324",
@@ -33856,15 +33856,15 @@
         },
         {
           "d": "20210326",
-          "c": 368.8882
+          "c": 368.8883
         },
         {
           "d": "20210329",
-          "c": 368.7019
+          "c": 368.7018
         },
         {
           "d": "20210330",
-          "c": 367.7237
+          "c": 367.7238
         },
         {
           "d": "20210331",
@@ -33872,11 +33872,11 @@
         },
         {
           "d": "20210401",
-          "c": 373.2014
+          "c": 373.2015
         },
         {
           "d": "20210407",
-          "c": 378.7724
+          "c": 378.7723
         },
         {
           "d": "20210408",
@@ -33896,7 +33896,7 @@
         },
         {
           "d": "20210414",
-          "c": 383.2999
+          "c": 383.2998
         },
         {
           "d": "20210415",
@@ -33920,7 +33920,7 @@
         },
         {
           "d": "20210422",
-          "c": 384.0636
+          "c": 384.0638
         },
         {
           "d": "20210423",
@@ -33928,23 +33928,23 @@
         },
         {
           "d": "20210426",
-          "c": 389.0383
+          "c": 389.0384
         },
         {
           "d": "20210427",
-          "c": 388.9544
+          "c": 388.9545
         },
         {
           "d": "20210428",
-          "c": 388.8428
+          "c": 388.8427
         },
         {
           "d": "20210429",
-          "c": 391.3208
+          "c": 391.3207
         },
         {
           "d": "20210503",
-          "c": 389.588
+          "c": 389.5881
         },
         {
           "d": "20210504",
@@ -33952,7 +33952,7 @@
         },
         {
           "d": "20210505",
-          "c": 387.3057
+          "c": 387.3055
         },
         {
           "d": "20210506",
@@ -33960,15 +33960,15 @@
         },
         {
           "d": "20210507",
-          "c": 393.2398
+          "c": 393.2399
         },
         {
           "d": "20210510",
-          "c": 389.3457
+          "c": 389.3458
         },
         {
           "d": "20210511",
-          "c": 385.8709
+          "c": 385.871
         },
         {
           "d": "20210512",
@@ -33980,7 +33980,7 @@
         },
         {
           "d": "20210514",
-          "c": 388.0788
+          "c": 388.0789
         },
         {
           "d": "20210517",
@@ -33992,15 +33992,15 @@
         },
         {
           "d": "20210519",
-          "c": 382.7502
+          "c": 382.7503
         },
         {
           "d": "20210520",
-          "c": 386.8678
+          "c": 386.8677
         },
         {
           "d": "20210521",
-          "c": 386.551
+          "c": 386.5511
         },
         {
           "d": "20210524",
@@ -34020,15 +34020,15 @@
         },
         {
           "d": "20210528",
-          "c": 391.3021
+          "c": 391.3022
         },
         {
           "d": "20210531",
-          "c": 391.3021
+          "c": 391.3022
         },
         {
           "d": "20210601",
-          "c": 390.9574
+          "c": 390.9575
         },
         {
           "d": "20210602",
@@ -34056,11 +34056,11 @@
         },
         {
           "d": "20210610",
-          "c": 394.6278
+          "c": 394.6279
         },
         {
           "d": "20210611",
-          "c": 395.28
+          "c": 395.2799
         },
         {
           "d": "20210615",
@@ -34072,7 +34072,7 @@
         },
         {
           "d": "20210617",
-          "c": 393.1002
+          "c": 393.1001
         },
         {
           "d": "20210618",
@@ -34080,7 +34080,7 @@
         },
         {
           "d": "20210621",
-          "c": 393.3487
+          "c": 393.3486
         },
         {
           "d": "20210622",
@@ -34088,7 +34088,7 @@
         },
         {
           "d": "20210623",
-          "c": 394.975
+          "c": 394.9749
         },
         {
           "d": "20210624",
@@ -34100,15 +34100,15 @@
         },
         {
           "d": "20210628",
-          "c": 399.5267
+          "c": 399.5266
         },
         {
           "d": "20210629",
-          "c": 399.7416
+          "c": 399.7415
         },
         {
           "d": "20210630",
-          "c": 400.0781
+          "c": 400.0782
         },
         {
           "d": "20210701",
@@ -34116,15 +34116,15 @@
         },
         {
           "d": "20210702",
-          "c": 405.3681
+          "c": 405.368
         },
         {
           "d": "20210705",
-          "c": 405.3681
+          "c": 405.368
         },
         {
           "d": "20210706",
-          "c": 404.6297
+          "c": 404.6296
         },
         {
           "d": "20210707",
@@ -34132,7 +34132,7 @@
         },
         {
           "d": "20210708",
-          "c": 402.7511
+          "c": 402.751
         },
         {
           "d": "20210709",
@@ -34168,7 +34168,7 @@
         },
         {
           "d": "20210721",
-          "c": 406.1438
+          "c": 406.1439
         },
         {
           "d": "20210722",
@@ -34180,11 +34180,11 @@
         },
         {
           "d": "20210726",
-          "c": 412.1909
+          "c": 412.1908
         },
         {
           "d": "20210727",
-          "c": 410.3122
+          "c": 410.3123
         },
         {
           "d": "20210728",
@@ -34200,11 +34200,11 @@
         },
         {
           "d": "20210802",
-          "c": 408.985
+          "c": 408.9851
         },
         {
           "d": "20210803",
-          "c": 412.3123
+          "c": 412.3124
         },
         {
           "d": "20210804",
@@ -34212,15 +34212,15 @@
         },
         {
           "d": "20210805",
-          "c": 412.8825
+          "c": 412.8824
         },
         {
           "d": "20210806",
-          "c": 413.5647
+          "c": 413.5648
         },
         {
           "d": "20210809",
-          "c": 413.2284
+          "c": 413.2283
         },
         {
           "d": "20210810",
@@ -34228,11 +34228,11 @@
         },
         {
           "d": "20210811",
-          "c": 414.7705
+          "c": 414.7704
         },
         {
           "d": "20210812",
-          "c": 416.0134
+          "c": 416.0135
         },
         {
           "d": "20210813",
@@ -34248,7 +34248,7 @@
         },
         {
           "d": "20210818",
-          "c": 410.4711
+          "c": 410.4712
         },
         {
           "d": "20210819",
@@ -34256,7 +34256,7 @@
         },
         {
           "d": "20210820",
-          "c": 414.3778
+          "c": 414.3779
         },
         {
           "d": "20210823",
@@ -34264,7 +34264,7 @@
         },
         {
           "d": "20210824",
-          "c": 418.6866
+          "c": 418.6865
         },
         {
           "d": "20210825",
@@ -34284,23 +34284,23 @@
         },
         {
           "d": "20210831",
-          "c": 422.0418
+          "c": 422.0419
         },
         {
           "d": "20210901",
-          "c": 422.2662
+          "c": 422.2661
         },
         {
           "d": "20210902",
-          "c": 423.5652
+          "c": 423.5653
         },
         {
           "d": "20210903",
-          "c": 423.4625
+          "c": 423.4626
         },
         {
           "d": "20210906",
-          "c": 423.4625
+          "c": 423.4626
         },
         {
           "d": "20210907",
@@ -34312,7 +34312,7 @@
         },
         {
           "d": "20210909",
-          "c": 419.6306
+          "c": 419.6305
         },
         {
           "d": "20210910",
@@ -34368,7 +34368,7 @@
         },
         {
           "d": "20211001",
-          "c": 407.1543
+          "c": 407.1542
         },
         {
           "d": "20211004",
@@ -34376,11 +34376,11 @@
         },
         {
           "d": "20211005",
-          "c": 406.0855
+          "c": 406.0854
         },
         {
           "d": "20211006",
-          "c": 407.7732
+          "c": 407.7731
         },
         {
           "d": "20211007",
@@ -34392,15 +34392,15 @@
         },
         {
           "d": "20211012",
-          "c": 406.5728
+          "c": 406.573
         },
         {
           "d": "20211013",
-          "c": 408.0356
+          "c": 408.0357
         },
         {
           "d": "20211014",
-          "c": 414.899
+          "c": 414.8991
         },
         {
           "d": "20211015",
@@ -34412,11 +34412,11 @@
         },
         {
           "d": "20211019",
-          "c": 422.5314
+          "c": 422.5313
         },
         {
           "d": "20211020",
-          "c": 424.1909
+          "c": 424.191
         },
         {
           "d": "20211021",
@@ -34444,11 +34444,11 @@
         },
         {
           "d": "20211029",
-          "c": 430.6042
+          "c": 430.6043
         },
         {
           "d": "20211101",
-          "c": 431.3451
+          "c": 431.345
         },
         {
           "d": "20211102",
@@ -34468,7 +34468,7 @@
         },
         {
           "d": "20211108",
-          "c": 439.6805
+          "c": 439.6804
         },
         {
           "d": "20211109",
@@ -34496,15 +34496,15 @@
         },
         {
           "d": "20211117",
-          "c": 438.9398
+          "c": 438.9397
         },
         {
           "d": "20211118",
-          "c": 440.4306
+          "c": 440.4305
         },
         {
           "d": "20211119",
-          "c": 439.6429
+          "c": 439.6431
         },
         {
           "d": "20211122",
@@ -34516,11 +34516,11 @@
         },
         {
           "d": "20211124",
-          "c": 440.1586
+          "c": 440.1587
         },
         {
           "d": "20211125",
-          "c": 440.1586
+          "c": 440.1587
         },
         {
           "d": "20211126",
@@ -34528,7 +34528,7 @@
         },
         {
           "d": "20211129",
-          "c": 435.6205
+          "c": 435.6206
         },
         {
           "d": "20211130",
@@ -34536,11 +34536,11 @@
         },
         {
           "d": "20211201",
-          "c": 422.4
+          "c": 422.4001
         },
         {
           "d": "20211202",
-          "c": 428.8696
+          "c": 428.8697
         },
         {
           "d": "20211203",
@@ -34556,7 +34556,7 @@
         },
         {
           "d": "20211208",
-          "c": 440.2336
+          "c": 440.2337
         },
         {
           "d": "20211209",
@@ -34568,7 +34568,7 @@
         },
         {
           "d": "20211213",
-          "c": 437.4677
+          "c": 437.4678
         },
         {
           "d": "20211214",
@@ -34576,11 +34576,11 @@
         },
         {
           "d": "20211215",
-          "c": 441.2464
+          "c": 441.2463
         },
         {
           "d": "20211216",
-          "c": 437.3551
+          "c": 437.3552
         },
         {
           "d": "20211217",
@@ -34592,7 +34592,7 @@
         },
         {
           "d": "20211221",
-          "c": 435.7019
+          "c": 435.702
         },
         {
           "d": "20211222",
@@ -34600,19 +34600,19 @@
         },
         {
           "d": "20211223",
-          "c": 442.7966
+          "c": 442.7965
         },
         {
           "d": "20211224",
-          "c": 442.7966
+          "c": 442.7965
         },
         {
           "d": "20211227",
-          "c": 449.0631
+          "c": 449.063
         },
         {
           "d": "20211228",
-          "c": 448.696
+          "c": 448.6961
         },
         {
           "d": "20211229",
@@ -34620,11 +34620,11 @@
         },
         {
           "d": "20211230",
-          "c": 448.028
+          "c": 448.0281
         },
         {
           "d": "20220103",
-          "c": 449.4864
+          "c": 449.4865
         },
         {
           "d": "20220104",
@@ -34640,7 +34640,7 @@
         },
         {
           "d": "20220107",
-          "c": 438.5529
+          "c": 438.553
         },
         {
           "d": "20220110",
@@ -34652,7 +34652,7 @@
         },
         {
           "d": "20220112",
-          "c": 443.1918
+          "c": 443.1917
         },
         {
           "d": "20220113",
@@ -34668,7 +34668,7 @@
         },
         {
           "d": "20220118",
-          "c": 429.5201
+          "c": 429.5202
         },
         {
           "d": "20220119",
@@ -34720,7 +34720,7 @@
         },
         {
           "d": "20220215",
-          "c": 419.744
+          "c": 419.7439
         },
         {
           "d": "20220216",
@@ -34732,15 +34732,15 @@
         },
         {
           "d": "20220218",
-          "c": 408.5753
+          "c": 408.5754
         },
         {
           "d": "20220221",
-          "c": 408.5753
+          "c": 408.5754
         },
         {
           "d": "20220222",
-          "c": 404.1907
+          "c": 404.1906
         },
         {
           "d": "20220223",
@@ -34748,7 +34748,7 @@
         },
         {
           "d": "20220224",
-          "c": 402.9956
+          "c": 402.9957
         },
         {
           "d": "20220225",
@@ -34760,11 +34760,11 @@
         },
         {
           "d": "20220302",
-          "c": 412.019
+          "c": 412.0191
         },
         {
           "d": "20220303",
-          "c": 409.9678
+          "c": 409.9679
         },
         {
           "d": "20220304",
@@ -34776,7 +34776,7 @@
         },
         {
           "d": "20220308",
-          "c": 391.6575
+          "c": 391.6576
         },
         {
           "d": "20220309",
@@ -34792,7 +34792,7 @@
         },
         {
           "d": "20220314",
-          "c": 392.3632
+          "c": 392.3633
         },
         {
           "d": "20220315",
@@ -34816,15 +34816,15 @@
         },
         {
           "d": "20220322",
-          "c": 424.3419
+          "c": 424.342
         },
         {
           "d": "20220323",
-          "c": 418.8771
+          "c": 418.8772
         },
         {
           "d": "20220324",
-          "c": 425.1914
+          "c": 425.1915
         },
         {
           "d": "20220325",
@@ -34848,19 +34848,19 @@
         },
         {
           "d": "20220401",
-          "c": 427.485
+          "c": 427.4851
         },
         {
           "d": "20220406",
-          "c": 421.4443
+          "c": 421.4444
         },
         {
           "d": "20220407",
-          "c": 423.568
+          "c": 423.5681
         },
         {
           "d": "20220408",
-          "c": 422.4355
+          "c": 422.4354
         },
         {
           "d": "20220411",
@@ -34868,11 +34868,11 @@
         },
         {
           "d": "20220412",
-          "c": 413.6765
+          "c": 413.6766
         },
         {
           "d": "20220413",
-          "c": 418.4147
+          "c": 418.4148
         },
         {
           "d": "20220414",
@@ -34892,7 +34892,7 @@
         },
         {
           "d": "20220420",
-          "c": 419.7361
+          "c": 419.736
         },
         {
           "d": "20220421",
@@ -34908,7 +34908,7 @@
         },
         {
           "d": "20220426",
-          "c": 392.7327
+          "c": 392.7328
         },
         {
           "d": "20220427",
@@ -34916,7 +34916,7 @@
         },
         {
           "d": "20220428",
-          "c": 403.7851
+          "c": 403.7852
         },
         {
           "d": "20220429",
@@ -34932,11 +34932,11 @@
         },
         {
           "d": "20220505",
-          "c": 390.5714
+          "c": 390.5713
         },
         {
           "d": "20220506",
-          "c": 388.2401
+          "c": 388.24
         },
         {
           "d": "20220509",
@@ -34944,11 +34944,11 @@
         },
         {
           "d": "20220510",
-          "c": 376.678
+          "c": 376.6779
         },
         {
           "d": "20220511",
-          "c": 370.694
+          "c": 370.6941
         },
         {
           "d": "20220512",
@@ -34960,7 +34960,7 @@
         },
         {
           "d": "20220516",
-          "c": 377.6218
+          "c": 377.6219
         },
         {
           "d": "20220517",
@@ -34968,7 +34968,7 @@
         },
         {
           "d": "20220518",
-          "c": 369.854
+          "c": 369.8539
         },
         {
           "d": "20220519",
@@ -34988,19 +34988,19 @@
         },
         {
           "d": "20220525",
-          "c": 375.0546
+          "c": 375.0545
         },
         {
           "d": "20220526",
-          "c": 382.5486
+          "c": 382.5487
         },
         {
           "d": "20220527",
-          "c": 391.9398
+          "c": 391.9399
         },
         {
           "d": "20220530",
-          "c": 391.9398
+          "c": 391.9399
         },
         {
           "d": "20220531",
@@ -35032,15 +35032,15 @@
         },
         {
           "d": "20220610",
-          "c": 367.9097
+          "c": 367.9096
         },
         {
           "d": "20220613",
-          "c": 353.9409
+          "c": 353.9408
         },
         {
           "d": "20220614",
-          "c": 352.8743
+          "c": 352.8742
         },
         {
           "d": "20220615",
@@ -35048,23 +35048,23 @@
         },
         {
           "d": "20220616",
-          "c": 346.0597
+          "c": 346.0598
         },
         {
           "d": "20220617",
-          "c": 346.8058
+          "c": 346.8057
         },
         {
           "d": "20220620",
-          "c": 346.8058
+          "c": 346.8057
         },
         {
           "d": "20220621",
-          "c": 355.5361
+          "c": 355.5362
         },
         {
           "d": "20220622",
-          "c": 354.8915
+          "c": 354.8916
         },
         {
           "d": "20220623",
@@ -35076,7 +35076,7 @@
         },
         {
           "d": "20220627",
-          "c": 368.352
+          "c": 368.3519
         },
         {
           "d": "20220628",
@@ -35092,19 +35092,19 @@
         },
         {
           "d": "20220701",
-          "c": 361.3848
+          "c": 361.3847
         },
         {
           "d": "20220704",
-          "c": 361.3848
+          "c": 361.3847
         },
         {
           "d": "20220705",
-          "c": 362.0672
+          "c": 362.0673
         },
         {
           "d": "20220706",
-          "c": 363.2901
+          "c": 363.29
         },
         {
           "d": "20220707",
@@ -35116,11 +35116,11 @@
         },
         {
           "d": "20220711",
-          "c": 364.2191
+          "c": 364.219
         },
         {
           "d": "20220712",
-          "c": 360.9961
+          "c": 360.9962
         },
         {
           "d": "20220713",
@@ -35136,7 +35136,7 @@
         },
         {
           "d": "20220718",
-          "c": 362.0577
+          "c": 362.0578
         },
         {
           "d": "20220719",
@@ -35144,7 +35144,7 @@
         },
         {
           "d": "20220720",
-          "c": 374.21
+          "c": 374.2101
         },
         {
           "d": "20220721",
@@ -35160,11 +35160,11 @@
         },
         {
           "d": "20220726",
-          "c": 370.5321
+          "c": 370.5322
         },
         {
           "d": "20220727",
-          "c": 380.1536
+          "c": 380.1535
         },
         {
           "d": "20220728",
@@ -35172,7 +35172,7 @@
         },
         {
           "d": "20220729",
-          "c": 390.5334
+          "c": 390.5333
         },
         {
           "d": "20220801",
@@ -35180,15 +35180,15 @@
         },
         {
           "d": "20220802",
-          "c": 386.808
+          "c": 386.8079
         },
         {
           "d": "20220803",
-          "c": 392.8651
+          "c": 392.8652
         },
         {
           "d": "20220804",
-          "c": 392.5997
+          "c": 392.5998
         },
         {
           "d": "20220805",
@@ -35200,7 +35200,7 @@
         },
         {
           "d": "20220809",
-          "c": 389.9267
+          "c": 389.9266
         },
         {
           "d": "20220810",
@@ -35212,7 +35212,7 @@
         },
         {
           "d": "20220812",
-          "c": 404.8563
+          "c": 404.8564
         },
         {
           "d": "20220815",
@@ -35220,11 +35220,11 @@
         },
         {
           "d": "20220816",
-          "c": 407.321
+          "c": 407.3209
         },
         {
           "d": "20220817",
-          "c": 404.4298
+          "c": 404.4297
         },
         {
           "d": "20220818",
@@ -35232,15 +35232,15 @@
         },
         {
           "d": "20220819",
-          "c": 400.1547
+          "c": 400.1546
         },
         {
           "d": "20220822",
-          "c": 391.8224
+          "c": 391.8225
         },
         {
           "d": "20220823",
-          "c": 390.8745
+          "c": 390.8746
         },
         {
           "d": "20220824",
@@ -35252,11 +35252,11 @@
         },
         {
           "d": "20220826",
-          "c": 384.2012
+          "c": 384.2011
         },
         {
           "d": "20220829",
-          "c": 381.6608
+          "c": 381.6607
         },
         {
           "d": "20220830",
@@ -35264,11 +35264,11 @@
         },
         {
           "d": "20220831",
-          "c": 374.5988
+          "c": 374.5987
         },
         {
           "d": "20220901",
-          "c": 375.7741
+          "c": 375.7742
         },
         {
           "d": "20220902",
@@ -35280,7 +35280,7 @@
         },
         {
           "d": "20220906",
-          "c": 370.4089
+          "c": 370.409
         },
         {
           "d": "20220907",
@@ -35304,11 +35304,11 @@
         },
         {
           "d": "20220915",
-          "c": 369.8023
+          "c": 369.8022
         },
         {
           "d": "20220916",
-          "c": 366.981
+          "c": 366.9811
         },
         {
           "d": "20220919",
@@ -35320,7 +35320,7 @@
         },
         {
           "d": "20220921",
-          "c": 359.2047
+          "c": 359.2048
         },
         {
           "d": "20220922",
@@ -35328,11 +35328,11 @@
         },
         {
           "d": "20220923",
-          "c": 350.2196
+          "c": 350.2197
         },
         {
           "d": "20220926",
-          "c": 346.755
+          "c": 346.7551
         },
         {
           "d": "20220927",
@@ -35340,7 +35340,7 @@
         },
         {
           "d": "20220928",
-          "c": 352.6754
+          "c": 352.6753
         },
         {
           "d": "20220929",
@@ -35348,7 +35348,7 @@
         },
         {
           "d": "20220930",
-          "c": 339.9686
+          "c": 339.9687
         },
         {
           "d": "20221003",
@@ -35360,7 +35360,7 @@
         },
         {
           "d": "20221005",
-          "c": 358.9193
+          "c": 358.9192
         },
         {
           "d": "20221006",
@@ -35380,11 +35380,11 @@
         },
         {
           "d": "20221013",
-          "c": 348.335
+          "c": 348.3351
         },
         {
           "d": "20221014",
-          "c": 340.3969
+          "c": 340.397
         },
         {
           "d": "20221017",
@@ -35396,11 +35396,11 @@
         },
         {
           "d": "20221019",
-          "c": 350.7432
+          "c": 350.7431
         },
         {
           "d": "20221020",
-          "c": 347.802
+          "c": 347.8021
         },
         {
           "d": "20221021",
@@ -35408,7 +35408,7 @@
         },
         {
           "d": "20221024",
-          "c": 360.6135
+          "c": 360.6134
         },
         {
           "d": "20221025",
@@ -35424,7 +35424,7 @@
         },
         {
           "d": "20221028",
-          "c": 370.2743
+          "c": 370.2744
         },
         {
           "d": "20221031",
@@ -35440,7 +35440,7 @@
         },
         {
           "d": "20221103",
-          "c": 353.1322
+          "c": 353.1323
         },
         {
           "d": "20221104",
@@ -35452,7 +35452,7 @@
         },
         {
           "d": "20221108",
-          "c": 363.5926
+          "c": 363.5927
         },
         {
           "d": "20221109",
@@ -35460,15 +35460,15 @@
         },
         {
           "d": "20221110",
-          "c": 375.6712
+          "c": 375.6711
         },
         {
           "d": "20221111",
-          "c": 379.3071
+          "c": 379.307
         },
         {
           "d": "20221114",
-          "c": 376.0804
+          "c": 376.0805
         },
         {
           "d": "20221115",
@@ -35476,7 +35476,7 @@
         },
         {
           "d": "20221116",
-          "c": 376.3945
+          "c": 376.3946
         },
         {
           "d": "20221117",
@@ -35484,7 +35484,7 @@
         },
         {
           "d": "20221118",
-          "c": 376.9466
+          "c": 376.9465
         },
         {
           "d": "20221121",
@@ -35504,7 +35504,7 @@
         },
         {
           "d": "20221125",
-          "c": 382.9431
+          "c": 382.943
         },
         {
           "d": "20221128",
@@ -35528,7 +35528,7 @@
         },
         {
           "d": "20221205",
-          "c": 380.3351
+          "c": 380.335
         },
         {
           "d": "20221206",
@@ -35536,11 +35536,11 @@
         },
         {
           "d": "20221207",
-          "c": 374.2148
+          "c": 374.2149
         },
         {
           "d": "20221208",
-          "c": 377.1465
+          "c": 377.1464
         },
         {
           "d": "20221209",
@@ -35556,11 +35556,11 @@
         },
         {
           "d": "20221214",
-          "c": 380.1542
+          "c": 380.1541
         },
         {
           "d": "20221215",
-          "c": 370.8549
+          "c": 370.855
         },
         {
           "d": "20221216",
@@ -35572,7 +35572,7 @@
         },
         {
           "d": "20221220",
-          "c": 363.8663
+          "c": 363.8662
         },
         {
           "d": "20221221",
@@ -35592,7 +35592,7 @@
         },
         {
           "d": "20221227",
-          "c": 364.6885
+          "c": 364.6886
         },
         {
           "d": "20221228",
@@ -35612,7 +35612,7 @@
         },
         {
           "d": "20230104",
-          "c": 366.9451
+          "c": 366.9452
         },
         {
           "d": "20230105",
@@ -35620,11 +35620,11 @@
         },
         {
           "d": "20230106",
-          "c": 371.0758
+          "c": 371.0759
         },
         {
           "d": "20230109",
-          "c": 370.8654
+          "c": 370.8655
         },
         {
           "d": "20230110",
@@ -35632,11 +35632,11 @@
         },
         {
           "d": "20230111",
-          "c": 378.1898
+          "c": 378.1899
         },
         {
           "d": "20230112",
-          "c": 379.5667
+          "c": 379.5668
         },
         {
           "d": "20230113",
@@ -35648,7 +35648,7 @@
         },
         {
           "d": "20230117",
-          "c": 380.3412
+          "c": 380.3413
         },
         {
           "d": "20230130",
@@ -35656,19 +35656,19 @@
         },
         {
           "d": "20230131",
-          "c": 388.6696
+          "c": 388.6697
         },
         {
           "d": "20230201",
-          "c": 392.8004
+          "c": 392.8003
         },
         {
           "d": "20230202",
-          "c": 398.5183
+          "c": 398.5184
         },
         {
           "d": "20230203",
-          "c": 394.2824
+          "c": 394.2825
         },
         {
           "d": "20230206",
@@ -35700,31 +35700,31 @@
         },
         {
           "d": "20230215",
-          "c": 395.8411
+          "c": 395.841
         },
         {
           "d": "20230216",
-          "c": 390.3907
+          "c": 390.3908
         },
         {
           "d": "20230217",
-          "c": 389.4155
+          "c": 389.4154
         },
         {
           "d": "20230220",
-          "c": 389.4155
+          "c": 389.4154
         },
         {
           "d": "20230221",
-          "c": 381.6035
+          "c": 381.6034
         },
         {
           "d": "20230222",
-          "c": 381.0776
+          "c": 381.0775
         },
         {
           "d": "20230223",
-          "c": 383.1047
+          "c": 383.1046
         },
         {
           "d": "20230224",
@@ -35748,7 +35748,7 @@
         },
         {
           "d": "20230307",
-          "c": 380.8193
+          "c": 380.8194
         },
         {
           "d": "20230308",
@@ -35760,7 +35760,7 @@
         },
         {
           "d": "20230310",
-          "c": 369.001
+          "c": 369.0009
         },
         {
           "d": "20230313",
@@ -35788,15 +35788,15 @@
         },
         {
           "d": "20230321",
-          "c": 382.8871
+          "c": 382.887
         },
         {
           "d": "20230322",
-          "c": 376.3601
+          "c": 376.3602
         },
         {
           "d": "20230323",
-          "c": 377.3776
+          "c": 377.3777
         },
         {
           "d": "20230324",
@@ -35812,7 +35812,7 @@
         },
         {
           "d": "20230329",
-          "c": 385.2291
+          "c": 385.229
         },
         {
           "d": "20230330",
@@ -35836,7 +35836,7 @@
         },
         {
           "d": "20230411",
-          "c": 393.2628
+          "c": 393.2629
         },
         {
           "d": "20230412",
@@ -35848,7 +35848,7 @@
         },
         {
           "d": "20230414",
-          "c": 395.8927
+          "c": 395.8928
         },
         {
           "d": "20230417",
@@ -35856,7 +35856,7 @@
         },
         {
           "d": "20230418",
-          "c": 397.5726
+          "c": 397.5725
         },
         {
           "d": "20230419",
@@ -35868,7 +35868,7 @@
         },
         {
           "d": "20230421",
-          "c": 395.6434
+          "c": 395.6432
         },
         {
           "d": "20230424",
@@ -35916,15 +35916,15 @@
         },
         {
           "d": "20230510",
-          "c": 396.2671
+          "c": 396.2672
         },
         {
           "d": "20230511",
-          "c": 395.576
+          "c": 395.5761
         },
         {
           "d": "20230512",
-          "c": 395.0577
+          "c": 395.0578
         },
         {
           "d": "20230515",
@@ -35932,11 +35932,11 @@
         },
         {
           "d": "20230516",
-          "c": 393.7715
+          "c": 393.7716
         },
         {
           "d": "20230517",
-          "c": 398.5515
+          "c": 398.5516
         },
         {
           "d": "20230518",
@@ -35944,11 +35944,11 @@
         },
         {
           "d": "20230519",
-          "c": 401.8053
+          "c": 401.8054
         },
         {
           "d": "20230522",
-          "c": 401.9685
+          "c": 401.9686
         },
         {
           "d": "20230523",
@@ -35964,11 +35964,11 @@
         },
         {
           "d": "20230526",
-          "c": 403.1492
+          "c": 403.1491
         },
         {
           "d": "20230529",
-          "c": 403.1492
+          "c": 403.1491
         },
         {
           "d": "20230530",
@@ -35984,11 +35984,11 @@
         },
         {
           "d": "20230602",
-          "c": 410.7319
+          "c": 410.7318
         },
         {
           "d": "20230605",
-          "c": 409.9447
+          "c": 409.9448
         },
         {
           "d": "20230606",
@@ -35996,7 +35996,7 @@
         },
         {
           "d": "20230607",
-          "c": 409.4169
+          "c": 409.4168
         },
         {
           "d": "20230608",
@@ -36008,19 +36008,19 @@
         },
         {
           "d": "20230612",
-          "c": 416.3756
+          "c": 416.3757
         },
         {
           "d": "20230613",
-          "c": 419.1208
+          "c": 419.1207
         },
         {
           "d": "20230614",
-          "c": 419.6199
+          "c": 419.6198
         },
         {
           "d": "20230615",
-          "c": 424.8222
+          "c": 424.8221
         },
         {
           "d": "20230616",
@@ -36032,11 +36032,11 @@
         },
         {
           "d": "20230620",
-          "c": 421.1785
+          "c": 421.1786
         },
         {
           "d": "20230621",
-          "c": 419.0206
+          "c": 419.0205
         },
         {
           "d": "20230626",
@@ -36056,15 +36056,15 @@
         },
         {
           "d": "20230630",
-          "c": 427.0554
+          "c": 427.0553
         },
         {
           "d": "20230703",
-          "c": 427.5466
+          "c": 427.5467
         },
         {
           "d": "20230704",
-          "c": 427.5466
+          "c": 427.5467
         },
         {
           "d": "20230705",
@@ -36084,7 +36084,7 @@
         },
         {
           "d": "20230711",
-          "c": 426.2654
+          "c": 426.2653
         },
         {
           "d": "20230712",
@@ -36092,7 +36092,7 @@
         },
         {
           "d": "20230713",
-          "c": 433.1054
+          "c": 433.1055
         },
         {
           "d": "20230714",
@@ -36100,11 +36100,11 @@
         },
         {
           "d": "20230717",
-          "c": 434.3386
+          "c": 434.3387
         },
         {
           "d": "20230718",
-          "c": 437.5659
+          "c": 437.566
         },
         {
           "d": "20230719",
@@ -36112,11 +36112,11 @@
         },
         {
           "d": "20230720",
-          "c": 435.6295
+          "c": 435.6296
         },
         {
           "d": "20230721",
-          "c": 435.6295
+          "c": 435.6296
         },
         {
           "d": "20230724",
@@ -36124,7 +36124,7 @@
         },
         {
           "d": "20230725",
-          "c": 438.7703
+          "c": 438.7702
         },
         {
           "d": "20230726",
@@ -36136,11 +36136,11 @@
         },
         {
           "d": "20230728",
-          "c": 440.196
+          "c": 440.1961
         },
         {
           "d": "20230731",
-          "c": 441.0342
+          "c": 441.0343
         },
         {
           "d": "20230801",
@@ -36196,7 +36196,7 @@
         },
         {
           "d": "20230821",
-          "c": 423.2595
+          "c": 423.2596
         },
         {
           "d": "20230822",
@@ -36208,7 +36208,7 @@
         },
         {
           "d": "20230824",
-          "c": 420.8992
+          "c": 420.8993
         },
         {
           "d": "20230825",
@@ -36228,7 +36228,7 @@
         },
         {
           "d": "20230831",
-          "c": 433.8666
+          "c": 433.8665
         },
         {
           "d": "20230901",
@@ -36240,11 +36240,11 @@
         },
         {
           "d": "20230905",
-          "c": 432.7971
+          "c": 432.7972
         },
         {
           "d": "20230906",
-          "c": 429.8878
+          "c": 429.8877
         },
         {
           "d": "20230907",
@@ -36256,7 +36256,7 @@
         },
         {
           "d": "20230911",
-          "c": 432.0361
+          "c": 432.0362
         },
         {
           "d": "20230912",
@@ -36280,11 +36280,11 @@
         },
         {
           "d": "20230919",
-          "c": 428.0107
+          "c": 428.0106
         },
         {
           "d": "20230920",
-          "c": 424.0757
+          "c": 424.0758
         },
         {
           "d": "20230921",
@@ -36304,11 +36304,11 @@
         },
         {
           "d": "20230927",
-          "c": 411.9038
+          "c": 411.9037
         },
         {
           "d": "20230928",
-          "c": 414.2918
+          "c": 414.2917
         },
         {
           "d": "20231002",
@@ -36320,7 +36320,7 @@
         },
         {
           "d": "20231004",
-          "c": 410.56
+          "c": 410.5599
         },
         {
           "d": "20231005",
@@ -36328,7 +36328,7 @@
         },
         {
           "d": "20231006",
-          "c": 415.2779
+          "c": 415.278
         },
         {
           "d": "20231011",
@@ -36348,11 +36348,11 @@
         },
         {
           "d": "20231017",
-          "c": 421.5427
+          "c": 421.5428
         },
         {
           "d": "20231018",
-          "c": 415.9256
+          "c": 415.9257
         },
         {
           "d": "20231019",
@@ -36372,11 +36372,11 @@
         },
         {
           "d": "20231025",
-          "c": 403.6861
+          "c": 403.686
         },
         {
           "d": "20231026",
-          "c": 398.8521
+          "c": 398.852
         },
         {
           "d": "20231027",
@@ -36388,15 +36388,15 @@
         },
         {
           "d": "20231031",
-          "c": 404.3145
+          "c": 404.3144
         },
         {
           "d": "20231101",
-          "c": 408.6264
+          "c": 408.6263
         },
         {
           "d": "20231102",
-          "c": 416.4574
+          "c": 416.4575
         },
         {
           "d": "20231103",
@@ -36420,7 +36420,7 @@
         },
         {
           "d": "20231110",
-          "c": 425.9804
+          "c": 425.9803
         },
         {
           "d": "20231113",
@@ -36428,11 +36428,11 @@
         },
         {
           "d": "20231114",
-          "c": 433.8308
+          "c": 433.8307
         },
         {
           "d": "20231115",
-          "c": 434.7492
+          "c": 434.7491
         },
         {
           "d": "20231116",
@@ -36440,11 +36440,11 @@
         },
         {
           "d": "20231117",
-          "c": 435.8224
+          "c": 435.8223
         },
         {
           "d": "20231120",
-          "c": 439.1771
+          "c": 439.1772
         },
         {
           "d": "20231121",
@@ -36480,7 +36480,7 @@
         },
         {
           "d": "20231201",
-          "c": 443.8564
+          "c": 443.8565
         },
         {
           "d": "20231204",
@@ -36488,15 +36488,15 @@
         },
         {
           "d": "20231205",
-          "c": 441.4395
+          "c": 441.4394
         },
         {
           "d": "20231206",
-          "c": 439.6606
+          "c": 439.6605
         },
         {
           "d": "20231207",
-          "c": 443.0153
+          "c": 443.0154
         },
         {
           "d": "20231208",
@@ -36516,11 +36516,11 @@
         },
         {
           "d": "20231214",
-          "c": 456.3378
+          "c": 456.3379
         },
         {
           "d": "20231215",
-          "c": 455.5864
+          "c": 455.5865
         },
         {
           "d": "20231218",
@@ -36532,7 +36532,7 @@
         },
         {
           "d": "20231220",
-          "c": 454.5477
+          "c": 454.5478
         },
         {
           "d": "20231221",
@@ -36548,11 +36548,11 @@
         },
         {
           "d": "20231226",
-          "c": 461.7213
+          "c": 461.7214
         },
         {
           "d": "20231227",
-          "c": 462.5562
+          "c": 462.5561
         },
         {
           "d": "20231228",
@@ -36572,7 +36572,7 @@
         },
         {
           "d": "20240104",
-          "c": 453.5964
+          "c": 453.5965
         },
         {
           "d": "20240105",
@@ -36584,7 +36584,7 @@
         },
         {
           "d": "20240109",
-          "c": 460.0031
+          "c": 460.0032
         },
         {
           "d": "20240110",
@@ -36608,11 +36608,11 @@
         },
         {
           "d": "20240117",
-          "c": 458.4597
+          "c": 458.4598
         },
         {
           "d": "20240118",
-          "c": 462.5368
+          "c": 462.5367
         },
         {
           "d": "20240119",
@@ -36624,15 +36624,15 @@
         },
         {
           "d": "20240123",
-          "c": 470.6617
+          "c": 470.6616
         },
         {
           "d": "20240124",
-          "c": 471.1761
+          "c": 471.1762
         },
         {
           "d": "20240125",
-          "c": 473.7388
+          "c": 473.7389
         },
         {
           "d": "20240126",
@@ -36640,11 +36640,11 @@
         },
         {
           "d": "20240129",
-          "c": 476.884
+          "c": 476.8839
         },
         {
           "d": "20240130",
-          "c": 476.5151
+          "c": 476.515
         },
         {
           "d": "20240131",
@@ -36656,7 +36656,7 @@
         },
         {
           "d": "20240202",
-          "c": 479.8738
+          "c": 479.8737
         },
         {
           "d": "20240205",
@@ -36664,15 +36664,15 @@
         },
         {
           "d": "20240215",
-          "c": 487.3095
+          "c": 487.3094
         },
         {
           "d": "20240216",
-          "c": 484.8828
+          "c": 484.8827
         },
         {
           "d": "20240219",
-          "c": 484.8828
+          "c": 484.8827
         },
         {
           "d": "20240220",
@@ -36680,7 +36680,7 @@
         },
         {
           "d": "20240221",
-          "c": 482.6501
+          "c": 482.65
         },
         {
           "d": "20240222",
@@ -36732,7 +36732,7 @@
         },
         {
           "d": "20240312",
-          "c": 501.6469
+          "c": 501.647
         },
         {
           "d": "20240313",
@@ -36752,11 +36752,11 @@
         },
         {
           "d": "20240319",
-          "c": 502.1636
+          "c": 502.1637
         },
         {
           "d": "20240320",
-          "c": 506.8083
+          "c": 506.8084
         },
         {
           "d": "20240321",
@@ -36776,7 +36776,7 @@
         },
         {
           "d": "20240327",
-          "c": 509.4278
+          "c": 509.4277
         },
         {
           "d": "20240328",
@@ -36796,7 +36796,7 @@
         },
         {
           "d": "20240403",
-          "c": 505.7664
+          "c": 505.7665
         },
         {
           "d": "20240408",
@@ -36812,11 +36812,11 @@
         },
         {
           "d": "20240411",
-          "c": 504.3936
+          "c": 504.3935
         },
         {
           "d": "20240412",
-          "c": 497.4314
+          "c": 497.4313
         },
         {
           "d": "20240415",
@@ -36828,11 +36828,11 @@
         },
         {
           "d": "20240417",
-          "c": 487.4018
+          "c": 487.4019
         },
         {
           "d": "20240418",
-          "c": 486.3989
+          "c": 486.399
         },
         {
           "d": "20240419",
@@ -36848,11 +36848,11 @@
         },
         {
           "d": "20240424",
-          "c": 492.1342
+          "c": 492.1343
         },
         {
           "d": "20240425",
-          "c": 490.2647
+          "c": 490.2646
         },
         {
           "d": "20240426",
@@ -36872,11 +36872,11 @@
         },
         {
           "d": "20240503",
-          "c": 497.8598
+          "c": 497.8597
         },
         {
           "d": "20240506",
-          "c": 503.0011
+          "c": 503.001
         },
         {
           "d": "20240507",
@@ -36896,11 +36896,11 @@
         },
         {
           "d": "20240513",
-          "c": 507.2271
+          "c": 507.227
         },
         {
           "d": "20240514",
-          "c": 509.5543
+          "c": 509.5544
         },
         {
           "d": "20240515",
@@ -36908,7 +36908,7 @@
         },
         {
           "d": "20240516",
-          "c": 514.8027
+          "c": 514.8026
         },
         {
           "d": "20240517",
@@ -36920,15 +36920,15 @@
         },
         {
           "d": "20240521",
-          "c": 517.4026
+          "c": 517.4025
         },
         {
           "d": "20240522",
-          "c": 515.9129
+          "c": 515.9128
         },
         {
           "d": "20240523",
-          "c": 512.1445
+          "c": 512.1444
         },
         {
           "d": "20240524",
@@ -36940,27 +36940,27 @@
         },
         {
           "d": "20240528",
-          "c": 515.8934
+          "c": 515.8933
         },
         {
           "d": "20240529",
-          "c": 512.2808
+          "c": 512.2807
         },
         {
           "d": "20240530",
-          "c": 508.8823
+          "c": 508.8824
         },
         {
           "d": "20240531",
-          "c": 513.5173
+          "c": 513.5175
         },
         {
           "d": "20240603",
-          "c": 513.9362
+          "c": 513.9361
         },
         {
           "d": "20240604",
-          "c": 514.5106
+          "c": 514.5107
         },
         {
           "d": "20240605",
@@ -36968,23 +36968,23 @@
         },
         {
           "d": "20240606",
-          "c": 520.6159
+          "c": 520.6158
         },
         {
           "d": "20240607",
-          "c": 519.9829
+          "c": 519.983
         },
         {
           "d": "20240611",
-          "c": 522.8457
+          "c": 522.8458
         },
         {
           "d": "20240612",
-          "c": 527.14
+          "c": 527.1398
         },
         {
           "d": "20240613",
-          "c": 528.2013
+          "c": 528.2014
         },
         {
           "d": "20240614",
@@ -37016,7 +37016,7 @@
         },
         {
           "d": "20240625",
-          "c": 532.2303
+          "c": 532.2302
         },
         {
           "d": "20240626",
@@ -37024,11 +37024,11 @@
         },
         {
           "d": "20240627",
-          "c": 533.7348
+          "c": 533.7347
         },
         {
           "d": "20240628",
-          "c": 531.6344
+          "c": 531.6345
         },
         {
           "d": "20240701",
@@ -37036,7 +37036,7 @@
         },
         {
           "d": "20240702",
-          "c": 536.3136
+          "c": 536.3137
         },
         {
           "d": "20240703",
@@ -37052,11 +37052,11 @@
         },
         {
           "d": "20240708",
-          "c": 542.4387
+          "c": 542.4386
         },
         {
           "d": "20240709",
-          "c": 542.9661
+          "c": 542.9662
         },
         {
           "d": "20240710",
@@ -37072,15 +37072,15 @@
         },
         {
           "d": "20240715",
-          "c": 548.544
+          "c": 548.5441
         },
         {
           "d": "20240716",
-          "c": 551.797
+          "c": 551.7971
         },
         {
           "d": "20240717",
-          "c": 544.0602
+          "c": 544.0603
         },
         {
           "d": "20240718",
@@ -37104,7 +37104,7 @@
         },
         {
           "d": "20240729",
-          "c": 532.1619
+          "c": 532.162
         },
         {
           "d": "20240730",
@@ -37112,11 +37112,11 @@
         },
         {
           "d": "20240731",
-          "c": 538.072
+          "c": 538.0719
         },
         {
           "d": "20240801",
-          "c": 530.4524
+          "c": 530.4525
         },
         {
           "d": "20240802",
@@ -37124,11 +37124,11 @@
         },
         {
           "d": "20240805",
-          "c": 505.4152
+          "c": 505.4151
         },
         {
           "d": "20240806",
-          "c": 510.0747
+          "c": 510.0749
         },
         {
           "d": "20240807",
@@ -37136,11 +37136,11 @@
         },
         {
           "d": "20240808",
-          "c": 518.3783
+          "c": 518.3782
         },
         {
           "d": "20240809",
-          "c": 520.6641
+          "c": 520.664
         },
         {
           "d": "20240812",
@@ -37148,11 +37148,11 @@
         },
         {
           "d": "20240813",
-          "c": 529.5048
+          "c": 529.5049
         },
         {
           "d": "20240814",
-          "c": 531.1753
+          "c": 531.1752
         },
         {
           "d": "20240815",
@@ -37160,11 +37160,11 @@
         },
         {
           "d": "20240816",
-          "c": 541.491
+          "c": 541.4911
         },
         {
           "d": "20240819",
-          "c": 546.6685
+          "c": 546.6684
         },
         {
           "d": "20240820",
@@ -37172,7 +37172,7 @@
         },
         {
           "d": "20240821",
-          "c": 547.6552
+          "c": 547.6551
         },
         {
           "d": "20240822",
@@ -37188,11 +37188,11 @@
         },
         {
           "d": "20240827",
-          "c": 548.5734
+          "c": 548.5735
         },
         {
           "d": "20240828",
-          "c": 545.3888
+          "c": 545.3887
         },
         {
           "d": "20240829",
@@ -37200,23 +37200,23 @@
         },
         {
           "d": "20240830",
-          "c": 550.6444
+          "c": 550.6443
         },
         {
           "d": "20240902",
-          "c": 550.6444
+          "c": 550.6443
         },
         {
           "d": "20240903",
-          "c": 539.3127
+          "c": 539.3126
         },
         {
           "d": "20240904",
-          "c": 538.2087
+          "c": 538.2088
         },
         {
           "d": "20240905",
-          "c": 536.8998
+          "c": 536.8997
         },
         {
           "d": "20240906",
@@ -37224,35 +37224,35 @@
         },
         {
           "d": "20240909",
-          "c": 533.7738
+          "c": 533.7737
         },
         {
           "d": "20240910",
-          "c": 536.0987
+          "c": 536.0988
         },
         {
           "d": "20240911",
-          "c": 541.5985
+          "c": 541.5986
         },
         {
           "d": "20240912",
-          "c": 546.1605
+          "c": 546.1606
         },
         {
           "d": "20240913",
-          "c": 549.013
+          "c": 549.0129
         },
         {
           "d": "20240916",
-          "c": 549.8238
+          "c": 549.8239
         },
         {
           "d": "20240918",
-          "c": 548.4172
+          "c": 548.4171
         },
         {
           "d": "20240919",
-          "c": 557.7755
+          "c": 557.7756
         },
         {
           "d": "20240920",
@@ -37268,7 +37268,7 @@
         },
         {
           "d": "20240925",
-          "c": 558.5652
+          "c": 558.5653
         },
         {
           "d": "20240926",
@@ -37276,11 +37276,11 @@
         },
         {
           "d": "20240927",
-          "c": 559.9666
+          "c": 559.9664
         },
         {
           "d": "20240930",
-          "c": 562.2105
+          "c": 562.2104
         },
         {
           "d": "20241001",
@@ -37300,7 +37300,7 @@
         },
         {
           "d": "20241009",
-          "c": 565.5225
+          "c": 565.5224
         },
         {
           "d": "20241011",
@@ -37316,11 +37316,11 @@
         },
         {
           "d": "20241016",
-          "c": 570.5784
+          "c": 570.5785
         },
         {
           "d": "20241017",
-          "c": 570.6276
+          "c": 570.6275
         },
         {
           "d": "20241018",
@@ -37328,7 +37328,7 @@
         },
         {
           "d": "20241021",
-          "c": 571.8817
+          "c": 571.8818
         },
         {
           "d": "20241022",
@@ -37348,11 +37348,11 @@
         },
         {
           "d": "20241028",
-          "c": 569.1381
+          "c": 569.1382
         },
         {
           "d": "20241029",
-          "c": 570.0591
+          "c": 570.0592
         },
         {
           "d": "20241030",
@@ -37360,15 +37360,15 @@
         },
         {
           "d": "20241101",
-          "c": 559.5452
+          "c": 559.5451
         },
         {
           "d": "20241104",
-          "c": 558.34
+          "c": 558.3399
         },
         {
           "d": "20241105",
-          "c": 565.0913
+          "c": 565.0912
         },
         {
           "d": "20241106",
@@ -37384,31 +37384,31 @@
         },
         {
           "d": "20241111",
-          "c": 586.7072
+          "c": 586.7071
         },
         {
           "d": "20241112",
-          "c": 584.8847
+          "c": 584.8846
         },
         {
           "d": "20241113",
-          "c": 585.1688
+          "c": 585.1689
         },
         {
           "d": "20241114",
-          "c": 581.4061
+          "c": 581.4062
         },
         {
           "d": "20241115",
-          "c": 573.9591
+          "c": 573.9592
         },
         {
           "d": "20241118",
-          "c": 576.3107
+          "c": 576.3109
         },
         {
           "d": "20241119",
-          "c": 578.4175
+          "c": 578.4174
         },
         {
           "d": "20241120",
@@ -37416,11 +37416,11 @@
         },
         {
           "d": "20241121",
-          "c": 581.7197
+          "c": 581.7196
         },
         {
           "d": "20241122",
-          "c": 583.5227
+          "c": 583.5226
         },
         {
           "d": "20241125",
@@ -37428,7 +37428,7 @@
         },
         {
           "d": "20241126",
-          "c": 588.5591
+          "c": 588.5593
         },
         {
           "d": "20241127",
@@ -37444,7 +37444,7 @@
         },
         {
           "d": "20241202",
-          "c": 591.4791
+          "c": 591.4792
         },
         {
           "d": "20241203",
@@ -37452,7 +37452,7 @@
         },
         {
           "d": "20241204",
-          "c": 595.428
+          "c": 595.4279
         },
         {
           "d": "20241205",
@@ -37464,11 +37464,11 @@
         },
         {
           "d": "20241209",
-          "c": 592.5081
+          "c": 592.508
         },
         {
           "d": "20241210",
-          "c": 590.6659
+          "c": 590.6658
         },
         {
           "d": "20241211",
@@ -37484,7 +37484,7 @@
         },
         {
           "d": "20241216",
-          "c": 594.5756
+          "c": 594.5755
         },
         {
           "d": "20241217",
@@ -37492,11 +37492,11 @@
         },
         {
           "d": "20241218",
-          "c": 574.4785
+          "c": 574.4784
         },
         {
           "d": "20241219",
-          "c": 574.3021
+          "c": 574.302
         },
         {
           "d": "20241220",
@@ -37520,11 +37520,11 @@
         },
         {
           "d": "20241227",
-          "c": 584.9949
+          "c": 584.995
         },
         {
           "d": "20241230",
-          "c": 578.3193
+          "c": 578.3192
         },
         {
           "d": "20241231",
@@ -37548,19 +37548,19 @@
         },
         {
           "d": "20250108",
-          "c": 579.5679
+          "c": 579.5677
         },
         {
           "d": "20250109",
-          "c": 579.5679
+          "c": 579.5677
         },
         {
           "d": "20250110",
-          "c": 570.7194
+          "c": 570.7193
         },
         {
           "d": "20250113",
-          "c": 571.6042
+          "c": 571.6043
         },
         {
           "d": "20250114",
@@ -37568,7 +37568,7 @@
         },
         {
           "d": "20250115",
-          "c": 582.8024
+          "c": 582.8025
         },
         {
           "d": "20250116",
@@ -37576,23 +37576,23 @@
         },
         {
           "d": "20250117",
-          "c": 587.5218
+          "c": 587.5217
         },
         {
           "d": "20250120",
-          "c": 587.5218
+          "c": 587.5217
         },
         {
           "d": "20250121",
-          "c": 592.8995
+          "c": 592.8996
         },
         {
           "d": "20250122",
-          "c": 596.2327
+          "c": 596.2326
         },
         {
           "d": "20250203",
-          "c": 587.7085
+          "c": 587.7086
         },
         {
           "d": "20250204",
@@ -37604,7 +37604,7 @@
         },
         {
           "d": "20250206",
-          "c": 596.1146
+          "c": 596.1147
         },
         {
           "d": "20250207",
@@ -37620,7 +37620,7 @@
         },
         {
           "d": "20250212",
-          "c": 593.2044
+          "c": 593.2045
         },
         {
           "d": "20250213",
@@ -37640,7 +37640,7 @@
         },
         {
           "d": "20250219",
-          "c": 602.6134
+          "c": 602.6133
         },
         {
           "d": "20250220",
@@ -37656,7 +37656,7 @@
         },
         {
           "d": "20250225",
-          "c": 584.238
+          "c": 584.2379
         },
         {
           "d": "20250226",
@@ -37668,11 +37668,11 @@
         },
         {
           "d": "20250303",
-          "c": 573.9442
+          "c": 573.9441
         },
         {
           "d": "20250304",
-          "c": 567.1504
+          "c": 567.1505
         },
         {
           "d": "20250305",
@@ -37680,7 +37680,7 @@
         },
         {
           "d": "20250306",
-          "c": 563.0703
+          "c": 563.0704
         },
         {
           "d": "20250307",
@@ -37692,15 +37692,15 @@
         },
         {
           "d": "20250311",
-          "c": 546.563
+          "c": 546.5629
         },
         {
           "d": "20250312",
-          "c": 549.4632
+          "c": 549.4633
         },
         {
           "d": "20250313",
-          "c": 542.1386
+          "c": 542.1387
         },
         {
           "d": "20250314",
@@ -37712,7 +37712,7 @@
         },
         {
           "d": "20250318",
-          "c": 551.577
+          "c": 551.5771
         },
         {
           "d": "20250319",
@@ -37720,7 +37720,7 @@
         },
         {
           "d": "20250320",
-          "c": 555.9719
+          "c": 555.9718
         },
         {
           "d": "20250321",
@@ -37740,7 +37740,7 @@
         },
         {
           "d": "20250327",
-          "c": 559.2122
+          "c": 559.2123
         },
         {
           "d": "20250328",
@@ -37772,7 +37772,7 @@
         },
         {
           "d": "20250410",
-          "c": 517.3019
+          "c": 517.302
         },
         {
           "d": "20250411",
@@ -37780,11 +37780,11 @@
         },
         {
           "d": "20250414",
-          "c": 531.6401
+          "c": 531.6402
         },
         {
           "d": "20250415",
-          "c": 530.1512
+          "c": 530.1511
         },
         {
           "d": "20250416",
@@ -37816,7 +37816,7 @@
         },
         {
           "d": "20250425",
-          "c": 543.0004
+          "c": 543.0003
         },
         {
           "d": "20250428",
@@ -37840,11 +37840,11 @@
         },
         {
           "d": "20250506",
-          "c": 551.0472
+          "c": 551.0471
         },
         {
           "d": "20250507",
-          "c": 553.3645
+          "c": 553.3646
         },
         {
           "d": "20250508",
@@ -37856,7 +37856,7 @@
         },
         {
           "d": "20250512",
-          "c": 574.9015
+          "c": 574.9016
         },
         {
           "d": "20250513",
@@ -37864,7 +37864,7 @@
         },
         {
           "d": "20250514",
-          "c": 579.4376
+          "c": 579.4377
         },
         {
           "d": "20250515",
@@ -37876,19 +37876,19 @@
         },
         {
           "d": "20250519",
-          "c": 586.597
+          "c": 586.5969
         },
         {
           "d": "20250520",
-          "c": 584.6247
+          "c": 584.6248
         },
         {
           "d": "20250521",
-          "c": 574.7733
+          "c": 574.7734
         },
         {
           "d": "20250522",
-          "c": 575.0002
+          "c": 575.0001
         },
         {
           "d": "20250523",
@@ -37900,7 +37900,7 @@
         },
         {
           "d": "20250527",
-          "c": 582.9483
+          "c": 582.9484
         },
         {
           "d": "20250528",
@@ -37920,7 +37920,7 @@
         },
         {
           "d": "20250604",
-          "c": 587.662
+          "c": 587.6619
         },
         {
           "d": "20250605",
@@ -37944,7 +37944,7 @@
         },
         {
           "d": "20250612",
-          "c": 595.3734
+          "c": 595.3735
         },
         {
           "d": "20250613",
@@ -37952,7 +37952,7 @@
         },
         {
           "d": "20250616",
-          "c": 594.3184
+          "c": 594.3183
         },
         {
           "d": "20250617",
@@ -37960,11 +37960,11 @@
         },
         {
           "d": "20250618",
-          "c": 589.151
+          "c": 589.1511
         },
         {
           "d": "20250619",
-          "c": 589.151
+          "c": 589.1511
         },
         {
           "d": "20250620",
@@ -37984,7 +37984,7 @@
         },
         {
           "d": "20250626",
-          "c": 605.1647
+          "c": 605.1646
         },
         {
           "d": "20250627",
@@ -38044,7 +38044,7 @@
         },
         {
           "d": "20250717",
-          "c": 621.1573
+          "c": 621.1574
         },
         {
           "d": "20250718",
@@ -38068,15 +38068,15 @@
         },
         {
           "d": "20250725",
-          "c": 630.118
+          "c": 630.1181
         },
         {
           "d": "20250728",
-          "c": 629.9598
+          "c": 629.9599
         },
         {
           "d": "20250729",
-          "c": 628.2983
+          "c": 628.2982
         },
         {
           "d": "20250730",
@@ -38084,7 +38084,7 @@
         },
         {
           "d": "20250731",
-          "c": 625.1531
+          "c": 625.1532
         },
         {
           "d": "20250801",
@@ -38108,7 +38108,7 @@
         },
         {
           "d": "20250808",
-          "c": 630.1973
+          "c": 630.1972
         },
         {
           "d": "20250811",
@@ -38180,7 +38180,7 @@
         },
         {
           "d": "20250903",
-          "c": 636.6854
+          "c": 636.6853
         },
         {
           "d": "20250904",
@@ -38208,7 +38208,7 @@
         },
         {
           "d": "20250912",
-          "c": 650.2054
+          "c": 650.2055
         },
         {
           "d": "20250915",
@@ -38216,7 +38216,7 @@
         },
         {
           "d": "20250916",
-          "c": 652.7671
+          "c": 652.7672
         },
         {
           "d": "20250917",
@@ -38232,7 +38232,7 @@
         },
         {
           "d": "20250922",
-          "c": 661.3608
+          "c": 661.3607
         },
         {
           "d": "20250923",
@@ -38288,11 +38288,11 @@
         },
         {
           "d": "20251015",
-          "c": 659.7044
+          "c": 659.7045
         },
         {
           "d": "20251016",
-          "c": 655.2116
+          "c": 655.2117
         },
         {
           "d": "20251017",
@@ -38304,7 +38304,7 @@
         },
         {
           "d": "20251021",
-          "c": 665.7741
+          "c": 665.774
         },
         {
           "d": "20251022",
@@ -38324,7 +38324,7 @@
         },
         {
           "d": "20251029",
-          "c": 681.7419
+          "c": 681.7418
         },
         {
           "d": "20251030",
@@ -38356,7 +38356,7 @@
         },
         {
           "d": "20251110",
-          "c": 675.8407
+          "c": 675.8408
         },
         {
           "d": "20251111",
@@ -38368,7 +38368,7 @@
         },
         {
           "d": "20251113",
-          "c": 666.518
+          "c": 666.5179
         },
         {
           "d": "20251114",
@@ -38384,7 +38384,7 @@
         },
         {
           "d": "20251119",
-          "c": 657.1853
+          "c": 657.1854
         },
         {
           "d": "20251120",
@@ -38400,7 +38400,7 @@
         },
         {
           "d": "20251125",
-          "c": 669.4735
+          "c": 669.4734
         },
         {
           "d": "20251126",
@@ -38416,7 +38416,7 @@
         },
         {
           "d": "20251201",
-          "c": 674.6803
+          "c": 674.6804
         },
         {
           "d": "20251202",
@@ -38440,7 +38440,7 @@
         },
         {
           "d": "20251209",
-          "c": 677.4276
+          "c": 677.4275
         },
         {
           "d": "20251210",
@@ -39332,7 +39332,7 @@
         },
         {
           "d": "20200114",
-          "c": 211.8625
+          "c": 211.8626
         },
         {
           "d": "20200115",
@@ -39340,7 +39340,7 @@
         },
         {
           "d": "20200116",
-          "c": 213.9803
+          "c": 213.9804
         },
         {
           "d": "20200117",
@@ -39356,19 +39356,19 @@
         },
         {
           "d": "20200131",
-          "c": 210.8902
+          "c": 210.8903
         },
         {
           "d": "20200203",
-          "c": 214.0766
+          "c": 214.0767
         },
         {
           "d": "20200204",
-          "c": 218.9765
+          "c": 218.9766
         },
         {
           "d": "20200205",
-          "c": 219.6986
+          "c": 219.6985
         },
         {
           "d": "20200206",
@@ -39384,7 +39384,7 @@
         },
         {
           "d": "20200211",
-          "c": 223.347
+          "c": 223.3471
         },
         {
           "d": "20200212",
@@ -39396,11 +39396,11 @@
         },
         {
           "d": "20200214",
-          "c": 225.8788
+          "c": 225.8789
         },
         {
           "d": "20200217",
-          "c": 225.8788
+          "c": 225.8789
         },
         {
           "d": "20200218",
@@ -39412,7 +39412,7 @@
         },
         {
           "d": "20200220",
-          "c": 226.0137
+          "c": 226.0136
         },
         {
           "d": "20200221",
@@ -39424,7 +39424,7 @@
         },
         {
           "d": "20200225",
-          "c": 207.3284
+          "c": 207.3283
         },
         {
           "d": "20200226",
@@ -39440,7 +39440,7 @@
         },
         {
           "d": "20200303",
-          "c": 201.6583
+          "c": 201.6582
         },
         {
           "d": "20200304",
@@ -39480,7 +39480,7 @@
         },
         {
           "d": "20200317",
-          "c": 175.3391
+          "c": 175.3392
         },
         {
           "d": "20200318",
@@ -39528,11 +39528,11 @@
         },
         {
           "d": "20200406",
-          "c": 189.5467
+          "c": 189.5468
         },
         {
           "d": "20200407",
-          "c": 189.4696
+          "c": 189.4695
         },
         {
           "d": "20200408",
@@ -39548,7 +39548,7 @@
         },
         {
           "d": "20200413",
-          "c": 195.8656
+          "c": 195.8657
         },
         {
           "d": "20200414",
@@ -39580,11 +39580,11 @@
         },
         {
           "d": "20200423",
-          "c": 203.0914
+          "c": 203.0913
         },
         {
           "d": "20200424",
-          "c": 206.2941
+          "c": 206.2942
         },
         {
           "d": "20200427",
@@ -39620,7 +39620,7 @@
         },
         {
           "d": "20200508",
-          "c": 216.9254
+          "c": 216.9253
         },
         {
           "d": "20200511",
@@ -39636,11 +39636,11 @@
         },
         {
           "d": "20200514",
-          "c": 214.0023
+          "c": 214.0022
         },
         {
           "d": "20200515",
-          "c": 215.3914
+          "c": 215.3915
         },
         {
           "d": "20200518",
@@ -39648,7 +39648,7 @@
         },
         {
           "d": "20200519",
-          "c": 218.8548
+          "c": 218.8547
         },
         {
           "d": "20200520",
@@ -39668,7 +39668,7 @@
         },
         {
           "d": "20200526",
-          "c": 220.9578
+          "c": 220.9579
         },
         {
           "d": "20200527",
@@ -39684,7 +39684,7 @@
         },
         {
           "d": "20200601",
-          "c": 225.8007
+          "c": 225.8006
         },
         {
           "d": "20200602",
@@ -39720,7 +39720,7 @@
         },
         {
           "d": "20200612",
-          "c": 227.5565
+          "c": 227.5564
         },
         {
           "d": "20200615",
@@ -39776,7 +39776,7 @@
         },
         {
           "d": "20200706",
-          "c": 249.7056
+          "c": 249.7057
         },
         {
           "d": "20200707",
@@ -39788,7 +39788,7 @@
         },
         {
           "d": "20200709",
-          "c": 253.3682
+          "c": 253.3683
         },
         {
           "d": "20200710",
@@ -39800,11 +39800,11 @@
         },
         {
           "d": "20200714",
-          "c": 251.619
+          "c": 251.6191
         },
         {
           "d": "20200715",
-          "c": 252.1313
+          "c": 252.1312
         },
         {
           "d": "20200716",
@@ -39812,7 +39812,7 @@
         },
         {
           "d": "20200717",
-          "c": 250.701
+          "c": 250.7011
         },
         {
           "d": "20200720",
@@ -39820,7 +39820,7 @@
         },
         {
           "d": "20200721",
-          "c": 255.127
+          "c": 255.1271
         },
         {
           "d": "20200722",
@@ -39848,7 +39848,7 @@
         },
         {
           "d": "20200730",
-          "c": 252.3536
+          "c": 252.3535
         },
         {
           "d": "20200731",
@@ -39860,11 +39860,11 @@
         },
         {
           "d": "20200804",
-          "c": 261.2927
+          "c": 261.2926
         },
         {
           "d": "20200805",
-          "c": 261.9401
+          "c": 261.9402
         },
         {
           "d": "20200806",
@@ -39872,7 +39872,7 @@
         },
         {
           "d": "20200807",
-          "c": 262.346
+          "c": 262.3459
         },
         {
           "d": "20200810",
@@ -39880,11 +39880,11 @@
         },
         {
           "d": "20200811",
-          "c": 256.2771
+          "c": 256.277
         },
         {
           "d": "20200812",
-          "c": 262.723
+          "c": 262.7229
         },
         {
           "d": "20200813",
@@ -39900,11 +39900,11 @@
         },
         {
           "d": "20200818",
-          "c": 268.6276
+          "c": 268.6275
         },
         {
           "d": "20200819",
-          "c": 266.8203
+          "c": 266.8204
         },
         {
           "d": "20200820",
@@ -39912,11 +39912,11 @@
         },
         {
           "d": "20200821",
-          "c": 272.3964
+          "c": 272.3965
         },
         {
           "d": "20200824",
-          "c": 274.0973
+          "c": 274.0974
         },
         {
           "d": "20200825",
@@ -39924,7 +39924,7 @@
         },
         {
           "d": "20200826",
-          "c": 282.1474
+          "c": 282.1473
         },
         {
           "d": "20200827",
@@ -39948,7 +39948,7 @@
         },
         {
           "d": "20200903",
-          "c": 277.7502
+          "c": 277.7503
         },
         {
           "d": "20200904",
@@ -39976,7 +39976,7 @@
         },
         {
           "d": "20200914",
-          "c": 265.9121
+          "c": 265.912
         },
         {
           "d": "20200915",
@@ -40012,19 +40012,19 @@
         },
         {
           "d": "20200925",
-          "c": 262.4329
+          "c": 262.433
         },
         {
           "d": "20200928",
-          "c": 267.8835
+          "c": 267.8834
         },
         {
           "d": "20200929",
-          "c": 266.6754
+          "c": 266.6755
         },
         {
           "d": "20200930",
-          "c": 268.5018
+          "c": 268.502
         },
         {
           "d": "20201005",
@@ -40032,7 +40032,7 @@
         },
         {
           "d": "20201006",
-          "c": 265.9121
+          "c": 265.912
         },
         {
           "d": "20201007",
@@ -40056,11 +40056,11 @@
         },
         {
           "d": "20201015",
-          "c": 280.3499
+          "c": 280.3498
         },
         {
           "d": "20201016",
-          "c": 278.8134
+          "c": 278.8133
         },
         {
           "d": "20201019",
@@ -40072,11 +40072,11 @@
         },
         {
           "d": "20201021",
-          "c": 274.6384
+          "c": 274.6385
         },
         {
           "d": "20201022",
-          "c": 274.6289
+          "c": 274.6288
         },
         {
           "d": "20201023",
@@ -40088,7 +40088,7 @@
         },
         {
           "d": "20201027",
-          "c": 273.1599
+          "c": 273.16
         },
         {
           "d": "20201028",
@@ -40096,7 +40096,7 @@
         },
         {
           "d": "20201029",
-          "c": 267.1006
+          "c": 267.1007
         },
         {
           "d": "20201030",
@@ -40112,7 +40112,7 @@
         },
         {
           "d": "20201104",
-          "c": 277.2671
+          "c": 277.267
         },
         {
           "d": "20201105",
@@ -40120,7 +40120,7 @@
         },
         {
           "d": "20201106",
-          "c": 284.7083
+          "c": 284.7084
         },
         {
           "d": "20201109",
@@ -40132,7 +40132,7 @@
         },
         {
           "d": "20201111",
-          "c": 280.0213
+          "c": 280.0212
         },
         {
           "d": "20201112",
@@ -40144,7 +40144,7 @@
         },
         {
           "d": "20201116",
-          "c": 283.3456
+          "c": 283.3457
         },
         {
           "d": "20201117",
@@ -40156,15 +40156,15 @@
         },
         {
           "d": "20201119",
-          "c": 282.5532
+          "c": 282.5533
         },
         {
           "d": "20201120",
-          "c": 280.6205
+          "c": 280.6204
         },
         {
           "d": "20201123",
-          "c": 280.6301
+          "c": 280.6302
         },
         {
           "d": "20201124",
@@ -40192,11 +40192,11 @@
         },
         {
           "d": "20201202",
-          "c": 293.6377
+          "c": 293.6378
         },
         {
           "d": "20201203",
-          "c": 294.0533
+          "c": 294.0532
         },
         {
           "d": "20201204",
@@ -40212,7 +40212,7 @@
         },
         {
           "d": "20201209",
-          "c": 291.1832
+          "c": 291.1831
         },
         {
           "d": "20201210",
@@ -40228,27 +40228,27 @@
         },
         {
           "d": "20201215",
-          "c": 296.962
+          "c": 296.9621
         },
         {
           "d": "20201216",
-          "c": 298.5953
+          "c": 298.5954
         },
         {
           "d": "20201217",
-          "c": 300.5474
+          "c": 300.5475
         },
         {
           "d": "20201218",
-          "c": 299.6391
+          "c": 299.639
         },
         {
           "d": "20201221",
-          "c": 299.0785
+          "c": 299.0784
         },
         {
           "d": "20201222",
-          "c": 299.8917
+          "c": 299.8918
         },
         {
           "d": "20201223",
@@ -40264,7 +40264,7 @@
         },
         {
           "d": "20201228",
-          "c": 302.7187
+          "c": 302.7186
         },
         {
           "d": "20201229",
@@ -40280,7 +40280,7 @@
         },
         {
           "d": "20210104",
-          "c": 299.456
+          "c": 299.4561
         },
         {
           "d": "20210105",
@@ -40292,15 +40292,15 @@
         },
         {
           "d": "20210107",
-          "c": 304.9454
+          "c": 304.9455
         },
         {
           "d": "20210108",
-          "c": 308.8663
+          "c": 308.8664
         },
         {
           "d": "20210111",
-          "c": 304.4032
+          "c": 304.4033
         },
         {
           "d": "20210112",
@@ -40328,7 +40328,7 @@
         },
         {
           "d": "20210120",
-          "c": 313.4553
+          "c": 313.4554
         },
         {
           "d": "20210121",
@@ -40336,7 +40336,7 @@
         },
         {
           "d": "20210122",
-          "c": 315.0527
+          "c": 315.0528
         },
         {
           "d": "20210125",
@@ -40344,7 +40344,7 @@
         },
         {
           "d": "20210126",
-          "c": 318.1219
+          "c": 318.1218
         },
         {
           "d": "20210127",
@@ -40352,11 +40352,11 @@
         },
         {
           "d": "20210128",
-          "c": 311.0833
+          "c": 311.0834
         },
         {
           "d": "20210129",
-          "c": 304.5388
+          "c": 304.5387
         },
         {
           "d": "20210201",
@@ -40368,11 +40368,11 @@
         },
         {
           "d": "20210203",
-          "c": 315.9823
+          "c": 315.9822
         },
         {
           "d": "20210204",
-          "c": 319.7193
+          "c": 319.7192
         },
         {
           "d": "20210205",
@@ -40392,15 +40392,15 @@
         },
         {
           "d": "20210222",
-          "c": 312.1677
+          "c": 312.1678
         },
         {
           "d": "20210223",
-          "c": 311.2383
+          "c": 311.2384
         },
         {
           "d": "20210224",
-          "c": 313.8038
+          "c": 313.8039
         },
         {
           "d": "20210225",
@@ -40420,7 +40420,7 @@
         },
         {
           "d": "20210304",
-          "c": 294.412
+          "c": 294.4119
         },
         {
           "d": "20210305",
@@ -40440,7 +40440,7 @@
         },
         {
           "d": "20210311",
-          "c": 307.9079
+          "c": 307.9078
         },
         {
           "d": "20210312",
@@ -40460,11 +40460,11 @@
         },
         {
           "d": "20210318",
-          "c": 302.0991
+          "c": 302.099
         },
         {
           "d": "20210319",
-          "c": 303.164
+          "c": 303.1641
         },
         {
           "d": "20210322",
@@ -40472,11 +40472,11 @@
         },
         {
           "d": "20210323",
-          "c": 307.502
+          "c": 307.5019
         },
         {
           "d": "20210324",
-          "c": 302.3157
+          "c": 302.3158
         },
         {
           "d": "20210325",
@@ -40492,7 +40492,7 @@
         },
         {
           "d": "20210330",
-          "c": 304.6907
+          "c": 304.6908
         },
         {
           "d": "20210331",
@@ -40500,7 +40500,7 @@
         },
         {
           "d": "20210401",
-          "c": 314.6268
+          "c": 314.6267
         },
         {
           "d": "20210407",
@@ -40508,7 +40508,7 @@
         },
         {
           "d": "20210408",
-          "c": 324.8147
+          "c": 324.8148
         },
         {
           "d": "20210409",
@@ -40524,15 +40524,15 @@
         },
         {
           "d": "20210414",
-          "c": 326.2009
+          "c": 326.201
         },
         {
           "d": "20210415",
-          "c": 331.1448
+          "c": 331.1447
         },
         {
           "d": "20210416",
-          "c": 331.5324
+          "c": 331.5325
         },
         {
           "d": "20210419",
@@ -40548,7 +40548,7 @@
         },
         {
           "d": "20210422",
-          "c": 324.9312
+          "c": 324.9311
         },
         {
           "d": "20210423",
@@ -40556,15 +40556,15 @@
         },
         {
           "d": "20210426",
-          "c": 331.1641
+          "c": 331.1642
         },
         {
           "d": "20210427",
-          "c": 329.7294
+          "c": 329.7295
         },
         {
           "d": "20210428",
-          "c": 328.6146
+          "c": 328.6147
         },
         {
           "d": "20210429",
@@ -40572,11 +40572,11 @@
         },
         {
           "d": "20210503",
-          "c": 325.8907
+          "c": 325.8908
         },
         {
           "d": "20210504",
-          "c": 320.026
+          "c": 320.0261
         },
         {
           "d": "20210505",
@@ -40588,11 +40588,11 @@
         },
         {
           "d": "20210507",
-          "c": 323.9618
+          "c": 323.9617
         },
         {
           "d": "20210510",
-          "c": 315.7802
+          "c": 315.7803
         },
         {
           "d": "20210511",
@@ -40604,7 +40604,7 @@
         },
         {
           "d": "20210513",
-          "c": 309.5569
+          "c": 309.557
         },
         {
           "d": "20210514",
@@ -40612,11 +40612,11 @@
         },
         {
           "d": "20210517",
-          "c": 314.4716
+          "c": 314.4717
         },
         {
           "d": "20210518",
-          "c": 312.3487
+          "c": 312.3488
         },
         {
           "d": "20210519",
@@ -40640,27 +40640,27 @@
         },
         {
           "d": "20210526",
-          "c": 323.8939
+          "c": 323.8938
         },
         {
           "d": "20210527",
-          "c": 322.6822
+          "c": 322.6821
         },
         {
           "d": "20210528",
-          "c": 323.6999
+          "c": 323.7
         },
         {
           "d": "20210531",
-          "c": 323.6999
+          "c": 323.7
         },
         {
           "d": "20210601",
-          "c": 322.624
+          "c": 322.6241
         },
         {
           "d": "20210602",
-          "c": 323.2542
+          "c": 323.2541
         },
         {
           "d": "20210603",
@@ -40672,7 +40672,7 @@
         },
         {
           "d": "20210607",
-          "c": 326.2882
+          "c": 326.2881
         },
         {
           "d": "20210608",
@@ -40692,11 +40692,11 @@
         },
         {
           "d": "20210615",
-          "c": 331.7748
+          "c": 331.7749
         },
         {
           "d": "20210616",
-          "c": 330.5631
+          "c": 330.5632
         },
         {
           "d": "20210617",
@@ -40712,15 +40712,15 @@
         },
         {
           "d": "20210622",
-          "c": 337.3129
+          "c": 337.313
         },
         {
           "d": "20210623",
-          "c": 337.4779
+          "c": 337.478
         },
         {
           "d": "20210624",
-          "c": 339.5645
+          "c": 339.5646
         },
         {
           "d": "20210625",
@@ -40728,11 +40728,11 @@
         },
         {
           "d": "20210628",
-          "c": 343.2718
+          "c": 343.2717
         },
         {
           "d": "20210629",
-          "c": 344.514
+          "c": 344.5139
         },
         {
           "d": "20210630",
@@ -40744,11 +40744,11 @@
         },
         {
           "d": "20210702",
-          "c": 348.0563
+          "c": 348.0562
         },
         {
           "d": "20210705",
-          "c": 348.0563
+          "c": 348.0562
         },
         {
           "d": "20210706",
@@ -40760,7 +40760,7 @@
         },
         {
           "d": "20210708",
-          "c": 348.1824
+          "c": 348.1825
         },
         {
           "d": "20210709",
@@ -40776,7 +40776,7 @@
         },
         {
           "d": "20210714",
-          "c": 352.3555
+          "c": 352.3556
         },
         {
           "d": "20210715",
@@ -40800,15 +40800,15 @@
         },
         {
           "d": "20210722",
-          "c": 353.2096
+          "c": 353.2097
         },
         {
           "d": "20210723",
-          "c": 357.3343
+          "c": 357.3342
         },
         {
           "d": "20210726",
-          "c": 357.6156
+          "c": 357.6157
         },
         {
           "d": "20210727",
@@ -40824,7 +40824,7 @@
         },
         {
           "d": "20210730",
-          "c": 353.8114
+          "c": 353.8113
         },
         {
           "d": "20210802",
@@ -40836,7 +40836,7 @@
         },
         {
           "d": "20210804",
-          "c": 356.4995
+          "c": 356.4996
         },
         {
           "d": "20210805",
@@ -40848,7 +40848,7 @@
         },
         {
           "d": "20210809",
-          "c": 357.8486
+          "c": 357.8485
         },
         {
           "d": "20210810",
@@ -40860,7 +40860,7 @@
         },
         {
           "d": "20210812",
-          "c": 356.6839
+          "c": 356.684
         },
         {
           "d": "20210813",
@@ -40868,7 +40868,7 @@
         },
         {
           "d": "20210816",
-          "c": 358.0912
+          "c": 358.0911
         },
         {
           "d": "20210817",
@@ -40876,7 +40876,7 @@
         },
         {
           "d": "20210818",
-          "c": 351.521
+          "c": 351.5209
         },
         {
           "d": "20210819",
@@ -40884,11 +40884,11 @@
         },
         {
           "d": "20210820",
-          "c": 356.878
+          "c": 356.8781
         },
         {
           "d": "20210823",
-          "c": 362.2157
+          "c": 362.2156
         },
         {
           "d": "20210824",
@@ -40896,7 +40896,7 @@
         },
         {
           "d": "20210825",
-          "c": 363.7395
+          "c": 363.7394
         },
         {
           "d": "20210826",
@@ -40912,7 +40912,7 @@
         },
         {
           "d": "20210831",
-          "c": 368.7375
+          "c": 368.7374
         },
         {
           "d": "20210901",
@@ -40968,7 +40968,7 @@
         },
         {
           "d": "20210922",
-          "c": 359.0613
+          "c": 359.0614
         },
         {
           "d": "20210923",
@@ -40988,7 +40988,7 @@
         },
         {
           "d": "20210929",
-          "c": 349.0639
+          "c": 349.0641
         },
         {
           "d": "20210930",
@@ -41068,7 +41068,7 @@
         },
         {
           "d": "20211028",
-          "c": 373.2949
+          "c": 373.2948
         },
         {
           "d": "20211029",
@@ -41080,7 +41080,7 @@
         },
         {
           "d": "20211102",
-          "c": 377.9875
+          "c": 377.9874
         },
         {
           "d": "20211103",
@@ -41092,7 +41092,7 @@
         },
         {
           "d": "20211105",
-          "c": 387.266
+          "c": 387.2659
         },
         {
           "d": "20211108",
@@ -41112,11 +41112,11 @@
         },
         {
           "d": "20211112",
-          "c": 383.4768
+          "c": 383.4769
         },
         {
           "d": "20211115",
-          "c": 383.3894
+          "c": 383.3893
         },
         {
           "d": "20211116",
@@ -41156,11 +41156,11 @@
         },
         {
           "d": "20211129",
-          "c": 388.325
+          "c": 388.3249
         },
         {
           "d": "20211130",
-          "c": 382.6218
+          "c": 382.6219
         },
         {
           "d": "20211201",
@@ -41168,7 +41168,7 @@
         },
         {
           "d": "20211202",
-          "c": 378.8231
+          "c": 378.823
         },
         {
           "d": "20211203",
@@ -41180,7 +41180,7 @@
         },
         {
           "d": "20211207",
-          "c": 386.5178
+          "c": 386.5179
         },
         {
           "d": "20211208",
@@ -41204,7 +41204,7 @@
         },
         {
           "d": "20211215",
-          "c": 385.76
+          "c": 385.7599
         },
         {
           "d": "20211216",
@@ -41224,7 +41224,7 @@
         },
         {
           "d": "20211222",
-          "c": 383.2369
+          "c": 383.237
         },
         {
           "d": "20211223",
@@ -41240,7 +41240,7 @@
         },
         {
           "d": "20211228",
-          "c": 390.6887
+          "c": 390.6886
         },
         {
           "d": "20211229",
@@ -41264,7 +41264,7 @@
         },
         {
           "d": "20220106",
-          "c": 373.5771
+          "c": 373.577
         },
         {
           "d": "20220107",
@@ -41272,7 +41272,7 @@
         },
         {
           "d": "20220110",
-          "c": 369.7734
+          "c": 369.7733
         },
         {
           "d": "20220111",
@@ -41280,7 +41280,7 @@
         },
         {
           "d": "20220112",
-          "c": 376.8165
+          "c": 376.8164
         },
         {
           "d": "20220113",
@@ -41300,7 +41300,7 @@
         },
         {
           "d": "20220119",
-          "c": 356.514
+          "c": 356.5141
         },
         {
           "d": "20220120",
@@ -41308,7 +41308,7 @@
         },
         {
           "d": "20220121",
-          "c": 342.1262
+          "c": 342.1263
         },
         {
           "d": "20220124",
@@ -41320,11 +41320,11 @@
         },
         {
           "d": "20220126",
-          "c": 335.1999
+          "c": 335.1998
         },
         {
           "d": "20220207",
-          "c": 345.4726
+          "c": 345.4727
         },
         {
           "d": "20220208",
@@ -41332,19 +41332,19 @@
         },
         {
           "d": "20220209",
-          "c": 356.7573
+          "c": 356.7572
         },
         {
           "d": "20220210",
-          "c": 348.683
+          "c": 348.6829
         },
         {
           "d": "20220211",
-          "c": 337.6221
+          "c": 337.6222
         },
         {
           "d": "20220214",
-          "c": 338.0405
+          "c": 338.0404
         },
         {
           "d": "20220215",
@@ -41360,11 +41360,11 @@
         },
         {
           "d": "20220218",
-          "c": 332.2231
+          "c": 332.223
         },
         {
           "d": "20220221",
-          "c": 332.2231
+          "c": 332.223
         },
         {
           "d": "20220222",
@@ -41376,11 +41376,11 @@
         },
         {
           "d": "20220224",
-          "c": 331.2307
+          "c": 331.2308
         },
         {
           "d": "20220225",
-          "c": 336.3672
+          "c": 336.3671
         },
         {
           "d": "20220301",
@@ -41388,7 +41388,7 @@
         },
         {
           "d": "20220302",
-          "c": 337.7777
+          "c": 337.7778
         },
         {
           "d": "20220303",
@@ -41400,7 +41400,7 @@
         },
         {
           "d": "20220307",
-          "c": 316.0258
+          "c": 316.0259
         },
         {
           "d": "20220308",
@@ -41408,11 +41408,11 @@
         },
         {
           "d": "20220309",
-          "c": 325.8804
+          "c": 325.8803
         },
         {
           "d": "20220310",
-          "c": 322.2615
+          "c": 322.2614
         },
         {
           "d": "20220311",
@@ -41420,11 +41420,11 @@
         },
         {
           "d": "20220314",
-          "c": 309.5177
+          "c": 309.5176
         },
         {
           "d": "20220315",
-          "c": 319.2264
+          "c": 319.2263
         },
         {
           "d": "20220316",
@@ -41432,7 +41432,7 @@
         },
         {
           "d": "20220317",
-          "c": 335.0733
+          "c": 335.0734
         },
         {
           "d": "20220318",
@@ -41448,11 +41448,11 @@
         },
         {
           "d": "20220323",
-          "c": 342.6855
+          "c": 342.6856
         },
         {
           "d": "20220324",
-          "c": 350.3023
+          "c": 350.3022
         },
         {
           "d": "20220325",
@@ -41464,7 +41464,7 @@
         },
         {
           "d": "20220329",
-          "c": 361.5423
+          "c": 361.5424
         },
         {
           "d": "20220330",
@@ -41472,7 +41472,7 @@
         },
         {
           "d": "20220331",
-          "c": 353.1171
+          "c": 353.1172
         },
         {
           "d": "20220401",
@@ -41480,11 +41480,11 @@
         },
         {
           "d": "20220406",
-          "c": 344.0783
+          "c": 344.0784
         },
         {
           "d": "20220407",
-          "c": 344.8966
+          "c": 344.8965
         },
         {
           "d": "20220408",
@@ -41512,7 +41512,7 @@
         },
         {
           "d": "20220418",
-          "c": 329.887
+          "c": 329.8871
         },
         {
           "d": "20220419",
@@ -41528,11 +41528,11 @@
         },
         {
           "d": "20220422",
-          "c": 316.9425
+          "c": 316.9424
         },
         {
           "d": "20220425",
-          "c": 321.0138
+          "c": 321.0139
         },
         {
           "d": "20220426",
@@ -41540,11 +41540,11 @@
         },
         {
           "d": "20220427",
-          "c": 308.527
+          "c": 308.5271
         },
         {
           "d": "20220428",
-          "c": 319.4846
+          "c": 319.4847
         },
         {
           "d": "20220429",
@@ -41556,7 +41556,7 @@
         },
         {
           "d": "20220504",
-          "c": 321.0333
+          "c": 321.0334
         },
         {
           "d": "20220505",
@@ -41572,7 +41572,7 @@
         },
         {
           "d": "20220510",
-          "c": 292.943
+          "c": 292.9429
         },
         {
           "d": "20220511",
@@ -41588,7 +41588,7 @@
         },
         {
           "d": "20220516",
-          "c": 290.6832
+          "c": 290.6833
         },
         {
           "d": "20220517",
@@ -41600,7 +41600,7 @@
         },
         {
           "d": "20220519",
-          "c": 282.0534
+          "c": 282.0536
         },
         {
           "d": "20220520",
@@ -41640,7 +41640,7 @@
         },
         {
           "d": "20220602",
-          "c": 306.2089
+          "c": 306.209
         },
         {
           "d": "20220606",
@@ -41648,15 +41648,15 @@
         },
         {
           "d": "20220607",
-          "c": 301.8161
+          "c": 301.8162
         },
         {
           "d": "20220608",
-          "c": 299.6442
+          "c": 299.6441
         },
         {
           "d": "20220609",
-          "c": 291.6182
+          "c": 291.6183
         },
         {
           "d": "20220610",
@@ -41680,19 +41680,19 @@
         },
         {
           "d": "20220617",
-          "c": 267.5504
+          "c": 267.5505
         },
         {
           "d": "20220620",
-          "c": 267.5504
+          "c": 267.5505
         },
         {
           "d": "20220621",
-          "c": 274.3006
+          "c": 274.3007
         },
         {
           "d": "20220622",
-          "c": 273.9006
+          "c": 273.9005
         },
         {
           "d": "20220623",
@@ -41700,7 +41700,7 @@
         },
         {
           "d": "20220624",
-          "c": 287.5044
+          "c": 287.5043
         },
         {
           "d": "20220627",
@@ -41708,11 +41708,11 @@
         },
         {
           "d": "20220628",
-          "c": 276.7013
+          "c": 276.7014
         },
         {
           "d": "20220629",
-          "c": 276.955
+          "c": 276.9551
         },
         {
           "d": "20220630",
@@ -41720,11 +41720,11 @@
         },
         {
           "d": "20220701",
-          "c": 275.3253
+          "c": 275.3254
         },
         {
           "d": "20220704",
-          "c": 275.3253
+          "c": 275.3254
         },
         {
           "d": "20220705",
@@ -41752,7 +41752,7 @@
         },
         {
           "d": "20220713",
-          "c": 278.7604
+          "c": 278.7605
         },
         {
           "d": "20220714",
@@ -41768,7 +41768,7 @@
         },
         {
           "d": "20220719",
-          "c": 291.1053
+          "c": 291.1054
         },
         {
           "d": "20220720",
@@ -41784,7 +41784,7 @@
         },
         {
           "d": "20220725",
-          "c": 293.0278
+          "c": 293.0279
         },
         {
           "d": "20220726",
@@ -41800,15 +41800,15 @@
         },
         {
           "d": "20220729",
-          "c": 307.8515
+          "c": 307.8514
         },
         {
           "d": "20220801",
-          "c": 307.666
+          "c": 307.6661
         },
         {
           "d": "20220802",
-          "c": 306.7487
+          "c": 306.7486
         },
         {
           "d": "20220803",
@@ -41824,7 +41824,7 @@
         },
         {
           "d": "20220808",
-          "c": 312.9748
+          "c": 312.9749
         },
         {
           "d": "20220809",
@@ -41852,7 +41852,7 @@
         },
         {
           "d": "20220817",
-          "c": 320.5672
+          "c": 320.5671
         },
         {
           "d": "20220818",
@@ -41872,7 +41872,7 @@
         },
         {
           "d": "20220824",
-          "c": 307.4123
+          "c": 307.4124
         },
         {
           "d": "20220825",
@@ -41880,7 +41880,7 @@
         },
         {
           "d": "20220826",
-          "c": 300.0249
+          "c": 300.025
         },
         {
           "d": "20220829",
@@ -41888,7 +41888,7 @@
         },
         {
           "d": "20220830",
-          "c": 293.7597
+          "c": 293.7598
         },
         {
           "d": "20220831",
@@ -41900,11 +41900,11 @@
         },
         {
           "d": "20220902",
-          "c": 288.0509
+          "c": 288.0508
         },
         {
           "d": "20220905",
-          "c": 288.0509
+          "c": 288.0508
         },
         {
           "d": "20220906",
@@ -41928,7 +41928,7 @@
         },
         {
           "d": "20220914",
-          "c": 288.89
+          "c": 288.8901
         },
         {
           "d": "20220915",
@@ -41960,7 +41960,7 @@
         },
         {
           "d": "20220926",
-          "c": 268.2337
+          "c": 268.2336
         },
         {
           "d": "20220927",
@@ -41980,7 +41980,7 @@
         },
         {
           "d": "20221003",
-          "c": 267.4124
+          "c": 267.4125
         },
         {
           "d": "20221004",
@@ -42000,15 +42000,15 @@
         },
         {
           "d": "20221011",
-          "c": 256.8736
+          "c": 256.8735
         },
         {
           "d": "20221012",
-          "c": 256.7855
+          "c": 256.7856
         },
         {
           "d": "20221013",
-          "c": 262.8078
+          "c": 262.8079
         },
         {
           "d": "20221014",
@@ -42020,7 +42020,7 @@
         },
         {
           "d": "20221018",
-          "c": 265.4083
+          "c": 265.4084
         },
         {
           "d": "20221019",
@@ -42028,7 +42028,7 @@
         },
         {
           "d": "20221020",
-          "c": 263.0914
+          "c": 263.0913
         },
         {
           "d": "20221021",
@@ -42044,7 +42044,7 @@
         },
         {
           "d": "20221026",
-          "c": 271.7141
+          "c": 271.714
         },
         {
           "d": "20221027",
@@ -42056,7 +42056,7 @@
         },
         {
           "d": "20221031",
-          "c": 271.7336
+          "c": 271.7337
         },
         {
           "d": "20221101",
@@ -42072,7 +42072,7 @@
         },
         {
           "d": "20221104",
-          "c": 258.7604
+          "c": 258.7603
         },
         {
           "d": "20221107",
@@ -42100,7 +42100,7 @@
         },
         {
           "d": "20221115",
-          "c": 282.9178
+          "c": 282.9177
         },
         {
           "d": "20221116",
@@ -42120,7 +42120,7 @@
         },
         {
           "d": "20221122",
-          "c": 279.5547
+          "c": 279.5546
         },
         {
           "d": "20221123",
@@ -42132,11 +42132,11 @@
         },
         {
           "d": "20221125",
-          "c": 280.503
+          "c": 280.5031
         },
         {
           "d": "20221128",
-          "c": 276.3872
+          "c": 276.3871
         },
         {
           "d": "20221129",
@@ -42144,15 +42144,15 @@
         },
         {
           "d": "20221130",
-          "c": 286.799
+          "c": 286.7989
         },
         {
           "d": "20221201",
-          "c": 287.1509
+          "c": 287.151
         },
         {
           "d": "20221202",
-          "c": 286.0071
+          "c": 286.007
         },
         {
           "d": "20221205",
@@ -42180,7 +42180,7 @@
         },
         {
           "d": "20221213",
-          "c": 282.1944
+          "c": 282.1943
         },
         {
           "d": "20221214",
@@ -42188,7 +42188,7 @@
         },
         {
           "d": "20221215",
-          "c": 270.6973
+          "c": 270.6974
         },
         {
           "d": "20221216",
@@ -42204,11 +42204,11 @@
         },
         {
           "d": "20221221",
-          "c": 267.9742
+          "c": 267.9743
         },
         {
           "d": "20221222",
-          "c": 261.4183
+          "c": 261.4182
         },
         {
           "d": "20221223",
@@ -42228,11 +42228,11 @@
         },
         {
           "d": "20221229",
-          "c": 261.1046
+          "c": 261.1047
         },
         {
           "d": "20221230",
-          "c": 260.9479
+          "c": 260.9478
         },
         {
           "d": "20230103",
@@ -42244,7 +42244,7 @@
         },
         {
           "d": "20230105",
-          "c": 256.342
+          "c": 256.3419
         },
         {
           "d": "20230106",
@@ -42252,7 +42252,7 @@
         },
         {
           "d": "20230109",
-          "c": 265.1227
+          "c": 265.1226
         },
         {
           "d": "20230110",
@@ -42264,7 +42264,7 @@
         },
         {
           "d": "20230112",
-          "c": 273.4622
+          "c": 273.4621
         },
         {
           "d": "20230113",
@@ -42280,15 +42280,15 @@
         },
         {
           "d": "20230130",
-          "c": 284.4574
+          "c": 284.4575
         },
         {
           "d": "20230131",
-          "c": 288.7203
+          "c": 288.7204
         },
         {
           "d": "20230201",
-          "c": 294.8942
+          "c": 294.8943
         },
         {
           "d": "20230202",
@@ -42312,11 +42312,11 @@
         },
         {
           "d": "20230209",
-          "c": 295.6389
+          "c": 295.639
         },
         {
           "d": "20230210",
-          "c": 293.6987
+          "c": 293.6985
         },
         {
           "d": "20230213",
@@ -42332,19 +42332,19 @@
         },
         {
           "d": "20230216",
-          "c": 297.2265
+          "c": 297.2266
         },
         {
           "d": "20230217",
-          "c": 295.1294
+          "c": 295.1295
         },
         {
           "d": "20230220",
-          "c": 295.1294
+          "c": 295.1295
         },
         {
           "d": "20230221",
-          "c": 288.1421
+          "c": 288.1422
         },
         {
           "d": "20230222",
@@ -42396,7 +42396,7 @@
         },
         {
           "d": "20230314",
-          "c": 291.4153
+          "c": 291.4154
         },
         {
           "d": "20230315",
@@ -42412,11 +42412,11 @@
         },
         {
           "d": "20230320",
-          "c": 300.3072
+          "c": 300.3073
         },
         {
           "d": "20230321",
-          "c": 304.5964
+          "c": 304.5965
         },
         {
           "d": "20230322",
@@ -42428,11 +42428,11 @@
         },
         {
           "d": "20230324",
-          "c": 305.1363
+          "c": 305.1362
         },
         {
           "d": "20230327",
-          "c": 303.0456
+          "c": 303.0457
         },
         {
           "d": "20230328",
@@ -42468,7 +42468,7 @@
         },
         {
           "d": "20230412",
-          "c": 307.2464
+          "c": 307.2465
         },
         {
           "d": "20230413",
@@ -42488,11 +42488,11 @@
         },
         {
           "d": "20230419",
-          "c": 312.8115
+          "c": 312.8114
         },
         {
           "d": "20230420",
-          "c": 310.4264
+          "c": 310.4265
         },
         {
           "d": "20230421",
@@ -42500,11 +42500,11 @@
         },
         {
           "d": "20230424",
-          "c": 310.1025
+          "c": 310.1026
         },
         {
           "d": "20230425",
-          "c": 304.2528
+          "c": 304.2529
         },
         {
           "d": "20230426",
@@ -42516,7 +42516,7 @@
         },
         {
           "d": "20230428",
-          "c": 316.5903
+          "c": 316.5902
         },
         {
           "d": "20230502",
@@ -42536,7 +42536,7 @@
         },
         {
           "d": "20230508",
-          "c": 317.6993
+          "c": 317.6994
         },
         {
           "d": "20230509",
@@ -42556,7 +42556,7 @@
         },
         {
           "d": "20230515",
-          "c": 320.742
+          "c": 320.7419
         },
         {
           "d": "20230516",
@@ -42584,7 +42584,7 @@
         },
         {
           "d": "20230524",
-          "c": 325.512
+          "c": 325.5119
         },
         {
           "d": "20230525",
@@ -42600,7 +42600,7 @@
         },
         {
           "d": "20230530",
-          "c": 343.5028
+          "c": 343.5027
         },
         {
           "d": "20230531",
@@ -42612,7 +42612,7 @@
         },
         {
           "d": "20230602",
-          "c": 348.0863
+          "c": 348.0864
         },
         {
           "d": "20230605",
@@ -42624,11 +42624,11 @@
         },
         {
           "d": "20230607",
-          "c": 342.3642
+          "c": 342.3643
         },
         {
           "d": "20230608",
-          "c": 346.614
+          "c": 346.6141
         },
         {
           "d": "20230609",
@@ -42684,7 +42684,7 @@
         },
         {
           "d": "20230630",
-          "c": 363.0803
+          "c": 363.0804
         },
         {
           "d": "20230703",
@@ -42700,7 +42700,7 @@
         },
         {
           "d": "20230706",
-          "c": 361.1539
+          "c": 361.154
         },
         {
           "d": "20230707",
@@ -42720,15 +42720,15 @@
         },
         {
           "d": "20230713",
-          "c": 372.6433
+          "c": 372.6434
         },
         {
           "d": "20230714",
-          "c": 372.5648
+          "c": 372.5647
         },
         {
           "d": "20230717",
-          "c": 376.044
+          "c": 376.0439
         },
         {
           "d": "20230718",
@@ -42740,11 +42740,11 @@
         },
         {
           "d": "20230720",
-          "c": 370.2944
+          "c": 370.2943
         },
         {
           "d": "20230721",
-          "c": 369.1837
+          "c": 369.1838
         },
         {
           "d": "20230724",
@@ -42760,7 +42760,7 @@
         },
         {
           "d": "20230727",
-          "c": 370.1568
+          "c": 370.1567
         },
         {
           "d": "20230728",
@@ -42776,7 +42776,7 @@
         },
         {
           "d": "20230802",
-          "c": 367.9651
+          "c": 367.965
         },
         {
           "d": "20230804",
@@ -42788,11 +42788,11 @@
         },
         {
           "d": "20230808",
-          "c": 365.6161
+          "c": 365.616
         },
         {
           "d": "20230809",
-          "c": 361.5962
+          "c": 361.5963
         },
         {
           "d": "20230810",
@@ -42808,7 +42808,7 @@
         },
         {
           "d": "20230815",
-          "c": 360.1319
+          "c": 360.1318
         },
         {
           "d": "20230816",
@@ -42816,7 +42816,7 @@
         },
         {
           "d": "20230817",
-          "c": 352.4263
+          "c": 352.4264
         },
         {
           "d": "20230818",
@@ -42832,7 +42832,7 @@
         },
         {
           "d": "20230823",
-          "c": 362.7756
+          "c": 362.7757
         },
         {
           "d": "20230824",
@@ -42848,7 +42848,7 @@
         },
         {
           "d": "20230829",
-          "c": 368.3385
+          "c": 368.3386
         },
         {
           "d": "20230830",
@@ -42860,11 +42860,11 @@
         },
         {
           "d": "20230901",
-          "c": 371.1102
+          "c": 371.1101
         },
         {
           "d": "20230904",
-          "c": 371.1102
+          "c": 371.1101
         },
         {
           "d": "20230905",
@@ -42876,11 +42876,11 @@
         },
         {
           "d": "20230907",
-          "c": 365.675
+          "c": 365.6751
         },
         {
           "d": "20230908",
-          "c": 366.1862
+          "c": 366.1861
         },
         {
           "d": "20230911",
@@ -42896,7 +42896,7 @@
         },
         {
           "d": "20230914",
-          "c": 370.7956
+          "c": 370.7957
         },
         {
           "d": "20230915",
@@ -42920,7 +42920,7 @@
         },
         {
           "d": "20230922",
-          "c": 352.2771
+          "c": 352.277
         },
         {
           "d": "20230925",
@@ -42944,7 +42944,7 @@
         },
         {
           "d": "20231003",
-          "c": 349.3342
+          "c": 349.3341
         },
         {
           "d": "20231004",
@@ -42964,11 +42964,11 @@
         },
         {
           "d": "20231012",
-          "c": 364.1079
+          "c": 364.1078
         },
         {
           "d": "20231013",
-          "c": 359.5311
+          "c": 359.531
         },
         {
           "d": "20231016",
@@ -42980,15 +42980,15 @@
         },
         {
           "d": "20231018",
-          "c": 357.6511
+          "c": 357.6512
         },
         {
           "d": "20231019",
-          "c": 354.3046
+          "c": 354.3047
         },
         {
           "d": "20231020",
-          "c": 349.0191
+          "c": 349.0192
         },
         {
           "d": "20231023",
@@ -42996,7 +42996,7 @@
         },
         {
           "d": "20231024",
-          "c": 353.4779
+          "c": 353.4778
         },
         {
           "d": "20231025",
@@ -43012,11 +43012,11 @@
         },
         {
           "d": "20231030",
-          "c": 343.7042
+          "c": 343.7041
         },
         {
           "d": "20231031",
-          "c": 345.3479
+          "c": 345.3478
         },
         {
           "d": "20231101",
@@ -43028,7 +43028,7 @@
         },
         {
           "d": "20231103",
-          "c": 361.9228
+          "c": 361.9229
         },
         {
           "d": "20231106",
@@ -43040,7 +43040,7 @@
         },
         {
           "d": "20231108",
-          "c": 367.0706
+          "c": 367.0705
         },
         {
           "d": "20231109",
@@ -43048,7 +43048,7 @@
         },
         {
           "d": "20231110",
-          "c": 372.4348
+          "c": 372.4347
         },
         {
           "d": "20231113",
@@ -43060,7 +43060,7 @@
         },
         {
           "d": "20231115",
-          "c": 379.551
+          "c": 379.5509
         },
         {
           "d": "20231116",
@@ -43068,15 +43068,15 @@
         },
         {
           "d": "20231117",
-          "c": 379.9644
+          "c": 379.9643
         },
         {
           "d": "20231120",
-          "c": 384.5904
+          "c": 384.5903
         },
         {
           "d": "20231121",
-          "c": 382.3561
+          "c": 382.356
         },
         {
           "d": "20231122",
@@ -43088,11 +43088,11 @@
         },
         {
           "d": "20231124",
-          "c": 383.3797
+          "c": 383.3798
         },
         {
           "d": "20231127",
-          "c": 383.0451
+          "c": 383.045
         },
         {
           "d": "20231128",
@@ -43108,7 +43108,7 @@
         },
         {
           "d": "20231201",
-          "c": 383.8029
+          "c": 383.803
         },
         {
           "d": "20231204",
@@ -43116,11 +43116,11 @@
         },
         {
           "d": "20231205",
-          "c": 381.1946
+          "c": 381.1947
         },
         {
           "d": "20231206",
-          "c": 378.9898
+          "c": 378.9899
         },
         {
           "d": "20231207",
@@ -43128,7 +43128,7 @@
         },
         {
           "d": "20231208",
-          "c": 385.9978
+          "c": 385.9979
         },
         {
           "d": "20231211",
@@ -43200,11 +43200,11 @@
         },
         {
           "d": "20240104",
-          "c": 391.0279
+          "c": 391.0278
         },
         {
           "d": "20240105",
-          "c": 391.4915
+          "c": 391.4916
         },
         {
           "d": "20240108",
@@ -43236,7 +43236,7 @@
         },
         {
           "d": "20240117",
-          "c": 401.8129
+          "c": 401.813
         },
         {
           "d": "20240118",
@@ -43256,11 +43256,11 @@
         },
         {
           "d": "20240124",
-          "c": 420.1861
+          "c": 420.1862
         },
         {
           "d": "20240125",
-          "c": 420.6993
+          "c": 420.6992
         },
         {
           "d": "20240126",
@@ -43268,11 +43268,11 @@
         },
         {
           "d": "20240129",
-          "c": 422.4754
+          "c": 422.4753
         },
         {
           "d": "20240130",
-          "c": 419.6631
+          "c": 419.6632
         },
         {
           "d": "20240131",
@@ -43284,7 +43284,7 @@
         },
         {
           "d": "20240202",
-          "c": 423.324
+          "c": 423.3241
         },
         {
           "d": "20240205",
@@ -43292,15 +43292,15 @@
         },
         {
           "d": "20240215",
-          "c": 428.7512
+          "c": 428.7511
         },
         {
           "d": "20240216",
-          "c": 424.8633
+          "c": 424.8634
         },
         {
           "d": "20240219",
-          "c": 424.8633
+          "c": 424.8634
         },
         {
           "d": "20240220",
@@ -43312,11 +43312,11 @@
         },
         {
           "d": "20240222",
-          "c": 432.2639
+          "c": 432.264
         },
         {
           "d": "20240223",
-          "c": 430.9911
+          "c": 430.991
         },
         {
           "d": "20240226",
@@ -43324,7 +43324,7 @@
         },
         {
           "d": "20240227",
-          "c": 431.8001
+          "c": 431.8002
         },
         {
           "d": "20240229",
@@ -43352,7 +43352,7 @@
         },
         {
           "d": "20240308",
-          "c": 433.2013
+          "c": 433.2014
         },
         {
           "d": "20240311",
@@ -43360,11 +43360,11 @@
         },
         {
           "d": "20240312",
-          "c": 437.7799
+          "c": 437.7798
         },
         {
           "d": "20240313",
-          "c": 434.415
+          "c": 434.4151
         },
         {
           "d": "20240314",
@@ -43380,7 +43380,7 @@
         },
         {
           "d": "20240319",
-          "c": 433.3296
+          "c": 433.3295
         },
         {
           "d": "20240320",
@@ -43432,11 +43432,11 @@
         },
         {
           "d": "20240409",
-          "c": 436.9458
+          "c": 436.9459
         },
         {
           "d": "20240410",
-          "c": 433.1319
+          "c": 433.132
         },
         {
           "d": "20240411",
@@ -43448,7 +43448,7 @@
         },
         {
           "d": "20240415",
-          "c": 425.9092
+          "c": 425.9093
         },
         {
           "d": "20240416",
@@ -43456,7 +43456,7 @@
         },
         {
           "d": "20240417",
-          "c": 420.7517
+          "c": 420.7516
         },
         {
           "d": "20240418",
@@ -43468,7 +43468,7 @@
         },
         {
           "d": "20240422",
-          "c": 413.8156
+          "c": 413.8155
         },
         {
           "d": "20240423",
@@ -43504,11 +43504,11 @@
         },
         {
           "d": "20240506",
-          "c": 434.9894
+          "c": 434.9895
         },
         {
           "d": "20240507",
-          "c": 435.0587
+          "c": 435.0586
         },
         {
           "d": "20240508",
@@ -43516,7 +43516,7 @@
         },
         {
           "d": "20240509",
-          "c": 435.7503
+          "c": 435.7502
         },
         {
           "d": "20240510",
@@ -43540,7 +43540,7 @@
         },
         {
           "d": "20240517",
-          "c": 446.362
+          "c": 446.3619
         },
         {
           "d": "20240520",
@@ -43600,7 +43600,7 @@
         },
         {
           "d": "20240607",
-          "c": 457.4281
+          "c": 457.4282
         },
         {
           "d": "20240611",
@@ -43616,27 +43616,27 @@
         },
         {
           "d": "20240614",
-          "c": 473.4641
+          "c": 473.4642
         },
         {
           "d": "20240617",
-          "c": 479.2641
+          "c": 479.264
         },
         {
           "d": "20240618",
-          "c": 479.4123
+          "c": 479.4122
         },
         {
           "d": "20240619",
-          "c": 479.4123
+          "c": 479.4122
         },
         {
           "d": "20240620",
-          "c": 475.7169
+          "c": 475.717
         },
         {
           "d": "20240621",
-          "c": 474.4424
+          "c": 474.4423
         },
         {
           "d": "20240624",
@@ -43668,15 +43668,15 @@
         },
         {
           "d": "20240703",
-          "c": 485.9438
+          "c": 485.9437
         },
         {
           "d": "20240704",
-          "c": 485.9438
+          "c": 485.9437
         },
         {
           "d": "20240705",
-          "c": 491.0106
+          "c": 491.0107
         },
         {
           "d": "20240708",
@@ -43704,11 +43704,11 @@
         },
         {
           "d": "20240716",
-          "c": 491.1887
+          "c": 491.1888
         },
         {
           "d": "20240717",
-          "c": 476.77
+          "c": 476.7699
         },
         {
           "d": "20240718",
@@ -43748,7 +43748,7 @@
         },
         {
           "d": "20240802",
-          "c": 444.0926
+          "c": 444.0927
         },
         {
           "d": "20240805",
@@ -43756,11 +43756,11 @@
         },
         {
           "d": "20240806",
-          "c": 434.9683
+          "c": 434.9684
         },
         {
           "d": "20240807",
-          "c": 430.2577
+          "c": 430.2578
         },
         {
           "d": "20240808",
@@ -43768,11 +43768,11 @@
         },
         {
           "d": "20240809",
-          "c": 445.7354
+          "c": 445.7355
         },
         {
           "d": "20240812",
-          "c": 446.6954
+          "c": 446.6953
         },
         {
           "d": "20240813",
@@ -43784,7 +43784,7 @@
         },
         {
           "d": "20240815",
-          "c": 469.4963
+          "c": 469.4962
         },
         {
           "d": "20240816",
@@ -43792,11 +43792,11 @@
         },
         {
           "d": "20240819",
-          "c": 476.2752
+          "c": 476.2751
         },
         {
           "d": "20240820",
-          "c": 475.2756
+          "c": 475.2757
         },
         {
           "d": "20240821",
@@ -43812,7 +43812,7 @@
         },
         {
           "d": "20240826",
-          "c": 470.4066
+          "c": 470.4067
         },
         {
           "d": "20240827",
@@ -43824,15 +43824,15 @@
         },
         {
           "d": "20240829",
-          "c": 465.7752
+          "c": 465.7753
         },
         {
           "d": "20240830",
-          "c": 471.3271
+          "c": 471.327
         },
         {
           "d": "20240902",
-          "c": 471.3271
+          "c": 471.327
         },
         {
           "d": "20240903",
@@ -43840,11 +43840,11 @@
         },
         {
           "d": "20240904",
-          "c": 455.8295
+          "c": 455.8296
         },
         {
           "d": "20240905",
-          "c": 456.2552
+          "c": 456.2551
         },
         {
           "d": "20240906",
@@ -43868,11 +43868,11 @@
         },
         {
           "d": "20240913",
-          "c": 470.4066
+          "c": 470.4067
         },
         {
           "d": "20240916",
-          "c": 468.3284
+          "c": 468.3285
         },
         {
           "d": "20240918",
@@ -43880,7 +43880,7 @@
         },
         {
           "d": "20240919",
-          "c": 478.3435
+          "c": 478.3434
         },
         {
           "d": "20240920",
@@ -43896,7 +43896,7 @@
         },
         {
           "d": "20240925",
-          "c": 481.4536
+          "c": 481.4535
         },
         {
           "d": "20240926",
@@ -43912,7 +43912,7 @@
         },
         {
           "d": "20241001",
-          "c": 476.9445
+          "c": 476.9444
         },
         {
           "d": "20241004",
@@ -44004,7 +44004,7 @@
         },
         {
           "d": "20241107",
-          "c": 508.9244
+          "c": 508.9243
         },
         {
           "d": "20241108",
@@ -44012,7 +44012,7 @@
         },
         {
           "d": "20241111",
-          "c": 509.2216
+          "c": 509.2218
         },
         {
           "d": "20241112",
@@ -44032,7 +44032,7 @@
         },
         {
           "d": "20241118",
-          "c": 495.5259
+          "c": 495.5258
         },
         {
           "d": "20241119",
@@ -44044,15 +44044,15 @@
         },
         {
           "d": "20241121",
-          "c": 500.4414
+          "c": 500.4413
         },
         {
           "d": "20241122",
-          "c": 501.244
+          "c": 501.2441
         },
         {
           "d": "20241125",
-          "c": 502.0368
+          "c": 502.0369
         },
         {
           "d": "20241126",
@@ -44072,19 +44072,19 @@
         },
         {
           "d": "20241202",
-          "c": 510.6587
+          "c": 510.6586
         },
         {
           "d": "20241203",
-          "c": 512.2245
+          "c": 512.2244
         },
         {
           "d": "20241204",
-          "c": 518.557
+          "c": 518.5571
         },
         {
           "d": "20241205",
-          "c": 517.12
+          "c": 517.1201
         },
         {
           "d": "20241206",
@@ -44096,11 +44096,11 @@
         },
         {
           "d": "20241210",
-          "c": 515.921
+          "c": 515.9208
         },
         {
           "d": "20241211",
-          "c": 525.1571
+          "c": 525.1572
         },
         {
           "d": "20241212",
@@ -44108,15 +44108,15 @@
         },
         {
           "d": "20241213",
-          "c": 525.7618
+          "c": 525.7617
         },
         {
           "d": "20241216",
-          "c": 533.3329
+          "c": 533.333
         },
         {
           "d": "20241217",
-          "c": 530.9844
+          "c": 530.9843
         },
         {
           "d": "20241218",
@@ -44124,11 +44124,11 @@
         },
         {
           "d": "20241219",
-          "c": 509.5487
+          "c": 509.5488
         },
         {
           "d": "20241220",
-          "c": 513.9984
+          "c": 513.9983
         },
         {
           "d": "20241223",
@@ -44136,11 +44136,11 @@
         },
         {
           "d": "20241224",
-          "c": 526.0437
+          "c": 526.0436
         },
         {
           "d": "20241225",
-          "c": 526.0437
+          "c": 526.0436
         },
         {
           "d": "20241226",
@@ -44152,7 +44152,7 @@
         },
         {
           "d": "20241230",
-          "c": 511.7998
+          "c": 511.7997
         },
         {
           "d": "20241231",
@@ -44164,7 +44164,7 @@
         },
         {
           "d": "20250103",
-          "c": 514.7478
+          "c": 514.7479
         },
         {
           "d": "20250106",
@@ -44176,11 +44176,11 @@
         },
         {
           "d": "20250108",
-          "c": 511.4623
+          "c": 511.4622
         },
         {
           "d": "20250109",
-          "c": 511.4623
+          "c": 511.4622
         },
         {
           "d": "20250110",
@@ -44192,7 +44192,7 @@
         },
         {
           "d": "20250114",
-          "c": 501.3476
+          "c": 501.3475
         },
         {
           "d": "20250115",
@@ -44200,7 +44200,7 @@
         },
         {
           "d": "20250116",
-          "c": 509.2884
+          "c": 509.2885
         },
         {
           "d": "20250117",
@@ -44212,7 +44212,7 @@
         },
         {
           "d": "20250121",
-          "c": 520.9218
+          "c": 520.9219
         },
         {
           "d": "20250122",
@@ -44224,7 +44224,7 @@
         },
         {
           "d": "20250204",
-          "c": 520.5942
+          "c": 520.5943
         },
         {
           "d": "20250205",
@@ -44240,7 +44240,7 @@
         },
         {
           "d": "20250210",
-          "c": 525.339
+          "c": 525.3389
         },
         {
           "d": "20250211",
@@ -44252,7 +44252,7 @@
         },
         {
           "d": "20250213",
-          "c": 531.9399
+          "c": 531.9398
         },
         {
           "d": "20250214",
@@ -44264,7 +44264,7 @@
         },
         {
           "d": "20250218",
-          "c": 535.3842
+          "c": 535.3841
         },
         {
           "d": "20250219",
@@ -44276,11 +44276,11 @@
         },
         {
           "d": "20250221",
-          "c": 522.1924
+          "c": 522.1925
         },
         {
           "d": "20250224",
-          "c": 516.0283
+          "c": 516.0282
         },
         {
           "d": "20250225",
@@ -44308,7 +44308,7 @@
         },
         {
           "d": "20250306",
-          "c": 484.5924
+          "c": 484.5923
         },
         {
           "d": "20250307",
@@ -44316,7 +44316,7 @@
         },
         {
           "d": "20250310",
-          "c": 469.2366
+          "c": 469.2367
         },
         {
           "d": "20250311",
@@ -44328,7 +44328,7 @@
         },
         {
           "d": "20250313",
-          "c": 464.879
+          "c": 464.8791
         },
         {
           "d": "20250314",
@@ -44340,7 +44340,7 @@
         },
         {
           "d": "20250318",
-          "c": 471.0332
+          "c": 471.0333
         },
         {
           "d": "20250319",
@@ -44368,7 +44368,7 @@
         },
         {
           "d": "20250327",
-          "c": 478.7738
+          "c": 478.7739
         },
         {
           "d": "20250328",
@@ -44392,7 +44392,7 @@
         },
         {
           "d": "20250408",
-          "c": 413.6012
+          "c": 413.6013
         },
         {
           "d": "20250409",
@@ -44412,7 +44412,7 @@
         },
         {
           "d": "20250415",
-          "c": 455.2835
+          "c": 455.2834
         },
         {
           "d": "20250416",
@@ -44436,7 +44436,7 @@
         },
         {
           "d": "20250423",
-          "c": 451.8737
+          "c": 451.8738
         },
         {
           "d": "20250424",
@@ -44448,7 +44448,7 @@
         },
         {
           "d": "20250428",
-          "c": 469.6183
+          "c": 469.6182
         },
         {
           "d": "20250429",
@@ -44488,11 +44488,11 @@
         },
         {
           "d": "20250513",
-          "c": 512.5431
+          "c": 512.5432
         },
         {
           "d": "20250514",
-          "c": 515.6148
+          "c": 515.6149
         },
         {
           "d": "20250515",
@@ -44508,7 +44508,7 @@
         },
         {
           "d": "20250520",
-          "c": 517.1955
+          "c": 517.1954
         },
         {
           "d": "20250521",
@@ -44536,11 +44536,11 @@
         },
         {
           "d": "20250529",
-          "c": 516.8575
+          "c": 516.8574
         },
         {
           "d": "20250602",
-          "c": 520.1181
+          "c": 520.118
         },
         {
           "d": "20250603",
@@ -44548,7 +44548,7 @@
         },
         {
           "d": "20250604",
-          "c": 525.6451
+          "c": 525.6452
         },
         {
           "d": "20250605",
@@ -44556,7 +44556,7 @@
         },
         {
           "d": "20250606",
-          "c": 526.7883
+          "c": 526.7884
         },
         {
           "d": "20250609",
@@ -44568,7 +44568,7 @@
         },
         {
           "d": "20250611",
-          "c": 529.2637
+          "c": 529.2636
         },
         {
           "d": "20250612",
@@ -44588,11 +44588,11 @@
         },
         {
           "d": "20250618",
-          "c": 525.8639
+          "c": 525.864
         },
         {
           "d": "20250619",
-          "c": 525.8639
+          "c": 525.864
         },
         {
           "d": "20250620",
@@ -44604,7 +44604,7 @@
         },
         {
           "d": "20250624",
-          "c": 537.1927
+          "c": 537.1928
         },
         {
           "d": "20250625",
@@ -44620,7 +44620,7 @@
         },
         {
           "d": "20250630",
-          "c": 548.9959
+          "c": 548.996
         },
         {
           "d": "20250701",
@@ -44632,15 +44632,15 @@
         },
         {
           "d": "20250703",
-          "c": 553.554
+          "c": 553.5539
         },
         {
           "d": "20250704",
-          "c": 553.554
+          "c": 553.5539
         },
         {
           "d": "20250707",
-          "c": 549.384
+          "c": 549.3841
         },
         {
           "d": "20250708",
@@ -44648,7 +44648,7 @@
         },
         {
           "d": "20250709",
-          "c": 553.5838
+          "c": 553.5839
         },
         {
           "d": "20250710",
@@ -44656,7 +44656,7 @@
         },
         {
           "d": "20250711",
-          "c": 551.5436
+          "c": 551.5437
         },
         {
           "d": "20250714",
@@ -44692,7 +44692,7 @@
         },
         {
           "d": "20250724",
-          "c": 562.3018
+          "c": 562.3019
         },
         {
           "d": "20250725",
@@ -44712,7 +44712,7 @@
         },
         {
           "d": "20250731",
-          "c": 562.3018
+          "c": 562.3019
         },
         {
           "d": "20250801",
@@ -44732,7 +44732,7 @@
         },
         {
           "d": "20250807",
-          "c": 566.5115
+          "c": 566.5116
         },
         {
           "d": "20250808",
@@ -44744,7 +44744,7 @@
         },
         {
           "d": "20250812",
-          "c": 577.2697
+          "c": 577.2698
         },
         {
           "d": "20250813",
@@ -44752,7 +44752,7 @@
         },
         {
           "d": "20250814",
-          "c": 577.1106
+          "c": 577.1105
         },
         {
           "d": "20250815",
@@ -44764,7 +44764,7 @@
         },
         {
           "d": "20250819",
-          "c": 566.5513
+          "c": 566.5514
         },
         {
           "d": "20250820",
@@ -44812,11 +44812,11 @@
         },
         {
           "d": "20250904",
-          "c": 572.4729
+          "c": 572.4728
         },
         {
           "d": "20250905",
-          "c": 573.2989
+          "c": 573.2988
         },
         {
           "d": "20250908",
@@ -44824,19 +44824,19 @@
         },
         {
           "d": "20250909",
-          "c": 577.7276
+          "c": 577.7275
         },
         {
           "d": "20250910",
-          "c": 577.9166
+          "c": 577.9167
         },
         {
           "d": "20250911",
-          "c": 581.2805
+          "c": 581.2804
         },
         {
           "d": "20250912",
-          "c": 583.848
+          "c": 583.8481
         },
         {
           "d": "20250915",
@@ -44932,7 +44932,7 @@
         },
         {
           "d": "20251021",
-          "c": 609.155
+          "c": 609.1549
         },
         {
           "d": "20251022",
@@ -44956,7 +44956,7 @@
         },
         {
           "d": "20251030",
-          "c": 623.7716
+          "c": 623.7715
         },
         {
           "d": "20251031",
@@ -44964,7 +44964,7 @@
         },
         {
           "d": "20251103",
-          "c": 629.7795
+          "c": 629.7797
         },
         {
           "d": "20251104",
@@ -44976,7 +44976,7 @@
         },
         {
           "d": "20251106",
-          "c": 609.4439
+          "c": 609.4438
         },
         {
           "d": "20251107",
@@ -45000,7 +45000,7 @@
         },
         {
           "d": "20251114",
-          "c": 606.6441
+          "c": 606.644
         },
         {
           "d": "20251117",
@@ -45028,7 +45028,7 @@
         },
         {
           "d": "20251125",
-          "c": 606.674
+          "c": 606.6741
         },
         {
           "d": "20251126",
@@ -45060,11 +45060,11 @@
         },
         {
           "d": "20251205",
-          "c": 623.2036
+          "c": 623.2037
         },
         {
           "d": "20251208",
-          "c": 622.0081
+          "c": 622.008
         },
         {
           "d": "20251209",
@@ -45924,7 +45924,7 @@
         },
         {
           "d": "20200107",
-          "c": 49.5096
+          "c": 49.5097
         },
         {
           "d": "20200108",
@@ -46324,7 +46324,7 @@
         },
         {
           "d": "20200610",
-          "c": 64.3897
+          "c": 64.3896
         },
         {
           "d": "20200611",
@@ -46544,7 +46544,7 @@
         },
         {
           "d": "20200828",
-          "c": 89.4156
+          "c": 89.4155
         },
         {
           "d": "20200831",
@@ -46676,7 +46676,7 @@
         },
         {
           "d": "20201019",
-          "c": 98.9902
+          "c": 98.9903
         },
         {
           "d": "20201020",
@@ -46700,7 +46700,7 @@
         },
         {
           "d": "20201027",
-          "c": 95.4856
+          "c": 95.4857
         },
         {
           "d": "20201028",
@@ -46756,7 +46756,7 @@
         },
         {
           "d": "20201116",
-          "c": 96.3667
+          "c": 96.3666
         },
         {
           "d": "20201117",

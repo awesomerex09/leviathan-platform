@@ -1,12 +1,12 @@
 {
-  "as_of": "20260908",
+  "as_of": "20260909",
   "n_etfs": 38,
   "etfs": [
     {
       "code": "00981A",
       "name": "主動統一台股增長",
       "issuer": "統一投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20250526",
       "n_days": 287,
       "n_current": 51,
@@ -34,8 +34,8 @@
       "benefit": 996982,
       "listing_date": "20250527",
       "pre_listing_snapshot": false,
-      "close_price": 29.77,
-      "nav": 29.77,
+      "close_price": 30.1,
+      "nav": 30.1,
       "nav_date": "20260514",
       "premium_pct": -0.41,
       "price_series": [
@@ -1329,11 +1329,11 @@
         },
         {
           "d": "20260907",
-          "c": 29.77
+          "c": 30.12
         },
         {
-          "d": "20260908",
-          "c": 29.77
+          "d": "20260909",
+          "c": 30.1
         }
       ],
       "mgmt_fee_raw": "按基金淨資產價值每年依下列費率逐日累計計算：淨資產價值200億元（含）以下之部分：1.2%、淨資產價值逾200億元之部份：1.0%",
@@ -1497,22 +1497,22 @@
         ]
       },
       "m1_return": "4.91%",
-      "total_return": 210.05,
-      "annualized_return": 136.57,
+      "total_return": 213.49,
+      "annualized_return": 138.13,
       "max_return": 235.99,
       "max_drawdown": -26.35,
-      "current_drawdown": -7.72,
-      "sharpe_ratio": 2.602,
-      "sortino_ratio": 4.124,
-      "calmar_ratio": 5.183,
-      "alpha": 24.91,
-      "beta": 1.132
+      "current_drawdown": -6.7,
+      "sharpe_ratio": 2.626,
+      "sortino_ratio": 4.162,
+      "calmar_ratio": 5.242,
+      "alpha": 26.05,
+      "beta": 1.134
     },
     {
       "code": "00403A",
       "name": "主動統一升級50",
       "issuer": "統一投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20260511",
       "n_days": 55,
       "n_current": 50,
@@ -1540,8 +1540,8 @@
       "benefit": 1022567,
       "listing_date": "20260512",
       "pre_listing_snapshot": false,
-      "close_price": 10.26,
-      "nav": 10.26,
+      "close_price": 10.39,
+      "nav": 10.39,
       "nav_date": "20260514",
       "premium_pct": 0.29,
       "price_series": [
@@ -1915,11 +1915,11 @@
         },
         {
           "d": "20260907",
-          "c": 10.26
+          "c": 10.39
         },
         {
-          "d": "20260908",
-          "c": 10.26
+          "d": "20260909",
+          "c": 10.39
         }
       ],
       "mgmt_fee_raw": "按基金淨資產價值每年依下列費率逐日累計計算：淨資產價值200億元（含）以下之部分：1.2%、淨資產價值逾200億元之部份：1.0%",
@@ -2085,22 +2085,22 @@
         "history": []
       },
       "m1_return": "0.88%",
-      "total_return": 2.6,
-      "annualized_return": 7.3,
+      "total_return": 3.9,
+      "annualized_return": 10.99,
       "max_return": 13.8,
       "max_drawdown": -25.66,
-      "current_drawdown": -9.84,
-      "sharpe_ratio": 0.326,
-      "sortino_ratio": 0.526,
-      "calmar_ratio": 0.284,
-      "alpha": -59.4,
-      "beta": 1.016
+      "current_drawdown": -8.7,
+      "sharpe_ratio": 0.41,
+      "sortino_ratio": 0.643,
+      "calmar_ratio": 0.428,
+      "alpha": -56.86,
+      "beta": 1.021
     },
     {
       "code": "00991A",
       "name": "主動復華未來50",
       "issuer": "復華投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20251210",
       "n_days": 150,
       "n_current": 50,
@@ -2128,8 +2128,8 @@
       "benefit": 339061,
       "listing_date": "20251218",
       "pre_listing_snapshot": false,
-      "close_price": 17.73,
-      "nav": 17.73,
+      "close_price": 17.82,
+      "nav": 17.82,
       "nav_date": "20260513",
       "premium_pct": 0.28,
       "price_series": [
@@ -2855,11 +2855,11 @@
         },
         {
           "d": "20260907",
-          "c": 17.73
+          "c": 18
         },
         {
-          "d": "20260908",
-          "c": 17.73
+          "d": "20260909",
+          "c": 17.82
         }
       ],
       "mgmt_fee_raw": "200億元(含)以下：1.00%；逾200億元之部分0.80%",
@@ -3031,22 +3031,22 @@
         "history": []
       },
       "m1_return": "3.93%",
-      "total_return": 85.98,
-      "annualized_return": 129.36,
+      "total_return": 86.92,
+      "annualized_return": 130.22,
       "max_return": 113.3,
       "max_drawdown": -31.1,
-      "current_drawdown": -12.81,
-      "sharpe_ratio": 2.089,
-      "sortino_ratio": 3.227,
-      "calmar_ratio": 4.159,
-      "alpha": -9.5,
-      "beta": 1.227
+      "current_drawdown": -12.37,
+      "sharpe_ratio": 2.103,
+      "sortino_ratio": 3.249,
+      "calmar_ratio": 4.187,
+      "alpha": -9.36,
+      "beta": 1.23
     },
     {
       "code": "00988A",
       "name": "主動統一全球創新",
       "issuer": "統一投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20251103",
       "n_days": 176,
       "n_current": 42,
@@ -3074,8 +3074,8 @@
       "benefit": 240460,
       "listing_date": "20251105",
       "pre_listing_snapshot": false,
-      "close_price": 15.99,
-      "nav": 15.99,
+      "close_price": 16.37,
+      "nav": 16.37,
       "nav_date": "20260513",
       "premium_pct": 1.12,
       "price_series": [
@@ -3937,11 +3937,11 @@
         },
         {
           "d": "20260907",
-          "c": 15.99
+          "c": 16.26
         },
         {
-          "d": "20260908",
-          "c": 15.99
+          "d": "20260909",
+          "c": 16.37
         }
       ],
       "mgmt_fee_raw": "按基金淨資產價值每年依下列費率逐日累計計算：淨資產價值100億元（含）以下：1.4%、淨資產價值逾100億元之部份：1.2%",
@@ -4131,22 +4131,22 @@
         "history": []
       },
       "m1_return": "-3.95%",
-      "total_return": 59.9,
-      "annualized_return": 70.31,
+      "total_return": 63.7,
+      "annualized_return": 74.6,
       "max_return": 137.3,
       "max_drawdown": -40.33,
-      "current_drawdown": -32.62,
-      "sharpe_ratio": 1.285,
-      "sortino_ratio": 2.053,
-      "calmar_ratio": 1.743,
-      "alpha": -59.58,
-      "beta": 1.427
+      "current_drawdown": -31.02,
+      "sharpe_ratio": 1.338,
+      "sortino_ratio": 2.136,
+      "calmar_ratio": 1.85,
+      "alpha": -55.99,
+      "beta": 1.43
     },
     {
       "code": "00982A",
       "name": "主動群益台灣強棒",
       "issuer": "群益投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20250521",
       "n_days": 290,
       "n_current": 55,
@@ -4174,8 +4174,8 @@
       "benefit": 180221,
       "listing_date": "20250522",
       "pre_listing_snapshot": false,
-      "close_price": 22.96,
-      "nav": 22.96,
+      "close_price": 23.01,
+      "nav": 23.01,
       "nav_date": "20260513",
       "premium_pct": 0.65,
       "price_series": [
@@ -5477,11 +5477,11 @@
         },
         {
           "d": "20260907",
-          "c": 22.96
+          "c": 23.13
         },
         {
-          "d": "20260908",
-          "c": 22.96
+          "d": "20260909",
+          "c": 23.01
         }
       ],
       "mgmt_fee_raw": "0.8%",
@@ -5658,22 +5658,22 @@
         ]
       },
       "m1_return": "-0.76%",
-      "total_return": 159.36,
-      "annualized_return": 105.89,
+      "total_return": 159.92,
+      "annualized_return": 105.92,
       "max_return": 180.3,
       "max_drawdown": -27.32,
-      "current_drawdown": -7.47,
-      "sharpe_ratio": 2.31,
-      "sortino_ratio": 3.517,
-      "calmar_ratio": 3.876,
-      "alpha": 1.24,
-      "beta": 1.065
+      "current_drawdown": -7.27,
+      "sharpe_ratio": 2.314,
+      "sortino_ratio": 3.524,
+      "calmar_ratio": 3.877,
+      "alpha": 0.96,
+      "beta": 1.066
     },
     {
       "code": "00990A",
       "name": "主動元大AI新經濟",
       "issuer": "元大投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20251218",
       "n_days": 142,
       "n_current": 48,
@@ -5701,8 +5701,8 @@
       "benefit": 125783,
       "listing_date": "20251222",
       "pre_listing_snapshot": false,
-      "close_price": 15.17,
-      "nav": 15.17,
+      "close_price": 15.18,
+      "nav": 15.18,
       "nav_date": "20260513",
       "premium_pct": -1.15,
       "price_series": [
@@ -6451,8 +6451,8 @@
           "c": 15.17
         },
         {
-          "d": "20260908",
-          "c": 15.17
+          "d": "20260909",
+          "c": 15.18
         }
       ],
       "mgmt_fee_raw": "0.9%",
@@ -6656,22 +6656,22 @@
         ]
       },
       "m1_return": "-3.78%",
-      "total_return": 51.7,
-      "annualized_return": 72.22,
+      "total_return": 51.8,
+      "annualized_return": 72.04,
       "max_return": 117.3,
       "max_drawdown": -37.18,
-      "current_drawdown": -30.19,
-      "sharpe_ratio": 1.339,
-      "sortino_ratio": 2.094,
-      "calmar_ratio": 1.942,
-      "alpha": -85.43,
+      "current_drawdown": -30.14,
+      "sharpe_ratio": 1.341,
+      "sortino_ratio": 2.097,
+      "calmar_ratio": 1.938,
+      "alpha": -86.01,
       "beta": 1.342
     },
     {
       "code": "00992A",
       "name": "主動群益科技創新",
       "issuer": "群益投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20251229",
       "n_days": 138,
       "n_current": 38,
@@ -6699,8 +6699,8 @@
       "benefit": 192566,
       "listing_date": "20251230",
       "pre_listing_snapshot": false,
-      "close_price": 18.47,
-      "nav": 18.47,
+      "close_price": 18.3,
+      "nav": 18.3,
       "nav_date": "20260513",
       "premium_pct": 0.39,
       "price_series": [
@@ -7406,11 +7406,11 @@
         },
         {
           "d": "20260907",
-          "c": 18.47
+          "c": 18.41
         },
         {
-          "d": "20260908",
-          "c": 18.47
+          "d": "20260909",
+          "c": 18.3
         }
       ],
       "mgmt_fee_raw": "新臺幣200億元（含）以下：1.2％；新臺幣200億元以上：1.0％",
@@ -7570,22 +7570,22 @@
         "history": []
       },
       "m1_return": "7.76%",
-      "total_return": 89.8,
-      "annualized_return": 141.06,
+      "total_return": 88.05,
+      "annualized_return": 137.25,
       "max_return": 94.2,
       "max_drawdown": -28.67,
-      "current_drawdown": -2.27,
-      "sharpe_ratio": 2.25,
-      "sortino_ratio": 3.447,
-      "calmar_ratio": 4.92,
-      "alpha": 3.61,
+      "current_drawdown": -3.16,
+      "sharpe_ratio": 2.219,
+      "sortino_ratio": 3.401,
+      "calmar_ratio": 4.787,
+      "alpha": -0.53,
       "beta": 1.107
     },
     {
       "code": "00407A",
       "name": "主動凱基台灣",
       "issuer": "凱基投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20260623",
       "n_days": 25,
       "n_current": 50,
@@ -7613,8 +7613,8 @@
       "benefit": 162266,
       "listing_date": "20260624",
       "pre_listing_snapshot": false,
-      "close_price": 9.82,
-      "nav": 9.82,
+      "close_price": 9.8,
+      "nav": 9.8,
       "nav_date": null,
       "premium_pct": null,
       "price_series": [
@@ -7859,8 +7859,8 @@
           "c": 9.82
         },
         {
-          "d": "20260908",
-          "c": 9.82
+          "d": "20260909",
+          "c": 9.8
         }
       ],
       "mgmt_fee_raw": "",
@@ -7946,22 +7946,22 @@
         "history": []
       },
       "m1_return": "8.13%",
-      "total_return": -1.8,
-      "annualized_return": -7.51,
+      "total_return": -2,
+      "annualized_return": -8.22,
       "max_return": 0.4,
       "max_drawdown": -22.41,
-      "current_drawdown": -2.19,
-      "sharpe_ratio": -0.008,
-      "sortino_ratio": 0.054,
-      "calmar_ratio": -0.335,
-      "alpha": -32.18,
+      "current_drawdown": -2.39,
+      "sharpe_ratio": -0.028,
+      "sortino_ratio": 0.026,
+      "calmar_ratio": -0.367,
+      "alpha": -34.34,
       "beta": 1.05
     },
     {
       "code": "00400A",
       "name": "主動國泰動能高息",
       "issuer": "國泰投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20260402",
       "n_days": 79,
       "n_current": 49,
@@ -7989,8 +7989,8 @@
       "benefit": 137162,
       "listing_date": "20260409",
       "pre_listing_snapshot": false,
-      "close_price": 15.05,
-      "nav": 15.05,
+      "close_price": 15.12,
+      "nav": 15.12,
       "nav_date": "20260513",
       "premium_pct": 0.36,
       "price_series": [
@@ -8440,11 +8440,11 @@
         },
         {
           "d": "20260907",
-          "c": 15.05
+          "c": 15.21
         },
         {
-          "d": "20260908",
-          "c": 15.05
+          "d": "20260909",
+          "c": 15.12
         }
       ],
       "mgmt_fee_raw": "0.9%",
@@ -8634,22 +8634,22 @@
         "history": []
       },
       "m1_return": "7.24%",
-      "total_return": 54.35,
-      "annualized_return": 166.08,
+      "total_return": 55.07,
+      "annualized_return": 167.25,
       "max_return": 56.38,
       "max_drawdown": -23.38,
-      "current_drawdown": -1.3,
-      "sharpe_ratio": 2.516,
-      "sortino_ratio": 3.976,
-      "calmar_ratio": 7.104,
-      "alpha": 12.92,
-      "beta": 1.035
+      "current_drawdown": -0.84,
+      "sharpe_ratio": 2.54,
+      "sortino_ratio": 4.014,
+      "calmar_ratio": 7.154,
+      "alpha": 13.25,
+      "beta": 1.038
     },
     {
       "code": "00405A",
       "name": "主動富邦台灣龍耀",
       "issuer": "富邦投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20260605",
       "n_days": 36,
       "n_current": 48,
@@ -8677,8 +8677,8 @@
       "benefit": 161463,
       "listing_date": "20260609",
       "pre_listing_snapshot": false,
-      "close_price": 8.83,
-      "nav": 8.83,
+      "close_price": 8.82,
+      "nav": 8.82,
       "nav_date": "20260612",
       "premium_pct": -0.22,
       "price_series": [
@@ -8983,8 +8983,8 @@
           "c": 8.83
         },
         {
-          "d": "20260908",
-          "c": 8.83
+          "d": "20260909",
+          "c": 8.82
         }
       ],
       "mgmt_fee_raw": "淨資產價值於新臺幣200億元(含)以下:1.2%、淨資產價值於超過新臺幣200億元:1.0%",
@@ -9156,22 +9156,22 @@
         "history": []
       },
       "m1_return": "3.32%",
-      "total_return": -11.7,
-      "annualized_return": -34.87,
+      "total_return": -11.8,
+      "annualized_return": -34.86,
       "max_return": 0.2,
       "max_drawdown": -33.33,
-      "current_drawdown": -11.88,
-      "sharpe_ratio": -0.652,
-      "sortino_ratio": -0.815,
+      "current_drawdown": -11.98,
+      "sharpe_ratio": -0.659,
+      "sortino_ratio": -0.826,
       "calmar_ratio": -1.046,
-      "alpha": -75.22,
+      "alpha": -76.38,
       "beta": 1.079
     },
     {
       "code": "00980A",
       "name": "主動野村臺灣優選",
       "issuer": "野村投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20250502",
       "n_days": 303,
       "n_current": 51,
@@ -9199,8 +9199,8 @@
       "benefit": 70412,
       "listing_date": "20250505",
       "pre_listing_snapshot": false,
-      "close_price": 25.09,
-      "nav": 25.09,
+      "close_price": 25,
+      "nav": 25,
       "nav_date": "20260514",
       "premium_pct": 0.33,
       "price_series": [
@@ -9370,7 +9370,7 @@
         },
         {
           "d": "20250620",
-          "c": 10.0082
+          "c": 10.0081
         },
         {
           "d": "20250623",
@@ -10565,8 +10565,8 @@
           "c": 25.09
         },
         {
-          "d": "20260908",
-          "c": 25.09
+          "d": "20260909",
+          "c": 25
         }
       ],
       "mgmt_fee_raw": "按本基金淨資產價值每年0.75%之比率計算",
@@ -10768,22 +10768,22 @@
         ]
       },
       "m1_return": "9.87%",
-      "total_return": 174.51,
-      "annualized_return": 107.89,
+      "total_return": 173.53,
+      "annualized_return": 107.05,
       "max_return": 175.06,
       "max_drawdown": -23.92,
-      "current_drawdown": -0.2,
-      "sharpe_ratio": 2.644,
-      "sortino_ratio": 4.155,
-      "calmar_ratio": 4.51,
-      "alpha": -2.64,
+      "current_drawdown": -0.56,
+      "sharpe_ratio": 2.635,
+      "sortino_ratio": 4.14,
+      "calmar_ratio": 4.475,
+      "alpha": -3.64,
       "beta": 0.951
     },
     {
       "code": "00997A",
       "name": "主動群益美國增長",
       "issuer": "群益投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20260410",
       "n_days": 74,
       "n_current": 52,
@@ -10811,8 +10811,8 @@
       "benefit": 73512,
       "listing_date": "20260414",
       "pre_listing_snapshot": false,
-      "close_price": 11.04,
-      "nav": 11.04,
+      "close_price": 11.05,
+      "nav": 11.05,
       "nav_date": "20260513",
       "premium_pct": -0.16,
       "price_series": [
@@ -11265,8 +11265,8 @@
           "c": 11.04
         },
         {
-          "d": "20260908",
-          "c": 11.04
+          "d": "20260909",
+          "c": 11.05
         }
       ],
       "mgmt_fee_raw": "新臺幣200億元（含）以下：1.2％、新臺幣200億元以上：1.0％",
@@ -11456,22 +11456,22 @@
         "history": []
       },
       "m1_return": "-1.18%",
-      "total_return": 13.48,
-      "annualized_return": 32.99,
+      "total_return": 13.58,
+      "annualized_return": 33.03,
       "max_return": 47.4,
       "max_drawdown": -28.59,
-      "current_drawdown": -23.01,
-      "sharpe_ratio": 0.838,
-      "sortino_ratio": 1.329,
-      "calmar_ratio": 1.154,
-      "alpha": -108.34,
+      "current_drawdown": -22.94,
+      "sharpe_ratio": 0.843,
+      "sortino_ratio": 1.336,
+      "calmar_ratio": 1.155,
+      "alpha": -108.67,
       "beta": 0.954
     },
     {
       "code": "00406A",
       "name": "主動中信台灣收益",
       "issuer": "中信投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20260610",
       "n_days": 34,
       "n_current": 58,
@@ -11499,8 +11499,8 @@
       "benefit": 55126,
       "listing_date": "20260611",
       "pre_listing_snapshot": false,
-      "close_price": 9.57,
-      "nav": 9.57,
+      "close_price": 9.7,
+      "nav": 9.7,
       "nav_date": "20260612",
       "premium_pct": 0.1,
       "price_series": [
@@ -11778,11 +11778,11 @@
         },
         {
           "d": "20260907",
-          "c": 9.57
+          "c": 9.69
         },
         {
-          "d": "20260908",
-          "c": 9.57
+          "d": "20260909",
+          "c": 9.7
         }
       ],
       "mgmt_fee_raw": "按基金淨資產價值每年0.75%之比率，逐日累計計算。",
@@ -11952,22 +11952,22 @@
         "history": []
       },
       "m1_return": "3.41%",
-      "total_return": -1.39,
-      "annualized_return": -5.08,
+      "total_return": -0.05,
+      "annualized_return": -0.18,
       "max_return": 6,
       "max_drawdown": -24.24,
-      "current_drawdown": -6.97,
-      "sharpe_ratio": 0.038,
-      "sortino_ratio": 0.117,
-      "calmar_ratio": -0.21,
-      "alpha": -23.94,
-      "beta": 1.036
+      "current_drawdown": -5.71,
+      "sharpe_ratio": 0.157,
+      "sortino_ratio": 0.279,
+      "calmar_ratio": -0.007,
+      "alpha": -20.38,
+      "beta": 1.042
     },
     {
       "code": "00999A",
       "name": "主動野村臺灣高息",
       "issuer": "野村投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20260504",
       "n_days": 60,
       "n_current": 65,
@@ -11995,8 +11995,8 @@
       "benefit": 100418,
       "listing_date": "20260505",
       "pre_listing_snapshot": false,
-      "close_price": 11.54,
-      "nav": 11.54,
+      "close_price": 11.58,
+      "nav": 11.58,
       "nav_date": "20260514",
       "premium_pct": -0.19,
       "price_series": [
@@ -12390,11 +12390,11 @@
         },
         {
           "d": "20260907",
-          "c": 11.54
+          "c": 11.63
         },
         {
-          "d": "20260908",
-          "c": 11.54
+          "d": "20260909",
+          "c": 11.58
         }
       ],
       "mgmt_fee_raw": "按本基金淨資產價值每年0.70%之比率計算",
@@ -12584,22 +12584,22 @@
         "history": []
       },
       "m1_return": "7.50%",
-      "total_return": 15.4,
-      "annualized_return": 45.31,
-      "max_return": 16.2,
+      "total_return": 15.8,
+      "annualized_return": 46.23,
+      "max_return": 16.3,
       "max_drawdown": -17.76,
-      "current_drawdown": -0.69,
-      "sharpe_ratio": 1.321,
-      "sortino_ratio": 2.092,
-      "calmar_ratio": 2.551,
-      "alpha": -22.31,
-      "beta": 0.724
+      "current_drawdown": -0.43,
+      "sharpe_ratio": 1.35,
+      "sortino_ratio": 2.136,
+      "calmar_ratio": 2.603,
+      "alpha": -22.16,
+      "beta": 0.727
     },
     {
       "code": "00985A",
       "name": "主動野村台灣50",
       "issuer": "野村投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20250718",
       "n_days": 249,
       "n_current": 50,
@@ -12627,8 +12627,8 @@
       "benefit": 48267,
       "listing_date": "20250721",
       "pre_listing_snapshot": false,
-      "close_price": 23.32,
-      "nav": 23.32,
+      "close_price": 23.26,
+      "nav": 23.26,
       "nav_date": "20260514",
       "premium_pct": -0.23,
       "price_series": [
@@ -13781,8 +13781,8 @@
           "c": 23.32
         },
         {
-          "d": "20260908",
-          "c": 23.32
+          "d": "20260909",
+          "c": 23.26
         }
       ],
       "mgmt_fee_raw": "按本基金淨資產價值每年0.45%之比率計算",
@@ -13952,22 +13952,22 @@
         "history": []
       },
       "m1_return": "5.23%",
-      "total_return": 133.2,
-      "annualized_return": 106.32,
+      "total_return": 132.6,
+      "annualized_return": 105.52,
       "max_return": 135,
       "max_drawdown": -20.2,
-      "current_drawdown": -0.77,
-      "sharpe_ratio": 2.772,
-      "sortino_ratio": 4.437,
-      "calmar_ratio": 5.263,
-      "alpha": 9.88,
+      "current_drawdown": -1.02,
+      "sharpe_ratio": 2.764,
+      "sortino_ratio": 4.424,
+      "calmar_ratio": 5.224,
+      "alpha": 8.89,
       "beta": 0.903
     },
     {
       "code": "00984A",
       "name": "主動安聯台灣高息",
       "issuer": "安聯投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20250711",
       "n_days": 254,
       "n_current": 121,
@@ -13995,8 +13995,8 @@
       "benefit": 64973,
       "listing_date": "20250714",
       "pre_listing_snapshot": false,
-      "close_price": 15.64,
-      "nav": 15.64,
+      "close_price": 15.65,
+      "nav": 15.65,
       "nav_date": "20260513",
       "premium_pct": 0.4,
       "price_series": [
@@ -15150,11 +15150,11 @@
         },
         {
           "d": "20260907",
-          "c": 15.64
+          "c": 15.7
         },
         {
-          "d": "20260908",
-          "c": 15.64
+          "d": "20260909",
+          "c": 15.65
         }
       ],
       "mgmt_fee_raw": "0.7%",
@@ -15372,22 +15372,22 @@
         ]
       },
       "m1_return": "-1.15%",
-      "total_return": 69.43,
-      "annualized_return": 56.83,
+      "total_return": 69.54,
+      "annualized_return": 56.75,
       "max_return": 82.85,
       "max_drawdown": -21.38,
-      "current_drawdown": -7.34,
-      "sharpe_ratio": 2.076,
-      "sortino_ratio": 3.164,
-      "calmar_ratio": 2.658,
-      "alpha": -14.06,
-      "beta": 0.666
+      "current_drawdown": -7.28,
+      "sharpe_ratio": 2.078,
+      "sortino_ratio": 3.167,
+      "calmar_ratio": 2.654,
+      "alpha": -14.38,
+      "beta": 0.667
     },
     {
       "code": "00993A",
       "name": "主動安聯台灣",
       "issuer": "安聯投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20260202",
       "n_days": 114,
       "n_current": 51,
@@ -15415,8 +15415,8 @@
       "benefit": 50985,
       "listing_date": "20260203",
       "pre_listing_snapshot": false,
-      "close_price": 13.34,
-      "nav": 13.34,
+      "close_price": 13.51,
+      "nav": 13.51,
       "nav_date": "20260513",
       "premium_pct": -0.69,
       "price_series": [
@@ -16022,11 +16022,11 @@
         },
         {
           "d": "20260907",
-          "c": 13.34
+          "c": 13.54
         },
         {
-          "d": "20260908",
-          "c": 13.34
+          "d": "20260909",
+          "c": 13.51
         }
       ],
       "mgmt_fee_raw": "0.8%",
@@ -16216,22 +16216,22 @@
         "history": []
       },
       "m1_return": "5.77%",
-      "total_return": 33.4,
-      "annualized_return": 58.35,
+      "total_return": 35.1,
+      "annualized_return": 61.25,
       "max_return": 46.4,
       "max_drawdown": -26.98,
-      "current_drawdown": -8.88,
-      "sharpe_ratio": 1.318,
-      "sortino_ratio": 1.987,
-      "calmar_ratio": 2.163,
-      "alpha": -45.51,
-      "beta": 1.049
+      "current_drawdown": -7.72,
+      "sharpe_ratio": 1.368,
+      "sortino_ratio": 2.061,
+      "calmar_ratio": 2.27,
+      "alpha": -43.43,
+      "beta": 1.053
     },
     {
       "code": "00402A",
       "name": "主動安聯美國科技",
       "issuer": "安聯投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20260605",
       "n_days": 36,
       "n_current": 52,
@@ -16259,8 +16259,8 @@
       "benefit": 50767,
       "listing_date": "20260609",
       "pre_listing_snapshot": false,
-      "close_price": 9.52,
-      "nav": 9.52,
+      "close_price": 9.56,
+      "nav": 9.56,
       "nav_date": "20260611",
       "premium_pct": -2.48,
       "price_series": [
@@ -16545,8 +16545,8 @@
           "c": 9.52
         },
         {
-          "d": "20260908",
-          "c": 9.52
+          "d": "20260909",
+          "c": 9.56
         }
       ],
       "mgmt_fee_raw": "1.0%",
@@ -16702,22 +16702,22 @@
         "history": []
       },
       "m1_return": "0.61%",
-      "total_return": -5.65,
-      "annualized_return": -19.31,
+      "total_return": -5.25,
+      "annualized_return": -17.89,
       "max_return": 0.59,
       "max_drawdown": -12.32,
-      "current_drawdown": -6.21,
-      "sharpe_ratio": -0.61,
-      "sortino_ratio": -0.76,
-      "calmar_ratio": -1.567,
-      "alpha": -32.85,
+      "current_drawdown": -5.81,
+      "sharpe_ratio": -0.56,
+      "sortino_ratio": -0.69,
+      "calmar_ratio": -1.452,
+      "alpha": -32.24,
       "beta": 0.683
     },
     {
       "code": "00984D",
       "name": "主動聯博全球非投",
       "issuer": "聯博證券投資信託股份有限公司",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20260202",
       "n_days": 111,
       "n_current": 337,
@@ -16745,8 +16745,8 @@
       "benefit": 9215,
       "listing_date": "20260204",
       "pre_listing_snapshot": false,
-      "close_price": 9.9,
-      "nav": 9.9,
+      "close_price": 9.83,
+      "nav": 9.83,
       "nav_date": "20260611",
       "premium_pct": -0.07,
       "price_series": [
@@ -17348,11 +17348,11 @@
         },
         {
           "d": "20260907",
-          "c": 9.9
+          "c": 9.88
         },
         {
-          "d": "20260908",
-          "c": 9.9
+          "d": "20260909",
+          "c": 9.83
         }
       ],
       "mgmt_fee_raw": "本基金淨資產價值低於新臺幣參佰億元（含）時，按每年百分之零點捌（0.80％）之比率計算。、本基金淨資產價值超過新臺幣參佰億元時，按每年百分之零點柒伍（0.75％）之比率計算。",
@@ -17536,22 +17536,22 @@
         "history": []
       },
       "m1_return": "0.15%",
-      "total_return": 3.16,
-      "annualized_return": 5.12,
+      "total_return": 2.43,
+      "annualized_return": 3.91,
       "max_return": 5.12,
-      "max_drawdown": -1.87,
-      "current_drawdown": -1.87,
-      "sharpe_ratio": 0.926,
-      "sortino_ratio": 2.314,
-      "calmar_ratio": 2.738,
-      "alpha": 1.68,
-      "beta": 0.015
+      "max_drawdown": -2.56,
+      "current_drawdown": -2.56,
+      "sharpe_ratio": 0.58,
+      "sortino_ratio": 1.715,
+      "calmar_ratio": 1.527,
+      "alpha": 0.56,
+      "beta": 0.014
     },
     {
       "code": "00981D",
       "name": "主動中信非投等債",
       "issuer": "中信投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20250908",
       "n_days": 213,
       "n_current": 88,
@@ -17579,8 +17579,8 @@
       "benefit": 8728,
       "listing_date": "20250916",
       "pre_listing_snapshot": false,
-      "close_price": 10.26,
-      "nav": 10.26,
+      "close_price": 10.22,
+      "nav": 10.22,
       "nav_date": "20260611",
       "premium_pct": -0.39,
       "price_series": [
@@ -18545,8 +18545,8 @@
           "c": 10.26
         },
         {
-          "d": "20260908",
-          "c": 10.26
+          "d": "20260909",
+          "c": 10.22
         }
       ],
       "mgmt_fee_raw": "基金規模新臺幣100億(含)以下：0.75%；新臺幣100億(不含)-200億(含)：0.70%；新臺幣200億(不含)以上：0.65%",
@@ -18682,22 +18682,22 @@
         ]
       },
       "m1_return": "0.10%",
-      "total_return": 9.99,
-      "annualized_return": 10.08,
+      "total_return": 9.56,
+      "annualized_return": 9.62,
       "max_return": 11.91,
-      "max_drawdown": -1.72,
-      "current_drawdown": -1.72,
-      "sharpe_ratio": 2.167,
-      "sortino_ratio": 4.528,
-      "calmar_ratio": 5.86,
-      "alpha": 8.38,
+      "max_drawdown": -2.1,
+      "current_drawdown": -2.1,
+      "sharpe_ratio": 2.043,
+      "sortino_ratio": 4.275,
+      "calmar_ratio": 4.581,
+      "alpha": 7.93,
       "beta": -0.003
     },
     {
       "code": "00995A",
       "name": "主動中信台灣卓越",
       "issuer": "中信投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20260121",
       "n_days": 123,
       "n_current": 56,
@@ -18725,8 +18725,8 @@
       "benefit": 26767,
       "listing_date": "20260122",
       "pre_listing_snapshot": false,
-      "close_price": 17.25,
-      "nav": 17.25,
+      "close_price": 17.57,
+      "nav": 17.57,
       "nav_date": "20260514",
       "premium_pct": -0.35,
       "price_series": [
@@ -19360,11 +19360,11 @@
         },
         {
           "d": "20260907",
-          "c": 17.25
+          "c": 17.62
         },
         {
-          "d": "20260908",
-          "c": 17.25
+          "d": "20260909",
+          "c": 17.57
         }
       ],
       "mgmt_fee_raw": "按基金淨資產價值每年0.75%之比率，逐日累計計算。",
@@ -19526,22 +19526,22 @@
         "history": []
       },
       "m1_return": "5.37%",
-      "total_return": 72.5,
-      "annualized_return": 130.88,
+      "total_return": 75.7,
+      "annualized_return": 136.63,
       "max_return": 87.7,
       "max_drawdown": -26.8,
-      "current_drawdown": -8.1,
-      "sharpe_ratio": 2.123,
-      "sortino_ratio": 3.305,
-      "calmar_ratio": 4.884,
-      "alpha": 10.46,
-      "beta": 1.173
+      "current_drawdown": -6.39,
+      "sharpe_ratio": 2.186,
+      "sortino_ratio": 3.406,
+      "calmar_ratio": 5.098,
+      "alpha": 15.25,
+      "beta": 1.178
     },
     {
       "code": "00994A",
       "name": "主動第一金台股優",
       "issuer": "第一金投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20260106",
       "n_days": 132,
       "n_current": 35,
@@ -19569,8 +19569,8 @@
       "benefit": 31916,
       "listing_date": "20260107",
       "pre_listing_snapshot": false,
-      "close_price": 17.09,
-      "nav": 17.09,
+      "close_price": 17.03,
+      "nav": 17.03,
       "nav_date": "20260513",
       "premium_pct": 0.23,
       "price_series": [
@@ -20247,8 +20247,8 @@
           "c": 17.09
         },
         {
-          "d": "20260908",
-          "c": 17.09
+          "d": "20260909",
+          "c": 17.03
         }
       ],
       "mgmt_fee_raw": "按本基金淨資產價值每年百分之零點柒(0.7%)之比率計算",
@@ -20410,22 +20410,22 @@
         "history": []
       },
       "m1_return": "6.45%",
-      "total_return": 75.33,
-      "annualized_return": 124.93,
+      "total_return": 74.71,
+      "annualized_return": 123.08,
       "max_return": 90,
       "max_drawdown": -27.05,
-      "current_drawdown": -7.72,
-      "sharpe_ratio": 2.115,
-      "sortino_ratio": 3.288,
-      "calmar_ratio": 4.618,
-      "alpha": -10.12,
+      "current_drawdown": -8.05,
+      "sharpe_ratio": 2.103,
+      "sortino_ratio": 3.269,
+      "calmar_ratio": 4.55,
+      "alpha": -12.34,
       "beta": 1.142
     },
     {
       "code": "00996A",
       "name": "主動兆豐台灣豐收",
       "issuer": "兆豐投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20260324",
       "n_days": 86,
       "n_current": 51,
@@ -20453,8 +20453,8 @@
       "benefit": 25428,
       "listing_date": "20260325",
       "pre_listing_snapshot": false,
-      "close_price": 14.12,
-      "nav": 14.12,
+      "close_price": 14.11,
+      "nav": 14.11,
       "nav_date": "20260514",
       "premium_pct": -0.35,
       "price_series": [
@@ -20947,8 +20947,8 @@
           "c": 14.12
         },
         {
-          "d": "20260908",
-          "c": 14.12
+          "d": "20260909",
+          "c": 14.11
         }
       ],
       "mgmt_fee_raw": "0.8%",
@@ -21251,22 +21251,22 @@
         ]
       },
       "m1_return": "-0.07%",
-      "total_return": 41.2,
-      "annualized_return": 104.62,
+      "total_return": 41.1,
+      "annualized_return": 103.5,
       "max_return": 63.2,
       "max_drawdown": -32.78,
-      "current_drawdown": -13.48,
-      "sharpe_ratio": 1.704,
-      "sortino_ratio": 2.595,
-      "calmar_ratio": 3.192,
-      "alpha": -28.49,
+      "current_drawdown": -13.54,
+      "sharpe_ratio": 1.701,
+      "sortino_ratio": 2.59,
+      "calmar_ratio": 3.157,
+      "alpha": -30.12,
       "beta": 1.11
     },
     {
       "code": "00998A",
       "name": "主動復華金融股息",
       "issuer": "復華投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20260407",
       "n_days": 77,
       "n_current": 40,
@@ -21294,8 +21294,8 @@
       "benefit": 15569,
       "listing_date": "20260415",
       "pre_listing_snapshot": false,
-      "close_price": 18.13,
-      "nav": 18.13,
+      "close_price": 17.92,
+      "nav": 17.92,
       "nav_date": "20260513",
       "premium_pct": -0.88,
       "price_series": [
@@ -21744,8 +21744,8 @@
           "c": 18.13
         },
         {
-          "d": "20260908",
-          "c": 18.13
+          "d": "20260909",
+          "c": 17.92
         }
       ],
       "mgmt_fee_raw": "200億元(含)以下：1.20%逾新臺幣200億元(不含)之部分：1.00%",
@@ -21935,22 +21935,22 @@
         "history": []
       },
       "m1_return": "5.74%",
-      "total_return": 23.68,
-      "annualized_return": 61.96,
+      "total_return": 22.25,
+      "annualized_return": 57.29,
       "max_return": 24.16,
       "max_drawdown": -4.77,
-      "current_drawdown": -0.38,
-      "sharpe_ratio": 3.001,
-      "sortino_ratio": 6.005,
-      "calmar_ratio": 12.99,
-      "alpha": 28.01,
+      "current_drawdown": -1.54,
+      "sharpe_ratio": 2.812,
+      "sortino_ratio": 5.563,
+      "calmar_ratio": 12.01,
+      "alpha": 23.28,
       "beta": 0.2
     },
     {
       "code": "00404A",
       "name": "主動聯博動能50",
       "issuer": "聯博證券投資信託股份有限公司",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20260608",
       "n_days": 35,
       "n_current": 51,
@@ -21978,8 +21978,8 @@
       "benefit": 23957,
       "listing_date": "20260609",
       "pre_listing_snapshot": false,
-      "close_price": 10.03,
-      "nav": 10.03,
+      "close_price": 10.05,
+      "nav": 10.05,
       "nav_date": "20260612",
       "premium_pct": 0.1,
       "price_series": [
@@ -22272,8 +22272,8 @@
           "c": 10.03
         },
         {
-          "d": "20260908",
-          "c": 10.03
+          "d": "20260909",
+          "c": 10.05
         }
       ],
       "mgmt_fee_raw": "經理公司之報酬係按本基金淨資產價值每年百分之零點柒伍（0.75％）之比率，逐日累計計算，並自本基金成立日起每曆月給付乙次。",
@@ -22463,22 +22463,22 @@
         "history": []
       },
       "m1_return": "-0.72%",
-      "total_return": 0.3,
-      "annualized_return": 1.07,
+      "total_return": 0.5,
+      "annualized_return": 1.77,
       "max_return": 5.2,
       "max_drawdown": -19.39,
-      "current_drawdown": -4.66,
-      "sharpe_ratio": 0.144,
-      "sortino_ratio": 0.295,
-      "calmar_ratio": 0.055,
-      "alpha": -35.24,
+      "current_drawdown": -4.47,
+      "sharpe_ratio": 0.164,
+      "sortino_ratio": 0.325,
+      "calmar_ratio": 0.091,
+      "alpha": -35.54,
       "beta": 0.896
     },
     {
       "code": "00401A",
       "name": "主動摩根台灣鑫收",
       "issuer": "摩根投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20260407",
       "n_days": 81,
       "n_current": 65,
@@ -22506,8 +22506,8 @@
       "benefit": 17296,
       "listing_date": "20260410",
       "pre_listing_snapshot": false,
-      "close_price": 14.32,
-      "nav": 14.32,
+      "close_price": 14.38,
+      "nav": 14.38,
       "nav_date": "20260513",
       "premium_pct": 0.08,
       "price_series": [
@@ -22956,8 +22956,8 @@
           "c": 14.32
         },
         {
-          "d": "20260908",
-          "c": 14.32
+          "d": "20260909",
+          "c": 14.38
         }
       ],
       "mgmt_fee_raw": "0.60%",
@@ -23129,22 +23129,22 @@
         "history": []
       },
       "m1_return": "3.38%",
-      "total_return": 44.47,
-      "annualized_return": 130.38,
-      "max_return": 44.47,
+      "total_return": 45.07,
+      "annualized_return": 131.37,
+      "max_return": 45.07,
       "max_drawdown": -18.57,
       "current_drawdown": 0,
-      "sharpe_ratio": 2.646,
-      "sortino_ratio": 4.25,
-      "calmar_ratio": 7.021,
-      "alpha": -2.29,
+      "sharpe_ratio": 2.676,
+      "sortino_ratio": 4.295,
+      "calmar_ratio": 7.074,
+      "alpha": -1.56,
       "beta": 0.818
     },
     {
       "code": "00987A",
       "name": "主動台新優勢成長",
       "issuer": "台新投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20251224",
       "n_days": 142,
       "n_current": 25,
@@ -23172,8 +23172,8 @@
       "benefit": 18916,
       "listing_date": "20251230",
       "pre_listing_snapshot": false,
-      "close_price": 16.4,
-      "nav": 16.4,
+      "close_price": 16.6,
+      "nav": 16.6,
       "nav_date": "20260514",
       "premium_pct": -0.46,
       "price_series": [
@@ -23879,11 +23879,11 @@
         },
         {
           "d": "20260907",
-          "c": 16.4
+          "c": 16.5
         },
         {
-          "d": "20260908",
-          "c": 16.4
+          "d": "20260909",
+          "c": 16.6
         }
       ],
       "mgmt_fee_raw": "0.75%",
@@ -24043,22 +24043,22 @@
         "history": []
       },
       "m1_return": "7.41%",
-      "total_return": 64,
-      "annualized_return": 97.25,
+      "total_return": 66,
+      "annualized_return": 100.03,
       "max_return": 81.6,
       "max_drawdown": -32.49,
-      "current_drawdown": -9.69,
-      "sharpe_ratio": 1.762,
-      "sortino_ratio": 2.692,
-      "calmar_ratio": 2.993,
-      "alpha": -43.99,
-      "beta": 1.138
+      "current_drawdown": -8.59,
+      "sharpe_ratio": 1.801,
+      "sortino_ratio": 2.75,
+      "calmar_ratio": 3.079,
+      "alpha": -41.67,
+      "beta": 1.139
     },
     {
       "code": "00986D",
       "name": "主動復華金融債息",
       "issuer": "復華投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20260407",
       "n_days": 77,
       "n_current": 29,
@@ -24086,8 +24086,8 @@
       "benefit": 2387,
       "listing_date": "20260415",
       "pre_listing_snapshot": false,
-      "close_price": 14.29,
-      "nav": 14.29,
+      "close_price": 14.23,
+      "nav": 14.23,
       "nav_date": "20260611",
       "premium_pct": -0.61,
       "price_series": [
@@ -24536,8 +24536,8 @@
           "c": 14.29
         },
         {
-          "d": "20260908",
-          "c": 14.29
+          "d": "20260909",
+          "c": 14.23
         }
       ],
       "mgmt_fee_raw": "200億元(含)以下：0.70%逾新臺幣200億元(不含)之部分：0.60%",
@@ -24727,22 +24727,22 @@
         "history": []
       },
       "m1_return": "-0.82%",
-      "total_return": -2.9,
-      "annualized_return": -6.46,
+      "total_return": -3.31,
+      "annualized_return": -7.31,
       "max_return": 0.41,
-      "max_drawdown": -3.3,
-      "current_drawdown": -3.3,
-      "sharpe_ratio": -2.078,
-      "sortino_ratio": -2.101,
-      "calmar_ratio": -1.958,
-      "alpha": -9.58,
+      "max_drawdown": -3.7,
+      "current_drawdown": -3.7,
+      "sharpe_ratio": -2.285,
+      "sortino_ratio": -2.358,
+      "calmar_ratio": -1.976,
+      "alpha": -10.43,
       "beta": 0.007
     },
     {
       "code": "00980D",
       "name": "主動聯博投等入息",
       "issuer": "聯博證券投資信託股份有限公司",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20250731",
       "n_days": 237,
       "n_current": 215,
@@ -24770,8 +24770,8 @@
       "benefit": 3385,
       "listing_date": "20250804",
       "pre_listing_snapshot": false,
-      "close_price": 19.98,
-      "nav": 19.98,
+      "close_price": 19.92,
+      "nav": 19.92,
       "nav_date": "20260611",
       "premium_pct": -0.58,
       "price_series": [
@@ -25497,7 +25497,7 @@
         },
         {
           "d": "20260427",
-          "c": 19.9184
+          "c": 19.9183
         },
         {
           "d": "20260428",
@@ -25517,7 +25517,7 @@
         },
         {
           "d": "20260505",
-          "c": 19.9184
+          "c": 19.9183
         },
         {
           "d": "20260506",
@@ -25529,11 +25529,11 @@
         },
         {
           "d": "20260508",
-          "c": 19.9184
+          "c": 19.9183
         },
         {
           "d": "20260511",
-          "c": 19.9184
+          "c": 19.9183
         },
         {
           "d": "20260512",
@@ -25545,7 +25545,7 @@
         },
         {
           "d": "20260514",
-          "c": 19.9184
+          "c": 19.9183
         },
         {
           "d": "20260515",
@@ -25872,8 +25872,8 @@
           "c": 19.98
         },
         {
-          "d": "20260908",
-          "c": 19.98
+          "d": "20260909",
+          "c": 19.92
         }
       ],
       "mgmt_fee_raw": "新台幣300億元(含)以下 :0.65%/年;新台幣300億(不含)以上：0.60%/年",
@@ -25988,22 +25988,22 @@
         ]
       },
       "m1_return": "-0.54%",
-      "total_return": 6.17,
-      "annualized_return": 5.48,
+      "total_return": 5.85,
+      "annualized_return": 5.18,
       "max_return": 8.46,
-      "max_drawdown": -2.12,
-      "current_drawdown": -2.11,
-      "sharpe_ratio": 0.939,
-      "sortino_ratio": 2.186,
-      "calmar_ratio": 2.585,
-      "alpha": 2.88,
+      "max_drawdown": -2.4,
+      "current_drawdown": -2.4,
+      "sharpe_ratio": 0.864,
+      "sortino_ratio": 2.064,
+      "calmar_ratio": 2.158,
+      "alpha": 2.58,
       "beta": 0.006
     },
     {
       "code": "00989A",
       "name": "主動摩根美國科技",
       "issuer": "摩根投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20251016",
       "n_days": 188,
       "n_current": 61,
@@ -26031,8 +26031,8 @@
       "benefit": 7094,
       "listing_date": "20251022",
       "pre_listing_snapshot": false,
-      "close_price": 16.99,
-      "nav": 16.99,
+      "close_price": 16.87,
+      "nav": 16.87,
       "nav_date": "20260513",
       "premium_pct": -1.03,
       "price_series": [
@@ -26914,11 +26914,11 @@
         },
         {
           "d": "20260907",
-          "c": 16.99
+          "c": 16.89
         },
         {
-          "d": "20260908",
-          "c": 16.99
+          "d": "20260909",
+          "c": 16.87
         }
       ],
       "mgmt_fee_raw": "0.75%",
@@ -27082,22 +27082,22 @@
         "history": []
       },
       "m1_return": "0.40%",
-      "total_return": 13.27,
-      "annualized_return": 14.83,
+      "total_return": 12.47,
+      "annualized_return": 13.89,
       "max_return": 25.87,
       "max_drawdown": -17.84,
-      "current_drawdown": -10.01,
-      "sharpe_ratio": 0.575,
-      "sortino_ratio": 0.932,
-      "calmar_ratio": 0.831,
-      "alpha": -54.22,
-      "beta": 0.701
+      "current_drawdown": -10.65,
+      "sharpe_ratio": 0.546,
+      "sortino_ratio": 0.89,
+      "calmar_ratio": 0.779,
+      "alpha": -55.27,
+      "beta": 0.7
     },
     {
       "code": "00983A",
       "name": "主動中信ARK創新",
       "issuer": "中信投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20250613",
       "n_days": 275,
       "n_current": 42,
@@ -27125,8 +27125,8 @@
       "benefit": 10212,
       "listing_date": "20250618",
       "pre_listing_snapshot": false,
-      "close_price": 12.75,
-      "nav": 12.75,
+      "close_price": 12.45,
+      "nav": 12.45,
       "nav_date": "20260513",
       "premium_pct": -0.08,
       "price_series": [
@@ -28356,11 +28356,11 @@
         },
         {
           "d": "20260907",
-          "c": 12.75
+          "c": 12.55
         },
         {
-          "d": "20260908",
-          "c": 12.75
+          "d": "20260909",
+          "c": 12.45
         }
       ],
       "mgmt_fee_raw": "100億元(含)以下：每年1%、逾100億(不含)~200億(含)：除收取上述1.之報酬外，另就逾100億元(不含)部分，每年0.9%、200億(不含)~300億(含)：除收取上述1.及2.之報酬外，另就逾200億元(不含)部分，每年0.8%、逾300億(不含)：除收取上述1.~3.之報酬外，另就逾300億元(不含)部分，每年0.7%、有關經理費計算釋例請詳公開說明書",
@@ -28538,22 +28538,22 @@
         "history": []
       },
       "m1_return": "0.16%",
-      "total_return": 27.5,
-      "annualized_return": 21.53,
+      "total_return": 24.5,
+      "annualized_return": 19.19,
       "max_return": 34,
       "max_drawdown": -25.97,
-      "current_drawdown": -4.85,
-      "sharpe_ratio": 0.756,
-      "sortino_ratio": 1.254,
-      "calmar_ratio": 0.829,
-      "alpha": -48.86,
-      "beta": 0.687
+      "current_drawdown": -7.09,
+      "sharpe_ratio": 0.689,
+      "sortino_ratio": 1.149,
+      "calmar_ratio": 0.739,
+      "alpha": -51.04,
+      "beta": 0.684
     },
     {
       "code": "00983D",
       "name": "主動富邦複合收益",
       "issuer": "富邦投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20251009",
       "n_days": 189,
       "n_current": 83,
@@ -28581,8 +28581,8 @@
       "benefit": 3997,
       "listing_date": "20251014",
       "pre_listing_snapshot": false,
-      "close_price": 9.83,
-      "nav": 9.83,
+      "close_price": 9.79,
+      "nav": 9.79,
       "nav_date": "20260611",
       "premium_pct": -0.8,
       "price_series": [
@@ -28668,7 +28668,7 @@
         },
         {
           "d": "20251031",
-          "c": 9.6244
+          "c": 9.6245
         },
         {
           "d": "20251103",
@@ -28696,7 +28696,7 @@
         },
         {
           "d": "20251111",
-          "c": 9.6244
+          "c": 9.6245
         },
         {
           "d": "20251112",
@@ -28712,7 +28712,7 @@
         },
         {
           "d": "20251117",
-          "c": 9.6244
+          "c": 9.6245
         },
         {
           "d": "20251118",
@@ -28960,7 +28960,7 @@
         },
         {
           "d": "20260224",
-          "c": 9.9206
+          "c": 9.9207
         },
         {
           "d": "20260225",
@@ -29499,8 +29499,8 @@
           "c": 9.83
         },
         {
-          "d": "20260908",
-          "c": 9.83
+          "d": "20260909",
+          "c": 9.79
         }
       ],
       "mgmt_fee_raw": "淨資產價值於新臺幣100億元(含)以下:0.65%、淨資產價值於100億元~200億元(含):0.60%、淨資產價值於超過新臺幣200億元:0.55%",
@@ -29693,22 +29693,22 @@
         ]
       },
       "m1_return": "-0.59%",
-      "total_return": 3.04,
-      "annualized_return": 3.24,
+      "total_return": 2.62,
+      "annualized_return": 2.78,
       "max_return": 6.06,
-      "max_drawdown": -2.85,
-      "current_drawdown": -2.85,
-      "sharpe_ratio": 0.305,
-      "sortino_ratio": 1.078,
-      "calmar_ratio": 1.137,
-      "alpha": 1.54,
+      "max_drawdown": -3.25,
+      "current_drawdown": -3.25,
+      "sharpe_ratio": 0.207,
+      "sortino_ratio": 0.928,
+      "calmar_ratio": 0.855,
+      "alpha": 1.08,
       "beta": -0.003
     },
     {
       "code": "00985D",
       "name": "主動貝萊德優投等",
       "issuer": "貝萊德證券投資信託股份有限公司",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20260327",
       "n_days": 83,
       "n_current": 134,
@@ -29736,8 +29736,8 @@
       "benefit": 1786,
       "listing_date": "20260330",
       "pre_listing_snapshot": false,
-      "close_price": 9.76,
-      "nav": 9.76,
+      "close_price": 9.73,
+      "nav": 9.73,
       "nav_date": "20260611",
       "premium_pct": -0.75,
       "price_series": [
@@ -30210,8 +30210,8 @@
           "c": 9.76
         },
         {
-          "d": "20260908",
-          "c": 9.76
+          "d": "20260909",
+          "c": 9.73
         }
       ],
       "mgmt_fee_raw": "- 淨資產價值於新臺幣100億元(含)以下: 0.55%;- 淨資產價值於100億元~200億元(含) : 0.50%;- 淨資產價值於超過新臺幣200億元 : 0.45%",
@@ -30310,22 +30310,22 @@
         "history": []
       },
       "m1_return": "-2.06%",
-      "total_return": -0.63,
-      "annualized_return": -1.36,
+      "total_return": -0.94,
+      "annualized_return": -2,
       "max_return": 4.3,
-      "max_drawdown": -4.83,
-      "current_drawdown": -4.73,
-      "sharpe_ratio": -0.474,
-      "sortino_ratio": -0.239,
-      "calmar_ratio": -0.282,
-      "alpha": -4.84,
+      "max_drawdown": -5.02,
+      "current_drawdown": -5.02,
+      "sharpe_ratio": -0.573,
+      "sortino_ratio": -0.376,
+      "calmar_ratio": -0.398,
+      "alpha": -5.48,
       "beta": 0.011
     },
     {
       "code": "00982D",
       "name": "主動富邦動態入息",
       "issuer": "富邦投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20251009",
       "n_days": 189,
       "n_current": 62,
@@ -30353,8 +30353,8 @@
       "benefit": 2792,
       "listing_date": "20251014",
       "pre_listing_snapshot": false,
-      "close_price": 9.62,
-      "nav": 9.62,
+      "close_price": 9.59,
+      "nav": 9.59,
       "nav_date": "20260611",
       "premium_pct": -0.74,
       "price_series": [
@@ -31271,8 +31271,8 @@
           "c": 9.62
         },
         {
-          "d": "20260908",
-          "c": 9.62
+          "d": "20260909",
+          "c": 9.59
         }
       ],
       "mgmt_fee_raw": "淨資產價值於新臺幣100億元(含)以下:0.55%、淨資產價值於100億元~200億元(含):0.50%、淨資產價值於超過新臺幣200億元:0.45%",
@@ -31386,22 +31386,22 @@
         ]
       },
       "m1_return": "-0.81%",
-      "total_return": 0.27,
-      "annualized_return": 0.29,
+      "total_return": -0.04,
+      "annualized_return": -0.04,
       "max_return": 3.76,
-      "max_drawdown": -3.36,
-      "current_drawdown": -3.36,
-      "sharpe_ratio": -0.321,
-      "sortino_ratio": 0.123,
-      "calmar_ratio": 0.086,
-      "alpha": -3.62,
+      "max_drawdown": -3.66,
+      "current_drawdown": -3.66,
+      "sharpe_ratio": -0.39,
+      "sortino_ratio": 0.022,
+      "calmar_ratio": -0.011,
+      "alpha": -3.95,
       "beta": 0.019
     },
     {
       "code": "00986A",
       "name": "主動台新龍頭成長",
       "issuer": "台新投信",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20250825",
       "n_days": 225,
       "n_current": 31,
@@ -31429,8 +31429,8 @@
       "benefit": 4970,
       "listing_date": "20250827",
       "pre_listing_snapshot": false,
-      "close_price": 14.25,
-      "nav": 14.25,
+      "close_price": 14.47,
+      "nav": 14.47,
       "nav_date": "20260513",
       "premium_pct": -1.82,
       "price_series": [
@@ -32464,11 +32464,11 @@
         },
         {
           "d": "20260907",
-          "c": 14.25
+          "c": 14.35
         },
         {
-          "d": "20260908",
-          "c": 14.25
+          "d": "20260909",
+          "c": 14.47
         }
       ],
       "mgmt_fee_raw": "1%",
@@ -32622,22 +32622,22 @@
         "history": []
       },
       "m1_return": "0.53%",
-      "total_return": 42.5,
-      "annualized_return": 39.81,
+      "total_return": 44.7,
+      "annualized_return": 41.73,
       "max_return": 58,
       "max_drawdown": -15.32,
-      "current_drawdown": -9.81,
-      "sharpe_ratio": 1.425,
-      "sortino_ratio": 2.283,
-      "calmar_ratio": 2.599,
-      "alpha": -30.98,
-      "beta": 0.687
+      "current_drawdown": -8.42,
+      "sharpe_ratio": 1.484,
+      "sortino_ratio": 2.374,
+      "calmar_ratio": 2.724,
+      "alpha": -29.42,
+      "beta": 0.689
     },
     {
       "code": "SPY",
       "name": "SPDR S&P 500 ETF Trust (標普500指數基金)",
       "issuer": "State Street Global Advisors",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20251103",
       "n_days": 176,
       "n_current": 500,
@@ -39163,7 +39163,7 @@
           "c": 770.19
         },
         {
-          "d": "20260908",
+          "d": "20260909",
           "c": 770.19
         }
       ],
@@ -39251,21 +39251,21 @@
       },
       "m1_return": "3.62%",
       "total_return": 160.09,
-      "annualized_return": 15.38,
+      "annualized_return": 15.37,
       "max_return": 162.69,
       "max_drawdown": -33.72,
       "current_drawdown": -0.99,
       "sharpe_ratio": 0.731,
       "sortino_ratio": 1.169,
       "calmar_ratio": 0.456,
-      "alpha": 8.84,
+      "alpha": 8.82,
       "beta": 0.167
     },
     {
       "code": "QQQ",
       "name": "Invesco QQQ Trust (納斯達克100基金)",
       "issuer": "Invesco",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20251103",
       "n_days": 176,
       "n_current": 101,
@@ -45791,7 +45791,7 @@
           "c": 718.96
         },
         {
-          "d": "20260908",
+          "d": "20260909",
           "c": 718.96
         }
       ],
@@ -45870,14 +45870,14 @@
       "sharpe_ratio": 0.814,
       "sortino_ratio": 1.278,
       "calmar_ratio": 0.58,
-      "alpha": 12.96,
+      "alpha": 12.95,
       "beta": 0.199
     },
     {
       "code": "ARKK",
       "name": "ARK Innovation ETF (方舟旗艦創新基金)",
       "issuer": "ARK Invest",
-      "as_of": "20260908",
+      "as_of": "20260909",
       "first_date": "20251103",
       "n_days": 176,
       "n_current": 38,
@@ -52403,7 +52403,7 @@
           "c": 86.22
         },
         {
-          "d": "20260908",
+          "d": "20260909",
           "c": 86.22
         }
       ],
@@ -52475,7 +52475,7 @@
       "sharpe_ratio": 0.379,
       "sortino_ratio": 0.61,
       "calmar_ratio": 0.11,
-      "alpha": -1.96,
+      "alpha": -1.97,
       "beta": 0.324
     }
   ]

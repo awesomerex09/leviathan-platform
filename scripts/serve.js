@@ -506,12 +506,42 @@ function extendPricesAndEtfsToToday(prices, etfs, livePricesMap) {
       let currentNav = etf.price_series[0]?.c || 1.0;
       const alignedSeries = [];
 
-      for (const bPt of activeBench) {
-        if (bPt.d < etfStartDate) continue;
-        if (priceMapByDate.has(bPt.d)) {
-          currentNav = priceMapByDate.get(bPt.d);
+      // For US ETFs (pure alpha code: SPY/QQQ/ARKK), their trading calendar differs from TW.
+      // US markets open on days TW is closed (e.g. Chinese holidays). We must merge both
+      // date axes so those US trading days are NOT silently dropped.
+      const isUsEtf = /^[A-Za-z]+$/.test(etf.code);
+      const pricesEtfSeries = isUsEtf ? (prices[etf.code] || prices[etf.code + '.TW'] || null) : null;
+
+      let mergedDates;
+      if (isUsEtf && pricesEtfSeries && pricesEtfSeries.length) {
+        // Build a union of bench dates + prices[etf.code] dates, then sort
+        const allDates = new Set([
+          ...activeBench.filter(p => p.d >= etfStartDate).map(p => p.d),
+          ...pricesEtfSeries.filter(p => p.d >= etfStartDate).map(p => p.d)
+        ]);
+        // Also forward-fill weekdays up to today in case prices.json is also behind
+        const lastKnown = [...allDates].sort().pop();
+        if (lastKnown && lastKnown < todayStr) {
+          const k = lastKnown;
+          let cur = new Date(Date.UTC(Number(k.slice(0,4)), Number(k.slice(4,6))-1, Number(k.slice(6,8))));
+          cur.setUTCDate(cur.getUTCDate() + 1);
+          while (formatYYYYMMDD(cur) <= todayStr) {
+            const dow = cur.getUTCDay();
+            if (dow !== 0 && dow !== 6) allDates.add(formatYYYYMMDD(cur));
+            cur.setUTCDate(cur.getUTCDate() + 1);
+          }
         }
-        alignedSeries.push({ d: bPt.d, c: currentNav });
+        mergedDates = [...allDates].sort();
+      } else {
+        mergedDates = activeBench.filter(p => p.d >= etfStartDate).map(p => p.d);
+      }
+
+      for (const d of mergedDates) {
+        if (d < etfStartDate) continue;
+        if (priceMapByDate.has(d)) {
+          currentNav = priceMapByDate.get(d);
+        }
+        alignedSeries.push({ d, c: currentNav });
       }
 
       etf.price_series = alignedSeries;

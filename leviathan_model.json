@@ -4,20 +4,20 @@
   "issuer": "Custom Quant Model",
   "is_custom_quant": true,
   "is_calibrated": true,
-  "total_return": 43.71,
+  "total_return": 46.22,
   "max_return": 106.86,
-  "max_drawdown": -33.27,
-  "current_drawdown": -30.53,
-  "annualized_return": 51.47,
-  "sharpe_ratio": 1.234,
-  "sortino_ratio": 1.967,
-  "calmar_ratio": 1.547,
-  "alpha": -44.36,
-  "beta": 1.005,
-  "total_av_yi": 0.0071,
+  "max_drawdown": -33.42,
+  "current_drawdown": -29.32,
+  "annualized_return": 52.28,
+  "sharpe_ratio": 1.262,
+  "sortino_ratio": 2.013,
+  "calmar_ratio": 1.564,
+  "alpha": -42.08,
+  "beta": 1.004,
+  "total_av_yi": 0.0073,
   "listing_date": "20251106",
-  "close_price": 14.3708,
-  "nav": 14.3708,
+  "close_price": 14.622,
+  "nav": 14.622,
   "price_series": [
     {
       "d": "20251106",
@@ -837,60 +837,88 @@
     },
     {
       "d": "20260908",
-      "c": 14.3776
+      "c": 14.3532
     },
     {
       "d": "20260909",
-      "c": 14.4047
+      "c": 14.378
     },
     {
       "d": "20260910",
-      "c": 14.3494
+      "c": 14.3196
     },
     {
       "d": "20260911",
-      "c": 14.1838
+      "c": 14.1591
     },
     {
       "d": "20260914",
-      "c": 13.9765
+      "c": 13.9471
     },
     {
       "d": "20260915",
-      "c": 13.8037
+      "c": 13.7719
     },
     {
       "d": "20260916",
-      "c": 13.9737
+      "c": 13.9438
     },
     {
       "d": "20260917",
-      "c": 13.9435
+      "c": 13.9144
     },
     {
       "d": "20260918",
-      "c": 14.3371
+      "c": 14.3267
     },
     {
       "d": "20260921",
-      "c": 14.3708
+      "c": 14.4007
+    },
+    {
+      "d": "20260922",
+      "c": 14.5226
+    },
+    {
+      "d": "20260923",
+      "c": 14.4471
+    },
+    {
+      "d": "20260924",
+      "c": 14.4367
+    },
+    {
+      "d": "20260929",
+      "c": 14.3261
+    },
+    {
+      "d": "20260930",
+      "c": 14.3284
+    },
+    {
+      "d": "20261001",
+      "c": 14.4301
+    },
+    {
+      "d": "20261002",
+      "c": 14.622
     }
   ],
   "top3": [
     {
       "code": "2330",
       "name": "台積電",
-      "weight": 9.03
+      "weight": 8.95
     },
     {
       "code": "8996",
       "name": "高力熱處",
-      "weight": 3.37
+      "weight": 3.33
     },
     {
-      "code": "2360",
-      "name": "致茂",
-      "weight": 3.33
+      "code": "6442",
+      "name": "光聖",
+      "weight": 3.13
     }
   ],
   "holdings": [
@@ -898,129 +926,185 @@
       "code": "2330",
       "fullCode": "TWSE:2330",
       "name": "台積電",
-      "weight": 9.03,
+      "weight": 8.95,
       "shares": 26,
-      "price": 2480
+      "price": 2500
     },
     {
       "code": "8996",
       "fullCode": "TWSE:8996",
       "name": "高力熱處",
-      "weight": 3.37,
-      "shares": 16,
-      "price": 1505
-    },
-    {
-      "code": "2360",
-      "fullCode": "TWSE:2360",
-      "name": "致茂",
       "weight": 3.33,
-      "shares": 10,
-      "price": 2375
+      "shares": 16,
+      "price": 1510
     },
     {
       "code": "6442",
       "fullCode": "TWSE:6442",
       "name": "光聖",
-      "weight": 2.99,
+      "weight": 3.13,
       "shares": 14,
-      "price": 1525
+      "price": 1625
     },
     {
-      "code": "NVDA",
-      "fullCode": "NASDAQ:NVDA",
-      "name": "NVIDIA",
-      "weight": 2.96,
+      "code": "2360",
+      "fullCode": "TWSE:2360",
+      "name": "致茂",
+      "weight": 3.01,
+      "shares": 10,
+      "price": 2190
+    },
+    {
+      "code": "3037",
+      "fullCode": "TWSE:3037",
+      "name": "欣興",
+      "weight": 2.87,
+      "shares": 16,
+      "price": 1305
+    },
+    {
+      "code": "CRDO",
+      "fullCode": "NASDAQ:CRDO",
+      "name": "Credo Technology",
+      "weight": 2.87,
       "shares": 3,
-      "price": 222.27
+      "price": 218.64
     },
     {
       "code": "3017",
       "fullCode": "TWSE:3017",
       "name": "奇鋐",
-      "weight": 2.87,
+      "weight": 2.84,
       "shares": 6,
-      "price": 3415
-    },
-    {
-      "code": "3491",
-      "fullCode": "TPEX:3491",
-      "name": "3491",
-      "weight": 2.77,
-      "shares": 13,
-      "price": 1520
-    },
-    {
-      "code": "6187",
-      "fullCode": "TPEX:6187",
-      "name": "萬  潤",
-      "weight": 2.42,
-      "shares": 14,
-      "price": 1235
-    },
-    {
-      "code": "8299",
-      "fullCode": "TPEX:8299",
-      "name": "群聯電子",
-      "weight": 2.41,
-      "shares": 8,
-      "price": 2150
+      "price": 3440
     },
     {
       "code": "2449",
       "fullCode": "TWSE:2449",
       "name": "京元電子",
-      "weight": 2.41,
-      "shares": 57,
-      "price": 301.5
+      "weight": 2.81,
+      "shares": 69,
+      "price": 295.5
+    },
+    {
+      "code": "3711",
+      "fullCode": "TWSE:3711",
+      "name": "日月光投控",
+      "weight": 2.75,
+      "shares": 28,
+      "price": 713
+    },
+    {
+      "code": "3491",
+      "fullCode": "TPEX:3491",
+      "name": "3491",
+      "weight": 2.66,
+      "shares": 13,
+      "price": 1485
+    },
+    {
+      "code": "3026",
+      "fullCode": "TWSE:3026",
+      "name": "禾伸堂企",
+      "weight": 2.64,
+      "shares": 23,
+      "price": 835
     },
     {
       "code": "3661",
       "fullCode": "TWSE:3661",
       "name": "3661",
-      "weight": 2.05,
-      "shares": 4,
-      "price": 3665
+      "weight": 2.62,
+      "shares": 5,
+      "price": 3810
     },
     {
-      "code": "1519",
-      "fullCode": "TWSE:1519",
-      "name": "1519",
-      "weight": 2.01,
-      "shares": 20,
-      "price": 718
+      "code": "6187",
+      "fullCode": "TPEX:6187",
+      "name": "萬  潤",
+      "weight": 2.61,
+      "shares": 14,
+      "price": 1355
+    },
+    {
+      "code": "VRT",
+      "fullCode": "NYSE:VRT",
+      "name": "VRT",
+      "weight": 2.21,
+      "shares": 2,
+      "price": 252.18
+    },
+    {
+      "code": "FLEX",
+      "fullCode": "NASDAQ:FLEX",
+      "name": "Flex Ltd",
+      "weight": 2.04,
+      "shares": 4,
+      "price": 116.61
     },
     {
       "code": "INSW",
       "fullCode": "NYSE:INSW",
       "name": "International Seaways",
-      "weight": 1.98,
+      "weight": 2.03,
       "shares": 4,
-      "price": 111.15
+      "price": 115.81
     },
     {
-      "code": "WULF",
-      "fullCode": "NASDAQ:WULF",
-      "name": "TeraWulf",
-      "weight": 1.96,
-      "shares": 26,
-      "price": 17.01
+      "code": "1519",
+      "fullCode": "TWSE:1519",
+      "name": "1519",
+      "weight": 1.9,
+      "shares": 20,
+      "price": 692
     },
     {
-      "code": "6510",
-      "fullCode": "TPEX:6510",
-      "name": "精測",
-      "weight": 1.95,
-      "shares": 4,
-      "price": 3485
+      "code": "DRAM",
+      "fullCode": "CBOE:DRAM",
+      "name": "Diodes Inc",
+      "weight": 1.89,
+      "shares": 7,
+      "price": 61.78
     },
     {
       "code": "3595",
       "fullCode": "TPEX:3595",
       "name": "3595",
-      "weight": 1.63,
+      "weight": 1.79,
       "shares": 9,
-      "price": 1295
+      "price": 1445
+    },
+    {
+      "code": "WULF",
+      "fullCode": "NASDAQ:WULF",
+      "name": "TeraWulf",
+      "weight": 1.76,
+      "shares": 26,
+      "price": 15.49
+    },
+    {
+      "code": "POWL",
+      "fullCode": "NASDAQ:POWL",
+      "name": "Powell Industries",
+      "weight": 1.72,
+      "shares": 2,
+      "price": 196.1
+    },
+    {
+      "code": "CIEN",
+      "fullCode": "NYSE:CIEN",
+      "name": "Ciena Corp",
+      "weight": 1.71,
+      "shares": 1,
+      "price": 391.34
+    },
+    {
+      "code": "6515",
+      "fullCode": "TWSE:6515",
+      "name": "穎崴",
+      "weight": 1.67,
+      "shares": 2,
+      "price": 6070
     },
     {
       "code": "3081",
@@ -1028,63 +1112,55 @@
       "name": "聯亞",
       "weight": 1.61,
       "shares": 4,
-      "price": 2875
-    },
-    {
-      "code": "CIEN",
-      "fullCode": "NYSE:CIEN",
-      "name": "Ciena Corp",
-      "weight": 1.55,
-      "shares": 1,
-      "price": 348.8
-    },
-    {
-      "code": "3026",
-      "fullCode": "TWSE:3026",
-      "name": "禾伸堂企",
-      "weight": 1.44,
-      "shares": 13,
-      "price": 791
+      "price": 2925
     },
     {
       "code": "6274",
       "fullCode": "TPEX:6274",
       "name": "台燿",
-      "weight": 1.41,
+      "weight": 1.56,
       "shares": 7,
-      "price": 1435
+      "price": 1620
     },
     {
-      "code": "7610",
-      "fullCode": "TWSE:7610",
-      "name": "7610",
-      "weight": 1.32,
-      "shares": 5,
-      "price": 1890
+      "code": "MPTI",
+      "fullCode": "AMEX:MPTI",
+      "name": "M-Power",
+      "weight": 1.35,
+      "shares": 4,
+      "price": 77.11
     },
     {
       "code": "VISN",
       "fullCode": "NASDAQ:VISN",
       "name": "VISN",
-      "weight": 1.31,
-      "shares": 45,
-      "price": 6.57
+      "weight": 1.28,
+      "shares": 47,
+      "price": 6.21
     },
     {
-      "code": "3711",
-      "fullCode": "TWSE:3711",
-      "name": "日月光投控",
-      "weight": 1.3,
-      "shares": 14,
-      "price": 663
-    },
-    {
-      "code": "VRT",
-      "fullCode": "NYSE:VRT",
-      "name": "VRT",
-      "weight": 1.11,
+      "code": "BE",
+      "fullCode": "NYSE:BE",
+      "name": "BE",
+      "weight": 1.27,
       "shares": 1,
-      "price": 249.39
+      "price": 289.15
+    },
+    {
+      "code": "7610",
+      "fullCode": "TWSE:7610",
+      "name": "7610",
+      "weight": 1.19,
+      "shares": 5,
+      "price": 1725
+    },
+    {
+      "code": "8299",
+      "fullCode": "TPEX:8299",
+      "name": "群聯電子",
+      "weight": 1.15,
+      "shares": 4,
+      "price": 2095
     },
     {
       "code": "5386",
@@ -1092,134 +1168,156 @@
       "name": "5386",
       "weight": 1.05,
       "shares": 26,
-      "price": 287.5
+      "price": 292.5
     },
     {
-      "code": "FLEX",
-      "fullCode": "NASDAQ:FLEX",
-      "name": "Flex Ltd",
-      "weight": 0.96,
-      "shares": 2,
-      "price": 108.51
-    },
-    {
-      "code": "6515",
-      "fullCode": "TWSE:6515",
-      "name": "穎崴",
-      "weight": 0.81,
+      "code": "NVDA",
+      "fullCode": "NASDAQ:NVDA",
+      "name": "NVIDIA",
+      "weight": 1.02,
       "shares": 1,
-      "price": 5795
+      "price": 233.95
     },
     {
-      "code": "CRDO",
-      "fullCode": "NASDAQ:CRDO",
-      "name": "Credo Technology",
-      "weight": 0.78,
-      "shares": 1,
-      "price": 175.89
-    },
-    {
-      "code": "MPTI",
-      "fullCode": "AMEX:MPTI",
-      "name": "M-Power",
-      "weight": 0.65,
+      "code": "6510",
+      "fullCode": "TPEX:6510",
+      "name": "精測",
+      "weight": 0.85,
       "shares": 2,
-      "price": 73.47
+      "price": 3070
     },
     {
-      "code": "3037",
-      "fullCode": "TWSE:3037",
-      "name": "欣興",
-      "weight": 0.57,
+      "code": "6223",
+      "fullCode": "TPEX:6223",
+      "name": "旺矽科技",
+      "weight": 0.73,
+      "shares": 1,
+      "price": 5310
+    },
+    {
+      "code": "2368",
+      "fullCode": "TWSE:2368",
+      "name": "金像電",
+      "weight": 0.61,
       "shares": 4,
-      "price": 1020
+      "price": 1105
     },
     {
-      "code": "DRAM",
-      "fullCode": "CBOE:DRAM",
-      "name": "Diodes Inc",
-      "weight": 0.53,
-      "shares": 2,
-      "price": 59.61
+      "code": "TNGX",
+      "fullCode": "NASDAQ:TNGX",
+      "name": "Tango Therapeutics",
+      "weight": 0.51,
+      "shares": 5,
+      "price": 23.24
     }
   ],
   "shares_signal": {
     "top_adds": [
       {
-        "code": "2449",
-        "name": "京元電子",
-        "pct": 2.4,
-        "weight": 2.41
+        "code": "3661",
+        "name": "3661",
+        "pct": 2.6,
+        "weight": 2.62
       },
       {
-        "code": "1519",
-        "name": "1519",
-        "pct": 2,
-        "weight": 2.01
+        "code": "2449",
+        "name": "京元電子",
+        "pct": 2.8,
+        "weight": 2.81
       },
       {
         "code": "3595",
         "name": "3595",
-        "pct": 1.6,
-        "weight": 1.63
+        "pct": 1.8,
+        "weight": 1.79
+      },
+      {
+        "code": "3711",
+        "name": "日月光投控",
+        "pct": 2.8,
+        "weight": 2.75
       },
       {
         "code": "6187",
         "name": "萬  潤",
-        "pct": 2.4,
-        "weight": 2.42
+        "pct": 2.6,
+        "weight": 2.61
       },
       {
-        "code": "WULF",
-        "name": "TeraWulf",
-        "pct": 2,
-        "weight": 1.96
-      },
-      {
-        "code": "7610",
-        "name": "7610",
-        "pct": 1.3,
-        "weight": 1.32
-      }
-    ],
-    "top_reductions": [
-      {
-        "code": "6274",
-        "name": "台燿",
-        "pct": 1.4,
-        "weight": 1.41
-      }
-    ],
-    "new_positions": [
-      {
-        "code": "3017",
-        "name": "奇鋐",
-        "weight": 2.87,
-        "shares": 6
+        "code": "DRAM",
+        "name": "Diodes Inc",
+        "pct": 1.9,
+        "weight": 1.89
       },
       {
         "code": "VISN",
         "name": "VISN",
-        "weight": 1.31,
-        "shares": 45
+        "pct": 1.3,
+        "weight": 1.28
       },
       {
         "code": "FLEX",
         "name": "Flex Ltd",
-        "weight": 0.96,
-        "shares": 2
+        "pct": 2,
+        "weight": 2.04
       },
       {
         "code": "3026",
         "name": "禾伸堂企",
-        "weight": 1.44,
-        "shares": 13
+        "pct": 2.6,
+        "weight": 2.64
       },
       {
-        "code": "6510",
-        "name": "精測",
-        "weight": 1.95,
-        "shares": 4
+        "code": "WULF",
+        "name": "TeraWulf",
+        "pct": 1.8,
+        "weight": 1.76
+      },
+      {
+        "code": "CRDO",
+        "name": "Credo Technology",
+        "pct": 2.9,
+        "weight": 2.87
+      }
+    ],
+    "top_reductions": [
+      {
+        "code": "8299",
+        "name": "群聯電子",
+        "pct": 1.1,
+        "weight": 1.15
+      },
+      {
+        "code": "6274",
+        "name": "台燿",
+        "pct": 1.6,
+        "weight": 1.56
+      },
+      {
+        "code": "NVDA",
+        "name": "NVIDIA",
+        "pct": 1,
+        "weight": 1.02
+      },
+      {
+        "code": "1519",
+        "name": "1519",
+        "pct": 1.9,
+        "weight": 1.9
+      },
+      {
+        "code": "TNGX",
+        "name": "Tango Therapeutics",
+        "pct": 0.5,
+        "weight": 0.51
+      }
+    ],
+    "new_positions": [
+      {
+        "code": "7610",
+        "name": "7610",
+        "weight": 1.19,
+        "shares": 5
       },
       {
         "code": "3081",
@@ -1228,16 +1326,22 @@
         "shares": 4
       },
       {
+        "code": "MPTI",
+        "name": "M-Power",
+        "weight": 1.35,
+        "shares": 4
+      },
+      {
         "code": "3037",
         "name": "欣興",
-        "weight": 0.57,
-        "shares": 4
+        "weight": 2.87,
+        "shares": 16
       },
       {
         "code": "6515",
         "name": "穎崴",
-        "weight": 0.81,
-        "shares": 1
+        "weight": 1.67,
+        "shares": 2
       },
       {
         "code": "5386",
@@ -1246,23 +1350,49 @@
         "shares": 26
       },
       {
-        "code": "VRT",
-        "name": "VRT",
-        "weight": 1.11,
+        "code": "CIEN",
+        "name": "Ciena Corp",
+        "weight": 1.71,
         "shares": 1
       },
       {
-        "code": "CRDO",
-        "name": "Credo Technology",
-        "weight": 0.78,
+        "code": "VRT",
+        "name": "VRT",
+        "weight": 2.21,
+        "shares": 2
+      },
+      {
+        "code": "POWL",
+        "name": "Powell Industries",
+        "weight": 1.72,
+        "shares": 2
+      },
+      {
+        "code": "BE",
+        "name": "BE",
+        "weight": 1.27,
         "shares": 1
+      },
+      {
+        "code": "6510",
+        "name": "精測",
+        "weight": 0.85,
+        "shares": 2
+      },
+      {
+        "code": "6223",
+        "name": "旺矽科技",
+        "weight": 0.73,
+        "shares": 1
+      },
+      {
+        "code": "2368",
+        "name": "金像電",
+        "weight": 0.61,
+        "shares": 4
       }
     ],
     "exits": [
-      {
-        "code": "TNGX",
-        "name": "Tango Therapeutics"
-      },
       {
         "code": "LQDA",
         "name": "Liquidia Corp"
@@ -1278,6 +1408,14 @@
       {
         "code": "AAOI",
         "name": "AAOI"
+      },
+      {
+        "code": "2383",
+        "name": "台光電"
+      },
+      {
+        "code": "5289",
+        "name": "5289"
       }
     ]
   },

@@ -6,7 +6,7 @@
   "current_drawdown": false,
   "sharpe_ratio": false,
   "sortino_ratio": true,
-  "calmar_ratio": true,
+  "calmar_ratio": false,
   "alpha": false,
   "beta": false
 }
